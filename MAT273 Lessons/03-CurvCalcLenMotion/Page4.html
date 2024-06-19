@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="script.js"></script>
+    <!--Remove padding from grid boxes-->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+    </style>
+    <title>Arc Length</title>
+</head>
+
+<body id="maincontent">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div class="printbuttonbar">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div class="myheader">
+        <div class="row">
+            <div class="col-4 col-s-5">
+                <img src="logo_custom.png">
+            </div>
+            <div class="col-8 col-s-7">
+                <h1>Curves, Calculus, Length & Curvature</h1>
+                <p>Vectors and the Geometry of Space + Vector Functions</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnav" id="myTopnav">
+        <a href="index.html">Overview</a>
+        <a href="Page1.html">Curves</a>
+        <a href="Page2.html">Calculus</a>
+        <a href="Page3.html">GeoGebra</a>
+        <span class="active">Arc Length</span>
+        <a href="Page5.html">Curvature</a>
+        <a href="Page6.html">Motion</a>
+        <a href="Page7.html">Computing TNB</a>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="mainbody">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="pagetoc">
+            <p> On this Page </p>
+            <ul>
+                <li><a href="#top">Arc Length</a></li>
+                <li><a href="#arcparam">Arc Length as a Parameter</a></li>
+            </ul>
+            <br>
+            <p>Additional Reading</p>
+            <ul>
+                <li>Section 13.3</li>
+            </ul>
+        </div>
+
+        <!-- The main content starts here-->
+        <h2 id="top">Arc Length</h2>
+
+        <p>Back in Calc II, you learned about parametric equations and how we can compute the length of a curve defined by parametric equations. The following video gives a review of how the arc length formula is developed.</p>
+
+        <div class="widget-header">Parametric Curve Arc Length</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/DXHM7LYGcbI" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://www.youtube.com/watch?v=DXHM7LYGcbI]</div>
+
+        <p>Since vector functions are defined as parametric equations, we can apply the same logic to finding the arc length of a vector-valued function.</p>
+
+        <div class="def-eqn">
+            <p>The arc length of the smooth curve \(\vec{r}(t) = \langle f(t), g(t), h(t) \rangle\) for \(a \le t \le b\) can be computed using the following formula where \(f'\), \(g'\) and \(h'\) are continuous functions are \(\left[ a, b \right] \).</p>
+
+            \[L = \int_{a}^{b} \lvert \vec{r}'(t) \rvert dt = \int_{a}^{b} \sqrt{{\left[ f'(t) \right]}^2 + {\left[ g'(t) \right]}^2 + {\left[ h'(t) \right]}^2} dt \]
+        </div>
+
+        <div class="widget-header">Determining Arc Length of a Curve Defined by a Vector Valued Function</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/mq620lS5jyc" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/mq620lS5jyc]</div>
+
+        <div class="widget-header">Determine Arc Length of a Helix Given by a Vector Valued Function</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/n48XuXSyLz8" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/n48XuXSyLz8]</div>
+
+        <h3 id="arcparam">Arc Length as a Parameter</h3>
+
+        <p>Usually, vector functions are parameterized by an arbitrary paremeter \(t\), often in an effort to simplify the expressions in the parameter functions. But it is possible, and sometimes even necessary, to parameterize a vector function by its
+            arc length.
+        </p>
+
+        <div class="def-eqn">
+            <p>For a smooth curve \(\vec{r}(t)\) for \(t \ge a\), the <strong>arc length</strong> \(s\) as a function of t is defined by the following integral.</p>
+
+            \[s = s(t) = \int_{a}^{t} \lvert \vec{r}'(u) \rvert du\]
+
+            <p>If we can solve this function for \(t\), then we can rewrite \(\vec{r}(t)\) as \(\vec{r}(s)\).</p>
+        </div>
+
+        <p>For example, the curve \(\vec{r}(t) = \langle 3t^2+1, 4t^2+2 \rangle \) can be parameterized using its arc length as \( \vec{r}(s) = \langle \frac{3}{5}s+1, \frac{4}{5}s+2 \rangle \). A couple graphs of the curve of \(\vec{r}\) are shown below.
+            The left graph illustrates \(\vec{r}(t)\) with points at \(t = 0, 1, 2, 3, 4\) and \(5\) while the right graph illustrates \(\vec{r}(s)\) with points at \(s = 0, 1, 2, 3, 4\) and \(5\). Notice how the distances between the points of <strong>r</strong>(<em>t</em>)
+            change as <em>t</em> increases, but the distances between points of <strong>r</strong>(<em>s</em>) remain the same.</p>
+
+        <img src="ArcLenParam.png" alt="Graphs of r(t) = &lt; 3t^2+1, 4t^2+1 &gt; with points at t = 0, 1, 2, 3, 4 5; and graph of r(s) = &lt; 3/5s+1, 4/5s+2 &gt; for s = 0, 1, 2, 3, 4 ,5." />
+
+        <p>The following video gives an example to show how we can change the parameterization of a vector function from any arbitrary \(t\) to the arc length \(s\).</p>
+
+        <div class="widget-header">Find an Arc Length Parameterization for a Vector Valued Function</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/QMa9yNAAUcw" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/QMa9yNAAUcw]</div>
+
+    </div>
+    <!-- End of the main content -->
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div class="myfooter">
+        <div class="row">
+            <div class="col-s-9 fleft">
+                <p>Content ©2020. Some Rights Reserved. <br> Video Content by:</p>
+                <ul>
+                    <li><a href="http://www.mathispower4u.com/" target="_blank">Mathispower4u (new window)</a></li>
+                </ul>
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+            </div>
+            <div class="col-s-3 fright">
+                <a href="#" onclick="pgPrint(); return false;"><i class="fa fa-print"></i> Printer Friendly</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="script.js"></script>
+    <!--Remove padding from grid boxes-->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+    </style>
+    <title>Curvature</title>
+</head>
+
+<body id="maincontent">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div class="printbuttonbar">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div class="myheader">
+        <div class="row">
+            <div class="col-4 col-s-5">
+                <img src="logo_custom.png">
+            </div>
+            <div class="col-8 col-s-7">
+                <h1>Curves, Calculus, Length & Curvature</h1>
+                <p>Vectors and the Geometry of Space + Vector Functions</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnav" id="myTopnav">
+        <a href="index.html">Overview</a>
+        <a href="Page1.html">Curves</a>
+        <a href="Page2.html">Calculus</a>
+        <a href="Page3.html">GeoGebra</a>
+        <a href="Page4.html">Arc Length</a>
+        <span class="active">Curvature</span>
+        <a href="Page6.html">Motion</a>
+        <a href="Page7.html">Computing TNB</a>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="mainbody">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="pagetoc">
+            <p> On this Page </p>
+            <ul>
+                <li><a href="#top">Curvature</a></li>
+            </ul>
+            <br>
+            <p>Additional Reading</p>
+            <ul>
+                <li>Section 13.3</li>
+            </ul>
+        </div>
+
+        <!-- The main content starts here-->
+        <h2 id="top">Curvature</h2>
+
+        <p>In addition to describing the length of a vector function, we want to look at the curvature of the function. Is it curving rapidly or gradually? Is it curving up or down, left or right? How do we define direction in a 3D space? To discuss the
+            curvature of a vector function in space, we will define three vectors: the unit <strong>Tangent</strong> vector, the unit <strong>Normal</strong> vector, and the unit <strong>Binormal</strong> vector. These three vectors create a framework
+            that we can use to hopefully describe the shape of a curve in space. We will look at a lot of formulas here too, so don't get lost in them.</p>
+
+        <p>Given a smooth curved defined by a parameterized vector function <strong>r</strong>(<em>t</em>), we have the following formulas.</p>
+
+        <table class="styledtable-hrborder2 ltables">
+            <caption>TNB Framework Formulas</caption>
+            <tbody>
+                <tr>
+                    <th>Tangent</th>
+                    <th>Normal</th>
+                    <th>Binormal</th>
+                    <th>Curvature</th>
+                </tr>
+                <tr>
+                    <td>\[\vec{T}(t) = \frac{\vec{r}'(t)}{\lvert \vec{r}'(t) \rvert}\]</td>
+                    <td>\[\vec{N}(t) = \frac{\vec{T}'(t)}{\lvert \vec{T}'(t) \rvert}\]</td>
+                    <td>\[\vec{B}(t) = \vec{T} \times \vec{N}\]</td>
+                    <td>\[\kappa = \frac{\lvert \vec{T}'(t) \rvert)}{\lvert \vec{r}'(t) \rvert}\]</td>
+                </tr>
+                <tr>
+                    <td>\[\vec{T}(t) = \vec{N} \times \vec{B}\]</td>
+                    <td>\[\vec{N}(t) = \vec{B} \times \vec{T}\]</td>
+                    <td>\[\vec{B}(t) = \frac{\vec{r}' \times \vec{r}^{\prime\prime}}{\lvert \vec{r}' \times \vec{r}^{\prime\prime} \rvert}\]</td>
+                    <td>\[\kappa = \frac{\lvert \vec{r}' \times \vec{r}^{\prime\prime} \rvert}{{\lvert \vec{r}' \rvert}^3}\]</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>The first row of formulas gives the definition for the tangent, normal, and binormal vectors as well as the <strong>curvature</strong> of a function. The second row gives alternate versions of the formula that may be more helpful computationally,
+            which we will discuss in a couple pages. Here is a quick interpretation of each from the definition formula.</p>
+
+        <ul>
+            <li><strong>Unit Tangent Vector</strong>: Just like in Calc I &amp; II, the derivative of a function represents the direction of the tangent line. In 3D space, the unit tangent vector points in the direction that is parallel to the direction of
+                the curve at the specified valute of \(t\). Dividing by the magnitude converts the tangent vector into a unit vector.</li>
+            <li><strong>Unit Normal Vector</strong>: The derivative of the derivative is the second derivative, which represents concavity or acceleration. So in other words, the normal vector represents the lateral acceleration of the curve. It points in
+                the direction that the curve is turning. If the curve were linear, i.e. if it were straight, then \(\vec{N} = 0\).</li>
+            <li><strong>Unit Binormal Vector</strong>: This is defined by the cross product of \(\vec{T}\) and \(\vec{N}\), so \(\vec{B}\) must be perpendicular to both \(\vec{T}\) and \(\vec{N}\) by definition. A loose interpretation of the binormal vector
+                would be to think of it as a representation of how much the curve is turning up/down (assuming the normal points left/right). If the curve only turned within the plane defined by the \(\vec{T}\) and \(\vec{N}\) vectors, then \(\vec{B}
+                = 0\).
+            </li>
+            <li><strong>Curvature</strong>: This gives a measure of the change in acceleration versus velocity. A linear function would have \(\kappa = 0\). A shaper curve in the function's graph would have a larger value for \(\kappa\).</li>
+        </ul>
+
+        <p>Now let's explore the TNB framework graphically to better understand these vectors and how they are related to the curvature of a given function. The graph below shows the graph of the function \(\vec{r}(t) = \langle \cos(t), \sin(t), 2t-\frac{t^2}{\pi}
+            \rangle \) for \(0 \le t \le 2\pi\). There is an orange point located at \(\vec{r}(0)\) which is the coordinate \( (1,0,0) \). Use the scroll bar to move the yellow point around the curve. As it moves around the curve, select the different
+            options to be displayed.</p>
+
+        <ol>
+            <li><strong>Show T</strong>: This will display the unit tangent vector. Notice that it is tangent to the curve at the orange point. It represents the direction of the curve at that point.</li>
+            <li><strong>Show N</strong>: This will display the principle unit normal vector. Notice that this vector is perpendicular to <strong>T</strong> and it points inward, toward the direction that the curve is turning.</li>
+            <li><strong>Show B</strong>: This will display the unit binormal vector. Notice that this vector is perpendicular to both <strong>T</strong> and <strong>N</strong>.</li>
+        </ol>
+
+        <p>Click-and-drag the rotate the graphical view around. Observe how these three vectors change as the orange point moves around the curve.</p>
+
+        <div class="ggb-wrap">
+            <div class="ggb-cont">
+                <iframe scrolling="no" title="TNB Vectors" src="https://www.geogebra.org/material/iframe/id/acfbhqbf/width/795/height/477/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="795px"
+                    height="477px" style="border:0px;"> </iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://www.geogebra.org/m/r54kqs2h]</div>
+
+        <p>Go back to the above Geogebra applet and continue with the remaining items.</p>
+
+        <ol start="4">
+            <li><strong>Oscillating Plane</strong>: This plane is formed by the <strong>T</strong> and <strong>N</strong> vectors, and it is perpendicular to <strong>B</strong>. As the point moves around the curve, the vectors change and therefore the plane
+                will change. So the normal vector points in the direction that the curve will turn <em>within</em> the oscillating plane at the specified point.</li>
+            <li><strong>Normal Plane</strong>: The plane is formed by the <strong>N</strong> and <strong>B</strong> vectors, and it is perpendicular to <strong>T</strong>.</li>
+            <li><strong>Circle of Curvature</strong> (try turning off N, B and the Normal Plane): This circle is located within the oscillating plane and it is tangent to the curve at the orange point. Its <strong>radius of curvature</strong> is \(\frac{1}{\kappa}\),
+                so a smaller radius would be a tighter turn (larger curvature) and a larger radius would be a more gradual turn (smaller curvature).</li>
+        </ol>
+
+        <p>The following videos demonstrate how to find the unit TNB vectors and the curvature of a vector function.</p>
+
+        <div class="widget-header">Determining the Unit Tangent Vector</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/sdgPQYke7a8" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/sdgPQYke7a8]</div>
+
+        <div class="widget-header">Determining the Unit Normal Vector to a Curve Given by a Vector Function</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/wQe-Msr9OJA" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/wQe-Msr9OJA]</div>
+
+        <div class="widget-header">Determining the Binormal Vector</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/DVWezG26T_0" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/DVWezG26T_0]</div>
+
+        <div class="widget-header">Find the Curvature of a Space Curve Given by a Vector Function (Cross Product)</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/fBRYswhTcyQ" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/fBRYswhTcyQ]</div>
+
+        <div class="widget-header">Find the Curvature of a Space Curve Given by a Vector Function (No Cross Product)</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/peJi_pFPywk" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/peJi_pFPywk]</div>
+
+    </div>
+    <!-- End of the main content -->
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div class="myfooter">
+        <div class="row">
+            <div class="col-s-9 fleft">
+                <p>Content ©2020. Some Rights Reserved. <br> Video Content by:</p>
+                <ul>
+                    <li><a href="http://www.mathispower4u.com/" target="_blank">Mathispower4u (new window)</a></li>
+                </ul>
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+            </div>
+            <div class="col-s-3 fright">
+                <a href="#" onclick="pgPrint(); return false;"><i class="fa fa-print"></i> Printer Friendly</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

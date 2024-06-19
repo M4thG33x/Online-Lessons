@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="script.js"></script>
+    <!--Remove padding from grid boxes-->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+    </style>
+    <title>Curves</title>
+</head>
+
+<body id="maincontent">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div class="printbuttonbar">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div class="myheader">
+        <div class="row">
+            <div class="col-4 col-s-5">
+                <img src="logo_custom.png">
+            </div>
+            <div class="col-8 col-s-7">
+                <h1>Curves, Calculus, Length & Curvature</h1>
+                <p>Vectors and the Geometry of Space + Vector Functions</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnav" id="myTopnav">
+        <a href="index.html">Overview</a>
+        <span class="active">Curves</span>
+        <a href="Page2.html">Calculus</a>
+        <a href="Page3.html">GeoGebra</a>
+        <a href="Page4.html">Arc Length</a>
+        <a href="Page5.html">Curvature</a>
+        <a href="Page6.html">Motion</a>
+        <a href="Page7.html">Computing TNB</a>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="mainbody">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="pagetoc">
+            <p> On this Page </p>
+            <ul>
+                <li><a href="#top">Vector Curves</a></li>
+                <li><a href="#functions">Vector Functions</a></li>
+                <li><a href="#limits">Limits</a></li>
+            </ul>
+            <br>
+            <p>Additional Reading</p>
+            <ul>
+                <li>Section 13.1</li>
+            </ul>
+        </div>
+
+        <!-- The main content starts here-->
+        <h2 id="top">Vector Curves</h2>
+
+        <p>We have already seen how to graph lines and planes using vectors, so now we want to expand our toolbox to be able to graph more complex functions. We can do this by defining these functions as vectors.</p>
+
+        <h3 id="functions">Vector Functions</h3>
+
+        <div class="def-eqn">
+            <p>A <strong>vector-valued function</strong> has the form \(\vec{r} \left( t \right) = \langle x(t),y(t),z(t) \rangle\) where the components of \(\vec{r}\) are scalar functions of some Real number parameter \(t\).</p>
+        </div>
+
+        <p>So each point of a vector function is defined by a vector whose components are parametric equations. See the following GeoGebra examples.</p>
+
+        <div class="ggb-wrap">
+            <div class="ggb-cont">
+                <iframe scrolling="no" title="Vector Functions" src="https://www.geogebra.org/material/iframe/id/hrgyrjup/width/795/height/477/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="795px"
+                    height="477px" style="border:0px;"> </iframe> </iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://www.geogebra.org/m/hrgyrjup]</div>
+
+        <p>In both the example above and the helix below, note that the orange points that generate the curve are actually the <strong>terminal points</strong> of the vector \(\vec{r}\).</p>
+
+        <div class="ggb-wrap">
+            <div class="ggb-cont">
+                <iframe scrolling="no" title="Helix in 3D" src="https://www.geogebra.org/material/iframe/id/vnwswvuz/width/795/height/477/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="795px"
+                    height="477px" style="border:0px;"> </iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://www.geogebra.org/m/v79m8jwm]</div>
+
+        <p>The following videos give more examples of vector functions, including how to evaluate values and determine domains.</p>
+
+        <div class="widget-header">Introduction to Vector Valued Functions</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/gjTO0dMZWU4" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/gjTO0dMZWU4]</div>
+
+
+        <div class="widget-header">The Domain of a Vector Valued Function</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/Cv1NGaA5H9Y" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/Cv1NGaA5H9Y]</div>
+
+
+
+        <p>Go to <a title="GeoGebra Classic 3D" href="https://www.geogebra.org/classic#3d" target="_blank">GeoGebra Classic 3D (new window)</a> [https://www.geogebra.org/classic#3d] and graph the following vector functions. To graph a vector function in
+            GeoGebra, you will use the <strong>curve(r(t), t, a, b)</strong> command. The <strong>a</strong> and <strong>b</strong> values represents the domain interval [a, b] for the variable t. For example, to graph the helix above you would need to
+            enter the expression <strong>curve((4cos(t),sin(t),t/2),t,-4&pi;,
+            4&pi;)</strong>.
+        </p>
+
+        <ol>
+            <li>\(\vec{r} = \langle \cos(t), \sin(t), \frac{1}{2} \sin(t) \rangle\)</li>
+            <li>\(\vec{r} = \langle \lvert t \rvert, \frac{t^2}{5}, t^2-4t \rangle\)</li>
+        </ol>
+
+        <p>Note that you will need to choose reasonable values for a and b to get a good view of the graph. Play around with different values and see how it affects the graph. Also, to enter absolute value you can either use the command abs(#) or type the
+            vertical bar that is above the backslash key (or "SHIFT + \").</p>
+
+        <h3 id="limits">Limits</h3>
+
+        <p>Now that we can think of functions as vectors, we need to take the next step towards doing calculus with these functions. This involves evaluating limits of vector functions. We can define limits of vector function using language similar to how
+            we defined limits in Calculus I.</p>
+
+        <div class="def-eqn">
+            <p>The <strong>limit of a vector-valued function</strong> \(\vec{r}\) is the vector \(\vec{L}\) if \(\vec{r}\) approaches \(\vec{L}\) as \(t\) approaches \(a\). In other words, \[\mathop {\lim} \limits_{t \to a} \vec{r}(t) = \vec{L}.\]</p>
+        </div>
+
+        <p>In practical terms, we can evaluate a limit by evaluating the limits of the component functions of the vector function.</p>
+
+        \[\lim_{t \to a} \vec{r}(t) = \lim_{t \to a} \langle f(t), g(t), h(t) \rangle = \langle \lim_{t \to a} f(t), \lim_{t \to a} g(t), \lim_{t \to a} h(t) \rangle = \vec{L}\]
+
+        <p>The following video gives several examples demonstrating how to evaluate limits of vector-valued functions.</p>
+
+        <div class="widget-header">Limits of Vector Valued Functions</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/59tydOl49Mw" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/59tydOl49Mw]</div>
+
+    </div>
+    <!-- End of the main content -->
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div class="myfooter">
+        <div class="row">
+            <div class="col-s-9 fleft">
+                <p>Content ©2020. Some Rights Reserved. <br> Video Content by:</p>
+                <ul>
+                    <li><a href="http://www.mathispower4u.com/" target="_blank">Mathispower4u (new window)</a></li>
+                </ul>
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+            </div>
+            <div class="col-s-3 fright">
+                <a href="#" onclick="pgPrint(); return false;"><i class="fa fa-print"></i> Printer Friendly</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

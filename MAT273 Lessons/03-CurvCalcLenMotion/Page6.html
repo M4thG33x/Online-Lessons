@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="script.js"></script>
+    <!--Remove padding from grid boxes-->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+    </style>
+    <title>Motion</title>
+</head>
+
+<body id="maincontent">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div class="printbuttonbar">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div class="myheader">
+        <div class="row">
+            <div class="col-4 col-s-5">
+                <img src="logo_custom.png">
+            </div>
+            <div class="col-8 col-s-7">
+                <h1>Curves, Calculus, Length & Curvature</h1>
+                <p>Vectors and the Geometry of Space + Vector Functions</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnav" id="myTopnav">
+        <a href="index.html">Overview</a>
+        <a href="Page1.html">Curves</a>
+        <a href="Page2.html">Calculus</a>
+        <a href="Page3.html">GeoGebra</a>
+        <a href="Page4.html">Arc Length</a>
+        <a href="Page5.html">Curvature</a>
+        <span class="active">Motion</span>
+        <a href="Page7.html">Computing TNB</a>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="mainbody">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="pagetoc">
+            <p> On this Page </p>
+            <ul>
+                <li><a href="#top">Motion</a></li>
+                <li><a href="#components">Accerlation Components</a></li>
+            </ul>
+            <br>
+            <p>Additional Reading</p>
+            <ul>
+                <li>Section 13.4</li>
+            </ul>
+        </div>
+
+        <!-- The main content starts here-->
+        <h2 id="top">Motion</h2>
+
+        <p>Back in Calc I &amp; II, we looked at a scalar position function and thought of the first derivative as velocity and the second derivative as acceleration. So similarly, a vector position function \(\vec{r}(t)\) will have a velocity function \(\vec{v}(t)
+            = \vec{r}'(t)\) with speed \(\lvert \vec{r}'(t) \rvert\) and an acceleration funcction \(\vec{a}(t) = \vec{r}^{\prime\prime}(t)\).</p>
+
+        <div class="widget-header">Determining Velocity, Speed, and Acceleration Using a Vector Valued Function</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/DeWRYCm9cKo" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/DeWRYCm9cKo]</div>
+
+        <p>The reverse is also true. Given an acceleration function \(\vec{a}(t)\), we can find the velocity function \(\vec{v}(t)\) and position function \(\vec{r}(t)\) by integration. If we are given initial values, such as \(\vec{v}(0)\) and \(\vec{r}(0)\),
+            then we can determine the vector constants of integration. Problems of projectile motion may not explicitly state an acceleration function, but we can easily determine the function using a gravity constant, i.e. \(\vec{a}(t) = \langle 0,0,-9.8
+            \rangle\) m/s<sup>2</sup>.</p>
+
+        <div class="widget-header">Find the Velocity and Position Vector Functions Given the Acceleration Vector Function</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/iVIX04QGrTA" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/iVIX04QGrTA]</div>
+
+        <h3 id="components">Acceleration Components</h3>
+
+        <p>It can be helpful to break the acceleration vector into its components in the directions of the tangent vector and normal vector, i.e., in the direction the object is <em>traveling</em> and the direction the object is <em>turning</em>.</p>
+
+        <div class="def-eqn">
+            <p>We can express the vector acceleration function using the <strong>acceleration components</strong> using the following formula, where \(\vec{T}\) and \(\vec{N}\) are the unit tangent and unit normal vectors, respectively, \(a_{T}\) is the
+                component of acceleration in the direction of motion and \(a_{N}\) is the component of acceleration in the direction of the curvature.</p>
+
+            \[\vec{a} = a_{T}\vec{T} + a_{N}\vec{N}\]
+        </div>
+
+        <p>There are several formulas for each component, some of which are included in the following table. We typically use the last of each that involves the dot or cross product of velocity and acceleration since they are generally the easiest from a
+            computational perspective.</p>
+
+        <table class="styledtable-hrborder1 ltables">
+            <caption>Acceleration Component Formulas</caption>
+            <tbody>
+                <tr>
+                    <th>Tangential</th>
+                    <th>Normal</th>
+                </tr>
+                <tr>
+                    <td>\[a_{T} = {\lvert \vec{v} \rvert}' = \vec{a} \cdot \vec{T} = \frac{\vec{v} \cdot \vec{a}}{\lvert \vec{v} \rvert}\]</td>
+                    <td>\[a_{N} = \kappa {\lvert \vec{v} \rvert}^2 = \vec{a} \cdot \vec{N} = \frac{\lvert \vec{v} \times \vec{a} \rvert}{\lvert \vec{v} \rvert}\]</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="widget-header">Determining the Tangential and Normal Components of Acceleration</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/vuHvWYgAY3c" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/vuHvWYgAY3c]</div>
+
+    </div>
+    <!-- End of the main content -->
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div class="myfooter">
+        <div class="row">
+            <div class="col-s-9 fleft">
+                <p>Content ©2020. Some Rights Reserved. <br> Video Content by:</p>
+                <ul>
+                    <li><a href="http://www.mathispower4u.com/" target="_blank">Mathispower4u (new window)</a></li>
+                </ul>
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+            </div>
+            <div class="col-s-3 fright">
+                <a href="#" onclick="pgPrint(); return false;"><i class="fa fa-print"></i> Printer Friendly</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="script.js"></script>
+    <!--Assessment script-->
+    <script src="quizlets.js"></script>
+    <!--Remove padding from grid boxes-->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+    </style>
+    <title>Cross Product</title>
+</head>
+
+<body id="maincontent">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div class="printbuttonbar">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div class="myheader">
+        <div class="row">
+            <div class="col-4 col-s-5">
+                <img src="logo_custom.png">
+            </div>
+            <div class="col-8 col-s-7">
+                <h1>Cross Product, Planes &amp; Surfaces</h1>
+                <p>Vectors and the Geometry of Space</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnav" id="myTopnav">
+        <a href="index.html">Overview</a>
+        <span class="active">Cross Product</span>
+        <a href="Page2.html">Lines &amp; Planes</a>
+        <a href="Page3.html">GeoGebra</a>
+        <a href="Page4.html">Surfaces</a>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="mainbody">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="pagetoc">
+            <p> On this Page </p>
+            <ul>
+                <li><a href="#top">Cross Product</a></li>
+            </ul>
+            <br>
+            <p>Additional Reading</p>
+            <ul>
+                <li>Section 12.4</li>
+            </ul>
+        </div>
+
+        <!-- The main content starts here-->
+        <h2 id="top">CrossProduct</h2>
+
+        <p>Relatively speaking, the cross product is a bit more difficult to compute compared to the dot project. For one thing, the result of a cross product is a vector, not a scalar like the dot product. It is also going to involve a little bit of linear algebra, namely determinants of 2x2 and 3x3 matrices. A matrix is just a collection of numbers organized into rows and columns. So a 2x2 matrix has 2 rows and 2 columns, such as the matrix below.</p>
+
+        \[\begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}\]
+
+        <div class="def-eqn">
+            <p>The <strong>determinant of a 2x2 matrix</strong> is a scalar computed using the following formula.</p>
+
+            \[\left| \begin{matrix} a & b \\ c & d \end{matrix} \right| = ad - bc\]
+        </div>
+
+        <div class="assess">
+            <p><strong>Self-Check #1</strong>: Compute the following determinant.</p>
+            
+            \[\left| \begin{matrix} 7 & 5 \\ -2 & 1 \end{matrix} \right|\]
+            <button onclick="checkFitBSub('input1',17,'correct1','wrong1','enterans1',0.01)" id="submit1">Submit</button>
+            <input id="input1" type="text" value="" />
+            <div class="response" id="enterans1"><i>You must enter an answer</i>.</div>
+            <div class="response" id="correct1"><i class="fa fa-check" style="color: green"></i></div>
+            <div class="response" id="wrong1"><i class="fa fa-times" style="color: red"></i><br>\[\left| \begin{matrix} 7 & 5 \\ -2 & 1 \end{matrix} \right| = (7)(1) - (5)(-2) = 7 + 10 = 17\]</div>
+        </div>
+
+
+
+        <p>The easy way to remember this is that you are just multiplying the diagonal values and subtracting the results. The following video gives a couple examples. (You can ignore any of the other linear algebra stuff in the video.)</p>
+
+        <div class="widget-header">Determinant of a 2x2 Matrix</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/JTeAPYturls" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://www.youtube.com/watch?v=JTeAPYturls]</div>
+
+        <div class="def-eqn">
+            <p>The <strong>cross product</strong> of vectors \(\vec{u} = \langle u_1,u_2,u_3 \rangle\) and \(\vec{v} = \langle v_1,v_2,v_3 \rangle\) is defined by the following formula.</p>
+
+            \[\begin{align*} \vec{u} \times \vec{v} &= \left| \begin{matrix} \hat{\imath} & \hat{\jmath} & \hat{k} \\ u_1 & u_2 & u_3 \\ v_1 & v_2 & v_3 \end{matrix} \right| \\ &= \left| \begin{matrix} u_2 & u_3 \\ v_2 & v_3 \end{matrix} \right| \hat{\imath} - \left| \begin{matrix} u_1 & u_3 \\ v_1 & v_3 \end{matrix} \right| \hat{\jmath} + \left| \begin{matrix} u_1 & u_2 \\ v_1 & v_2 \end{matrix} \right| \hat{k} \\ &= \langle u_2 v_3 - u_3 v_2, -(u_1 v_3 - u_3 v_1), u_1 v_2 - u_2 v_1 \rangle \end{align*}\]
+
+            <p>The <strong>Right-Hand Rule</strong>: If you point the first finger of your right hand in the direction of \(\vec{u}\) and the second finger of your right hand in the direction of \(\vec{v}\), then extending your thumb will point in the direction of \(\vec{u} \times \vec{v}\).</p>
+        </div>
+
+        <p>The first row of the 3x3 matrix will always be \(\hat{\imath}\), \(\hat{\jmath}\) and \(\hat{k}\). The middle row will always be the <em>first</em> vector of the \(\vec{u} \times \vec{v}\) notation, and the bottom row will always be the <em>second</em> vector.</p>
+
+        <div class="widget-header">Vector Cross Products</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/A8SFkakUA_g" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://www.youtube.com/watch?v=A8SFkakUA_g]</div>
+
+        <p>Let's review some of the properties of the cross product stated in the video above.</p>
+
+        <ol>
+            <li>\(\vec{u} \times \vec{v}\) is a vector that is orthogonal (perpendicular) to both \(\vec{u}\) and \(\vec{v}\).</li>
+            <li>\(\vec{u} \times \vec{v} = -(\vec{v} \times \vec{u})\), which is the anticommutative property.</li>
+            <li>\(|\vec{u} \times \vec{v}| = |\vec{u} |\vec{v}| \sin \theta\), where \(\theta\) is the angle between \(\vec{u}\) and \(\vec{v}\).</li>
+            <li>\(\vec{u} \times \vec{v} = \vec{0}\) (zero vector) if and only if \(\vec{u}\) and \(\vec{v}\) are scalar multiples of each other, i.e. \(\vec{u}\) and \(\vec{v}\) are parallel.</li>
+            <li>\(|\vec{u} \times \vec{v}|\) equals the area of the parallelogram formed by adjacent sides \(\vec{u}\) and \(\vec{v}\).</li>
+        </ol>
+
+        <p>Here is one more example of how to compute the cross product.</p>
+
+        <div class="widget-header">Find the Cross Product of Two Vectors</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/f7umVs_vl-Q" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://www.youtube.com/watch?v=f7umVs_vl-Q]</div>
+
+        <div class="assess">
+            <p><strong>Self-Check #2</strong>: What is the area of the parallelogram whose opposite sides correspond to the vectors \(\vec{u} = \langle 4,-1,2 \rangle\) and \(\vec{v} = \langle 5,3,-2 \rangle\)? <em>Round your answer to 2 decimal places.</em></p>
+            <button onclick="checkFitBSub('input2',25.08,'correct2','wrong2','enterans2',0.01)" id="submit2">Submit</button>
+            <input id="input2" type="text" value="" />
+            <div class="response" id="enterans2"><i>You must enter an answer</i>.</div>
+            <div class="response" id="correct2"><i class="fa fa-check" style="color: green"></i></div>
+            <div class="response" id="wrong2"><i class="fa fa-times" style="color: red"></i>
+                <p>Begin by computing the cross product of the given vectors.</p>
+                
+                \[\begin{align*} \vec{u} \times \vec{v} &= \left| \begin{matrix} \hat{\imath} & \hat{\jmath} & \hat{k} \\ 4 & -1 & 2 \\ 5 & 3 & -2 \end{matrix} \right| \\ &= \langle (-1)(-2) - (2)(3), -\left((4)(-2) - (2)(5)\right), (4)(3) - (-1)(5) \rangle \\ &= \langle 2-6, -(-8-10), 12+5 \rangle \\ &= \langle -4, 18, 17 \rangle \end{align*}\]
+            
+                <p>The area of the parallelogram formed by \(\vec{u}\) and \(\vec{v}\) is equal to the magnitude of their cross product.</p>
+
+                \[\left|\vec{u} \times \vec{v} \right| = \sqrt{(-4)^2+(18)^2+(17)^2} = \sqrt{629} \approx 25.08\]
+            </div>
+        </div>
+
+
+    </div>
+    <!-- End of the main content -->
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div class="myfooter">
+        <div class="row">
+            <div class="col-s-9 fleft">
+                <p>Content ©2020. Some Rights Reserved. <br> Video Content by:</p>
+                <ul>
+                    <li><a href="http://www.mathispower4u.com/" target="_blank">Mathispower4u (new window)</a></li>
+                </ul>
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img
+                        alt="Creative Commons License" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+            </div>
+            <div class="col-s-3 fright">
+                <a href="#" onclick="pgPrint(); return false;"><i class="fa fa-print"></i> Printer Friendly</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

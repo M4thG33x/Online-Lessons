@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="script.js"></script>
+    <!--Remove padding from grid boxes-->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+    </style>
+    <title>Functions</title>
+</head>
+
+<body id="maincontent">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div class="printbuttonbar">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div class="myheader">
+        <div class="row">
+            <div class="col-4 col-s-5">
+                <img src="logo_custom.png">
+            </div>
+            <div class="col-8 col-s-7">
+                <h1>Functions & Limits</h1>
+                <p>Partial Derivatives</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnav" id="myTopnav">
+        <a href="index.html">Overview</a>
+        <span class="active">Functions</span>
+        <a href="Page2.html">Limits</a>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="mainbody">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="pagetoc">
+            <p> On this Page </p>
+            <ul>
+                <li><a href="#top">Functions of Multiple Variables</a></li>
+                <li><a href="#curves">Level Curves</a></li>
+            </ul>
+            <br>
+            <p>Additional Reading</p>
+            <ul>
+                <li>Section 14.1</li>
+            </ul>
+        </div>
+
+        <!-- The main content starts here-->
+        <h2 id="top">Functions of Multiple Variables</h2>
+
+        <p>For the most part, the functions you have see and studied thus far have been of one variable. We have expressed this as \(y = f(x)\). Now we want to look at functions of multiple variables. A function of two variables would have the form \(z =
+            f(x,y)\), meaning that the domain consists of two inputs, an \(x\) and a \(y\) value. The domain of a two variable function would be a region on the \(xy\)-plane and the function would create a surface of height \(z\) for each \((x,y)\) point
+            in the domain. Simple examples include functions such as \(f(x,y) = x^2 + y^2\), which would be an elliptic paraboloid, or \(f(x,y) = \sin(x) \cos(y)\).</p>
+
+        <p>A function of three variables would have the form \(w = f(x,y,z)\). The domain of a 3-variable function would be a region of \((x,y,z)\) points in 3D space. For example, a function \(T(x,y,z)\) could give the temperature of the air in a room at
+            each point within the room, or a function \(\delta(x,y,z)\) could give the density of an object at each point in the object.</p>
+
+        <p>The domain of a multi-variable function must account for all of the independent variables. Consider the following examples.</p>
+
+
+        <table class="styledtable-hrborder2 ltables">
+            <caption>Examples of 2-Variable Functions and Their Domains</caption>
+            <tbody>
+                <tr>
+                    <th>Function &amp; Domain</th>
+                    <th>Graph</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>
+                        \[f(x,y) = x^2 + y^2\] \[\{ (x,y) \, | \, x,y \in \mathbb{R} \} \]
+                    </td>
+                    <td style="min-width: 300px;"><img src="Domain1.png" alt="Graph of f(x, y) = x^2 + y^2" width="300" height="254" /></td>
+                    <td>
+                        <p>The function is an elliptic paraboloid opening up the positive z-axis. The domain is the set of all (<em>x</em>, <em>y</em>) coordinates where <em>x</em> and <em>y</em> are real numbers. In other words, the domain is the entire
+                            <em>xy</em>-plane.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        \[f(x,y) = \frac{25}{25-x^2-y^2}\] \[\{(x,y) \, | \, x^2 + y^2 \ne 25\}\]
+                    </td>
+                    <td style="min-width: 300px;"><img src="Domain2.png" alt="Graph of f(x, y) = 25 / (25 - x^2 - y^2)" width="300" height="254" /></td>
+                    <td>
+                        <p>The domain would be the entire <em>xy</em>-plane except for the circle centered at the origin with a radius of 5.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        \[f(x,y) = \sqrt{36-x^2-y^2}\] \[\{(x,y) \, | \, x^2 + y^2 \le 36 \}\]
+                    </td>
+                    <td style="min-width: 300px;"><img src="Domain3.png" alt="Graph of f(x, y) = sqrt(36 - x^2 - y^2)" width="300" height="254" /></td>
+                    <td>
+                        <p>The function is the top half of a sphere of radius 6. The domain would be the boundary and interior of the circle <em>x</em><sup>2</sup> + <em>y</em><sup>2</sup> = 36.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>Watch the following video.</p>
+
+        <div class="widget-header">Introduction to Functions of Two Variables</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/c0wd_9yF8bg" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/c0wd_9yF8bg]</div>
+
+        <p>A common example of two variable functions in the Cobb-Douglass production function. This is a simplifed function in economics that predicts the output production based on the amount of labor and capital invested.</p>
+
+        <div class="widget-header">Evaluate a Function of Two Variables (Cobb-Douglas Production Function)</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/pUh36X7FQos" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/pUh36X7FQos]</div>
+
+        <h3 id="curves">Level Curves</h3>
+
+        <p>We talked about horizontal traces in the previous unit. Recall that a trace is the curve created by the intersection of a surface with a horizontal plane. A level curve in the project of the trace onto the xy-plane. The image below shows the graph
+            of a function \(f(x,y)\) with yellow curves that represent the traces formed by intersecting the function with the horizontal planes of \(z = 4.2, 4.4, 4.6, ..., 5.8\). The black curves on the \(xy\)-plane are the level curves.</p>
+
+        <img src="LevelCurves.png" alt="Graph of a function with highlighted traces for sequential values of z and their corresponding level curves in the xy-plane." />
+
+        <p>Notice on the graph above that the level curves are closer together where the graph of \(f(x, y)\) is steeper and they are further apart as as the graph levels out (this assumes the traces are formed by equally spaced steps in the \(z\)-values,
+            as illustrated above). Probably the most common example of level curves would be a contour map.</p>
+
+        <img src="ContourMapWTCC.png" alt="Contour Map around Wake Tech's Southern Campus" />
+        <div class="widget-footer">[https://viewer.nationalmap.gov/advanced-viewer/]</div>
+
+        <p>The map above shows the area around Wake Tech's Southern Campus. All the curving lines represents different altitudes, each 10 ft higher or lower in altitude than the adjacent curve. Curves closer together represent steeper hills. The following
+            video will show how to determine the equation of level curves for a given function.</p>
+
+        <div class="widget-header">Level Curves of Functions of Two Variables</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/CCLrfpD5_sE" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/CCLrfpD5_sE]</div>
+
+    </div>
+    <!-- End of the main content -->
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div class="myfooter">
+        <div class="row">
+            <div class="col-s-9 fleft">
+                <p>Content ©2020. Some Rights Reserved. <br> Video Content by:</p>
+                <ul>
+                    <li><a href="http://www.mathispower4u.com/" target="_blank">Mathispower4u (new window)</a></li>
+                </ul>
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+            </div>
+            <div class="col-s-3 fright">
+                <a href="#" onclick="pgPrint(); return false;"><i class="fa fa-print"></i> Printer Friendly</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
