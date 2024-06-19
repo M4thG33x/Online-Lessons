@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="../script.js"></script>
+    <!--Assessment script-->
+    <script src="../quizlets.js"></script>
+    <title>Degrees & Radians</title>
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div id="lesson-header">
+        <div class="l-col">
+            <img src="../logo_custom.png" alt="null">
+        </div>
+        <div class="r-col">
+            <h1>Angle Measure</h1>
+            <p>Trigonometric Functions</p>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <a href="index.html">Overview</a>
+        <a href="angles.html">Angles</a>
+        <span class="active">Degrees &amp; Radians</span>
+        <a href="coterminal.html">Coterminal Angles</a>
+        <a href="arcsector.html">Arc Length &amp; Sector Area</a>
+        <a href="speed.html">Linear &amp; Angular Speed</a>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="lesson-body">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="lessonpagetoc">
+            <button class="dropbtn">On this Page</button>
+            <!-- <p> On this Page </p> -->
+            <div class="dropdown-content">
+                <ul>
+                    <li><a href="#top">Degrees &amp; Radians</a></li>
+                    <li><a href="#degrees">Degrees</a></li>
+                    <li><a href="#radians">Radians</a></li>
+                    <li><a href="#convert">Unit Conversion</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+        <!-- The main content starts here-->
+        <h2 id="top">Degrees &amp; Radians</h2>
+
+        <p>The two primary units that we use when measuring angles are degrees and radians. Just like units of length (inches, miles, meters, etc.) or time (days, minutes, etc.), knowing which unit is being used is important. We must be careful about leaving values without a unit. For example, if you are given a quantity that is measured to be 5, you don't know if that is 5 inches, 5 hours, or 5&deg;. Is this 5 a measurement of length, time, volume, weight, rotation, or something else? Including the unit tells us what is actually being measured. So, let's explore our units of angular measure.</p>
+
+        <h3 id="degrees">Degrees</h3>
+
+        <div class="def-eqn">
+            <p>A <strong>degree</strong> is a unit of angular measurement where 1 degree is \(\frac{1}{360}\) of a full revolution. The degree unit can be expressed using the &deg; symbol.</p>
+        </div>
+
+        <p>This means that a full rotation is 360&deg;, a half rotation is 180&deg;, and a quarter rotation is 90&deg;. A few angles are given below in standard position, with initial side along the positive \(x\)-axis and rotating about the origin. Remember that angles with a counterclockwise rotation are positive while angles with a clockwise rotation are negative.</p>
+
+        <div class="tbl">
+            <div class="tbl-body">
+                <div class="tbl-row">
+                    <div class="tbl-col" style="border: 0;">
+                        <img src="45deg.png" alt="A 45 degree angle in standard position rotating counterclockwise, with inital side along the positive x-axis and terminal side half-way between the positive x and positive y axes.">
+                    </div>
+                    <div class="tbl-col" style="border: 0;">
+                        <img src="90deg.png" alt="A 90 degree angle in standard position rotating counterclockwise, with initial side along the positive x-axis and termial side along the positive y-axis.">
+                    </div>
+                    <div class="tbl-col" style="border: 0;">
+                        <img src="300deg.png" alt="A 300 degree angle in standard position rotating counterclockwise with inital side along the positive x-axis and terminal side in the 4th quadrant.">
+                    </div>
+                    <div class="tbl-col" style="border: 0;">
+                        <img src="neg150deg.png" alt="A -150 degree angle in standard position rotating clockwise, with inital side along the positive x-axis and terminal side in the 3rd quadrant.">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p>Degree measures are probably a little easier to understand intuitively, which is why we started with them. However, radians are used more frequently in mathematics and especially in STEM fields. So while you might prefer the niceness of degrees, you really need to begin thinking more in terms of radians as we go through the semester.</p>
+
+        <h3 id="radians">Radians</h3>
+
+        <div class="def-eqn">
+            <p>A <strong>radian</strong> is a unit of angular measurement where 1 radian is equal to the amount of rotation for the terminal side to trace out an arc of a circle whose length is equal to the radius of the circle. The radian unit can be expressed using the "rad" abbreviation.</p>
+        </div>
+
+        <p>To illustrate what a radian looks like, consider the graph below. We have a circle of radius \(r\) and an angle of 1 rad. The arc along the circle between the initial and terminal sides of the angle also has a length of \(r\).</p>
+
+        <img src="1rad.png" alt="Graph of a circle with radius r and an arc of length r that is traced along the circle between the initial and terminal sides of an angle of 1 radian.">
+
+        <p>So how do we use radians to measure angles? Consider a similar graph below, but now having a total angle of rotation 3 radians. Notice that the 3rd angle is just short of the negative \(x\)-axis, or 180&deg;. It turns out that this little sliver of an angle is roughly 0.14159 (rounded to 5 decimal places). That means that the negative \(x\)-axis has a rotation of \(\pi\) radians from the positive \(x\)-axis, where \(\pi\) = 3.14159 (rounded to 5 decimal places). In other words, a rotation of 180&deg; is equivalent to a rotation of \(\pi\) rad.</p>
+
+        <img src="3rad.png" alt="Graph of a circle with radius r showing an arc of length 3r that is traced along the circle formed by three consecutive rotations of 1 radian each. The total arc is just short of a half-rotation about the circle, which exactly half would be pi radians.">
+
+        <p>This means that a full rotation is \(2\pi\) rad, a half rotation is \(\pi\) rad, and a quarter rotation is \(\frac{\pi}{2}\) rad. Another way to think about radian measure is that the amount of rotation in radians is equal to the length of the arc divided by the radius of the circle. We will look at this in more detail a little later.</p>
+
+        <p>One thing that is different about radians versus degrees is that radians are described as a <em>dimensionless</em> unit, or a <em>unitless</em> value. As mentioned above, the radian measure of rotation is equal to the length of the arc divided by the length of the radius. These two measurements of the arc and the radius both have a unit of length. When we divide them, their units cancel out. So while we describe the angular rotation in radians, or rad, it does not have a dimension associated with it like length. Because of this, we will often eliminate the "rad" unit from the expression. So an angle of \(\pi\) rad could also just be expressed as \(\pi\). However, angles in degrees must still include the unit or &deg; symbol. So 75&deg; is a degree measurement while 75 is a radian measurement, and similarly \({\frac{\pi}{2}}^{\circ}\) is a degree measurement while \(\frac{\pi}{2}\) is a radian measurement. Be careful not to confuse these, and having \(\pi\) in the expression does not guarantee which unit is being used.</p>
+
+        <p>What will probably make using radians more difficult is that it incorporates fractions frequently into the radian expressions. The following four graphs show the equivalent radian measure of the corresponding degree angles that were given above.</p>
+
+        <div class="tbl">
+            <div class="tbl-body">
+                <div class="tbl-row">
+                    <div class="tbl-col" style="border: 0;">
+                        <img src="pi-4rad.png" alt="A pi/4 angle in standard position rotating counterclockwise, with inital side along the positive x-axis and terminal side half-way between the positive x and positive y axes.">
+                    </div>
+                    <div class="tbl-col" style="border: 0;">
+                        <img src="pi-2rad.png" alt="A pi/2 angle in standard position rotating counterclockwise, with initial side along the positive x-axis and termial side along the positive y-axis.">
+                    </div>
+                    <div class="tbl-col" style="border: 0;">
+                        <img src="5pi-3rad.png" alt="A 5pi/3 angle in standard position rotating counterclockwise with inital side along the positive x-axis and terminal side in the 4th quadrant.">
+                    </div>
+                    <div class="tbl-col" style="border: 0;">
+                        <img src="neg5pi-6rad.png" alt="A -5pi/6 angle in standard position rotating clockwise, with inital side along the positive x-axis and terminal side in the 3rd quadrant.">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <p>While looking at these fractions may feel intimidating, remember that fractions are just dividing a whole object into smaller parts. When you learned about fractions way back in elementary school, at some point you probably did so by taking a circle and dividing it into equal slices. We will do the same thing here. For example, since a whole circle is \(2\pi\) rad, we can think of the angle \(\frac{2\pi}{3}\) rad as the whole circle divided into 3 equal parts. This means that the angle \(\frac{2\pi}{3}\) rad is equal to 120&deg; because a full rotation is 360&deg; and we have \(\frac{360}{3} = 120\). This leads us to ask the following question. How can we convert angle measures between degres and radians?</p>
+
+        <h3 id="convert">Unit Conversion</h3>
+
+        <p>We have just seen that a full rotation has a measure of 360&deg; or \(2\pi\) rad. Reducing both of these values by 2 results in the following conversion factor.</p>
+
+        <div class="def-eqn">
+            <p>When converting between degrees and radians, we can use one of the following ratios. This works by cancelling out the given unit and changing it to the new unit.</p>
+
+            \[\frac{180^{\circ}}{\pi} \text{ or } \frac{\pi}{180^{\circ}}\]
+
+            <p>This means that 1 rad &approx; 57.2958&deg; (rounded to 4 decimal places).</p>
+        </div>
+
+        <p>The following video demonstrates how we can use these converion ratios to convert degrees to radians and radians to degrees.</p>
+
+        <div class="widget-header">Converting Degrees &amp; Radians</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="1280" height="720" src="https://www.youtube.com/embed/5m1eQ1ZWW-o" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/5m1eQ1ZWW-o]</div>
+
+        <div class="assess">
+            <p><strong>Self-Check #1</strong>: Convert the angle 160&deg; to an equivalent radian measure. Simplify completely. (<i>Select the most appropriate response.</i>)</p>
+            <label class="radiocntrh">(A) \(\frac{160\pi}{180}\)
+                <input type="radio" id="opt1-1" name="mcChoice1" value="A">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(B) \(\frac{28800}{\pi}\)
+                <input type="radio" id="opt1-2" name="mcChoice1" value="B">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(C) \(\frac{\pi}{90}\)
+                <input type="radio" id="opt1-3" name="mcChoice1" value="C">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(D) \(\frac{8\pi}{9}\)
+                <input type="radio" id="opt1-4" name="mcChoice1" value="D">
+                <span class="radiobtn"></span>
+            </label><br>
+            <button onclick="checkMCSub('mcChoice1','D','correct1','wrong1','makechoice1')" id="submit1">Check</button>
+            <div class="response" id="makechoice1"><i>You must select an answer above</i>.</div>
+            <div class="response" id="correct1"><i class="fa fa-check" style="color: green"></i></div>
+            <div class="response" id="wrong1"><i class="fa fa-times" style="color: red"></i>
+                <p>(Answer: D) -- Multiply the given angle by \(\frac{\pi}{180^{\circ}}\) to cancel the degree unit. This results in \(\frac{160\pi}{180} = \frac{160\pi \div 10}{180 \div 10} = \frac{16\pi}{18} = \frac{16\pi \div 2}{18 \div 2} = \frac{8\pi}{9}\).</p>
+            </div>
+        </div>
+
+        <div class="assess">
+            <p><strong>Self-Check #2</strong>: Convert the angle \(\frac{3\pi}{5}\) to an equivalent degree measure. Simplify completely. (<i>Select the most appropriate response.</i>)</p>
+            <label class="radiocntrv">(A) \({\frac{\pi^2}{300}}^{\circ}\)
+                <input type="radio" id="opt2-1" name="mcChoice2" value="A">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrv">(B) 108&deg;
+                <input type="radio" id="opt2-2" name="mcChoice2" value="B">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrv">(C) 300&deg;
+                <input type="radio" id="opt2-3" name="mcChoice2" value="C">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrv">(D) 220&deg;
+                <input type="radio" id="opt2-4" name="mcChoice2" value="D">
+                <span class="radiobtn"></span>
+            </label><br>
+            <button onclick="checkMCSub('mcChoice2','B','correct2','wrong2','makechoice2')" id="submit2">Check</button>
+            <div class="response" id="makechoice2"><i>You must select an answer above</i>.</div>
+            <div class="response" id="correct2"><i class="fa fa-check" style="color: green"></i></div>
+            <div class="response" id="wrong2"><i class="fa fa-times" style="color: red"></i>
+                <p>(Answer: B) -- Multiply the given angle by \(\frac{180^{\circ}}{\pi}\) to cancel the radian unit. This results in \(\frac{3\pi \cdot 180^{\circ}}{5 \cdot \pi} = \frac{3 \cdot 180^{\circ}}{5} = \frac{3 \cdot 180^{\circ} \div 5}{5 \div 5} = \frac{3 \cdot 36^{\circ}}{1} = 108^{\circ}\).</p>
+            </div>
+        </div>
+
+        <!-- End of the main content -->
+    </div>
+
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div id="lesson-footer">
+        <div class="l-col">
+            <p>©2024 <a href="https://www.youtube.com/channel/UCszzyEwfkBHBPk6xkNrGpAA" target="_blank">M4thG33x (new
+                    window)</a> Some Rights Reserved.</p>
+            <a rel="license " href="http://creativecommons.org/licenses/by-sa/4.0/ "><img alt="Creative Commons License " src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png "></a>
+        </div>
+        <div class="r-col">
+            <a href="# " onclick="pgPrint(); return false; "><i class="fa fa-print "></i> Printer Friendly</a>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="../script.js"></script>
+    <!--Assessment script-->
+    <script src="../quizlets.js"></script>
+    <title>Unit Circle</title>
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div id="lesson-header">
+        <div class="l-col">
+            <img src="../logo_custom.png" alt="null">
+        </div>
+        <div class="r-col">
+            <h1>The Unit Circle</h1>
+            <p>Trigonometric Functions</p>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <a href="index.html">Overview</a>
+        <span class="active">Unit Circle</span>
+        <a href="sincos.html">Sine &amp; Cosine</a>
+        <a href="identities.html">Basic Identities</a>
+        <a href="otherfunc.html">Other Trig Functions</a>
+        <a href="area.html">Triangle Area</a>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="lesson-body">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="lessonpagetoc">
+            <button class="dropbtn">On this Page</button>
+            <!-- <p> On this Page </p> -->
+            <div class="dropdown-content">
+                <ul>
+                    <li><a href="#top">Unit Circle</a></li>
+                    <li><a href="#terminal-point">Terminal Points</a></li>
+                    <li><a href="#ref-numb">Reference Number</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- The main content starts here-->
+        <h2 id="top">The Unit Circle</h2>
+
+        <p>In our previous lesson, we learned about the six trigonometric function and defined them for <em>acute</em> angles of right triangles. In particular, we focused on the specific angles of 30&deg;, 45&deg;, and 60&deg;. We now want to develop a way to compute these trig function values for any angle, not just acute angles. This process will take some work to get through, so be patient and keep with it. The foundation for our work is the <strong>unit circle</strong>, which is simply a circle of radius 1 that is centered at the origin of the \(xy\)-plane.</p>
+
+        <img src="unitcircle.png" alt="A circle of radius 1 centered at the origin of the xy-plane.">
+
+        <h3 id="terminal-point">Terminal Points</h3>
+
+        <p>Next, we need a way to determine the location of any point on the circle based on its central angle and its distance from the positive \(x\)-axis. More specifically, every point \(P\), called a <strong>terminal point</strong>, on the unit circle can be associated with a real number \(t\), called a <strong>terminal number</strong>, that represents the arc length from the positive \(x\)-axis to \(P\) along the unit circle. Point \(P\) can also be associated with the intersection of the terminal side of the central angle \(\theta\) and the unit circle.</p>
+
+        <img src="terminalpoint.png" alt="A graph of the unit circle with a point P located on the circle. The distance from P to the positive x axis is measured by an arc of length t. The central angle subtended by the arc is theta.">
+
+        <p>If we apply the arc length formula \(s = \theta r\) and the fact that the radius of the unit circle is 1, then we can conclude that the measure of the arc length, given by \(t\), is equal to the measure of the central angle. In other words, \(t = \theta\). This means we can apply some of the common radian measures to the unit circle to determine the coordinates of the corresponding points.</p>
+
+        <div class="tbl">
+            <div class="tbl-cap">
+                Some Common Points on the Unit Circle
+            </div>
+            <div class="tbl-hdr-row">
+                <div class="tbl-hdr-col">
+                    Graph
+                </div>
+                <div class="tbl-hdr-col">
+                    Explanation
+                </div>
+            </div>
+            <div class="tbl-body">
+                <div class="tbl-row">
+                    <div class="tbl-col" style="min-width: 176px">
+                        <img src="t-zero.png" alt="A circle of radius 1 centered at the origin with a point that is a distance of t = 0 from the +x axis and corresponds to a point (1, 0) where the circle intersects the +x axis.">
+                    </div>
+                    <div class="tbl-col">
+                        <p>A terminal number \(t = 0\) corresponds to a central angle of 0 radians and an arc of length 0. This means the terminal point is where the unit circle intersects the positive \(x\)-axis, which tells us that the coordinates of the terminal point are \((1,0)\).</p>
+                    </div>
+                </div>
+                <div class="tbl-row">
+                    <div class="tbl-col" style="min-width: 179px">
+                        <img src="t-pi.png" alt="A circle of radius 1 centered at the origin with a point that is a distance of t = pi measured counterclockwise from the +x axis and corresponds to a point (-1, 0) where the circle intersects the -x axis.">
+                    </div>
+                    <div class="tbl-col">
+                        <p>A terminal number \(t = \pi\) corresponds to a central angle of \(\pi\) radians and an arc of length \(\pi\). This means the terminal point is where the unit circle intersects the negative \(x\)-axis, which tells us that the coordinates of the terminal point are \((-1,0)\).</p>
+                    </div>
+                </div>
+                <div class="tbl-row">
+                    <div class="tbl-col" style="min-width: 176px">
+                        <img src="t-pi-2.png" alt="A circle of radius 1 centered at the origin with a point that is a distance of t = pi/2 measured counterclockwise from the +x axis and corresponds to a point (0, 1) where the circle intersects the +y axis.">
+                    </div>
+                    <div class="tbl-col">
+                        <p>A terminal number \(t = \frac{\pi}{2}\) corresponds to a central angle of \(\frac{\pi}{2}\) radians and an arc of length \(\frac{\pi}{2}\). This means the terminal point is where the unit circle intersects the positive \(y\)-axis, which tells us that the coordinates of the terminal point are \((0,1)\).</p>
+                    </div>
+                </div>
+                <div class="tbl-row">
+                    <div class="tbl-col" style="min-width: 192px">
+                        <img src="t-neg-pi-2.png" alt="A circle of radius 1 centered at the origin with a point that is a distance of t = -pi/2 measured clockwise from the +x axis and corresponds to a point (0, -1) where the circle intersects the -y axis.">
+                    </div>
+                    <div class="tbl-col">
+                        <p>A terminal number \(t = -\frac{\pi}{2}\) corresponds to a central angle of \(-\frac{\pi}{2}\) radians rotating clockwise and an arc of length \(\frac{\pi}{2}\). This means the terminal point is where the unit circle intersects the negative \(y\)-axis, which tells us that the coordinates of the terminal point are \((0,-1)\).</p>
+                    </div>
+                </div>
+                <div class="tbl-row">
+                    <div class="tbl-col" style="min-width: 218px">
+                        <img src="t-pi-4.png" alt="A circle of radius 1 centered at the origin with a point that is a distance of t = pi/4 measured counterclockwise from the +x axis and corresponds to a point (√2/2, √2/2) on the circle half-way between the +x and +y axes.">
+                    </div>
+                    <div class="tbl-col">
+                        <p>A terminal number \(t = \frac{\pi}{4}\) corresponds to a central angle of \(\frac{\pi}{4}\) radians and an arc of length \(\frac{\pi}{4}\). Remember that an angle of \(\frac{\pi}{4}\) is the same as a 45&deg; angle. This means that for a right triangle whose hypotenuse is the terminal side, the horizontal and vertical sides of the right triangle must have the same length. So, the \(x\) and \(y\) coordinates of the terminal point must be the same. Using the Pythagorean Theorem, we can solve the equation \(x^2 + x^2 = 1\) which results in \(x = \frac{\sqrt{2}}{2}\). So, the coordinates of the terminal point are \((\frac{\sqrt{2}}{2},\frac{\sqrt{2}}{2})\).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p>This last terminal point at \(t = \frac{\pi}{4}\) suggests that we might be able to combine our knowledge of special right triangles with the unit circle. By inserting the 45-45-90 right triangle into the unit circle so that a 45&deg; degree angle is the central angle (see first graph below), the coordinates of the terminal point correspond to the adjacent and opposite sides of the right triangle. The result is the coordinates \(\left(\frac{\sqrt{2}}{2},\frac{\sqrt{2}}{2}\right)\), which matches what we found above. If we insert the 30-60-90 right triangle into the unit circle so that a 30&deg; degree angle is the central angle (see middle graph below), then the coordinates of the terminal point again correspond to the adjacent and opposite sides of the right triangle. This means that the coordinates of the terminal point for a central angle of 30&deg; are \(\left(\frac{\sqrt{3}}{2},\frac{1}{2}\right)\). Similarly, if we insert the 30-60-90 right triangle into the unit circle so that a 60&deg; degree angle is the central angle (see third graph below) and the coordinates of the terminal point again correspond to the adjacent and opposite sides of the right triangle, then the coordinates of the terminal point for a central angle of 60&deg; are \(\left(\frac{1}{2},\frac{\sqrt{3}}{2}\right)\).</p>
+
+        <div class="tbl">
+            <div class="tbl-body">
+                <div class="tbl-row">
+                    <div class="tbl-col" style="border: 0;">
+                        <img src="45deg-term-pt.png" alt="The part of the unit circle contained within the 1st quadrant. A 45-45-90 triangle is located inside the circle with its hypotenuse extending from the origin to the point (√2/2, √2/2). A vertical leg extends upward from the x-axis to this point, forming a 45 degree angle with the hypotenuse. A horizontal leg extends from the point where the vertical side intersects the x-axis to the origin, where it forms a 45 degree angle with the hypotenuse.">
+                    </div>
+                    <div class="tbl-col" style="border: 0;">
+                        <img src="30deg-term-pt.png" alt="The part of the unit circle contained within the 1st quadrant. A 30-60-90 triangle is located inside the circle with its hypotenuse extending from the origin to the point (√3/2, 1/2). A vertical leg extends upward from the x-axis to this point, forming a 60 degree angle with the hypotenuse. A horizontal leg extends from the point where the vertical side intersects the x-axis to the origin, where it forms a 30 degree angle with the hypotenuse.">
+                    </div>
+                    <div class="tbl-col" style="border: 0;">
+                        <img src="60deg-term-pt.png" alt="The part of the unit circle contained within the 1st quadrant. A 30-60-90 triangle is located inside the circle with its hypotenuse extending from the origin to the point (1/2, √3/2). A vertical leg extends upward from the x-axis to this point, forming a 30 degree angle with the hypotenuse. A horizontal leg extends from the point where the vertical side intersects the x-axis to the origin, where it forms a 60 degree angle with the hypotenuse.">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p>If we zoom into the first quadrant of the unit circle, as illustrated below, then we can see 5 terminal points that correspond to the central angles \(\theta\) = 0&deg;, 30&deg;, 45&deg;, 60&deg;, and 90&deg; which correspond to the terminal numbers \(t = 0\), \(\frac{\pi}{6}\), \(\frac{\pi}{4}\), \(\frac{\pi}{3}\), and \(\frac{\pi}{2}\), respectively.</p>
+
+        <img src="angles-1st-quad.png" alt="The part of the unit circle contained within the 1st quadrant. There are five radials from the origin to the circle that represent different angles. The first radial is the positive x-axis which represents a 0 degree or 0 radian angle and it intersects the circle at the point (1, 0). The second radial forms a 30 degree or pi/6 radian angle with the positive x-axis and it intersects the circle at the point (√3/2, 1/2). The third radial forms a 45 degree or pi/4 radian angle with the positive x-axis and it intersects the circle at the point (√2/2, √2/2). The fourth radial forms a 60 degree or pi/3 radian angle with the positive x-axis and it intersects the circle at the point (1/2, √3/2). The last radial is the positive y-axis which forms a 90 degree or pi/2 radian angle with the positive x-axis and it intersects the circle at the point (0, 1)." width="267" height="250">
+
+        <div class="example">
+            <p><strong>Example:</strong> For now, let's just verify that \(\left(\frac{\sqrt{3}}{2}, \frac{1}{2}\right)\) is on the unit circle.</p>
+            <input type="checkbox" id="verify-pi-6">
+            <label for="verify-pi-6" class="example-button">Solution</label>
+            <div class="solution-content">
+                <p>Any point on the unit circle must satisfy the Pythagorean Equation \(x^2 + y^2 = r^2\), which is also the equation for a circle of radius r centered at the origin.</p>
+
+                \[\begin{align*} x^2 + y^2 &= r^2 \\ \left(\frac{\sqrt{3}}{2}\right)^2 + \left(\frac{1}{2}\right)^2 &= 1^2 \\ \frac{3}{4} + \frac{1}{4} &= 1 \\ 1 &= 1 \end{align*}\]
+
+                <p>The statement \(1 = 1\) is always a true statement, so we can conclude that the point \(\left(\frac{\sqrt{3}}{2}, \frac{1}{2}\right)\) is on the unit circle.</p>
+            </div>
+        </div>
+
+        
+        <!-- <div class="widget-header">Counting Around the Unit Circle</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                Show how to partition the unit circle by pi/2, pi/3, pi/4, and pi/6 angles and count around the circle.
+            </div>
+        </div>
+        <div class="widget-footer">[]</div> -->
+
+        <h3 id="ref-numb">Reference Number</h3>
+
+        <p>Remember that our goal here is to expand our ability from evaluating the 6 trig functions at only <em>acute</em> angles to evaluating them at <em>any</em> angle. So, how can we relate this idea of a terminal number to values corresponding to acute angles? In other words, we need a way to connect any terminal number \(t\) to a value that is between \(0\) and \(\frac{\pi}{2}\), or a central angle between 0&deg; and 90&deg;.</p>
+
+        <div class="def-eqn">
+            <p>For each terminal point \(P\) with terminal number \(t\), there is a <strong>reference number</strong> \(\bar{t}\), pronounced "t-bar," that is the shortest distance from \(P\) to the \(x\)-axis such that \(0 \leq \bar{t} \leq \frac{\pi}{2}\). Similarly, for each central angle \(\theta\), there is a <strong>reference angle</strong> \(\bar{\theta}\) that is acute and measures from the terminal side of \(\theta\) to the nearest \(x\)-axis.</p>
+        </div>
+
+        <p>The following graphs illustrate the reference number \(\bar{t}\) for terminal numbers \(t\) in each quadrant. Note that \(\bar{t}\) always extends from \(P\) to then nearest \(x\)-axis and that it works for both counterclockwise and clockwise rotation.</p>
+
+        <div class="tbl">
+            <div class="tbl-body">
+                <div class="tbl-row">
+                    <div class="tbl-col" style="border: 0;">
+                        <img src="t-ref-q1.png" alt="A circle centered at the origin with point P(x,y) on the circle located in the first quadrant at a arc length of t from the +x axis. The reference number t-bar is the same arc as t.">
+                    </div>
+                    <div class="tbl-col" style="border: 0;">
+                        <img src="t-ref-q2.png" alt="A circle centered at the origin with point P(x,y) on the circle located in the second quadrant at a arc length of t from the +x axis measured in a counterclockwise direction. The reference number t-bar represents the distance from P to the -x axis..">
+                    </div>
+                    <div class="tbl-col" style="border: 0;">
+                        <img src="t-ref-q3.png" alt="A circle centered at the origin with point P(x,y) on the circle located in the third quadrant at a arc length of t from the +x axis measured in a clockwise direction. The reference number t-bar represents the distance from P to the -x axis..">
+                    </div>
+                    <div class="tbl-col" style="border: 0;">
+                        <img src="t-ref-q4.png" alt="A circle centered at the origin with point P(x,y) on the circle located in the fourth quadrant at a arc length of t from the +x axis measured in a counterclockwise direction. The reference number t-bar represents the distance from P to the +x axis..">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p>If we think in terms of angle measure, then there is an acute angle \(\bar{\theta}\) that corresponds to each central angle \(\theta\). If the central angle is already acute (see example A below), then \(\theta\) is already in the first quadrant and \(\bar{\theta} = \theta\). For any central angle whose terminal side is located in one of the other quadrants (see examples B, C, and D), then there is a right triangle that can be formed by the terminal side as the hypotenuse and the \(x\)-axis as the side adjacent to the acute reference angle \(\bar{\theta}\).</p>
+
+
+
+        <div class="tbl">
+            <div class="tbl-body">
+                <div class="tbl-row">
+                    <div class="tbl-col" style="border: 0;">
+                        <img src="angle-a.png" alt="Angle A in standard position has a terminal side located in the 1st quadrant and an acute angle of rotation theta.">
+                    </div>
+                    <div class="tbl-col" style="border: 0;">
+                        <img src="angle-b.png" alt="Angle B in standard position has a terminal side located in the 2nd quadrant. There is a corresponding acute angle theta-bar that extends from the terminal side of B to the negative x-axis.">
+                    </div>
+                    <div class="tbl-col" style="border: 0;">
+                        <img src="angle-c.png" alt="Angle C in standard position has a terminal side located in the 3rd quadrant. There is a corresponding acute angle theta-bar that extends from the terminal side of C to the negative x-axis.">
+                    </div>
+                    <div class="tbl-col" style="border: 0;">
+                        <img src="angle-d.png" alt="Angle D in standard position has a terminal side located in the 4th quadrant. There is a corresponding acute angle theta-bar that extends from the terminal side of D to the positive x-axis.">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="widget-header">Terminal Numbers and Reference Numbers</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                Work through examples drawing points on the unit circle for given t-values and determie the reference number.
+            </div>
+        </div>
+        <div class="widget-footer">[]</div>
+        
+        <div class="example">
+            <p><strong>Example:</strong> The completed unit circle is provided below. What symmetries or relationships do you see in the terminal numbers (or central angles) and the coordinates of the corresponding terminal points?</p>
+
+            <img src="full-unit-circle.png" alt="A graph of the unit circle with key angles (terminal numbers) and their corresponding coordinates." width="437" height="388">
+            <input type="checkbox" id="unit-circ-symmetry">
+            <label for="unit-circ-symmetry" class="example-button">Solution</label>
+            <div class="solution-content">
+                <p>There are a number of relationships that we can observe about the terminal numbers or reference angles in the unit circle and their corresponding terminal point coordinates. Here are just a few.</p>
+                <ul>
+                    <li>The coordinates for 0 and \(\pi\) have the same values, but they are just opposite in sign. Similarly, the coordinates for \(\frac{\pi}{2}\) and \(\frac{3\pi}{2}\) have the same values but opposite signs.</li>
+                    <li>Within each quadrant, there are three special angles or terminal numbers. The \(\frac{\pi}{4}\) values are always in the middle, the \(\frac{\pi}{6}\) values are closest to the \(x\)-axis and the \(\frac{\pi}{3}\) values are closest to the \(y\)-axis.</li>
+                    <li>The coordinates in quadrants II, III, and IV match the coordinates in quadrant I, which are \(\left(\frac{\sqrt{3}}{2},\frac{1}{2}\right)\), \(\left(\frac{\sqrt{2}}{2},\frac{\sqrt{2}}{2}\right)\), and \(\left(\frac{1}{2},\frac{\sqrt{3}}{2}\right)\) as we move away from the \(x\)-axis. The only difference is the signs, which match the signs of \(x\) and \(y\) in their respective quadrant.</li>
+                </ul>
+            </div>
+        </div>
+
+        <p>The power behind thinking in terms of reference numbers or reference angles is that it provides a simple way to map the entire unit circle to just the first quadrant. So, instead of memorizing the entire circle, <em>we just need to remember 3 points in the first quadrant</em> along with the 4 intercepts. The symmetries will also be helpful with central angles or terminal numbers that are not so nice as well as future tasks like graph functions or solving equations.</p>
+        <!-- End of the main content -->
+    </div>
+
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div id="lesson-footer">
+        <div class="l-col">
+            <p>©2024 <a href="https://www.youtube.com/channel/UCszzyEwfkBHBPk6xkNrGpAA" target="_blank">M4thG33x (new
+                    window)</a> Some Rights Reserved.</p>
+            <a rel="license " href="http://creativecommons.org/licenses/by-sa/4.0/ "><img alt="Creative Commons License " src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png "></a>
+        </div>
+        <div class="r-col">
+            <a href="# " onclick="pgPrint(); return false; "><i class="fa fa-print "></i> Printer Friendly</a>
+        </div>
+    </div>
+</body>
+
+</html>

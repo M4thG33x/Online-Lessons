@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="../script.js"></script>
+    <!--Assessment script-->
+    <script src="../quizlets.js"></script>
+    <title>Linear &amp; Angular Speed</title>
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div id="lesson-header">
+        <div class="l-col">
+            <img src="../logo_custom.png" alt="null">
+        </div>
+        <div class="r-col">
+            <h1>Angle Measure</h1>
+            <p>Trigonometric Functions</p>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <a href="index.html">Overview</a>
+        <a href="angles.html">Angles</a>
+        <a href="degrad.html">Degrees &amp; Radians</a>
+        <a href="coterminal.html">Coterminal Angles</a>
+        <a href="arcsector.html">Arc Length &amp; Sector Area</a>
+        <span class="active">Linear &amp; Angular Speed</span>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="lesson-body">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="lessonpagetoc">
+            <button class="dropbtn">On this Page</button>
+            <!-- <p> On this Page </p> -->
+            <div class="dropdown-content">
+                <ul>
+                    <li><a href="#top">Linear &amp; Angular Speed</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+        <!-- The main content starts here-->
+        <h2 id="top">Linear &amp; Angular Speed</h2>
+
+        <p>When an object travels around a circular path, there are two speeds that can be observed and measured.</p>
+
+        <img src="speed.png" alt="A circle with an arc of length s traced along the circle spanning an angle theta that represents the rotation from the initial side to the terminal side.">
+
+        <div class="def-eqn">
+            <p><strong>Linear speed</strong> is the rate at which an object travels along the arc of a circle and is measured in units of length per unit of time. Given a distance of \(s\) along a circular arc travelled over time \(t\), the linear speed is given by the following formula.</p>
+
+            \[v = \frac{s}{t}\]
+            
+            <p><strong>Angular speed</strong> is the rate at which an object rotates about its vertex and is measured in radians per unit of time. Given a rotation of \(\theta\) radians over time \(t\), the angular speed is given by the following formula, where \(\omega\) is the Greek letter "omega."</p>
+
+            \[\omega = \frac{\theta}{t}\]
+
+            <p>For a circle of radius \(r\), the linear and angular speeds are related by \(v = \omega r\).</p>
+        </div>
+
+        <div class="widget-header">Linear &amp; Angular Speed Examples</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="1280" height="720" src="https://www.youtube.com/embed/FH-4jJssMlQ" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/FH-4jJssMlQ]</div>
+
+        <!-- End of the main content -->
+    </div>
+
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div id="lesson-footer">
+        <div class="l-col">
+            <p>©2024 <a href="https://www.youtube.com/channel/UCszzyEwfkBHBPk6xkNrGpAA" target="_blank">M4thG33x (new
+                    window)</a> Some Rights Reserved.</p>
+            <a rel="license " href="http://creativecommons.org/licenses/by-sa/4.0/ "><img alt="Creative Commons License " src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png "></a>
+        </div>
+        <div class="r-col">
+            <a href="# " onclick="pgPrint(); return false; "><i class="fa fa-print "></i> Printer Friendly</a>
+        </div>
+    </div>
+</body>
+
+</html>

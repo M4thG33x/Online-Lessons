@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="../script.js"></script>
+    <!--Assessment script-->
+    <script src="../quizlets.js"></script>
+    <title>Other Trig Functions</title>
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div id="lesson-header">
+        <div class="l-col">
+            <img src="../logo_custom.png" alt="null">
+        </div>
+        <div class="r-col">
+            <h1>The Unit Circle</h1>
+            <p>Trigonometric Functions</p>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <a href="index.html">Overview</a>
+        <a href="unitcircle.html">Unit Circle</a>
+        <a href="sincos.html">Sine &amp; Cosine</a>
+        <a href="identities.html">Basic Identities</a>
+        <span class="active">Other Trig Functions</span>
+        <a href="area.html">Triangle Area</a>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="lesson-body">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="lessonpagetoc">
+            <button class="dropbtn">On this Page</button>
+            <!-- <p> On this Page </p> -->
+            <div class="dropdown-content">
+                <ul>
+                    <li><a href="#top">Other Trig Functions</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+        <!-- The main content starts here-->
+        <h2 id="top">Other Trig Functions</h2>
+
+        <p>We now want to combine what we just learned about using the unit circle to compute the values of \(\sin(\theta)\) and \(\cos(\theta)\) with the fundamental identities to compute the values of the other trigonometric functions. To do this, let's first revisit the illustration of a right triangle inside the unit circle. We saw earlier that we were able to define \(\sin(\theta)\) and \(\cos(\theta)\) in terms of the \(y\) and \(x\) coordinates, respectively. We can do the same thing with the other trig functions.</p>
+
+        <img src="RTT-xy.png" alt="A triangle inscribed within the 1st quadrant of the unit circle. Acute angle theta is at the origin, the hypotenuse has a length of 1, the vertical side has length of y and the adjacent side has length x.">
+
+        <div class="def-eqn">
+            <p>For a terminal point \((x,y)\) located on the unit circle that corresponds to an acute central angle \(\theta\), we have the following.</p>
+
+            <div class="tbl">
+                <div class="tbl-body">
+                    <div class="tbl-row">
+                        <div class="tbl-col" style="border: 0">
+                            \(\sin(\theta) = y\)
+                        </div>
+                        <div class="tbl-col" style="border: 0">
+                            \(\cos(\theta) = x\)
+                        </div>
+                        <div class="tbl-col" style="border: 0">
+                            \(\tan(\theta) = \frac{y}{x}\)
+                        </div>
+                    </div>
+                    <div class="tbl-row">
+                        <div class="tbl-col" style="border: 0">
+                            \(\csc(\theta) = \frac{1}{y}\)
+                        </div>
+                        <div class="tbl-col" style="border: 0">
+                            \(\sec(\theta) = \frac{1}{x}\)
+                        </div>
+                        <div class="tbl-col" style="border: 0">
+                            \(\cot(\theta) = \frac{x}{y}\)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p>Note that while sine and cosine are defined for every possible angle or terminal number, \(\tan(\theta)\) and \(\sec(\theta)\) will be undefined where \(x=0\) while \(\cot(\theta)\) and \(\csc(\theta)\) will be undefined where \(y=0\).</p>
+        </div>
+
+        <p>Here is a general process that we can follow to compute the value of any of the trigonometric functions at any of the "nice" angles or values. More specifically, to compute the trig values for angles related to \(\theta\) = 0&deg;, 30&deg;, 45&deg;, 60&deg;, and 90&deg;, or to \(t = 0\), \(\frac{\pi}{6}\), \(\frac{\pi}{4}\), \(\frac{\pi}{3}\), and \(\frac{\pi}{2}\)).</p>
+
+        <ol>
+            <li>Locate where the terminal side of the given angle is located on the unit circle. It may be helpful to sketch a quick graph. If the given angle is negative, you may want to apply an even-odd identity to rewrite the expression with a positive angle.</li>
+            <li>If the angle is greater than a full revolution, then determine the coterminal angle on the interval \([0, 2\pi)\), or between 0&deg; and 360&deg;.</li>
+            <li>If the angle is a quadrantal angle (coterminal to the \(x\) or \(y\) axis), then the terminal point is \((1,0)\), \((0,1)\), \((-1,0)\), or \((0,-1)\). However, if the terminal side is located within a quadrant (so it is not quadrantal), then determine its reference angle or reference number. The three "nice" coordinates in the 1st quadrant are \(\left(\frac{\sqrt{3}}{2}, \frac{1}{2}\right)\), \(\left(\frac{\sqrt{2}}{2}, \frac{\sqrt{2}}{2}\right)\), and \(\left(\frac{1}{2}, \frac{\sqrt{3}}{2}\right)\).</li>
+            <li>If the given trig function is not sine or cosine, then use the appropriate reciprocal identity to rewrite it in terms of \(\sin(\theta)\) and/or \(\cos(\theta)\). Pick the \(x\) and/or \(y\) coordinate(s) that correspond to the quadrantal or reference angle and subsitute the value(s) into your expression. Remember \(x = \cos(\theta)\) and \(y = \sin(\theta)\).</li>
+            <li>Apply the sign based on the quadrant containing the terminal side. Simplify to get your answer.</li>
+        </ol>
+
+        <p>This may sound like a lot, but don't let it intimidate you. You will get the hang of it. Let's work through some examples.</p>
+
+        <div class="example">
+            <p><strong>Example:</strong> Compute the exact values for (a) \(\csc(30^{\circ})\), (b) \(\sec\left(-\frac{\pi}{4}\right)\), and (c) \(\cot\left(\frac{10\pi}{3}\right)\).</p>
+            <input type="checkbox" id="trig-val">
+            <label for="trig-val" class="example-button">Solution</label>
+            <div class="solution-content">
+
+                <p>a) Compute the exact value of \(\csc(30^{\circ})\).</p>
+
+                <div style="margin: 0 0 50px 17px">
+                    <p>A 30&deg; angle is already an acute angle in the 1st quadrant, and its corresponding terminal point is \(\left(\frac{\sqrt{3}}{2}, \frac{1}{2}\right)\).</p>
+
+                    <img src="csc-30-ex.png" alt="The unit circle with a 30 degree angle at terminal point (sqrt(3)/2, 1/2).">
+
+                    <p>Next, we want to use a reciprocal identity to rewrite \(\csc(\theta)\) in terms of \(\sin(\theta)\). More specifically, we have \(\csc(\theta) = \frac{1}{\sin(\theta)}\). Since \(\sin(\theta)\) is the \(y\)-coordinate, we have \(\sin(30^{\circ}) = \frac{1}{2}\). Lastly, we know \(\sin(\theta) > 0\) in the 1st quadrant. So let's put this all together.</p>
+
+                    \[\begin{align*} \csc(30^{\circ}) &= \frac{1}{\sin(30^{\circ})} \\ &= \frac{1}{\frac{1}{2}} \\ &= 1 \cdot \frac{2}{1} \\ &= 2 \end{align*}\]
+
+                    <p>So, we get \(\csc(30^{\circ}) = 2\).</p>
+                </div>
+
+                <p>b) Compute the exact value of \(\sec\left(-\frac{\pi}{4}\right)\).</p>
+
+                <div style="margin: 0 0 50px 17px">
+                    <p>A angle of \(-\frac{\pi}{4}\) is a clockwise rotation into the 4th quadrant. It has a \(\frac{\pi}{4}\) reference angle with corresponding terminal point \(\left(\frac{\sqrt{2}}{2}, \frac{\sqrt{2}}{2}\right)\).</p>
+
+                    <img src="sec-neg-pi-4-ex.png" alt="The unit circle with a negative pi/4 angle, and a positive pi/4 angle with terminal point (sqrt(2)/2, sqrt(2)/2).">
+
+                    <p>Since \(\sec(\theta)\) is the reciprocal of \(\cos(\theta)\), we can use the reciprocal identity \(\sec(\theta) = \frac{1}{\cos(\theta)}\) and the even-odd identity \(\cos(-\theta) = \cos(\theta)\). Since \(\cos(\theta)\) is the \(x\)-coordinate, we have \(\cos\left(\frac{\pi}{4}\right) = \frac{\sqrt{2}}{2}\). We also know that \(\cos(\theta) > 0\) in the 4th quadrant.</p>
+
+                    \[\begin{align*} \sec\left(-\frac{\pi}{4}\right) &= \frac{1}{\cos\left(-\frac{\pi}{4}\right)} \\ &= \frac{1}{\cos\left(\frac{\pi}{4}\right)} \\ &= \frac{1}{\frac{\sqrt{2}}{2}} \\ &= 1 \cdot \frac{2}{\sqrt{2}} \\ &= \frac{2}{\sqrt{2}} \left(\frac{\sqrt{2}}{\sqrt{2}}\right) \\ &= \frac{2\sqrt{2}}{2} \\ &= \sqrt{2} \end{align*}\]
+
+                    <p>So, we get \(\sec\left(-\frac{\pi}{4}\right) = \sqrt{2}\).</p>
+                </div>
+
+                <p>c) Compute the exact value of \(\cot\left(\frac{10\pi}{3}\right)\).</p>
+
+                <div style="margin: 0 0 0 17px">
+                    <p>A full revolution is \(\frac{6\pi}{3}\) because \(\frac{6\pi}{3} = 2\pi\). This means that \(\frac{10\pi}{3}\) is coterminal to \(\frac{4\pi}{3}\), which is located in the 3rd quadrant. It has a reference angle of \(\frac{\pi}{3}\) which has a terminal point of \(\left(\frac{1}{2}, \frac{\sqrt{3}}{2}\right)\).</p>
+
+                    <img src="10pi-3-ex.png" alt="The unit circle with a 10pi/3 angle which is coterminal to 4pi/3, which has a pi/3 reference angle with terminal point (1/2, sqrt(3)/2).">
+
+                    <p>We can use the reciprocal identity \(\cot(\theta) = \frac{\cos(\theta)}{\sin(\theta)}\) to rewrite \(\cot(\theta)\) in terms of \(\cos(\theta)\) and \(\sin(\theta)\). We will need to use both the \(x\) and \(y\) coordinates of the terminal point since we are using both \(\cos(\theta)\) and \(\sin(\theta)\). We also know that \(\cot(\theta) > 0\) in the 3rd quadrant even though both \(\cos(\theta)\) and \(\sin(\theta)\) are negative.</p>
+
+                    \[\begin{align*} \cot\left(\frac{10\pi}{3}\right) &= \frac{\cos\left(\frac{10\pi}{3}\right)}{\sin\left(\frac{10\pi}{3}\right)} \\ &= \frac{-\cos\left(\frac{\pi}{3}\right)}{-\sin\left(\frac{\pi}{3}\right)} \\ &= \frac{-\frac{1}{2}}{-\frac{\sqrt{3}}{2}} \\ &= -\frac{1}{\cancel{2}} \cdot -\frac{\cancel{2}}{\sqrt{3}} \\ &= \frac{1}{\sqrt{3}} \end{align*}\]
+
+                    <p>So, we get \(\cot\left(\frac{10\pi}{3}\right) = \frac{1}{\sqrt{3}}\).</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="widget-header">Evaluating Trig Functions #1</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                Evaluate sec(5pi/6), csc(-7pi/4), and tan(5pi/3).
+            </div>
+        </div>
+        <div class="widget-footer">[]</div>
+
+        <div class="widget-header">Evaluating Trig Functions #2</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                Evaluate cot(135), sec(5pi/4), and csc(3pi).
+            </div>
+        </div>
+        <div class="widget-footer">[]</div>
+
+        <div class="assess">
+            <p><strong>Self-Check #3</strong>: What is the exact value of \(\sec\left(\frac{7\pi}{2}\right)\)? (<i>Select the most appropriate response.</i>)</p>
+            <label class="radiocntrh">(A) \(-1\)
+                <input type="radio" id="opt3-1" name="mcChoice3" value="A">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(B) \(0\)
+                <input type="radio" id="opt3-2" name="mcChoice3" value="B">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(C) \(1\)
+                <input type="radio" id="opt3-3" name="mcChoice3" value="C">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(D) Undefined
+                <input type="radio" id="opt3-4" name="mcChoice3" value="D">
+                <span class="radiobtn"></span>
+            </label><br>
+            <button onclick="checkMCSub('mcChoice3','D','correct3','wrong3','makechoice3')" id="submit3">Check</button>
+            <div class="response" id="makechoice3"><i>You must select an answer above</i>.</div>
+            <div class="response" id="correct3"><i class="fa fa-check" style="color: green"></i></div>
+            <div class="response" id="wrong3"><i class="fa fa-times" style="color: red"></i>
+                <p>(Answer: D) -- The angle \(\frac{7\pi}{2}\) is coterminal to \(\frac{3\pi}{2}\), which is a quadrantal angle on the -\(y\) axis. The terminal point on the -\(y\) axis is \((0,-1)\). The reciprocal of \(\sec(\theta)\) is \(\cos(\theta)\), which means \(\sec(\theta) = \frac{1}{\cos(\theta)}\). Also, \(\cos(\theta)\) means we want the \(x\)-coordinate. So, we get \(\sec\left(\frac{7\pi}{2}\right) = \sec\left(\frac{3\pi}{2}\right) = \frac{1}{\cos\left(\frac{3\pi}{2}\right)} = \frac{1}{0}\), which is undefined.</p>
+            </div>
+        </div>
+
+        <div class="assess">
+            <p><strong>Self-Check #4</strong>: What is the exact value of \(\cot\left(-\frac{5\pi}{3}\right)\)?(<i>Select the most appropriate response.</i>)</p>
+            <label class="radiocntrh">(A) \(-1\)
+                <input type="radio" id="opt4-1" name="mcChoice4" value="A">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(B) \(\sqrt{3}\)
+                <input type="radio" id="opt4-2" name="mcChoice4" value="B">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(C) \(\frac{1}{\sqrt{3}}\)
+                <input type="radio" id="opt4-3" name="mcChoice4" value="C">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(D) Undefined
+                <input type="radio" id="opt4-4" name="mcChoice4" value="D">
+                <span class="radiobtn"></span>
+            </label><br>
+            <button onclick="checkMCSub('mcChoice4','C','correct4','wrong4','makechoice4')" id="submit4">Check</button>
+            <div class="response" id="makechoice4"><i>You must select an answer above</i>.</div>
+            <div class="response" id="correct4"><i class="fa fa-check" style="color: green"></i></div>
+            <div class="response" id="wrong4"><i class="fa fa-times" style="color: red"></i>
+                <p>(Answer: C) -- Since \(\cot(\theta)\) and \(\tan(\theta)\) are reciprocals, they will follow the same even-odd identity and they will have the same quadrant signs. This tells us two things. First, we get that \(\cot\left(-\frac{5\pi}{3}\right) = -\cot\left(\frac{5\pi}{3}\right)\). Second, because the angle \(\frac{5\pi}{3}\) is located in the 4th quadrant and has a reference angle of \(\frac{\pi}{3}\), we know that \(\cot(\theta)\) in the 4th quadrant will be negative (this makes a double negative). So far, we have \(\cot\left(-\frac{5\pi}{3}\right) = -\cot\left(\frac{5\pi}{3}\right) = -\left(-\cot\left(\frac{\pi}{3}\right)\right) = \cot\left(\frac{\pi}{3}\right)\). This should make sense because \(\frac{5\pi}{3}\) and \(\frac{\pi}{3}\) are actually coterminal, and thus they correspond to the same terminal point \(\left(\frac{1}{2}, \frac{\sqrt{3}}{2}\right)\). To finish this, we need to use a reciprocal identity to rewrite \(\cot(\theta)\) in terms of \(\sin(\theta)\) and \(\cos(\theta)\), evaluate \(\sin(\theta)\) and \(\cos(\theta)\) at \(\frac{\pi}{3}\), and then simplify. Doing so results in \(\cot\left(-\frac{5\pi}{3}\right) = \cot\left(\frac{\pi}{3}\right) = \frac{\cos\left(\frac{\pi}{3}\right)}{\sin\left(\frac{\pi}{3}\right)} = \frac{\frac{1}{2}}{\frac{\sqrt{3}}{2}} = \frac{1}{2} \cdot \frac{2}{\sqrt{3}} = \frac{1}{\sqrt{3}}\).</p>
+            </div>
+        </div>
+
+        <!-- End of the main content -->
+    </div>
+
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div id="lesson-footer">
+        <div class="l-col">
+            <p>©2024 <a href="https://www.youtube.com/channel/UCszzyEwfkBHBPk6xkNrGpAA" target="_blank">M4thG33x (new
+                    window)</a> Some Rights Reserved.</p>
+            <a rel="license " href="http://creativecommons.org/licenses/by-sa/4.0/ "><img alt="Creative Commons License " src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png "></a>
+        </div>
+        <div class="r-col">
+            <a href="# " onclick="pgPrint(); return false; "><i class="fa fa-print "></i> Printer Friendly</a>
+        </div>
+    </div>
+</body>
+
+</html>

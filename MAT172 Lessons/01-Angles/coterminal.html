@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="../script.js"></script>
+    <!--Assessment script-->
+    <script src="../quizlets.js"></script>
+    <title>Coterminal Angles</title>
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div id="lesson-header">
+        <div class="l-col">
+            <img src="../logo_custom.png" alt="null">
+        </div>
+        <div class="r-col">
+            <h1>Angle Measure</h1>
+            <p>Trigonometric Functions</p>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <a href="index.html">Overview</a>
+        <a href="angles.html">Angles</a>
+        <a href="degrad.html">Degrees &amp; Radians</a>
+        <span class="active">Coterminal Angles</span>
+        <a href="arcsector.html">Arc Length &amp; Sector Area</a>
+        <a href="speed.html">Linear &amp; Angular Speed</a>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="lesson-body">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="lessonpagetoc">
+            <button class="dropbtn">On this Page</button>
+            <!-- <p> On this Page </p> -->
+            <div class="dropdown-content">
+                <ul>
+                    <li><a href="#top">Coterminal Angles</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+        <!-- The main content starts here-->
+        <h2 id="top">Coterminal Angles</h2>
+
+        <p>Since angles can be defined as unlimited rotation, the terminal side of an angle will repeat its path as it completes full revoluions about its vertex. When that happens, these two angles are said to be coterminal.</p>
+
+        <div class="def-eqn">
+            <p>Two angles in standard position are <strong>coterminal</strong> if their terminal sides are at the same position, regardless of the amount or direction of rotation. In addition, any angle whose terminal side is located on the \(x\) or \(y\) axis is called a <strong>quadrantal</strong> angle.</p>
+        </div>
+
+        <p>The three graphs below are all coterminal to each other. Each angle is given in both radians and degrees so that you can see how they are related to each other using both units.</p>
+
+        <div class="tbl">
+            <div class="tbl-body">
+                <div class="tbl-row">
+                    <div class="tbl-col" style="border: 0;">
+                        <img src="3pi-4.png" alt="The angle 3pi/4, or 135 degrees, has initial side along the positive x-axis and rotates counterclockwise to a terminal side in the middle of the 2nd quadrant between the positive y-axis and negative x-axis.">
+                    </div>
+                    <div class="tbl-col" style="border: 0;">
+                        <img src="neg-5pi-4.png" alt="The angle -5pi/4, or -225 degrees, has initial side along the positive x-axis and rotates clockwise to a terminal side in the middle of the 2nd quadrant between the positive y-axis and negative x-axis.">
+                    </div>
+                    <div class="tbl-col" style="border: 0;">
+                        <img src="11pi-4.png" alt="The angle 11pi/4, or 495 degrees, has initial side along the positive x-axis and rotates counterclockwise more than one complete revolution so that its terminal side is in the middle of the 2nd quadrant between the positive y-axis and negative x-axis.">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="example">
+            <p>How can we show that 135&deg;, -225&deg;, and 495&deg; are all coterminal with each other? Or similarly, how can we show that \(\frac{3\pi}{4}\), \(-\frac{5\pi}{4}\), and \(\frac{11\pi}{4}\) are all coterminal with each other? We already know that they all have the same terminal side, so how can we verify this algebraically?</p>
+            <input type="checkbox" id="example1">
+            <label for="example1" class="example-button">Solution</label>
+            <div class="solution-content">
+                <p>Let's start by showing that the angles in degrees are each 360&deg; apart from each other. There are several ways to do this, but for now let's just subtract each pair of angles, subtracting the larger value minus the smaller value.</p>
+
+                \[\begin{align*} 135^{\circ} - \left(-225^{\circ}\right) &= \color{red}360^{\circ}\color{black} \\ 495^{\circ} - 135^{\circ} &= \color{red}360^{\circ}\color{black} \\ 495^{\circ} - \left(-225^{\circ}\right) &= 720^{\circ} = 2 \cdot \color{red}360^{\circ}\color{black} \end{align*}\]
+
+                <p>Notice that the difference between each pairing of angles is 360&deg; or a multiple of 360&deg;. This means they are coterminal to each other, which should make sense because they all share the same location for their terminal side. Let's repeat this process for the angles given in radians.</p>
+
+                \[\begin{align*} \frac{3\pi}{4} - \left(-\frac{5\pi}{4}\right) = \frac{3\pi+5\pi}{4} = \frac{8\pi}{4} &= \color{red}2\pi\color{black} \\ \frac{11\pi}{4} - \frac{3\pi}{4} = \frac{11\pi-3\pi}{4} = \frac{8\pi}{4} &= \color{red}2\pi\color{black} \\ \frac{11\pi}{4} - \left(-\frac{5\pi}{4}\right) = \frac{11\pi+5\pi}{4} = \frac{16\pi}{4} &= 4\pi = 2 \cdot \color{red}2\pi\color{black} \end{align*}\]
+
+                <p>Again, we see that the difference between each pair of angles is \(2\pi\) or a multiple of \(2\pi\). These results confirm that the given angle measures, whether given in degrees or radians, are coterminal.</p>
+            </div>
+        </div>
+
+        <p>The following video gives a few examples of how we can find a coterminal angle on a specific interval for any given angle.</p>
+
+        <div class="widget-header">Finding Coterminal Angles</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="1280" height="720" src="https://www.youtube.com/embed/EEUpo9r6x_0" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[]</div>
+
+        <div class="assess">
+            <p><strong>Self-Check #3</strong>: Find an angle on the interval \([0, 2\pi)\) that is coterminal to \(\frac{36\pi}{7}\). (<i>Select the most appropriate response.</i>)</p>
+            <label class="radiocntrh">(A) \(\frac{\pi}{7}\)
+                <input type="radio" id="opt3-1" name="mcChoice3" value="A">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(B) \(\frac{8\pi}{7}\)
+                <input type="radio" id="opt3-2" name="mcChoice3" value="B">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(C) \(\frac{13\pi}{7}\)
+                <input type="radio" id="opt3-3" name="mcChoice3" value="C">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(D) \(\frac{22\pi}{7}\)
+                <input type="radio" id="opt3-4" name="mcChoice3" value="D">
+                <span class="radiobtn"></span>
+            </label><br>
+            <button onclick="checkMCSub('mcChoice3','B','correct3','wrong3','makechoice3')" id="submit3">Check</button>
+            <div class="response" id="makechoice3"><i>You must select an answer above</i>.</div>
+            <div class="response" id="correct3"><i class="fa fa-check" style="color: green"></i></div>
+            <div class="response" id="wrong3"><i class="fa fa-times" style="color: red"></i>
+                <p>(Answer: B) -- First, rewrite \(2\pi\) with a common denominator of 7, which is \(2\pi = \frac{2\pi \cdot 7}{1 \cdot 7} = \frac{14\pi}{7}\). Since the given angle \(\frac{36\pi}{7}\) is greater that \(\frac{14\pi}{7}\), we need to subtract \(2\pi\), and we will repeatedly do so until we get a value that is less than \(\frac{14\pi}{7}\), or \(2\pi\).</p>
+
+                \[\frac{36\pi}{7} - 2\pi = \frac{36\pi}{7} - \frac{14\pi}{7} = \frac{36\pi-14\pi}{7} = \frac{22\pi}{7}\]
+
+                <p>But this is not less than \(\frac{14\pi}{7}\), so we need to subtract \(2\pi\) again.</p>
+
+                \[\frac{22\pi}{7} - 2\pi = \frac{22\pi}{7} - \frac{14\pi}{7} = \frac{22\pi-14\pi}{7} = \frac{8\pi}{7}\]
+
+                <p>Since this value is less than \(\frac{14\pi}{7}\), we now know that the angle on \([0, 2\pi)\) that is coterminal to \(\frac{36\pi}{7}\) is \(\frac{8\pi}{7}\).</p>
+            </div>
+        </div>
+
+        <!-- End of the main content -->
+    </div>
+
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div id="lesson-footer">
+        <div class="l-col">
+            <p>©2024 <a href="https://www.youtube.com/channel/UCszzyEwfkBHBPk6xkNrGpAA" target="_blank">M4thG33x (new
+                    window)</a> Some Rights Reserved.</p>
+            <a rel="license " href="http://creativecommons.org/licenses/by-sa/4.0/ "><img alt="Creative Commons License " src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png "></a>
+        </div>
+        <div class="r-col">
+            <a href="# " onclick="pgPrint(); return false; "><i class="fa fa-print "></i> Printer Friendly</a>
+        </div>
+    </div>
+</body>
+
+</html>

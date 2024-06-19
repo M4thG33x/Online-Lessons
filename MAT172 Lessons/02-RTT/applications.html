@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="../script.js"></script>
+    <!--Assessment script-->
+    <script src="../quizlets.js"></script>
+    <title>Applications</title>
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div id="lesson-header">
+        <div class="l-col">
+            <img src="../logo_custom.png" alt="null">
+        </div>
+        <div class="r-col">
+            <h1>Right Triangle Trigonometry</h1>
+            <p>Trigonometric Functions</p>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <a href="index.html">Overview</a>
+        <a href="trigfunc.html">Trig Functions</a>
+        <a href="specialtri.html">Special Triangles</a>
+        <span class="active">Applications</span>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="lesson-body">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="lessonpagetoc">
+            <button class="dropbtn">On this Page</button>
+            <!-- <p> On this Page </p> -->
+            <div class="dropdown-content">
+                <ul>
+                    <li><a href="#top">Applications</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+        <!-- The main content starts here-->
+        <h2 id="top">Applications</h2>
+
+        <p>Let's now try to apply what we have learned so far to solve some applications involved right triangles. Before we do so, there are a couple terms that we need to introduce.</p>
+
+        <div class="def-eqn">
+            <p>The <strong>angle of elevation</strong> is the amount of rotation <em>from the horziontal</em> needed to look <em>upward</em> towards a specified point or object.</p>
+
+            <p>The <strong>angle of depression</strong> is the amount of rotation <em>from the horziontal</em> needed to look <em>downward</em> towards a specified point or object.</p>
+        </div>
+
+        <div class="tbl">
+            <div class="tbl-hdr-row">
+                <div class="tbl-hdr-col">
+                    Angle of Elevation
+                </div>
+                <div class="tbl-hdr-col">
+                    Angle of Depression
+                </div>
+            </div>
+            <div class="tbl-body">
+                <div class="tbl-row">
+                    <div class="tbl-col">
+                        <img src="angle-elevation.png" alt="An acute angle showing upward rotation from a horizontal initial side to a terminal side line-of-sight.">
+                    </div>
+                    <div class="tbl-col">
+                        <img src="angle-depression.png" alt="An acute angle showing downward rotation from a horizontal initial side to a terminal side line-of-sight.">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <p>Note that when solving problems involving angles of elevation or depression, we will usually be working with acute angles within right triangles so we can ignore the sign of the angles based on the direction of rotation. This is because the non-right angles within a right triangle are always acute, or between 0&deg; and 90&deg;.</p>
+
+        <div class="example">
+            <p><strong>Example:</strong> An inclined ramp for a movie stunt has a height of 25 feet and a 30&deg; angle of elevation. <i>Give exact values.</i></p>
+
+            <ol style="margin-bottom: 10px;">
+                <li>What is the length of the ramp surface?</li>
+                <li>What is the horizontal length of the ramp?</li>
+                <li>What is the slope of the ramp?</li>
+            </ol>
+            <input type="checkbox" id="angleelevation">
+            <label for="angleelevation" class="example-button">Solution</label>
+            <div class="solution-content">
+                <p>Let's start by drawing a graph to illustrate the problem and its given values. The ramp will be a right triangle with vertical height of 25 feet and a horizontal side of length \(b\) for the ground. The hypotenuse of length \(c\) forms a 30&deg; angle with the horizontal side \(b\).</p>
+
+                <img src="stunt-ramp.png" alt="A right triangle with vertical side of 25 feet and horizontal side b. The hypotenuse c makes a 30 degree angle with the b.">
+
+                <p>1. What is the length of the ramp surface?</p>
+                <div style="margin: 0 0 50px 17px">
+                    <p>The ramp is the hypotenuse of the right triangle and the vertical side of 25 feet is opposite the given angle. When working with the opposite side and hypotenuse, we want to use sine.</p>
+
+                    \[\begin{align*} \sin(\theta) &= \frac{\text{opp}}{\text{hyp}} \\ \sin(30^{\circ}) &= \frac{25}{c} \end{align*}\]
+
+                    <p>We just learned that \(\sin(30^{\circ}) = \frac{1}{2}\), so substitute \(\frac{1}{2}\) into the left side of the equation for \(\sin(30^{\circ})\). This creates a proportion which we can solve by cross mulitplying and dividing to isolate \(c\).</p>
+
+                    \[\begin{align*} \frac{1}{2} &= \frac{25}{c} \\ 1 \cdot c &= 2 \cdot 25 \\ c &= 50 \end{align*}\]
+
+                    <p>So the ramp surface has a length of 50 feet.</p>
+                </div>
+
+
+                <p>2. What is the horizontal length of the ramp?</p>
+                <div style="margin: 0 0 50px 17px">
+                    <p>The horizontal side of the triangle would be adjacent to the given angle. Since we now know the lengths of the opposite side and the hypotenuse, we could use either tangent or cosine, respectively, to find \(b\). We also now know the lengths of 2 sides of the right triangle, so we could instead use Pythagorean's Theorem. For now, let's use cosine which gives a relationship between the adjacent side and the hypotenuse.</p>
+
+                    \[\begin{align*} \cos(\theta) &= \frac{\text{adj}}{\text{hyp}} \\ \cos(30^{\circ}) &= \frac{b}{50} \end{align*}\]
+
+                    <p>We just learned that \(\cos(30^{\circ}) = \frac{\sqrt{3}}{2}\), so substitute \(\frac{\sqrt{3}}{2}\) into the left side of the equation for \(\cos(30^{\circ})\). This creates a proportion which we can solve by cross mulitplying and dividing to isolate \(b\).</p>
+
+                    \[\begin{align*} \frac{\sqrt{3}}{2} &= \frac{b}{50} \\ 2 \cdot b &= 50 \cdot \sqrt{3} \\ b &= 25\sqrt{3} \end{align*}\]
+
+                    <p>So the horizontal length of the ramp is \(25\sqrt{3}\) feet.</p>
+                </div>
+
+                <p>3. What is the slope of the ramp?</p>
+                <div style="margin: 0 0 0 17px">
+
+                    <p>We already know that slope can be described as "rise over run." The vertical side gives us the rise and the horizontal side gives us the run.</p>
+
+                    \[m = \frac{\text{rise}}{\text{run}} = \frac{25}{25\sqrt{3}} = \frac{1}{\sqrt{3}}\]
+
+                    <p>Notice that the fraction \(\frac{25}{25\sqrt{3}}\) is also equal to \(\frac{\text{opp}}{\text{adj}}\), which means slope is the same as the tangent of the angle of elevation. We just learned that \(\tan(30^{\circ}) = \frac{1}{\sqrt{3}}\), so we could also compute the slope of the ramp as follows.</p>
+
+                    \[m = \tan(\theta) = \tan(30^{\circ}) = \frac{1}{\sqrt{3}}\]
+
+                    <p>So the slope of the ramp is \(\frac{1}{\sqrt{3}}\), which means the ramp goes up by 1 ft for each horizontal length of \(\sqrt{3}\).</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="example">
+            <p><strong>Example:</strong> A forest ranger is stationed in a lookout tower that is 120 feet tall. The ranger observes smoke rising up through the trees in the distance with an angle of depression of 5&deg;. Assuming the base of the tower and the fire are at the same lattitude, how far is the fire from the tower? <i>Round your answer to 2 decimal places.</i></p>
+            <input type="checkbox" id="angledepression">
+            <label for="angledepression" class="example-button">Solution</label>
+            <div class="solution-content">
+                <p>Let's start by drawing a graph to illustrate the problem and its given values. Let's assume that the tower is perpendicular to the ground, which is horizontal, and that the line of sight from the ranger to the fire forms the hypotensue of the right triangle. The vertical side is 120 feet and we can label the bottom side as \(b\) to represent the horizontal distance. Since the 5&deg; angle represents a downward rotation from the horizontal, it will actually be located outside the triangle above the hypotenuse.</p>
+
+                <img src="forest-fire.png" alt="A right triangle with horizontal side b and vertical side of 120 ft. A 5 degree angle is located above the top of the hypotenuse to a horizontal line extending from the top.">
+
+                <p>The 5&deg; angle is complementary to the top angle inside the triangle, which means this top angle must be 85&deg;. From this angle, the opposite side has length \(b\) and the adjacent side has length 120 ft. The opposite and adjacent sides of a given angle are related by tangent.</p>
+
+                \[\begin{align*} \tan(\theta) &= \frac{\text{opp}}{\text{adj}} \\ \tan(85^{\circ}) &= \frac{b}{120} \\ 120 \cdot \tan(85^{\circ}) &= b \\ 1371.61 &= b \end{align*}\]
+
+                <p>So the fire is approximately 1,371.61 feet away from the tower.</p>
+
+                <p><strong>Caution:</strong> Make sure that your calculator is set to Degree mode before computing the final answer. If it is in Radian mode, then you will likely get an incorrect answer.</p>
+            </div>
+        </div>
+
+        <div class="widget-header">Right Triangle Trig Applications</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="1280" height="720" src="https://www.youtube.com/embed/CWPCture3IY" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/CWPCture3IY]</div>
+        <!-- End of the main content -->
+    </div>
+
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div id="lesson-footer">
+        <div class="l-col">
+            <p>©2024 <a href="https://www.youtube.com/channel/UCszzyEwfkBHBPk6xkNrGpAA" target="_blank">M4thG33x (new
+                    window)</a> Some Rights Reserved.</p>
+            <a rel="license " href="http://creativecommons.org/licenses/by-sa/4.0/ "><img alt="Creative Commons License " src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png "></a>
+        </div>
+        <div class="r-col">
+            <a href="# " onclick="pgPrint(); return false; "><i class="fa fa-print "></i> Printer Friendly</a>
+        </div>
+    </div>
+</body>
+
+</html>

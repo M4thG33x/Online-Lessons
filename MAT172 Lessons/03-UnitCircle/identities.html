@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="../script.js"></script>
+    <!--Assessment script-->
+    <script src="../quizlets.js"></script>
+    <title>Basic Identities</title>
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div id="lesson-header">
+        <div class="l-col">
+            <img src="../logo_custom.png" alt="null">
+        </div>
+        <div class="r-col">
+            <h1>The Unit Circle</h1>
+            <p>Trigonometric Functions</p>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <a href="index.html">Overview</a>
+        <a href="unitcircle.html">Unit Circle</a>
+        <a href="sincos.html">Sine &amp; Cosine</a>
+        <span class="active">Basic Identities</span>
+        <a href="otherfunc.html">Other Trig Functions</a>
+        <a href="area.html">Triangle Area</a>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="lesson-body">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="lessonpagetoc">
+            <button class="dropbtn">On this Page</button>
+            <!-- <p> On this Page </p> -->
+            <div class="dropdown-content">
+                <ul>
+                    <li><a href="#top">Basic Identities</a></li>
+                    <li><a href="#fundamentalidentities">Fundamental Identities</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+        <!-- The main content starts here-->
+        <h2 id="top">Basic Identities</h2>
+
+        <p>An <strong>identity</strong> is a statement that equates two things and is <em>always</em> true. So identities look like equations, but the key difference is than an identity is always true while an equation is only true for specific values, or solutions.</p>
+
+        <div class="example">
+            <p><strong>Example:</strong> Consider the statements \(2x + 3x = 5\) and \(2x + 3x = 5x\). Which is an identity and which is an equation?</p>
+            <input type="checkbox" id="identity-eqn-ex">
+            <label for="identity-eqn-ex" class="example-button">Solution</label>
+            <div class="solution-content">
+                <p>The statement \(2x + 3x = 5\) is only true when \(x = 1\). It is false for every other value of \(x\). Therefore, \(2x + 3x = 5\) is an <strong>equation</strong>. You probably learned how to solve this way back in middle or high school.</p>
+
+                <p>The statement \(2x + 3x = 5x\) is always true, regardless of what numbers we plug in for \(x\). Therefore, \(2x + 3x = 5x\) is an <strong>identity</strong>. In fact, it is an example of the distributive property that you probably learned about when you were younger. Do you remember learning something like \(a(b+c) = ab + ac\)? That is the same thing. The distributive, associative, commutative, etc. properties are all examples of identities.</p>
+            </div>
+        </div>
+
+        <p>So just like the rest of math, there are a lot of properties and identities related to the trigonometric functions that we can learn about. For now, we will take a look at a few identities and leave the rest for later.</p>
+
+        <h3 id="fundamentalidentities">Fundamental Identities</h3>
+
+        <p>Let's start our exploration of identities by looking at three groups of identities, which we can call the <strong>fundamental identities</strong>. The fundamental identities include the <strong>Reciprocal Identities</strong>, <strong>Pythagorean Identities</strong>, and the <strong>Even-Odd Identities</strong>.</p>
+
+        <img src="SOHCAHTOA.png" alt="Image of a right triangle with angle theta located at the bottom-right acute angle, Opposite side across from theta, Adjacent side next to theta, and a Hypotenuse.">
+
+        <p>Consider the graph above. Do you remember how we defined our SOHCAHTOA relationships? The reciprocal identities arise from our original definition of the 6 trigonometric functions as the ratios of sides paired with a corresponding angle. If we flip the ratios for SOHCAHTOA, we will get the ratios for cosecant, secant, and cotangent.</p>
+
+        <div class="tbl">
+            <div class="tbl-cap">
+                Reciprocal Identities
+            </div>
+            <div class="tbl-body">
+                <div class="tbl-row">
+                    <div class="tbl-col" style="border: 0">
+                        \[\begin{align*} \sin(\theta) = \frac{1}{\csc(\theta)} \\ \cos(\theta) = \frac{1}{\sec(\theta)} \\ \tan(\theta) = \frac{1}{\cot(\theta)} \end{align*}\]
+                    </div>
+                    <div class="tbl-col" style="border: 0">
+                        \[\begin{align*} \csc(\theta) = \frac{1}{\sin(\theta)} \\ \sec(\theta) = \frac{1}{\cos(\theta)} \\ \cot(\theta) = \frac{1}{\tan(\theta)} \end{align*}\]
+                    </div>
+                </div>
+                <div class="tbl-row">
+                    <div class="tbl-col" style="border: 0">
+                        \[\tan(\theta) = \frac{\sin(\theta)}{\cos(\theta)}\]
+                    </div>
+                    <div class="tbl-col" style="border: 0">
+                        \[\cot(\theta) = \frac{\cos(\theta)}{\sin(\theta)}\]
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="example">
+            <p><strong>Example:</strong> If \(\tan(\theta) = \sqrt{3}\), what is the value of \(\cot(\theta)\)?</p>
+            <input type="checkbox" id="reciprocal-ex">
+            <label for="reciprocal-ex" class="example-button">Solution</label>
+            <div class="solution-content">
+                <p>What relationship do we have that involves both \(\tan(\theta)\) and \(\cot(\theta)\)? Use the appropriate reciprocal identity to find \(\cot(\theta)\) by plugging \(\sqrt{3}\) in for \(\tan(\theta)\).</p>
+
+                
+                \[\begin{align*} \cot(\theta)  &= \frac{1}{\tan(\theta)} \\ \cot(\theta)  &= \frac{1}{\sqrt{3}} \end{align*}\]
+
+                <p>If \(\tan(\theta) = \sqrt{3}\), then \(\cot(\theta) = \frac{1}{\sqrt{3}}\).</p>
+            </div>
+        </div>
+
+        <p>The Pythagorean Identities are the result of applying the Pythagorean Theorem to the following right triangle. If the length of the hypotenuse is 1, the length of the opposite side is \(y\), and the length of the adjacent side is \(x\), then by the Pythagorean Theorem we get \(x^2 + y^2 = 1\). If we subtitute \(\cos(\theta)\) for \(x\) and \(sin(\theta)\) for \(y\), then we get the first identity below. The other 2 identity equations are the result of applying the reciprocal identities.</p>
+
+        <img src="RT-SOHCAHTOA.png" alt="A triangle inscribed within the 1st quadrant of the unit circle. Acute angle theta is at the origin, the hypotenuse has a length of 1, the vertical side has length of Opp/Hyp = sin(theta) = y and the adajcent side has length Adj/Hyp = cos(theta) = x.">
+
+        <div class="tbl">
+            <div class="tbl-cap">
+                Pythagorean Identities
+            </div>
+            <div class="tbl-body">
+                <div class="tbl-row">
+                    <div class="tbl-col" style="border: 0">
+                        \[\begin{align*} \sin^2(\theta) + \cos^2(\theta) = 1 \\ \tan^2(\theta) + 1 = \sec^2(\theta) \\ 1 + \cot^2(\theta) = \csc^2(\theta) \end{align*}\]
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="example">
+            <p><strong>Example:</strong> If \(\cos(\theta) = \frac{3}{5}\) for an angle \(\theta\) whose terminal side is in the 4th quadrant, what is the value of \(\sin(\theta)\)?</p>
+            <input type="checkbox" id="pythagorean-ex">
+            <label for="pythagorean-ex" class="example-button">Solution</label>
+            <div class="solution-content">
+                <p>If we draw a right triangle with acute angle \(\theta\) and hypotenuse of 1 (within the unit circle), then the adjacent side is \(x = \cos(\theta) = \frac{3}{5}\) and the opposite side is \(y = \sin(\theta)\). Plug \(\frac{3}{5}\) into the \(\cos(\theta)\) part of the Pythagorean Identity and solve for \(\sin(\theta)\).</p>
+
+                <div class="tbl">
+                    <div class="tbl-body">
+                        <div class="tbl-row">
+                            <div class="tbl-col" style="border: 0">
+                                <img src="find-sin-id-ex.png" alt="A right triangle with hypotenuse of length 1, acute angle theta with opposite side of length y and adjacent side of length x = 3/5.">
+                            </div>
+                            <div class="tbl-col" style="border: 0">
+                                \[\begin{align*} \cos^2(\theta) + \sin^2(\theta) &= 1 \\ \left(\frac{3}{5}\right)^2 + \sin^2(\theta) &= 1 \\ \frac{9}{25} + \sin^2(\theta) &= 1 \\ \sin^2(\theta) &= \frac{16}{25} \\ \sin(\theta) &= \pm\sqrt{\frac{16}{25}} \\ \sin(\theta) &= \pm\frac{4}{5} \end{align*}\]
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p>We know that \(\sin(\theta) < 0\) in the 4th quadrant, therefore we get \(\sin(\theta)=-\frac{4}{5}\).</p>
+            </div>
+        </div>
+
+        <p>The even-odd identities can be helpful at times, but are probably used the least of the fundamental identities. They are a result of the symmetry of the signs of the trig functions as we rotate around the unit circle in a counterclockwise versus a clockwise direction.</p>
+
+        <div class="tbl">
+            <div class="tbl-cap">
+                Even-Odd Identities
+            </div>
+            <div class="tbl-body">
+                <div class="tbl-row">
+                    <div class="tbl-col" style="border: 0">
+                        \[\begin{align*} \sin(-\theta) &= -\sin(\theta) \\ \cos(-\theta) &= \cos(\theta) \\ \tan(-\theta) &= -\tan(\theta) \end{align*}\]
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="example">
+            <p><strong>Example:</strong> Given that \(\cos\left(\frac{2\pi}{3}\right) = -\frac{1}{2}\), what is the value of \(\cos\left(-\frac{2\pi}{3}\right)\)? </p>
+            <input type="checkbox" id="even-odd-ex">
+            <label for="even-odd-ex" class="example-button">Solution</label>
+            <div class="solution-content">
+                <p>The even-odd identity for cosine says that \(\cos(-\theta) = \cos(\theta)\), which means \(\cos\left(-\frac{2\pi}{3}\right) = \cos\left(\frac{2\pi}{3}\right)\). Therefore, \(\cos\left(-\frac{2\pi}{3}\right) = -\frac{1}{2}\).</p>
+
+                <p>The following graph illustrates why the even-odd property works for cosine. If we rotate counterclockwise or clockwise the same amount, say by \(\theta = \frac{3\pi}{2}\) or \(\theta = -\frac{3\pi}{2}\) in this example, then the resulting terminal points have the same x-coordinate. So in general, whether we have a positive rotation or negative rotation, or a positive terminal number or negative terminal number, the results for \(\cos(\theta)\) and \(\cos(-\theta)\) are the same.</p>
+                <img src="even-odd-2pi-3.png" alt="Graph of theta = 2pi/3 and theta = -2pi/3. Both terminal points have an x-coordinate of -1/2.">
+            </div>
+        </div>
+
+        <!-- End of the main content -->
+    </div>
+
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div id="lesson-footer">
+        <div class="l-col">
+            <p>©2024 <a href="https://www.youtube.com/channel/UCszzyEwfkBHBPk6xkNrGpAA" target="_blank">M4thG33x (new
+                    window)</a> Some Rights Reserved.</p>
+            <a rel="license " href="http://creativecommons.org/licenses/by-sa/4.0/ "><img alt="Creative Commons License " src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png "></a>
+        </div>
+        <div class="r-col">
+            <a href="# " onclick="pgPrint(); return false; "><i class="fa fa-print "></i> Printer Friendly</a>
+        </div>
+    </div>
+</body>
+
+</html>

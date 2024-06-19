@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="../script.js"></script>
+    <!--Assessment script-->
+    <script src="../quizlets.js"></script>
+    <title>Arc Length &amp; Sector Area</title>
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div id="lesson-header">
+        <div class="l-col">
+            <img src="../logo_custom.png" alt="null">
+        </div>
+        <div class="r-col">
+            <h1>Angle Measure</h1>
+            <p>Trigonometric Functions</p>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <a href="index.html">Overview</a>
+        <a href="angles.html">Angles</a>
+        <a href="degrad.html">Degrees &amp; Radians</a>
+        <a href="coterminal.html">Coterminal Angles</a>
+        <span class="active">Arc Length &amp; Sector Area</span>
+        <a href="speed.html">Linear &amp; Angular Speed</a>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="lesson-body">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="lessonpagetoc">
+            <button class="dropbtn">On this Page</button>
+            <!-- <p> On this Page </p> -->
+            <div class="dropdown-content">
+                <ul>
+                    <li><a href="#top">Arcs & Sectors</a></li>
+                    <li><a href="#arc">Arc Length</a></li>
+                    <li><a href="#sector">Sector Area</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+        <!-- The main content starts here-->
+        <h2 id="top">Arcs & Sectors</h2>
+
+        <p>A couple basic applications of angles involve arcs and sectors. An <strong>arc</strong> is the part of a circle traced by the termial side as it rotates about a vertex angle located at the center of the circle. A <strong>sector</strong> is the wedge shape formed by the initial side, terminal side, and the arc along the circle.</p>
+
+        <img src="arc-sector.png" alt="Circle with central angle, initial side and terminal sides of the angle, and arc along the circle between the two sides. The sector is the wedge bounded by the two sides and the arc.">
+
+        <p>In fancy mathematical terms, we say the arc <em>subtends the central angle</em> of the circle of given radius.</p>
+
+        <h3 id="arc">Arc Length</h3>
+
+        <p>Conceptual setup and simple example</p>
+        <div class="def-eqn">
+            <p>For a circle of radius \(r\), the length of the arc that subtends a central angle \(\theta\) <em>in radians</em> is given by \(s = \theta r\).</p>
+        </div>
+
+        <div class="example">
+            <p><strong>Example:</strong> Find the length of the arc that subtends a central angle of 30&deg; for a circle of radius 12 feet.</p>
+            <input type="checkbox" id="arclength">
+            <label for="arclength" class="example-button">Solution</label>
+            <div class="solution-content">
+                <p>First, remember that we need the angle to be in radians before we can use the arc length formula. So let's convert 30&deg; to radians.</p>
+
+                \[30^{\circ} \times \frac{\pi}{180^{\circ}} = \frac{3\pi}{18} = \frac{\pi}{6}\]
+
+                <p>Now we can apply the arc length formula where \(\theta = \frac{\pi}{6}\) and \(r = 12\) ft.</p>
+
+                \[s = \theta r = \left(\frac{\pi}{6}\right)(12 \text{ ft}) = 2\pi \text{ ft}\]
+
+                <p><strong>Caution:</strong> Be aware that if you forget to convert the given angle to radians at the beginning, then you would get \(s = 360^{\circ}\text{ft}\) as your answer. Notice that the units here become \({}^{\circ}\text{ft}\), which is not a normal unit of length. This is because radians are a dimensionless unit and can be ignored. The radian measure is just a raw number. This is <em>not</em> true for degrees.</p>
+            </div>
+        </div>
+
+        <div class="widget-header">Arc Length Examples</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="1280" height="720" src="https://www.youtube.com/embed/Mqza5gBkD7k" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/Mqza5gBkD7k]</div>
+
+
+        <h3 id="sector">Sector Area</h3>
+
+        <div class="def-eqn">
+            <p>For a circle of radius \(r\), the area of the sector with central angle \(\theta\) <em>in radians</em> is given by \(A = \frac{1}{2}r^2\theta\).</p>
+        </div>
+
+        <div class="example">
+            <p><strong>Example:</strong> Find the area of the sector of a circle with a radius of 8 cm having a central angle \(\frac{\pi}{4}\).</p>
+            <input type="checkbox" id="sectorarea">
+            <label for="sectorarea" class="example-button">Solution</label>
+            <div class="solution-content">
+                <p>Since the angle is already given in radians, we can plug the given values into the sector area formula and compute.</p>
+
+                \[A = \frac{1}{2}r^2\theta = \frac{1}{2}(8 \text{ cm})^2\left(\frac{\pi}{4}\right) = \frac{64\pi}{8}\text{ cm}^2 = 8\pi \text{ cm}^2\]
+            </div>
+        </div>
+
+        <div class="widget-header">Sector Area Example</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="1280" height="720" src="https://www.youtube.com/embed/tg2kGq9P-T8" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/tg2kGq9P-T8]</div>
+
+        <!-- End of the main content -->
+    </div>
+
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div id="lesson-footer">
+        <div class="l-col">
+            <p>©2024 <a href="https://www.youtube.com/channel/UCszzyEwfkBHBPk6xkNrGpAA" target="_blank">M4thG33x (new
+                    window)</a> Some Rights Reserved.</p>
+            <a rel="license " href="http://creativecommons.org/licenses/by-sa/4.0/ "><img alt="Creative Commons License " src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png "></a>
+        </div>
+        <div class="r-col">
+            <a href="# " onclick="pgPrint(); return false; "><i class="fa fa-print "></i> Printer Friendly</a>
+        </div>
+    </div>
+</body>
+
+</html>

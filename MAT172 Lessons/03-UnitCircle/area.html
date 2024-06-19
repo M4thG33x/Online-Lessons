@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="../script.js"></script>
+    <!--Assessment script-->
+    <script src="../quizlets.js"></script>
+    <title>Triangle Area</title>
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div id="lesson-header">
+        <div class="l-col">
+            <img src="../logo_custom.png" alt="null">
+        </div>
+        <div class="r-col">
+            <h1>The Unit Circle</h1>
+            <p>Trigonometric Functions</p>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <a href="index.html">Overview</a>
+        <a href="unitcircle.html">Unit Circle</a>
+        <a href="sincos.html">Sine &amp; Cosine</a>
+        <a href="identities.html">Basic Identities</a>
+        <a href="otherfunc.html">Other Trig Functions</a>
+        <span class="active">Triangle Area</span>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="lesson-body">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="lessonpagetoc">
+            <button class="dropbtn">On this Page</button>
+            <!-- <p> On this Page </p> -->
+            <div class="dropdown-content">
+                <ul>
+                    <li><a href="#top">Triangle Area</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+        <!-- The main content starts here-->
+        <h2 id="top">Triangle Area</h2>
+
+        <p>You should already be familiar with the formual \(A = \frac{1}{2}bh\) which gives the area of a right triangle given the length of its base \(b\) and height \(h\).</p>
+
+        <img src="rt-area.png" alt="A right triangle with legs having lengths b and h with area A = 1/2 b*h.">
+
+        <p>By applying what we know about our trignometric functions, we are no longer restricted to only finding areas of right triangles. We can find the area of any triangle given the right information.</p>
+        
+        <p>Consider the acute and obtuse triangles illustrated below, and let's assume we know the lengths of the two sides \(a\) and \(b\) as well as the angle \(\theta\) between them. For the acute triangle, we could draw a vertical height \(h\) extending from side \(b\) up to the top vertex of the triangle forming a right triangle inside the original acute triangle. Then side \(h\) becomes the opposite side from \(\theta\) and \(a\) is the hypotenuse. Applying our right triangle trig SOHCAHTOA, we get the relationship that \(\sin(\theta) = \frac{h}{a}\) which can be rewritten as \(h = a\sin(\theta)\).</p>
+        
+
+        <div class="tbl">
+            <div class="tbl-body">
+                <div class="tbl-row">
+                    <div class="tbl-col" style="border: 0">
+                        <img src="acute-angle-area.png" alt="">
+                    </div>
+                    <div class="tbl-col" style="border: 0">
+                        <img src="obtuse-angle-area.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p>For the obtuse triangle, we can basically do the same thing, but we need to extend the base edge of the triangle outward to form a right triangle that is beside the original obtuse triangle. For the obtuse angle \(\theta\), there is a supplementary acute angle \(\bar{\theta}\) inside the new right triangle where \(h\) is the opposite side and \(a\) is the hypotenuse. The angle \(\bar{\theta}\) is the reference angle for \(\theta\), and so \(\sin(\bar{\theta}) = \sin(\theta)\). This means that we again get the relationship \(h = a\sin(\theta)\).</p>
+
+        <p>If we use this to substitute \(a\sin(\theta)\) in for \(h\) in the above area equation, then we get the following formula.</p>
+
+        <div class="def-eqn">
+            <p>Given the lengths of two sides, \(a\) and \(b\), of an oblique (non-right) triangle and the angle \(\theta\) between these sides, the area of the triangle can be computed using the following formula.</p>
+
+            \[A = \frac{1}{2}ab\sin(\theta)\]
+        </div>
+
+        <div class="example">
+            <p><strong>Example:</strong> Find the area of an equilateral triangle with sides that are 12 inches in length.</p>
+            <input type="checkbox" id="triangle-area">
+            <label for="triangle-area" class="example-button">Solution</label>
+            <div class="solution-content">
+                <p>The sides of an equilateral triangle are all the same length, and the angles are all 60&deg; (because the sum of the angles of a triangle is 180&deg;).</p>
+
+                <img src="equilateral-tri.png" alt="An equilateral triangle with sides having length 12 and angles are 60 degrees.">
+
+                <p>Using the new area formula above, we get the following.</p>
+
+                \[\begin{align*} A &= \frac{1}{2}ab\sin(\theta) \\ &= \frac{1}{2}(12)(12)\sin(60^{\circ}) \\ &= \frac{1}{\cancel{2}}(\cancel{12})(\cancel{12})\left(\frac{\sqrt{3}}{\cancel{2}}\right) \\ &= (6)(6\sqrt{3}) \\ &= 36\sqrt{3} \end{align*}\]
+
+                <p>We can simplify the expression by reducing the \(\frac{1}{2}\) with one 12 and reducing the other 12 with the \(\frac{\sqrt{3}}{2}\). We get the final result that the area of the equilateral triangle is \(36\sqrt{3}\) square inches.</p>
+            </div>
+        </div>
+        <!-- End of the main content -->
+    </div>
+
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div id="lesson-footer">
+        <div class="l-col">
+            <p>©2024 <a href="https://www.youtube.com/channel/UCszzyEwfkBHBPk6xkNrGpAA" target="_blank">M4thG33x (new
+                    window)</a> Some Rights Reserved.</p>
+            <a rel="license " href="http://creativecommons.org/licenses/by-sa/4.0/ "><img alt="Creative Commons License " src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png "></a>
+        </div>
+        <div class="r-col">
+            <a href="# " onclick="pgPrint(); return false; "><i class="fa fa-print "></i> Printer Friendly</a>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="../script.js"></script>
+    <!--Assessment script-->
+    <script src="../quizlets.js"></script>
+    <title>Angles</title>
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div id="lesson-header">
+        <div class="l-col">
+            <img src="../logo_custom.png" alt="null">
+        </div>
+        <div class="r-col">
+            <h1>Angle Measure</h1>
+            <p>Trigonometric Functions</p>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <a href="index.html">Overview</a>
+        <span class="active">Angles</span>
+        <a href="degrad.html">Degrees &amp; Radians</a>
+        <a href="coterminal.html">Coterminal Angles</a>
+        <a href="arcsector.html">Arc Length &amp; Sector Area</a>
+        <a href="speed.html">Linear &amp; Angular Speed</a>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="lesson-body">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="lessonpagetoc">
+            <button class="dropbtn">On this Page</button>
+            <!-- <p> On this Page </p> -->
+            <div class="dropdown-content">
+                <ul>
+                    <li><a href="#top">Angles</a></li>
+                    <li><a href="#stdpos">Standard Position</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+        <!-- The main content starts here-->
+        <h2 id="top">Angles</h2>
+
+        <p>Probably the most fundamental concept of this course is that of an <strong>angle</strong>, which we can intuitively describe as the amount of rotation applied to a ray about a fixed point called a <strong>vertex</strong>. The starting position of the ray is called the <strong>initial side</strong> and the ending position is called the <strong>terminal side</strong>. If the rotation is in a counterclockwise direction, then the angle is <em>positive</em>. If the angle rotates in a clockwise direction, then the angle is <em>negative</em>. The amount of rotation in either direction is unrestricted, meaning the ray can rotate about the vertex with multiple complete revolutions.</p>
+
+        <img src="angle.png" alt="Rotation of a ray starting at an initial side and rotating counter-clockwise to a terminal side about a vertex point at the end of the ray.">
+
+        <h3 id="stdpos">Standard Position</h3>
+        <p>In order for us to talk about angles mathematically using concepts we already know, like graphs and functions, it is helpful to define a standard way to draw angles. An angle is drawn in <strong>standard position</strong> if its vertex is at the origin and the initial side is along the positive \(x\)-axis.</p>
+
+
+        <div class="example">
+            <p>Which of the following illustrations gives an angle in standard position?</p>
+
+            <div class="tbl">
+                <div class="tbl-body">
+                    <div class="tbl-row">
+                        <div class="tbl-col" style="border: 0;">
+                            <img src="angle-vertex.png" alt="Image of an angle not in standard position with clockwise rotation having vertex at the origin, but both the initial and terminal sides point into the 2nd quadrant.">
+                        </div>
+                        <div class="tbl-col" style="border: 0;">
+                            <img src="angle-stdpos.png" alt="Image of an angle in standard position with counterclockwise rotation having vertex at the origin, initial side on the positive x-axis, and terminal side pointing into the 1st quadrant.">
+                        </div>
+                        <div class="tbl-col" style="border: 0;">
+                            <img src="angle-initial.png" alt="Image of an angle not in standard position with counterclockwise rotation having vertex at the origin, initial side parallel to the positive x-axis, and terminal side pointing into the 1st quadrant.">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <input type="checkbox" id="stdposangle">
+            <label for="stdposangle" class="example-button">Answer</label>
+            <div class="solution-content">
+                <p>The direction of the rotation does not effect whether the angle is in standard position or not. The angle in the first graph is located with its vertex at the origin, but its initial side is <strong>not</strong> on the positive \(x\)-axis. Similarly, the angle in the third graph has an initial side that is parallel to the positive \(x\)-axis, but its vertex is <strong>not</strong> located at the origin. So only the angle given in the 2nd graph would be in standard position because its vertex is at the origin and its initial side is along the positive \(x\)-axis.</p>
+            </div>
+        </div>
+
+        <!-- End of the main content -->
+    </div>
+
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div id="lesson-footer">
+        <div class="l-col">
+            <p>©2024 <a href="https://www.youtube.com/channel/UCszzyEwfkBHBPk6xkNrGpAA" target="_blank">M4thG33x (new
+                    window)</a> Some Rights Reserved.</p>
+            <a rel="license " href="http://creativecommons.org/licenses/by-sa/4.0/ "><img alt="Creative Commons License " src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png "></a>
+        </div>
+        <div class="r-col">
+            <a href="# " onclick="pgPrint(); return false; "><i class="fa fa-print "></i> Printer Friendly</a>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="../script.js"></script>
+    <!--Assessment script-->
+    <script src="../quizlets.js"></script>
+    <title>Sine &amp; Cosine</title>
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div id="lesson-header">
+        <div class="l-col">
+            <img src="../logo_custom.png" alt="null">
+        </div>
+        <div class="r-col">
+            <h1>The Unit Circle</h1>
+            <p>Trigonometric Functions</p>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <a href="index.html">Overview</a>
+        <a href="unitcircle.html">Unit Circle</a>
+        <span class="active">Sine &amp; Cosine</span>
+        <a href="identities.html">Basic Identities</a>
+        <a href="otherfunc.html">Other Trig Functions</a>
+        <a href="area.html">Triangle Area</a>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="lesson-body">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="lessonpagetoc">
+            <button class="dropbtn">On this Page</button>
+            <!-- <p> On this Page </p> -->
+            <div class="dropdown-content">
+                <ul>
+                    <li><a href="#top">Sine &amp; Cosine</a></li>
+                    <li><a href="#sin-cos">Sin &amp; Cos in 1st Quadrant</a></li>
+                    <li><a href="#sin-cos-unit-circ">Sin &amp; Cos for Any Angle</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+        <!-- The main content starts here-->
+        <h2 id="top">Sine &amp; Cosine</h2>
+
+        <p>On the previous page, we learned about the unit circle and how we can determine the coordinates of terminal points along the circle for given terminal numbers or central angles. We also looked at some of the symmetry of these values. Now, we want to connect the values in the first quadrant of the unit circle to our trignometric functions. Later, we will leverage these symmetries to be able to evaluate the trignometric functions in any quadrant.</p>
+
+        <p>As a refresher, the coordinates of the terminal points that correspond to our special angles within the first quadrant are graphed below. We need to know these coordinates for both their degree and radian measures.</p>
+
+        <img src="angles-1st-quad.png" alt="The part of the unit circle contained within the 1st quadrant. There are five radials from the origin to the circle that represent different angles. The first radial is the positive x-axis which represents a 0 degree or 0 radian angle and it intersects the circle at the point (1, 0). The second radial forms a 30 degree or pi/6 radian angle with the positive x-axis and it intersects the circle at the point (√3/2, 1/2). The third radial forms a 45 degree or pi/4 radian angle with the positive x-axis and it intersects the circle at the point (√2/2, √2/2). The fourth radial forms a 60 degree or pi/3 radian angle with the positive x-axis and it intersects the circle at the point (1/2, √3/2). The last radial is the positive y-axis which forms a 90 degree or pi/2 radian angle with the positive x-axis and it intersects the circle at the point (0, 1)." width="267" height="250">
+
+        <h3 id="sin-cos">Sin &amp; Cos in 1st Quadrant</h3>
+
+        <p>Similar to how we developed some of the coordinates in the first quadrant for special triangles, let's again insert a right triangle into the first quadrant of our unit circle, this time in terms of our SOHCAHTOA setup.</p>
+
+        <img src="RT-HOA.png" alt="A right triangle inscribed within the first quarant of the unit circel. The acute angle theta is located at the origin where the hypotenuse extends from the origin the the point of intersection of the triangle with the circle. The opposite side extends vertically downward to the x-axis and the adjacent side extenda from the bottom endpoint of the opposite side horizontally to the origin.">
+
+        <p>Notice that in a more general sense, the hypotenuse could be any length and not just 1. But for our purposes at the moment, lets scale the circle and triangle by a factor related to the hypotenuse length. (The size of the triangles doesn't actually matter because the ratios of the sides of similar triangles are proportional.) The result is that we have a right triangle with hypotenuse of length 1, and an opposite and an adjacent side the correspond to the acute central angle.</p>
+
+        <img src="RT-SOHCAHTOA.png" alt="A triangle inscribed within the 1st quadrant of the unit circle. Acute angle theta is at the origin, the hypotenuse has a length of 1, the vertical side has length of Opp/Hyp = sin(theta) = y and the adjacent side has length Adj/Hyp = cos(theta) = x.">
+
+        <p>The key takeaway here is that the \(y\) coordinate of the terminal point is equal to the sine of the corresponding angle and that the \(x\) coordinate of the terminal point is equal to the cosine of the corresponding angle.</p>
+
+        <div class="def-eqn">
+            <p>For a terminal point \((x,y)\) located on the unit circle that corresponds to an acute central angle \(\theta\), we have the following.</p>
+
+            \[\begin{align*} \sin(\theta) &= y \\ \cos(\theta) &= x \\ \tan(\theta) &= \frac{y}{x} \end{align*}\]
+            
+            <p>Note that while sine and cosine are defined for every possible angle or value, the other trig functions have values for which they will be undefined.</p>
+        </div>
+
+        <div class="widget-header">Sine and Cosine in the First Quadrant</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                Show how to use the unit circle to compute sin(30), cos(45), tan(pi/6), and sin(pi/2).
+            </div>
+        </div>
+        <div class="widget-footer">[]</div>
+
+        <h3 id="sin-cos-unit-circ">Sin &amp; Cos for Any Angle</h3>
+
+        <p>To finally be able to compute the values of sine and cosine for any angle, there are just a few things that remain for us to consider. The first thing we need to cover is whether or not a given angle is coterminal to one of the coordinate axes, which we call a <strong>quadrantal angle</strong>. Examples of such angles would be 90&deg;, \(\pi\), 360&deg;, or \(-\frac{\pi}{2}\).</p>
+
+        <img src="quad-angle.png" alt="A graph of angles in standard position within the unit circle having terminal sides at the positive y, negative x, negative y, and positive x axes. The points of intersection are (0, 1), (-1, 0), (0, -1), and (1, 0), respectively.">
+
+        <p>Notice in the above graph that any angle that is coterminal to the \(x\)-axis or \(y\)-axis will have a terminal point with one of the following coordinates: \((1,0)\), \((0,1)\), \((-1,0)\), or \((0,-1)\). Since we get the values for cosine and sine from the \(x\) and \(y\) values, respectively, we know that the cosine and sine of a quadrantal angle must be either -1, 0, or 1.</p>
+
+        <div class="example">
+            <p><strong>Example:</strong> Compute the exact values for (a) \(\sin(90^{\circ})\), (b) \(\cos(540^{\circ})\), and (c) \(\tan\left(\frac{3\pi}{2}\right)\).</p>
+            <input type="checkbox" id="quad-angle-ex">
+            <label for="quad-angle-ex" class="example-button">Solution</label>
+            <div class="solution-content">
+                <p>a) Compute the exact value of \(\sin(90^{\circ})\).</p>
+
+                <div style="margin: 0 0 50px 17px">
+                    <img src="90deg-angle.png" alt="A quadrantal angle of 90 degrees intersects the y axis at (0,1).">
+
+                    <p>A 90&deg; central angle in standard position in the unit circle would have a terminal point on the positive \(y\)-axis. Its coordinates are \((0,1)\). Since sine is equal to the \(y\) coordinate, we get \(\sin(90^{\circ}) = 1\).</p>
+                </div>
+
+                <p>b) Compute the exact value of \(\cos(540^{\circ})\).</p>
+                
+                <div style="margin: 0 0 50px 17px">
+                    <img src="540deg-angle.png" alt="A quadrantal angle of 540 degrees, which is coterminal to 180 degrees, intersects the x axis at (-1,0).">
+
+                    <p>A 540&deg; central angle is more than a full revolution around the unit circle. Subtracting 360&deg; results in 180&deg;. So a 540&deg; angle is coterminal with a 180&deg; angle, and both intersect the \(x\)-axis at the point \((-1,0)\). Since cosine is equal to the \(x\) coordinate, we get \(\cos(540^{\circ}) = -1\).</p>
+                </div>
+                
+                <p>c) Compute the exact value of \(\tan\left(\frac{3\pi}{2}\right)\).</p>
+                <div style="margin: 0 0 0 17px">
+                    <img src="3pi-2-angle.png" alt="A quadrantal angle of 3pi/2 radians intersects the y axis at (0,-1).">
+
+                    <p>A \(\tan\left(\frac{3\pi}{2}\right)\) central angle would have a terminal point on the negative \(y\)-axis at the point \((0,-1)\). Since tangent is equal to \(\frac{y}{x}\), we get \(\tan\left(\frac{3\pi}{2}\right) = \frac{-1}{0}\) which is undefined.</p>
+                </div>
+            </div>
+        </div>
+
+        <p>Next, we want to look at the signs of the trig functions in each quadrant. See the following illustration.</p>
+
+        <img src="quad-signs.png" alt="A graph of the unit circle. In the first quadrant, we have x,y > 0 which means all trig functions are positive. In the second quadrant, we have y > 0 which means sine is positive. In the third quadrant, we have x,y < 0, which mean tangent is positive. If the fourth quadrant, we have x > 0, which means cosine is positive.">
+
+        <p>We just saw that \(\sin(\theta) = y\) and \(\cos(\theta) = x\), which means that the values of \(\sin(\theta)\) will be positive wherever \(y\) is positive and the values of \(\cos(\theta)\) will be positive wherever \(x\) is positive. This means that \(\sin(\theta) > 0\) in the 1st and 2nd quadrants while \(\cos(\theta) > 0\) in the 1st and 4th quadrants. Similarly, since \(\tan(\theta) = \frac{y}{x}\), we can conclude that tangent will be positive wherever \(x\) and \(y\) have the same sign. This means that \(\tan(\theta) > 0\) in the 1st and 3rd quadrants.</p>
+
+        <div class="example">
+            <p><strong>Example:</strong> In what quadrant is the terminal side of \(\theta\) located if \(\tan(\theta) < 0\) and \(\sin(\theta) > 0\)?</0></p>
+            <input type="checkbox" id="sign-ex">
+            <label for="sign-ex" class="example-button">Solution</label>
+            <div class="solution-content">
+                <p>We know that \(\tan(\theta) > 0\) in the 1st and 3rd quadrants, which means \(\theta\) must be in either the 2nd or 4th quadrant. We also know that \(\sin(\theta) > 0\) in the 1st and 2nd quadrants. Only the 2nd quadrant satisfies both \(\tan(\theta) < 0\) and \(\sin(\theta) > 0\), so the terminal side of \(\theta\) must be in the 2nd quadrant.</p>
+            </div>
+        </div>
+
+        <p>The last thing we need to consider is something we have already talked about, namely referene angles. Remember that for any non-quadrantal angle \(\theta\), there is an <em>acute</em> angle \(\bar{\theta}\) that extends from the terminal side of \(\theta\) to the nearest \(x\)-axis. See the illustration below.</p>
+
+        <img src="ref-angles.png" alt="A graph that shows 4 central angles in standard position, each having a terminal in a different quadrant. For each angle, there is an acute reference angle that rotates from the termminal side of the given angle to the nearest x-axis.">
+
+        <p>If we combine this idea of reference angles with the quadrant signs of the trig functions and the symmetries of the unit circle, then the value of a trig function at \(\theta\) will be equal to the value of the trig function at the corresponding reference angle \(\bar{\theta}\), except maybe opposite in sign.</p>
+
+        \[\begin{align*} \sin(\theta) &= \pm\sin(\bar{\theta}) \\ \cos(\theta) &= \pm\cos(\bar{\theta}) \\ \tan(\theta) &= \pm\tan(\bar{\theta}) \end{align*}\]
+
+        <p>In the equations above, the sign depends on which quadrant the terminal side of \(\theta\) is located in.</p>
+
+        <div class="widget-header">Evaluating Sine &amp; Cosine</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                Work through sin(135), cos(11pi/6), sin(5pi/2), and cos(210)
+            </div>
+        </div>
+        <div class="widget-footer">[]</div>
+
+        <div class="assess">
+            <p><strong>Self-Check #1</strong>: What is the exact value of \(\sin\left(-\frac{3\pi}{4}\right)\)? (<i>Select the most appropriate response.</i>)</p>
+            <label class="radiocntrh">(A) \(\frac{1}{2}\)
+                <input type="radio" id="opt1-1" name="mcChoice1" value="A">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(B) \(-\frac{\sqrt{2}}{2}\)
+                <input type="radio" id="opt1-2" name="mcChoice1" value="B">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(C) \(\frac{\sqrt{2}}{2}\)
+                <input type="radio" id="opt1-3" name="mcChoice1" value="C">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(D) \(-\frac{\sqrt{3}}{2}\)
+                <input type="radio" id="opt1-4" name="mcChoice1" value="D">
+                <span class="radiobtn"></span>
+            </label><br>
+            <button onclick="checkMCSub('mcChoice1','B','correct1','wrong1','makechoice1')" id="submit1">Check</button>
+            <div class="response" id="makechoice1"><i>You must select an answer above</i>.</div>
+            <div class="response" id="correct1"><i class="fa fa-check" style="color: green"></i></div>
+            <div class="response" id="wrong1"><i class="fa fa-times" style="color: red"></i>
+                <p>(Answer: B) -- The angle \(-\frac{3\pi}{4}\) is a clockwise rotation into the 3rd quadrant and it has a reference angle of \(\frac{\pi}{4}\). We know sine is negative in the 3rd quadrant and that \(\sin\left(\frac{\pi}{4}\right) = \frac{\sqrt{2}}{2}\). Putting this all together, we get \(\sin\left(-\frac{3\pi}{4}\right) = -\sin\left(\frac{\pi}{4}\right) = -\frac{\sqrt{2}}{2}\).</p>
+            </div>
+        </div>
+
+        <div class="assess">
+            <p><strong>Self-Check #2</strong>: What is the exact value of \(\cos\left(\frac{5\pi}{3}\right)\)? (<i>Select the most appropriate response.</i>)</p>
+            <label class="radiocntrh">(A) \(-\frac{\sqrt{3}}{2}\)
+                <input type="radio" id="opt2-1" name="mcChoice2" value="A">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(B) \(-\frac{1}{2}\)
+                <input type="radio" id="opt2-2" name="mcChoice2" value="B">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(C) \(\frac{1}{2}\)
+                <input type="radio" id="opt2-3" name="mcChoice2" value="C">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(D) \(\frac{\sqrt{3}}{2}\)
+                <input type="radio" id="opt2-4" name="mcChoice2" value="D">
+                <span class="radiobtn"></span>
+            </label><br>
+            <button onclick="checkMCSub('mcChoice2','C','correct2','wrong2','makechoice2')" id="submit2">Check</button>
+            <div class="response" id="makechoice2"><i>You must select an answer above</i>.</div>
+            <div class="response" id="correct2"><i class="fa fa-check" style="color: green"></i></div>
+            <div class="response" id="wrong2"><i class="fa fa-times" style="color: red"></i>
+                <p>(Answer: C) -- The angle \(\frac{5\pi}{3}\) is a counterclockwise rotation into the 4th quadrant and it has a reference angle of \(\frac{\pi}{3}\). We know cosine is positive in the 4th quadrant and that \(\cos\left(\frac{\pi}{3}\right) = \frac{1}{2}\). Putting this all together, we get \(\cos\left(\frac{5\pi}{3}\right) = +\cos\left(\frac{\pi}{3}\right) = \frac{1}{2}\).</p>
+            </div>
+        </div>
+        <!-- End of the main content -->
+    </div>
+
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div id="lesson-footer">
+        <div class="l-col">
+            <p>©2024 <a href="https://www.youtube.com/channel/UCszzyEwfkBHBPk6xkNrGpAA" target="_blank">M4thG33x (new
+                    window)</a> Some Rights Reserved.</p>
+            <a rel="license " href="http://creativecommons.org/licenses/by-sa/4.0/ "><img alt="Creative Commons License " src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png "></a>
+        </div>
+        <div class="r-col">
+            <a href="# " onclick="pgPrint(); return false; "><i class="fa fa-print "></i> Printer Friendly</a>
+        </div>
+    </div>
+</body>
+
+</html>

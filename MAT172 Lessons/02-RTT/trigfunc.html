@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="../script.js"></script>
+    <!--Assessment script-->
+    <script src="../quizlets.js"></script>
+    <title>Trig Functions</title>
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div id="lesson-header">
+        <div class="l-col">
+            <img src="../logo_custom.png" alt="null">
+        </div>
+        <div class="r-col">
+            <h1>Right Triangle Trigonometry</h1>
+            <p>Trigonometric Functions</p>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <a href="index.html">Overview</a>
+        <span class="active">Trig Functions</span>
+        <a href="specialtri.html">Special Triangles</a>
+        <a href="applications.html">Applications</a>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="lesson-body">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="lessonpagetoc">
+            <button class="dropbtn">On this Page</button>
+            <!-- <p> On this Page </p> -->
+            <div class="dropdown-content">
+                <ul>
+                    <li><a href="#top">Trigonometric Functions</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+        <!-- The main content starts here-->
+        <h2 id="top">Trigonometric Functions</h2>
+
+        <p>The development of our understanding of trigonometry, and in particular the trigonometric functions, has a long history spanning many centuries and cultures. There are two primary methods that we now use to explore and describe these trigonometric functions, which are based on two different but related aspects of geometry. In this lesson, we will define and work with the trigonometric functions as ratios of the lengths of right triangles. These ratios remain true regardless of the size of a triangle due to properties of similar triangles. Later, we will define and describe these functions in terms of circles and then periodic functions.</p>
+
+        <p>To set up our geometry and some basic vocabulary, consider the following right triangle. If we look at the measure of one of the acute angles, which we can label as the Greek letter "theta," or \(\theta\), then we can describe the sides of the triangle in terms of their relative location from this angle.</p>
+
+        <img src="SOHCAHTOA.png" alt="Image of a right triangle with angle theta located at the bottom-right acute angle, Opposite side across from theta, Adjacent side next to theta, and a Hypotenuse.">
+
+        <p>We already have a name for the side opposite the right angle, which is called the <strong>Hypotenuse</strong>. So we say the <strong>Opposite</strong> side is the side across the triangle from \(\theta\) while the <strong>Adjacent</strong> side is the side next to \(\theta\). Now we can define our trigonometric functions in terms of this angle and the ratio of the sides of the triangle.</p>
+        
+        <div class="def-eqn">
+            <p>For a right triangle with given acute angle \(\theta\), we define the ratio of each pairing of sides using the following functions.</p>
+            <div class="tbl">
+                <div class="tbl-body">
+                    <div class="tbl-row">
+                        <div class="tbl-col" style="border: 0;">
+                            \[\begin{align*} \textbf{Sine: } \sin(\theta) &= \frac{\text{Opp}}{Hyp} \\ \textbf{Cosine: } \cos(\theta) &= \frac{\text{Adj}}{Hyp} \\ \textbf{Tangent: } \tan(\theta) &= \frac{\text{Opp}}{Adj} \end{align*}\]
+                        </div>
+                        <div class="tbl-col" style="border: 0;">
+                            \[\begin{align*} \textbf{Cosecant: } \csc(\theta) &= \frac{\text{Hyp}}{Opp} \\ \textbf{Secant: } \sec(\theta) &= \frac{\text{Hyp}}{Adj} \\ \textbf{Cotangent: } \cot(\theta) &= \frac{\text{Hyp}}{Opp} \end{align*}\]
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <p>Note that we normally pronounce the full name of each function rather that is abbreviation. So we would pronounce \(\sin(\theta)\) as "sine of theta." Also, the expression \(\sin(\theta)\) does not represent multiplication. We are not multiplying sine times theta. The angle \(\theta\) is the input of the \(\sin(\theta)\) function, just like \(x\) is the input of the \(\ln(x)\) function. Also, sometimes we may not include the parenthesis, so \(\sin \theta\) is the same as \(\sin(\theta)\).</p>
+
+        <p>A common practice to remember the ratios for sine, cosine, and tangent uses the acronym <strong>SOHCAHTOA</strong>. The "SOH" part represents <strong>S</strong>ine, <strong>O</strong>pposite, and <strong>H</strong>ypotenuse, which gives the ratio for sine. The "CAH" part represents <strong>C</strong>osine, <strong>A</strong>djacent, and <strong>H</strong>ypotenuse, which gives the ratio for cosine. And the "TOA" part represents <strong>T</strong>angent, <strong>O</strong>pposite, and <strong>A</strong>djacent, which gives the ratio for tangent.
+
+        <div class="example">
+            <p><strong>Example:</strong> Determine the exact value of the six trigonometric functions given the triangle below.</p>
+
+            <img src="trig-func-ex1.png" alt="A right triangle with acute angle theta, opposite side of length 9 and hypotenuse of length 12.">
+            <input type="checkbox" id="trig-func-ex1">
+            <label for="trig-func-ex1" class="example-button">Solution</label>
+            <div class="solution-content">
+                <p>First, we need to find the missing side length using the Pythagorean Theorem.</p>
+
+                \[\begin{align*} a^2 + b^2 &= c^2 \\ 9^2 + b^2 &= 12^2 \\ 81 + b^2 &= 144 \\ b^2 &= 144 - 81 = 63 \\ b &= \sqrt{63} = \sqrt{9 \cdot 7} \\ b &= 3\sqrt{7}\end{align*}\]
+
+                <p>Now we can list out the ratios for each trig function, simplifying where possible.</p>
+
+                <div class="tbl">
+                    <div class="tbl-body">
+                        <div class="tbl-row">
+                            <div class="tbl-col" style="border: 0;">
+                                \[\begin{align*} \sin(\theta) &= \frac{9}{12} = \frac{3}{4} \\ \cos(\theta) &= \frac{3\sqrt{7}}{12} = \frac{\sqrt{7}}{4} \\ \tan(\theta) &= \frac{9}{3\sqrt{7}} = \frac{3}{\sqrt{7}} = \frac{3\sqrt{7}}{7} \end{align*}\]
+                            </div>
+                            <div class="tbl-col" style="border: 0;">
+                                \[\begin{align*} \csc(\theta) &= \frac{12}{9} = \frac{4}{3} \\ \sec(\theta) &= \frac{12}{3\sqrt{7}} = \frac{4}{\sqrt{7}} = \frac{4\sqrt{7}}{7} \\ \cot(\theta) &= \frac{3\sqrt{7}}{9} = \frac{\sqrt{7}}{3} \end{align*}\]
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p>Notice that the cosecant, secant, and cotangent functions are the reciprocals of the sine, cosine, and tangent functions, respectively.</p>
+            </div>
+        </div>
+
+        <div class="assess">
+            <p><strong>Self-Check #1</strong>: Given a right triangle with acute angle \(\theta\), what is the value of \(\sin(\theta)\) if \(\cos(\theta) = \frac{8}{17}\)? (<i>Select the most appropriate response.</i>)</p>
+            <label class="radiocntrh">(A) \(\frac{15}{17}\)
+                <input type="radio" id="opt1-1" name="mcChoice1" value="A">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(B) \(\frac{9}{17}\)
+                <input type="radio" id="opt1-2" name="mcChoice1" value="B">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(C) \(\frac{15}{8}\)
+                <input type="radio" id="opt1-3" name="mcChoice1" value="C">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(D) \(\frac{17}{8}\)
+                <input type="radio" id="opt1-4" name="mcChoice1" value="D">
+                <span class="radiobtn"></span>
+            </label><br>
+            <button onclick="checkMCSub('mcChoice1','A','correct1','wrong1','makechoice1')" id="submit1">Check</button>
+            <div class="response" id="makechoice1"><i>You must select an answer above</i>.</div>
+            <div class="response" id="correct1"><i class="fa fa-check" style="color: green"></i></div>
+            <div class="response" id="wrong1"><i class="fa fa-times" style="color: red"></i>
+                <p>(Answer: A) -- To find the value of \(\sin(\theta)\), we need the Opposite side and the Hypotenuse. From the given value for \(\cos(\theta)\), we can say that the Adjacent side is 8 and the Hypotenuse is 17. We can find the Opposite side using the Pythatorean Theorem, \(a^2 + 8^2 = 12^2\). This results in \(a = 15\). Now with an Opposite side of 15, we get \(\sin(\theta) = \frac{15}{17}\).</p>
+            </div>
+        </div>
+
+        <div class="widget-header">Use Technology to Evaluate a Trig Function</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="1280" height="720" src="https://www.youtube.com/embed/K1SJhQpu8nY" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/K1SJhQpu8nY]</div>
+        <!-- End of the main content -->
+    </div>
+
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div id="lesson-footer">
+        <div class="l-col">
+            <p>©2024 <a href="https://www.youtube.com/channel/UCszzyEwfkBHBPk6xkNrGpAA" target="_blank">M4thG33x (new
+                    window)</a> Some Rights Reserved.</p>
+            <a rel="license " href="http://creativecommons.org/licenses/by-sa/4.0/ "><img alt="Creative Commons License " src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png "></a>
+        </div>
+        <div class="r-col">
+            <a href="# " onclick="pgPrint(); return false; "><i class="fa fa-print "></i> Printer Friendly</a>
+        </div>
+    </div>
+</body>
+
+</html>
