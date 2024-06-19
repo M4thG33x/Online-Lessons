@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="script.js"></script>
+    <!--Remove padding from grid boxes-->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+    </style>
+    <title>Surface Integrals</title>
+</head>
+
+<body id="maincontent">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div class="printbuttonbar">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div class="myheader">
+        <div class="row">
+            <div class="col-4 col-s-5">
+                <img src="logo_custom.png">
+            </div>
+            <div class="col-8 col-s-7">
+                <h1>Curl & Divergence, Parameterization & Surface Integrals</h1>
+                <p>Vector Calculus</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnav" id="myTopnav">
+        <a href="index.html">Overview</a>
+        <a href="Page1.html">Curl</a>
+        <a href="Page2.html">Divergence</a>
+        <a href="Page3.html">Parameterization</a>
+        <a href="Page4.html">Tangent Plane</a>
+        <a href="Page5.html">Surface Area</a>
+        <span class="active">Integration</span>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="mainbody">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="pagetoc">
+            <p> On this Page </p>
+            <ul>
+                <li><a href="#top">Surface Integrals</a></li>
+            </ul>
+            <br>
+            <p>Additional Reading</p>
+            <ul>
+                <li>Section 16.7</li>
+            </ul>
+        </div>
+
+        <!-- The main content starts here-->
+        <h2 id="top">Surface Integrals</h2>
+
+        <p>Up to this point, we have always discussed integrals of a function \(f\) over a region \(D\) in the \(xy\)-plane (or any coordinate plane). Now we want to look at how to setup integrals over a region of a surface \(S\). If you recall the strategy
+            of dividing a region into boxes, we can now think of dividing surface regions in patches on the surface.</p>
+
+        <img src="SurfPatch.png" alt="Image of a 3D surface divided into small rectangles length delta u and width delta v." />
+
+        <p>If the surface can be parameterized as \(\vec{r}(u,v)\), then the patches have length \(\Delta u\) and width \(\Delta v\) , as indicated by the red rectangular section in the graph above. As we increase the number of patches and compute an ifinite
+            Riemann sum, we get \(\Delta S = \Delta u \Delta v\)</p>
+
+        <div class="def-eqn">
+            <p>We define the <strong>surface integral of \(f\) over \(S\)</strong> as follows.</p>
+
+            \[\underset{S}{\mathop \iint}\, f(x,y,z)~dS\]
+
+            <p>For a surface \(S\) with parameterization \(\vec{r}(u,v)\) over a region \(D\) (where \(u\) and \(v\) are in \(D\)) and function \(f\) over \(S\), we can compute the surface integral of \(f\) over \(S\) using the same parameterization for
+                \(f\) combined with its surface area.</p>
+
+            \[\underset{S}{\mathop \iint}\, f(x,y,z)~dS = \underset{D}{\mathop \iint}\, f(\vec{r}(u,v)) \left| \vec{r}_u \times \vec{r}_v \right|~dA\]
+
+            <p>Just like with the surface area, if the surface can be defined more <em>explicitly</em> as the function \(z = g(x,y)\) over a region \(R\) in the \(xy\)-plane, then this surface integral can be simplified to the following.</p>
+
+            \[\underset{S}{\mathop \iint}\, f(x,y,z)~dS = \underset{R}{\mathop \iint}\, f(x,y,g(x,y)) \sqrt{\left( g_x \right)^2 + \left( g_y \right)^2 + 1}~dA\]</div>
+
+        <p>The following videos work through several examples of surface integrals.</p>
+
+        <div class="widget-header">Surface Integrals with Explicit Surface Part 1</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/ppospL53wPc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/ppospL53wPc]</div>
+
+        <div class="widget-header">Surface Integrals with Explicit Surface Part 2</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/XntA5hj_HBg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/XntA5hj_HBg]</div>
+
+        <div class="widget-header">Surface Integrals with Parameterized Surface - Part 1</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/Go42xzsTA3Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/Go42xzsTA3Q]</div>
+
+        <div class="widget-header">Surface Integrals with Parameterized Surface - Part 2</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/59N-6SLZMno" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/59N-6SLZMno]</div>
+
+        <p>Suppose we want to compute a surface integral of a vector field. Well, we need to think about the orientation of the surface relative to the vector field, just like we did with oriented curves and line integrals. We say a surface \(S\) is <strong>oriented</strong>            if each point in \(S\) has a unit normal vector (either \(\vec{n}\) or \(-\vec{n}\)).</p>
+
+        <ul>
+            <li>We usually think of a surface \(S\) having a <strong>positive orientation</strong> if the norml vectors point upward.</li>
+            <li>If we have a solid \(E\) defined by a closed surface \(S\), we will usually describe \(S\) as having a <strong>positive orientiation</strong> if the normal vectors point outward from \(E\).</li>
+        </ul>
+
+        <div class="def-eqn">
+            <p>If \(\vec{F}\) is a continuous vector field defined on an oriented surface \(S\) with unit normal vector \(\vec{n}\), then the surface integral of \(\vec{F}\) over \(S\) is defined as follows. This is also called the <strong>flux of \(\vec{F}\) across \(S\)</strong>.</p>
+
+            \[\underset{S}{\mathop \iint}\, \vec{F} \cdot d\vec{S} = \underset{S}{\mathop \iint}\, \vec{F} \cdot \vec{n}~dS\]
+
+            <p>If the surface \(S\) is parameterized by \(\vec{r}(u,v)\) where \(\vec{r}_u\) and \(\vec{r}_v\) are continuous over a region \(D\), then the flux integral can be rewritten using the cross product of the partial derivatives.</p>
+
+            \[\underset{S}{\mathop \iint}\, \vec{F} \cdot \vec{n}~dS = \underset{D}{\mathop \iint}\, \vec{F} \cdot \left(\vec{r}_u \times \vec{r}_v \right)~dA.\]
+
+            <p>If the surface \(S\) can be expressed <em>explicitly</em> as \(z = g(x, y)\) where \(g_x\) and \(g_y\) are continuous over \(D\), then the flux integral can be rewritten using the gradient of \(g\).</p>
+
+            \[\underset{S}{\mathop \iint}\, \vec{F} \cdot \vec{n}~dS = \underset{D}{\mathop \iint}\, \vec{F} \cdot \langle -g_x, -g_y, 1 \rangle ~dA.\]
+
+            <p>If \(\vec{n}\) has a <strong>negative orientation</strong>, then the integrand becomes \(\vec{F} \cdot \langle g_x, g_y, -1 \rangle \).</p>
+        </div>
+
+        <p>The following videos work through a few examples of surface integrals of vector fields.</p>
+
+        <div class="widget-header">Surface Integral of a Vector Field - Part 1</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/y-gsqWf3Gms" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/y-gsqWf3Gms]</div>
+
+        <div class="widget-header">Surface Integral of a Vector Field - Part 2</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/9H4Q-FEKwGw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/9H4Q-FEKwGw]</div>
+
+    </div>
+    <!-- End of the main content -->
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div class="myfooter">
+        <div class="row">
+            <div class="col-s-9 fleft">
+                <p>Content ©2020. Some Rights Reserved. <br> Video Content by:</p>
+                <ul>
+                    <li><a href="http://www.mathispower4u.com/" target="_blank">Mathispower4u (new window)</a></li>
+                </ul>
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+            </div>
+            <div class="col-s-3 fright">
+                <a href="#" onclick="pgPrint(); return false;"><i class="fa fa-print"></i> Printer Friendly</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

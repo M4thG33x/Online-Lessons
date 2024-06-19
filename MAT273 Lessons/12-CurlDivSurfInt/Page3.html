@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="script.js"></script>
+    <!--Remove padding from grid boxes-->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+    </style>
+    <title>Parameterization</title>
+</head>
+
+<body id="maincontent">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div class="printbuttonbar">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div class="myheader">
+        <div class="row">
+            <div class="col-4 col-s-5">
+                <img src="logo_custom.png">
+            </div>
+            <div class="col-8 col-s-7">
+                <h1>Curl & Divergence, Parameterization & Surface Integrals</h1>
+                <p>Vector Calculus</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnav" id="myTopnav">
+        <a href="index.html">Overview</a>
+        <a href="Page1.html">Curl</a>
+        <a href="Page2.html">Divergence</a>
+        <span class="active">Parameterization</span>
+        <a href="Page4.html">Tangent Plane</a>
+        <a href="Page5.html">Surface Area</a>
+        <a href="Page6.html">Integration</a>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="mainbody">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="pagetoc">
+            <p> On this Page </p>
+            <ul>
+                <li><a href="#top">Surface Parameterization</a></li>
+                <li><a href="#rectangular">Rectangular</a></li>
+                <li><a href="#cylindrical">Cylindrical</a></li>
+                <li><a href="#spherical">Spherical</a></li>
+            </ul>
+            <br>
+            <p>Additional Reading</p>
+            <ul>
+                <li>Section 16.6</li>
+            </ul>
+        </div>
+
+        <!-- The main content starts here-->
+        <h2 id="top">Surface Parameterization</h2>
+
+        <p>In the Vector Fields and Line Integrals lesson, we looked at parameterizing curves, meaning we defined a curve \(C\) in \(ℝ^2\) using a vector parameterization \(\vec{r}(t) = \langle x(t),y(t) \rangle\) where \(x\) and \(y\) were continuous functions
+            of \(t\). We now want to do the same thing with surfaces. We need to be able to express a surface \(S\) in \(ℝ^3\) using two parameters, \(u\) and \(v\). This can be done in several ways, depending on the type of surface.</p>
+
+        <h3 id="rectangular">Rectangular Parameterizations</h3>
+
+        <p>For surfaces that can be expressed as \(z = g(x, y)\), we can use the parameterization \(x = u\), \(y = v\), and \(z = g(u, v)\). For example, consider the plane surface \(S\) given by \(3x - 5y + z = 7\). We can easily solve this for \(z\) to
+            get \(z = 7 - 3x + 5y\). Then we could describe \(S\) using the parameterization \(\vec{r}(u, v) = \langle u,v,7 - 3u + 5v \rangle\).</p>
+
+        <p>We can graph these parameterized surfaces using <a href="https://www.geogebra.org/3d">GeoGebra 3D (new window)</a> [https://www.geogebra.org/3d] using the following command.</p>
+
+        <p style="text-align: center;"><strong>Surface(&lt;exp&gt;, &lt;exp&gt;, &lt;exp&gt;, &lt;var 1&gt;, &lt;start&gt;, &lt;end&gt;, &lt;var 2&gt;, &lt;start&gt;, &lt;end&gt;)</strong></p>
+
+        <p>For the above example, we would enter the expression <strong>surface(u, v, 7 - 3u + 5v, u, -5, 5, v, -5, 5)</strong> into the GeoGebra command line which will give the following graph. You can choose different start/end values for each variable.</p>
+
+        <img src="RectParam.png" alt="Graph of surface(u, v, 7 - 3u + 5v, u, -5, 5, v, -5, 5) using GeoGebra." />
+
+        <h3 id="cylindrical">Cylindrical Parameterizations</h3>
+
+        <p>Surfaces that can be expressed using \(\sin^2 \theta + \cos^2 \theta = 1\), such as cylinders and cones, can be parameterized using cylindrical coordinates where \(u = \theta\) and \(v = z\). For example, consider the cylindrical surface \(S\)
+            given by \(x^2 + y^2 = 25\). In the \(xy\)-plane, this is just a circle centered at the origin with radius 5, which we could parameterize as \(\vec{r}(t) = \langle 5\cos(t), 5\sin(t) \rangle \). However, this surface in space is a cylinder
+            parallel to the \(z\)-axis with circular radius 5. So we could parameterize \(S\) as \(\vec{r}(u,v) = \langle 5\cos(u),5\sin(u), v \rangle\) where \(0 \le u \lt 2\pi\) and \(-\infty \lt v \lt \infty\). Notice that this is the same parameterization
+            as the circle with an additional \(z\) component. Think of this as all the circles of radius 5 with a height \(v\) above the \(xy\)-plane. We could graph this using the GeoGebra command <strong>surface(5 cos(u), 5 sin(u), v, u, 0, 2&pi;, v, -5, 5)</strong>.</p>
+
+        <img src="CylParam.png" alt="Graph of surface(5 cos(u), 5 sin(u), v, u, 0, 2 pi, v, -5, 5) using GeoGebra." />
+
+        <h3 id="spherical">Spherical Parameterizations</h3>
+
+        <p>Surfaces that can be expressed spherically can be parameterized using \(u = \phi\) and \(v = \theta\). For example, consider the surface \(S\) defined by \(x^2 + y^2 + z^2 = 49\) above the \(xy\)-plane. Then \(S\) is the hemisphere with radius
+            7 and \(z \ge 0\). In spherical coordinates, this would be all the points \((\rho, \phi, \theta)\) where \(\rho = 7\), \(0 \le \phi \le \pi/2\) and \(0 \le \theta \lt 2\pi\). We could parameterize \(S\) as \(\vec{r}(u,v) = \langle 7\sin(u)\cos(v),
+            7\sin(u)\sin(v), 7\cos(u) \rangle\) where \(0 \le u \le \pi/2\) and \(0 \le v \lt 2\pi\). Using the GeoGebra command <strong>surface(7 sin(u) cos(v), 7 sin(u) sin(v), 7 cos(u), u, 0, &pi;/2, v, 0, 2&pi;)</strong>, we get the following graph.
+        </p>
+
+        <img src="SphParam.png" alt="Graph of surface(7 sin(u) cos(v), 7 sin(u) sin(v), 7 cos(u), u, 0, pi/2, v, 0, 2 pi) using GeoGebra." />
+
+        <p>The following vidoes gives a few more examples of how we can parameterize given surfaces.</p>
+
+        <div class="widget-header">Parameterized Surfaces</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/MmTNkRA0yyk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/MmTNkRA0yyk]</div>
+
+    </div>
+    <!-- End of the main content -->
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div class="myfooter">
+        <div class="row">
+            <div class="col-s-9 fleft">
+                <p>Content ©2020. Some Rights Reserved. <br> Video Content by:</p>
+                <ul>
+                    <li><a href="http://www.mathispower4u.com/" target="_blank">Mathispower4u (new window)</a></li>
+                </ul>
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+            </div>
+            <div class="col-s-3 fright">
+                <a href="#" onclick="pgPrint(); return false;"><i class="fa fa-print"></i> Printer Friendly</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

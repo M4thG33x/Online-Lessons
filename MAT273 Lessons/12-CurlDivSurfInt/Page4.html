@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="script.js"></script>
+    <!--Remove padding from grid boxes-->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+    </style>
+    <title>Tangent Plane</title>
+</head>
+
+<body id="maincontent">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div class="printbuttonbar">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div class="myheader">
+        <div class="row">
+            <div class="col-4 col-s-5">
+                <img src="logo_custom.png">
+            </div>
+            <div class="col-8 col-s-7">
+                <h1>Curl & Divergence, Parameterization & Surface Integrals</h1>
+                <p>Vector Calculus</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnav" id="myTopnav">
+        <a href="index.html">Overview</a>
+        <a href="Page1.html">Curl</a>
+        <a href="Page2.html">Divergence</a>
+        <a href="Page3.html">Parameterization</a>
+        <span class="active">Tangent Plane</span>
+        <a href="Page5.html">Surface Area</a>
+        <a href="Page6.html">Integration</a>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="mainbody">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="pagetoc">
+            <p> On this Page </p>
+            <ul>
+                <li><a href="#top">Tangent Plane</a></li>
+            </ul>
+            <br>
+            <p>Additional Reading</p>
+            <ul>
+                <li>Section 16.6</li>
+            </ul>
+        </div>
+
+        <!-- The main content starts here-->
+        <h2 id="top">Tangent Plane</h2>
+
+        <p>One nice usage of these surface parameterizations in the ability to determine the equation of the tangent plane to a surface at a point. Recall from unit 1 that the equation of a plane is given by \(a(x - x_0) + b(y - y_0) + c(z - z_0) = 0\) where\(\langle
+            a,b, c \rangle\) is the normal vector at the point \((x_0, y_0, z_0)\). Well for a parameterized surface \(S\) given by \(\vec{r}(u,v) = \langle x(u,v), y(u,v), z(u,v) \rangle\), the normal vector will be perpendicular to the partial derivatives
+            \(\vec{r}_u\) and \(\vec{r}_v\).</p>
+
+        \[\vec{n} = \langle a,b,c \rangle = \vec{r}_u \times \vec{r}_v\]
+
+        <div class="example">
+            <p><strong>Example</strong>:</p>
+            <p>Find the tangent plane to the paraboloid surface \(S\) given by \(z = x^2 + y^2 + 1\) at the point \((1, -1, 3)\).</p>
+
+            <div class="solution"><input type="checkbox" checked="checked"><label class="sollabel">Solution</label>
+                <div class="solcont">
+                    <img src="TanPlane.png" alt="Graph of f(x,y) = x^2 + y^2 + 1 using GeoGebra." />
+
+                    <p>If we let \(u=x\) and \(v=y\), then we could easily parameterize \(S\) as \(\vec{r}(u,v) = \langle u,v,u^2 + v^2 + 1 \rangle\), and the partial derivatives would then be \(\vec{r}_u = \langle 1,0,2u \rangle\) and \(\vec{r}_v = \langle
+                        0,1,2v \rangle\). At the given point, where \(u = x = 1\) and \(v = y = -1\), we get the vectors \(\vec{r}_u = \langle 1,0,2 \rangle\) and \(\vec{r}_v = \langle 0,1,-2 \rangle\). The normal vector would then be \(\vec{r}_u \times
+                        \vec{r}_v = \langle -2,2,1 \rangle\). Thus the equation of the plane would be \(-2(x - 1) + 2(y + 1) +1(z - 3) = 0\), or \(2x - 2y - z = 1\).</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- End of the main content -->
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div class="myfooter">
+        <div class="row">
+            <div class="col-s-9 fleft">
+                <p>Content ©2020. Some Rights Reserved. <br> Video Content by:</p>
+                <ul>
+                    <li><a href="http://www.mathispower4u.com/" target="_blank">Mathispower4u (new window)</a></li>
+                </ul>
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+            </div>
+            <div class="col-s-3 fright">
+                <a href="#" onclick="pgPrint(); return false;"><i class="fa fa-print"></i> Printer Friendly</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

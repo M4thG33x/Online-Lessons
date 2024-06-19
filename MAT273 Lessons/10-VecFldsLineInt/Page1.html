@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="script.js"></script>
+    <!--Remove padding from grid boxes-->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+    </style>
+    <title>Vector Fields</title>
+</head>
+
+<body id="maincontent">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div class="printbuttonbar">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div class="myheader">
+        <div class="row">
+            <div class="col-4 col-s-5">
+                <img src="logo_custom.png">
+            </div>
+            <div class="col-8 col-s-7">
+                <h1>Vector Fields &amp; Line Integrals</h1>
+                <p>Vector Calculus</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnav" id="myTopnav">
+        <a href="index.html">Overview</a>
+        <span class="active">Vector Fields</span>
+        <a href="Page2.html">Line Integrals</a>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="mainbody">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="pagetoc">
+            <p> On this Page </p>
+            <ul>
+                <li><a href="#top">Vector Fields</a></li>
+            </ul>
+            <br>
+            <p>Additional Reading</p>
+            <ul>
+                <li>Section 16.1</li>
+            </ul>
+        </div>
+
+        <!-- The main content starts here-->
+        <h2 id="top">Vector Fields</h2>
+
+        <p>A vector field in \(&#8477;^2\) is a function defined over a region \(D\) in the \(xy\)-plane that assigns to each point \((x, y)\) in \(D\) a vector \(\vec{F}(x, y)\).</p>
+
+        <table class="styledtable-hrborder2">
+            <caption>Vector Field Examples</caption>
+            <tbody>
+                <tr>
+                    <th>
+                        Vector Field
+                    </th>
+                    <th>
+                        Graph
+                    </th>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">
+                        <strong>Rotation Vector Field</strong><br><br> \(\vec{F}(x,y) = \langle -y, x \rangle\) <br>
+                        <p>A rotation vector could be used to describe the flow of water in a sink around the drain.</p>
+                    </td>
+                    <td>
+                        <img src="RotationField.png" alt="Graph of a rotation vector field with vectors forming a counter-clockwise rotation about the origin." />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">
+                        <strong>Radial Vector Field</strong><br><br> \(\vec{F}(x,y) = \langle x, y \rangle\)<br><br>
+                        <p>A radial vector field could be used to describe a repulsive (or attractive) force, where all vectors point outward (or inward) from (to) a central point.</p>
+                    </td>
+                    <td>
+                        <img src="RadialField.png" alt="Graph of a radial vector field with vectors pointing outward from the origin." />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">
+                        <strong>Flow Vector Field</strong><br><br> \(\vec{F}(x,y) = \langle \frac{1}{y2 + 1}, 0 \rangle\)<br><br>
+                        <p>A flow vector field could be used to describe the flow of a fluid through an object, such as water through a hose or blood through a vein, or even traffice flow on a road.</p>
+                    </td>
+                    <td>
+                        <p><img src="FlowField.png" alt="Graph of a flow vector field with parallel vectors pointing in the positive direction between y = -1 and y = 1." /></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>Similarly, a vector field in \(&#8477;^3\) is a function defined over a region \(E\) in space that assigns to each point \((x,y,z)\) in \(E\) a vector \(\vec{F}(x,y,z)\). Such a vector field could describe the air current across an airplane wing
+            or in a huricane, the radiation of heat from a light source or the temperature fluxuation in a solid, or a gravitational, magnetic, force, or energy field.</p>
+
+        <p class="widget-header">Introduction to Vector Fields</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/pwiSCrlP98o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <p class="widget-footer">[https://youtu.be/pwiSCrlP98o]</p>
+
+        <div class="def-eqn">
+            <p>A <strong>gradient field</strong> is a vector field defined by the gradient of a scalar function \(f\). In other words, in \(&#8477;^2\) and in \(&#8477;^3\), respectively, we get the following.</p>
+
+            \[\vec{F}(x,y) = \nabla f(x,y) = \langle f_x(x,y), f_y(x,y)\rangle\] \[\vec{F}(x,y,z) = \nabla f(x,y,z)\]
+        </div>
+
+        <p>What makes gradient fields so special is that since the vectors in the field are all gradient vectors, they will all be orthogonal (or perpendicular) to the level curves of the contour map of the function \(f\). This is illustrated in the following
+            video.
+        </p>
+
+        <p class="widget-header">Find the Gradient Vector Field of f(x,y)=x^3y^5</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/RtlnSzeKGvw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <p class="widget-footer">[https://youtu.be/RtlnSzeKGvw]</p>
+
+        <p>We say a vector field \(\vec{F}\) is <strong>conservative</strong> if it is the gradient of some scalar function \(f\). In other words, there is some scalar function \(f\) such that \(\vec{F} = \nabla f\) and we call \(f\) the <strong>potential function</strong>            for \(\vec{F}\).
+        </p>
+    </div>
+    <!-- End of the main content -->
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div class="myfooter">
+        <div class="row">
+            <div class="col-s-9 fleft">
+                <p>Content ©2020. Some Rights Reserved. <br> Video Content by:</p>
+                <ul>
+                    <li><a href="http://www.mathispower4u.com/" target="_blank">Mathispower4u (new window)</a></li>
+                </ul>
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+            </div>
+            <div class="col-s-3 fright">
+                <a href="#" onclick="pgPrint(); return false;"><i class="fa fa-print"></i> Printer Friendly</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

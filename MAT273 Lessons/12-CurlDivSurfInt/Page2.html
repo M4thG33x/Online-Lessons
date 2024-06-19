@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="script.js"></script>
+    <!--Remove padding from grid boxes-->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+    </style>
+    <title>Divergence</title>
+</head>
+
+<body id="maincontent">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div class="printbuttonbar">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div class="myheader">
+        <div class="row">
+            <div class="col-4 col-s-5">
+                <img src="logo_custom.png">
+            </div>
+            <div class="col-8 col-s-7">
+                <h1>Curl & Divergence, Parameterization & Surface Integrals</h1>
+                <p>Vector Calculus</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnav" id="myTopnav">
+        <a href="index.html">Overview</a>
+        <a href="Page1.html">Curl</a>
+        <span class="active">Divergence</span>
+        <a href="Page3.html">Parameterization</a>
+        <a href="Page4.html">Tangent Plane</a>
+        <a href="Page5.html">Surface Area</a>
+        <a href="Page6.html">Integration</a>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="mainbody">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="pagetoc">
+            <p> On this Page </p>
+            <ul>
+                <li><a href="#top">Divergence</a></li>
+                <li><a href="#flux">Circulation &amp; Flux</a></li>
+            </ul>
+            <br>
+            <p>Additional Reading</p>
+            <ul>
+                <li>Section 16.5</li>
+            </ul>
+        </div>
+
+        <!-- The main content starts here-->
+        <h2 id="top">Divergence</h2>
+
+        <p>While the curl of a vector field describes its rotation, the divergence of a vector field describes the rate of change inward or outward. Think of divergence describing water in a sink flowing inward towards the drain or flowing outward from the
+            source. A positive divergence would represent an outward flow, like an expanding gas, while a negative divergence would represent in inward flow, like a compressing gas.</p>
+
+        <div class="def-eqn">
+            <p>The <strong>divergence</strong> of a vector field \(\vec{F} = \langle P,Q,R \rangle \) on \(ℝ^3\) where \(P\), \(Q\) and \(R\) are differentiable on \(ℝ^3\) is defined by the following formula.</p>
+
+            \[\text{div} \, \vec{F} = \nabla \cdot \vec{F} = \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z} \]
+
+            <p>If \(\nabla \cdot \vec{F} = \vec{0}\), meaning the vector field produces no net expansion or compression,then we say \(\vec{F}\) is <strong>source free</strong>.</p>
+        </div>
+
+        <p>The following video illustrates how we can interpret the divergence of a vector field in terms of the direction of its vectors.</p>
+
+        <div class="widget-header">Determine the Sign of the Divergence from the Graph of a Vector Field</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/1FJGfGbpbyg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/1FJGfGbpbyg]</div>
+
+        <p>The following videos give a few examples of determining divergence of a vector field at a given point.</p>
+
+        <div class="widget-header">The Divergence of a Vector Field</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/t-MvmFZttyI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/t-MvmFZttyI]</div>
+
+        <div class="widget-header">Determine the Divergence of a 2D Vector Field (Basic)</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/K8FG6nYe5-Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/K8FG6nYe5-Q]</div>
+
+        <div class="widget-header">Determine the Divergence of a 2D Vector Field (Trig)</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/xggmxdOoaF4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/xggmxdOoaF4]</div>
+
+        <div class="widget-header">Ex 1: Determine the Divergence of a Vector Field</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/bDOPV5_8AA0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/bDOPV5_8AA0]</div>
+
+        <div class="widget-header">Ex 2: Determine the Divergence of a Vector Field</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/jZ0EjztayEk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/jZ0EjztayEk]</div>
+
+        <p>Remember that <span style="color: red; font-weight: bold;">c</span>url is a <span style="color: red; font-weight: bold;">c</span>ross product that measures <span style="color: red; font-weight: bold;">c</span>irculation, while <span style="color: blue; font-weight: bold;">d</span>ivergence
+            is a <span style="color: blue; font-weight: bold;">d</span>ot product that measures flux.</p>
+
+        <h3 id="flux">Circulation &amp; Flux</h3>
+
+        <p>Now that we have discussed curl and divergence, let's revisit Green's Theorem. For a vector field \(\vec{F}\) over a region \(D\) in \(\mathbb{R}^2\) bounded by the curve \(C\), we have already seen from Green's Theorem that the line integral
+            of the
+            <strong>tangential component</strong> of \(\vec{F}\) along \(C\) is equal to the double integral of the vertical component of the curl of \(\vec{F}\) over \(D\).</p>
+
+        <div class="def-eqn">
+            <p>Green's Theorem for the <strong>circulation of \(\vec{F}\)</strong>:</p>
+
+            \[\underset{C}{\mathop \oint}\, \vec{F} \cdot \vec{T} ~ds = \underset{D}{\mathop \iint}\, (\nabla \times \vec{F}) \cdot \hat{k}~dA = \underset{D}{\mathop \iint}\, \left( \frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y} \right) ~dA\]
+        </div>
+
+        <p>We get a similar relationship for the line integral of the <strong>normal component</strong> of \(\vec{F}\) along \(C\) to the double integral over \(D\) of the divergence of \(\vec{F}\).</p>
+
+        <div class="def-eqn">
+            <p>Green's Theorem for the <strong>flux of \(\vec{F}\)</strong>:</p>
+
+            \[\underset{C}{\mathop \oint}\, \vec{F} \cdot \vec{n}~ds = \underset{D}{\mathop \iint}\, \nabla \cdot \vec{F}~dA = \underset{D}{\mathop \iint}\, \left( \frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y} \right) ~dA\]
+        </div>
+
+        <div class="widget-header">Flux Form of Green's Theorem</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/0jKqk4pvEk8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/0jKqk4pvEk8]</div>
+
+    </div>
+    <!-- End of the main content -->
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div class="myfooter">
+        <div class="row">
+            <div class="col-s-9 fleft">
+                <p>Content ©2020. Some Rights Reserved. <br> Video Content by:</p>
+                <ul>
+                    <li><a href="http://www.mathispower4u.com/" target="_blank">Mathispower4u (new window)</a></li>
+                </ul>
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+            </div>
+            <div class="col-s-3 fright">
+                <a href="#" onclick="pgPrint(); return false;"><i class="fa fa-print"></i> Printer Friendly</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

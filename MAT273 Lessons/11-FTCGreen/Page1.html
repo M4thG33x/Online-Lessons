@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="script.js"></script>
+    <!--Remove padding from grid boxes-->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+    </style>
+    <title>Fundamental Theorem</title>
+</head>
+
+<body id="maincontent">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div class="printbuttonbar">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div class="myheader">
+        <div class="row">
+            <div class="col-4 col-s-5">
+                <img src="logo_custom.png">
+            </div>
+            <div class="col-8 col-s-7">
+                <h1>Fundamental Theorem &amp; Green's Theorem</h1>
+                <p>Vector Calculus</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnav" id="myTopnav">
+        <a href="index.html">Overview</a>
+        <span class="active">Fundamental Theorem</span>
+        <a href="Page2.html">Green's Theorem</a>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="mainbody">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="pagetoc">
+            <p> On this Page </p>
+            <ul>
+                <li><a href="#top">Fundamental Theorem</a></li>
+                <li><a href="#ftc">FTC & Line Integrals</a></li>
+            </ul>
+            <br>
+            <p>Additional Reading</p>
+            <ul>
+                <li>Section 16.3</li>
+            </ul>
+        </div>
+
+        <!-- The main content starts here-->
+        <h2 id="top">Fundamental Theorem</h2>
+
+        <p>Before we get to the fundamental theorem over vector fields, we need to look at conservative vector fields a bit more. On a previous page, we said a vector field \(\vec{F}\) is conservative if there exists a potential function \(f\) such that
+            \(\vec{F} = \nabla f\). So for a given vector field \(\vec{F}\), how do we (1) determine if \(\vec{F}\) is conservative, and (2) if it is conservative, how do we determine the potential function \(f\)?</p>
+
+        <p>In order to answer these questions, we first need to define a few terms describing the types of curves and regions that we could find in the \(xy\)-plane.</p>
+
+        <table class="styledtable-hrborder2 ltables">
+            <caption>Types of Curves and Regions</caption>
+            <tbody>
+                <tr>
+                    <th>Definition</th>
+                    <th>Illustration</th>
+                </tr>
+                <tr>
+                    <td>
+                        <p>A curve is <strong>simple</strong> if it does not cross or intersect itself.</p>
+                        <p>A curve is <strong>closed</strong> if its ending point and starting point are the same.</p>
+                    </td>
+                    <td>
+                        <img src="CurveTypes.png" alt="Illustration of regions that are (1) simple but not closed, (2) not simple and not closed, (3) simple and closed, (4) not simple but closed." />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>A region is <strong>connected</strong> if it is a single region, even though it may contain holes.</p>
+                        <p>A region is <strong>simply-connected</strong> if it does not have any holes or gaps.</p>
+                        <p>A region is <strong>open</strong> if it doesn't constain any of its boundary points.</p>
+                    </td>
+                    <td>
+                        <img src="RegionTypes.png" alt="Illustration of regions that are (1) closed but not connected, (2) closed and connected, (3) closed and simply-connected, (4) open and simply-connected." />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>So how do we determine if a vector field \(\vec{F}\) is conservative? Well, recall that the gradient of a function is the first partial derivatives of the functon, i.e. \(\vec{F} = \nabla f = \langle f_x,f_y \rangle\), and that the mixed second
+            partial derivatives will be equal if \(f\) is continuous, i.e. \(f_{xy} = f_{yx}\).</p>
+
+        <div class="def-eqn">
+            <p><strong>Testing for Conservative</strong>: For a given vector field \(\vec{F} = \langle P,Q \rangle\) over an open simply-connect region \(D\) in the \(xy\)-plane where \(P\) and \(Q\) both have continuous first-order partial derivatives,
+                \(\vec{F}\) is conservative if for all points in \(D\) the following relationship holds.</p>
+
+            \[\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}\]
+        </div>
+
+        <p>Once we determine that a vector field is conservative, how do we find the potential function? Well, from the above theorem, if \(\vec{F} = \langle P,Q \rangle\) then we know \(P = f_x\) and \(Q = f_y\) since \(\vec{F}\) is a gradient field. Then
+            \(f\) is the potential function and we can determine \(f\) by integrating \(P\) and \(Q\) with respect to \(x\) and \(y\), respectively.</p>
+
+        <div class="widget-header">Determining the Potential Function of a Conservative Vector Field</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/nQkHh2psLck" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/nQkHh2psLck]</div>
+
+        <h3 id="ftc">FTC &amp; Line Integrals</h3>
+
+        <p>Recall the fundamental theorem of calculus from Calculus I, which says the definite integral of a continuous function could be determined by \[\int_{a}^{b}\,f(x)~dx = F(b)-F(a)\] where \(F' = f\). We can extend this idea to evaluting line integrals.</p>
+
+        <div class="def-eqn">
+            <p><strong>FTC for Line Integrals</strong>: Given a smooth curve \(C\) parameterized by the vector functon \(\vec{r}(t)\) for \(a \le t \le b\) and a differentiable function \(f\) whose gradient \(\nabla f\) is continuous on \(C\), the line integral
+                of \(\nabla f\) over \(C\) can be computed using only the endpoints.</p>
+
+            \[\underset{C}{\mathop \int}\,\nabla f \cdot ~d\vec{r} =f(\vec{r}(b))-f(\vec{r}(a))\]
+        </div>
+
+        <p>Because of this theorem, we get the following results for line integrals over a gradient field.</p>
+
+        <ul>
+            <li>The line integrals over two curves \(C_1\) and \(C_2\) having the same endpoints will be equal. In other words, \(\underset{C_1}{\int}\,\nabla f \cdot ~d\vec{r} = \underset{C_2}{\int}\,\nabla f \cdot ~d\vec{r}\).</li>
+            <li>Line integrals of conservative fields are <strong>path independent</strong>, which means that the line integral can be computed using only the values of \(f\) at the endpoints of \(C\). </li>
+            <li>The line integral \(\underset{C}{\int}\,\nabla f \cdot ~d\vec{r}\) is path independent in a region \(D\) if and only if \(\underset{C_1}{\int}\,\nabla f \cdot ~d\vec{r} = 0\) for every closed path in \(D\).</li>
+            <li>If \(\vec{F}\) is a vector field that is continuous on an open connected region \(D\) and \(\underset{C}{\int}\,\nabla f \cdot ~d\vec{r}\) is path independent in \(D\), then \(\vec{F}\) is conservative on \(D\).</li>
+        </ul>
+
+        <p>The following videos will demonstrate three different methods to evaluating line integrals on a vector field depending on whether the field is conservative or not.</p>
+
+        <div class="widget-header">The Fundamental Theorem of Line Integrals - Part 1</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/Td6g2bvJh18" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/Td6g2bvJh18]</div>
+
+        <div class="widget-header">Ex 1: Fundamental Theorem of Line Integrals - Given Vector Field in a Plane</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/62oBGKSjYiY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/62oBGKSjYiY]</div>
+
+        <div class="widget-header">Ex 2: Fundamental Theorem of Line Integrals - Given Vector Field in a Plane (Not Conservative)</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/Eh6OinLiGWg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/Eh6OinLiGWg]</div>
+
+    </div>
+    <!-- End of the main content -->
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div class="myfooter">
+        <div class="row">
+            <div class="col-s-9 fleft">
+                <p>Content ©2020. Some Rights Reserved. <br> Video Content by:</p>
+                <ul>
+                    <li><a href="http://www.mathispower4u.com/" target="_blank">Mathispower4u (new window)</a></li>
+                </ul>
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+            </div>
+            <div class="col-s-3 fright">
+                <a href="#" onclick="pgPrint(); return false;"><i class="fa fa-print"></i> Printer Friendly</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

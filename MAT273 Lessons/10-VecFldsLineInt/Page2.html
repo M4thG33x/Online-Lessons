@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="script.js"></script>
+    <!--Remove padding from grid boxes-->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+    </style>
+    <title>Line Integrals</title>
+</head>
+
+<body id="maincontent">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div class="printbuttonbar">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div class="myheader">
+        <div class="row">
+            <div class="col-4 col-s-5">
+                <img src="logo_custom.png">
+            </div>
+            <div class="col-8 col-s-7">
+                <h1>Vector Fields &amp; Line Integrals</h1>
+                <p>Vector Calculus</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnav" id="myTopnav">
+        <a href="index.html">Overview</a>
+        <a href="Page1.html">Vector Fields</a>
+        <span class="active">Line Integrals</span>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="mainbody">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="pagetoc">
+            <p> On this Page </p>
+            <ul>
+                <li><a href="#top">Line Integrals</a></li>
+                <li><a href="#scalar">Scalar Functions</a></li>
+                <li><a href="#vector">Vector Fields</a></li>
+            </ul>
+            <br>
+            <p>Additional Reading</p>
+            <ul>
+                <li>Section 16.2</li>
+            </ul>
+        </div>
+
+        <!-- The main content starts here-->
+        <h2 id="top">Line Integrals</h2>
+
+        <p>Before defining line integrals, we first need to look at how we can parameterize a curve. We originally did this back when talking about arc length in Unit 1. The following video gives a few examples to help refresh your memory.</p>
+
+        <p class="widget-header">Defining a Smooth Parameterization of a Path</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/Vyltj0MpuTU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <p class="widget-footer">[https://youtu.be/Vyltj0MpuTU]</p>
+
+        <p>Now that we have discussed how to parameterize a curve, we can look at line integrals over scalar functions and over vector fields.</p>
+
+        <h3 id="scalar">Scalar Functions</h3>
+
+        <p>We say a function is <strong>smooth</strong> if it has no sharp corners or cusps. A parameterized curve \(\vec{r}(t)\) is smooth if \(\vec{r}'(t)\) is continuous and \(\vec{r}'(t) \ne 0\). If an entire curve is not smooth but it can be broken
+            down into a finite number of smaller smooth curves, then we say it is <strong>piecewise smooth</strong>.</p>
+
+        <div class="def-eqn">
+            <p>For a function \(f\) that is continuous on a (piecewise) smooth curve \(C\) defined by \(\vec{r}(t) = \langle x(t),y(t) \rangle\) for \(a \le t \le b\), the <strong>line or path integral of \(f\) over \(C\)</strong> is defined below.</p>
+
+            \[\underset{C}{\mathop \int}\,f(x,y)~ds = \int_{a}^{b}\,f(x(t),y(t)) \,\vert \vec{r}'(t)\vert~dt\]
+        </div>
+
+        <p>The left side of this formula defines a line integral as the integration of the function \(f\) along the curve \(C\) with respect to its arc length, \(ds\). The right side says that we can compute the line integral using any parameterization,
+            \(dt\), which is how we will typically evaluate a line integral. We get the right side from the left side using the arc length formula that we learned about in unit 1, which gives us the differential relationship \(ds = |\vec{r}'(t)|~dt\).
+            The following video works through a couple examples.</p>
+
+        <p class="widget-header">Line Integrals in R^2</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/2ZhmB2a-HQU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <p class="widget-footer">[https://youtu.be/2ZhmB2a-HQU]</p>
+
+        <p>We can easily extend the above formula to scalar functions in 3D space.</p>
+        <p class="widget-header">Line Integrals in R^3</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/HIBwmbN8m9Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <p class="widget-footer">[https://youtu.be/HIBwmbN8m9Q]</p>
+
+        <h3 id="vector">Vector Fields</h3>
+
+        <div class="def-eqn">
+            <p>For a vector field \(\vec{F}\) that is continuous over a (piecewise) smooth curve \(C\) defined by \(\vec{r}(t) = \langle x(t),y(t) \rangle\) for \(a \le t \le b\) with unit tangent vector \(\vec{T}\), the line or path integral of \(\vec{F}\)
+                over \(C\) is defined below.</p>
+
+            \[\underset{C}{\mathop \int}\, \vec{F} \cdot \vec{T}~ds = \underset{C}{\mathop \int}\, \vec{F} \cdot ~d\vec{r} = \int_{a}^{b}\,\vec{F}(\vec{r}(t)) \cdot \vec{r}'(t)~dt\]
+        </div>
+
+        <p> The left side of the formula defines a line integral of a vector field as the integration of the <strong>tangential component</strong> of the field along the curve with respect to its arc length. We typically express the line integral using the
+            middle part of the formula, which is the result of \(\vec{T}~ds = \vec{T}\,|\vec{r}'(t)|~dt = \frac{\vec{r}'(t)}{|\vec{r}'(t)|}\,|\vec{r}'(t)|~dt = \vec{r}'(t)~dt = d\vec{r}\). The right side of the formula expresses how we actually compute
+            the line integral using any parameterization of the curve. Again, this could easily be extend to a vector field in 3D space.</p>
+
+        <p class="widget-header">Line Integral of Vector Fields</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/3edJPRkCV9k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <p class="widget-footer">[https://youtu.be/3edJPRkCV9k]</p>
+
+        <p>A common application of line integrals over a vector field is computing the work done by the vector field as an object moves along a path. The following video demonstrates how we can compute the work done by a vector field in 3D space.</p>
+
+        <p class="widget-header">Line Integral Application - Work of a Charged Particle</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/uPmDh__MEYk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <p class="widget-footer">https://youtu.be/uPmDh__MEYk</p>
+    </div>
+    <!-- End of the main content -->
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div class="myfooter">
+        <div class="row">
+            <div class="col-s-9 fleft">
+                <p>Content ©2020. Some Rights Reserved. <br> Video Content by:</p>
+                <ul>
+                    <li><a href="http://www.mathispower4u.com/" target="_blank">Mathispower4u (new window)</a></li>
+                </ul>
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+            </div>
+            <div class="col-s-3 fright">
+                <a href="#" onclick="pgPrint(); return false;"><i class="fa fa-print"></i> Printer Friendly</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

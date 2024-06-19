@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="script.js"></script>
+    <!--Remove padding from grid boxes-->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+    </style>
+    <title>Greens's Theorem</title>
+</head>
+
+<body id="maincontent">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div class="printbuttonbar">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div class="myheader">
+        <div class="row">
+            <div class="col-4 col-s-5">
+                <img src="logo_custom.png">
+            </div>
+            <div class="col-8 col-s-7">
+                <h1>Fundamental Theorem &amp; Green's Theorem</h1>
+                <p>Vector Calculus</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnav" id="myTopnav">
+        <a href="index.html">Overview</a>
+        <a href="Page1.html">Fundamental Theorem</a>
+        <span class="active">Green's Theorem</span>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="mainbody">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="pagetoc">
+            <p>On this Page</p>
+            <ul>
+                <li><a href="#top">Green's Theorem</a></li>
+            </ul>
+            <br>
+            <p>Additional Reading</p>
+            <ul>
+                <li>Section 16.4</li>
+            </ul>
+        </div>
+
+        <!-- The main content starts here-->
+        <h2 id="top">Green's Theorem</h2>
+
+        <p>Green's Theorem gives us a relationship between the line integral over a curve and the double integral of the region bounded within the curve. Recall the terms from the previous lesson.</p>
+
+        <ul>
+            <li>A region is <strong>simply connected</strong> if it doesn't have holes or breaks.</li>
+            <li>A <strong>simple</strong> curve does not intersect itself.</li>
+            <li>A curve is <strong>closed</strong> if it starts and ends at the same point.</li>
+            <li>A <strong>smooth</strong> curve does not have any cusps or sharp corners, and its derivative is continuous.</li>
+            <li>A curve is <strong>piecewise smooth</strong> if it can be described as a finite set of smooth curves.</li>
+        </ul>
+
+        <p>In addition, we can also talk about the <strong>orientation</strong> of a curve, which refers to the direction that the curve is drawn or generated. We usually define a curve \(C\) to have a positive orientation if it is traversed one time in
+            the counterclockwise direction. The region \(D\) below is simply connected and it is bounded by a simple, closed, positively oriented, piecewise smooth curve \(C\). Notice that \(D\) is to the "left" of \(C\) as you travel around the curve.
+        </p>
+
+        <p><img src="OrientedCurve.png" alt="Image of a region D with an oriended boundary curve C." width="175" height="115" /></p>
+
+        <div class="def-eqn">
+            <p><strong>Greens' Theorem for Line Integrals</strong>: Let \(D\) be a simply connected region in the \(xy\)-plane bounded by a simple, closed, positively oriented, piecewise smooth curve \(C\). If \(\vec{F} = \langle P,Q \rangle\) where \(P\)
+                and \(Q\) have continuous first partial derivatives in \(D\), then the line integral of the vector field \(\vec{F}\) over the curve \(C\) is equal to the curl inside the region bounded by \(C\).</p>
+
+            \[\underset{C}{\mathop \oint}\, \vec{F} \cdot d\vec{r} = \underset{C}{\mathop \oint}\, P~dx + Q~dy = \underset{D}{\mathop \iint}\, \left( \frac{\partial Q}{\partial x} -\frac{\partial P}{\partial y} \right)~dA\]
+        </div>
+
+        <p>The symbol \(\mathop \oint \) is often used to express that \(C\) is a closed curve. The left part of the above formula is the line integral of the vector field \(\vec{F}\) over the curve \(C\). The middle portion is an alternate way to express
+            the line integral, being the result of the dot product. The right portion says that the line integral is equal to the double integral of the curl of \(\vec{F}\) over the region \(D\). In other words, the <strong>circulation</strong> along
+            the boundary curve is equal to the <strong>curl</strong> inside the region bounded by the curve. We will look more at curl on the next page. For now, let's just say the following.</p>
+
+        <ul>
+            <li>If the curl is 0 throughout the region \(D\), then we say the field \(\vec{F}\) is <strong>irrotational</strong> on \(D\), meaning the field does not rotate or cause spin on \(D\).</li>
+            <li>The curl of a closed curve on a conservative field is 0.</li>
+        </ul>
+
+        <div class="widget-header">Green's Theorem - Part 1</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/sDby9VzPoj4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/sDby9VzPoj4]</div>
+
+        <div class="widget-header">Green's Theorem - Part 2</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/oXISOEqd0X4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/oXISOEqd0X4]</div>
+
+        <p>The next video gives an example where the given curve has a negative orientation.</p>
+
+        <div class="widget-header">Use Green's Theorem to Evaluate a Line Integral (Negative Orientation)</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/bdxFPZbF53E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/bdxFPZbF53E]</div>
+
+        <p>We can also use Green's Theorem to compute the area of a region. Assuming we have a region \(D\) and curve \(C\) that satisfy the requirements for Green's Theorem, the area of \(D\) can be computed using any of the following integrals.</p>
+
+        <div class="def-eqn">\[A_D = \underset{C}{\mathop \oint}\, x~dy = -\underset{C}{\mathop \oint}\, y~dx = \frac{1}{2} \underset{C}{\mathop \oint}\, (x~dy - y~dx)\]</div>
+
+        <p>The first two parts of this formula represent a line integral that can be expressed in terms of \(x\) only or in terms of \(y\) only, respectively. The right part represents a line integral with respect to both \(x\) and \(y\), which is typically
+            what we deal with.</p>
+
+        <div class="widget-header">Determining Area using Line Integrals</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/WmGa-OpDP80" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/WmGa-OpDP80]</div>
+
+    </div>
+    <!-- End of the main content -->
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div class="myfooter">
+        <div class="row">
+            <div class="col-s-9 fleft">
+                <p>Content ©2020. Some Rights Reserved. <br> Video Content by:</p>
+                <ul>
+                    <li><a href="http://www.mathispower4u.com/" target="_blank">Mathispower4u (new window)</a></li>
+                </ul>
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+            </div>
+            <div class="col-s-3 fright">
+                <a href="#" onclick="pgPrint(); return false;"><i class="fa fa-print"></i> Printer Friendly</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
