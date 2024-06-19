@@ -1,0 +1,333 @@
+/* Preview Page: general settings */
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+[class*="col-"] {
+    float: left;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Calibri, Arial, Verdana, Georgia, sans-serif;
+    font-size: 16px;
+    color: black;
+    background-color: white;
+    max-width: 920px;
+}
+
+h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: black;
+}
+
+h3 {
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+}
+
+h4 {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+}
+
+a,
+a:visited {
+    color: black;
+}
+
+iframe,
+.topnav,
+.sidepanel,
+.pagetoc,
+.pagetocwrap,
+hr {
+    display: none;
+}
+
+
+/* Print Button */
+
+@media print {
+    .printbuttonbar {
+        display: none;
+    }
+}
+
+@media screen {
+    .printbuttonbar {
+        display: block;
+    }
+}
+
+
+/* Overview Page: Title, Start button, objectives, table of content & footer */
+
+.banner h1,
+p {
+    text-align: center;
+}
+
+.banner button {
+    display: none;
+}
+
+.body-objectives,
+.body-content,
+.indexfooter {
+    margin: 10px;
+}
+
+.body-objectives p,
+.body-content p {
+    text-align: left;
+}
+
+.indexfooter p,
+.indexfooter img {
+    text-align: left;
+    margin: 0;
+}
+
+.indexfooter .fright {
+    display: none;
+}
+
+
+/* Lesson Page: headings, paragraphs, footer */
+
+.myheader [class*="col-"] {
+    width: 100%
+}
+
+.myheader h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    color: black;
+}
+
+.myheader p {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    text-align: center;
+    color: black;
+}
+
+.myheader img {
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.myfooter {
+    margin: 10px;
+    padding: 0;
+    color: black;
+    font-size: small;
+}
+
+.myfooter .fleft p {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.myfooter .fright {
+    display: none;
+}
+
+.myfooter img {
+    text-align: left;
+    margin: 0;
+}
+
+
+/* Lesson Page: main content area, iframe header & footer */
+
+.mainbody {
+    margin: 10px;
+}
+
+.mainbody img {
+    max-width: 100%;
+}
+
+.mainbody p {
+    text-align: left;
+}
+
+.mainbody .widget-header {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-weight: bold;
+    font-size: 120%;
+}
+
+.mainbody .widget-footer {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 20px;
+    text-align: center;
+    font-weight: normal;
+    font-size: 80%;
+}
+
+
+/* Lesson Page: solution checkbox */
+
+.mainbody .example .solution input[type=checkbox] {
+    display: none;
+}
+
+.mainbody .sollabel {
+    font-style: italic;
+}
+
+
+/* Responsive Tall Tables */
+
+@media only screen and (max-width: 600px) {
+    .ltables table,
+    .ltables caption,
+    .ltables th,
+    .ltables td,
+    .ltables tr {
+        display: block;
+    }
+    .ltables {
+        width: 100%;
+        /*border-bottom: 5px solid #005480;*/
+    }
+    .ltables th {
+        border-bottom: 1px solid white;
+    }
+    .ltables td {
+        border: 0;
+        padding: 15px 0 15px 0;
+    }
+    /*
+    .ltables tr {
+        border-bottom: 1px solid #005480;
+    }*/
+}
+
+
+/* Lesson Page: table settings */
+
+.styledtable-noborder,
+.styledtable-hrborder1,
+.styledtable-hrborder2,
+.styledtable-border {
+    width: 80%;
+    margin: 0 0 20px 0;
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+}
+
+.styledtable-noborder caption,
+.styledtable-hrborder1 caption,
+.styledtable-hrborder2 caption,
+.styledtable-border caption {
+    font-style: italic;
+}
+
+.styledtable-noborder th,
+.styledtable-hrborder1 th,
+.styledtable-hrborder2 th,
+.styledtable-border th {
+    padding: 5px;
+    border: 1px solid black;
+}
+
+.styledtable-noborder td,
+.styledtable-hrborder1 td,
+.styledtable-hrborder2 td,
+.styledtable-border td {
+    padding: 5px;
+    border: 1px solid black;
+}
+
+
+/* For mobile phones: */
+
+[class*="col-"] {
+    width: 100%;
+}
+
+
+/* For tablets: */
+
+@media only screen and (min-width: 675px) {
+    .col-s-1,
+    .col-1 {
+        width: 8.33%;
+    }
+    .col-s-2,
+    .col-2 {
+        width: 16.66%;
+    }
+    .col-s-3,
+    .col-3 {
+        width: 25%;
+    }
+    .col-s-4,
+    .col-4 {
+        width: 33.33%;
+    }
+    .col-s-5,
+    .col-5 {
+        width: 41.66%;
+    }
+    .col-s-6,
+    .col-6 {
+        width: 50%;
+    }
+    .col-s-7,
+    .col-7 {
+        width: 58.33%;
+    }
+    .col-s-8,
+    .col-8 {
+        width: 66.66%;
+    }
+    .col-s-9,
+    .col-9 {
+        width: 75%;
+    }
+    .col-s-10,
+    .col-10 {
+        width: 83.33%;
+    }
+    .col-s-11,
+    .col-11 {
+        width: 91.66%;
+    }
+    .col-s-12,
+    .col-12 {
+        width: 100%;
+    }
+}

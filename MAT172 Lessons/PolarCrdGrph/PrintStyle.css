@@ -1,0 +1,204 @@
+/* Preview Page: general settings */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Calibri, Arial, Verdana, Georgia, sans-serif;
+    font-size: 16px;
+    color: black;
+    background-color: white;
+}
+
+h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: black;
+}
+
+h3 {
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+}
+
+h4 {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+a,
+a:visited {
+    color: black;
+}
+
+iframe,
+.topnav,
+.sidepanel,
+.pagetoc,
+.pagetocwrap,
+hr {
+    display: none;
+}
+
+
+/* Print Button */
+
+@media print {
+    .printbuttonbar {
+        display: none;
+    }
+}
+
+@media screen {
+    .printbuttonbar {
+        display: block;
+    }
+}
+
+
+/* Overview Page: Title, Start button, objectives, table of content & footer */
+
+.banner h1,
+p {
+    text-align: center;
+}
+
+.banner button {
+    display: none;
+}
+
+.body-objectives,
+.body-content,
+.indexfooter {
+    margin: 10px;
+}
+
+.body-objectives p,
+.body-content p {
+    text-align: left;
+}
+
+.indexfooter p,
+.indexfooter img {
+    text-align: left;
+    margin: 0;
+}
+
+.indexfooter .pright {
+    display: none;
+}
+
+
+/* Lesson Page: headings, paragraphs, footer */
+
+.myheader h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    color: black;
+}
+
+.myheader p {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    text-align: center;
+    color: black;
+}
+
+.myfooter {
+    margin: 0;
+    padding: 0;
+    color: black;
+    font-size: small;
+}
+
+.footleft p {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.footright {
+    display: none;
+}
+
+.footleft img {
+    margin-left: 0;
+}
+
+
+/* Lesson Page: main content area, iframe header & footer */
+
+.mainbody {
+    margin: 10px;
+}
+
+.mainbody p {
+    text-align: left;
+}
+
+.mainbody .widget-header {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-weight: bold;
+    font-size: 120%;
+}
+
+.mainbody .widget-footer {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 20px;
+    text-align: center;
+    font-weight: normal;
+    font-size: 80%;
+}
+
+
+/* Lesson Page: table settings */
+
+.styledtable-noborder,
+.styledtable-hrborder1,
+.styledtable-hrborder2,
+.styledtable-border {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+}
+
+.styledtable-noborder caption,
+.styledtable-hrborder1 caption,
+.styledtable-hrborder2 caption,
+.styledtable-border caption {
+    font-style: italic;
+}
+
+.styledtable-noborder th,
+.styledtable-hrborder1 th,
+.styledtable-hrborder2 th,
+.styledtable-border th {
+    padding: 5px;
+    border: 1px solid black;
+}
+
+.styledtable-noborder td,
+.styledtable-hrborder1 td,
+.styledtable-hrborder2 td,
+.styledtable-border td {
+    padding: 5px;
+    border: 1px solid black;
+}

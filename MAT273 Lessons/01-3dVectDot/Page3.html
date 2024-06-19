@@ -5,86 +5,235 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="author" content="J Bowers">
     <!--Viewport scaling-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--Awesome Fonts link-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--Custom CSS files-->
-    <link rel="stylesheet" type="text/css" media="screen" href="../LessonStyle.css">
-    <link rel="stylesheet" type="text/css" media="print" href="../PrintStyle.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="PrintStyle.css">
     <!--MathJax links-->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
-    <!-- <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> -->
     <!--Custom scripts-->
-    <script src="../script.js"></script>
-    <!--Assessment script-->
-    <script src="../quizlets.js"></script>
-    <title>Page1</title>
+    <script src="script.js"></script>
+    <!--Remove padding from grid boxes-->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+    </style>
+    <title>Vectors</title>
 </head>
 
-<body id="mainbody">
+<body id="maincontent">
     <!-- Print Button: only visible on the printer friendly page -->
-    <div id="printbutton">
+    <div class="printbuttonbar">
         <button onclick="loadprint()">Print Page</button>
     </div>
 
     <!-- Page header: includes WTCC logo, lesson title and subtitle -->
-    <div id="lesson-header">
-        <div class="l-col">
-            <img src="../logo_custom.png" alt="null">
-        </div>
-        <div class="r-col">
-            <h1>Title</h1>
-            <p>Subtitle</p>
+    <div class="myheader">
+        <div class="row">
+            <div class="col-4 col-s-5">
+                <img src="logo_custom.png">
+            </div>
+            <div class="col-8 col-s-7">
+                <h1>3D Space, Vectors &amp; Dot Product</h1>
+                <p>Vectors and the Geometry of Space</p>
+            </div>
         </div>
     </div>
 
     <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
-    <div class="topnavmenu" id="mytopnavmenu">
+    <div class="topnav" id="myTopnav">
         <a href="index.html">Overview</a>
-        <a href="Page1.html">Page1</a>
-        <a href="Page2.html">Page2</a>
-        <span class="active">Page3</span>
+        <a href="Page1.html">3D Space</a>
+        <a href="Page2.html">Planes &amp; Spheres</a>
+        <span class="active">Vectors</span>
+        <a href="Page4.html">GeoGebra</a>
+        <a href="Page5.html">Dot Product</a>
         <!--narrow screen menu button -->
         <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
     </div>
 
-
     <!-- Main Body: container for linked lesson pages -->
-    <div class="lesson-body">
+    <div class="mainbody">
         <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
-        <div class="lessonpagetoc">
-            <button class="dropbtn">On this Page</button>
-            <!-- <p> On this Page </p> -->
-            <div class="dropdown-content">
-                <ul>
-                    <li><a href="#top">Top</a></li>
-                </ul>
-            </div>
+        <div class="pagetoc">
+            <p> On this Page </p>
+            <ul>
+                <li><a href="#top">Vectors</a></li>
+                <li><a href="#2dops">2D Vector Operations</a></li>
+                <li><a href="#2dapps">2D Vector Applications</a></li>
+                <li><a href="#3dvectors">Vectors in Space</a></li>
+            </ul>
+            <br>
+            <p>Additional Reading</p>
+            <ul>
+                <li>Section 12.2</li>
+            </ul>
         </div>
 
-
         <!-- The main content starts here-->
-        <h2 id="top">Template Page</h2>
+        <h2 id="top">Vectors</h2>
 
+        <p>You have probably already seen vectors in a precalculus or phsycis course, but only in the xy-plane. We want to look at vectors in 3D space. Let's first review vector basics in the plane and then at the end we will extend what we know to space.
+            The following video defines what a vector is and the terminology we use as we work with vectors.</p>
 
+        <div class="widget-header">Introduction to Vectors (2D)</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/IKzR0Odurm0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://www.youtube.com/watch?v=IKzR0Odurm0]</div>
+
+        <p>After watching the above video, you should know...</p>
+        <ul>
+            <li>The difference between a <strong>vector</strong> and a <strong>scalar</strong>. Note that in a typed text we often represent scalar variables as an italicized letter, such as \(x\), and vector variables as a bold letter, such as <b>v</b>.
+                When handwriting a vector variable, we put an arror over the letter, such as \(\vec{v}\). (The arrow may not display properly depending on the browser you are using.)</li>
+            <li>How to compute the magnitude and direction of a vector. Note that magnitude may be represented as either \(|\vec{v}|\) or \(||\vec{v}||\).</li>
+            <li>How to determine the <strong>components</strong> and express the vector in <strong>component form</strong>, \(\langle a,b \rangle\).
+            </li>
+            <li>How to use the <strong>unit vectors</strong> \(\hat{\imath}\) and \(\hat{\jmath}\) to express a vector in \(\hat{\imath}\hat{\jmath}\) form, \(a\hat{\imath} + b\hat{\jmath}\). Note that when handwriting unit vectors, it is common to use a
+                "hat" symbol rather than an arrow. So if \(\vec{v}\) is a unit vector, we could write it as \(\hat{v}\).</li>
+        </ul>
+
+        <h3 class="2dops">2D Vector Operations</h3>
+
+        <p>There are three vector operations that you should know for now: vector addition, vector subtraction, and scalar multiplication. You are probably already familiar with them, but the following video defines these operations from and algebraic and
+            graphical perspective and gives a few examples. Note that he also discusses a vector dot product, but we will come back to that in the next section.</p>
+
+        <div class="widget-header">Vector Operations (2D)</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/EYIxFJXoUvA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://www.youtube.com/watch?v=EYIxFJXoUvA]</div>
+
+        <p>One helpful result of scalar multiplication is that is allows us to take any given vector and determine a unit vector that is parallel to it. We can use the following formula.</p>
+
+        \[\hat{v} = \frac{\vec{v}}{|\vec{v}|}\]
+
+        <p>The following video demonstrates how we can determine the unit vector for a given vector.</p>
+
+        <div class="widget-header">The Unit Vector (2D)</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/Ect0fBnBlLc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[http://www.youtube.com/watch?v=Ect0fBnBlLc]</div>
+
+        <h3 class="2dapps">2d Vector Applications</h3>
+
+        <p>Common applications of vectors include forces, computer programming, computer imagery, and projectile motion. The following videos give a couple examples.</p>
+
+        <div class="widget-header">Find the Net Force of Three Vectors and the Opposite Force</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/4EFXTBK-5e0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://www.youtube.com/watch?v=4EFXTBK-5e0]</div>
+
+        <div class="widget-header">Direction and Speed of a Plane in the Wind Using Vectors</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/f5vWlnpw9nc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://www.youtube.com/watch?v=f5vWlnpw9nc</div>
+
+        <h3 class="3dvectors">Vectors in Space</h3>
+
+        <p>Before we extend the 2D vector concepts we have just covered into 3D space, let's first list the properties of vector operations. Suppose \(\vec{u}\), \(\vec{v}\), and \(\vec{w}\) are vectors and \(a\) and \(c\) are scalars. Note the difference
+            between the scalar \(0\) and the vector \(\vec{0}\), which has no direction and a 0 magnitude.
+        </p>
+
+        <table class="styledtable-hrborder2 ltables" style="width: 60%">
+            <caption>Properties of Vector Operations</caption>
+            <tbody>
+                <tr>
+                    <th>Property</th>
+                    <th>Operation</th>
+                </tr>
+                <tr>
+                    <td>Commutative (addition)</td>
+                    <td>\[\vec{u} + \vec{v} = \vec{v} + \vec{u}\]</td>
+                </tr>
+                <tr>
+                    <td>Associative (addition)</td>
+                    <td>\[(\vec{u} + \vec{v}) + \vec{w} = \vec{u} + (\vec{v} + \vec{w})\]</td>
+                </tr>
+                <tr>
+                    <td>Additive Identity</td>
+                    <td>\[\vec{v} + \vec{0} = \vec{v}\]</td>
+                </tr>
+                <tr>
+                    <td>Additive Inverse</td>
+                    <td>\[\vec{v} + -\vec{v} = \vec{0}\]</td>
+                </tr>
+                <tr>
+                    <td>Distributive (scalar)</td>
+                    <td>\[c(\vec{u} + \vec{v}) = c\vec{u} + c\vec{v}\]</td>
+                </tr>
+                <tr>
+                    <td>Distributive (vector)</td>
+                    <td>\[(a + b)\vec{v} = a\vec{v} + b\vec{v}\]</td>
+                </tr>
+                <tr>
+                    <td>Zero Scalar (multiplication)</td>
+                    <td>\[0\vec{v} = \vec{0}\]</td>
+                </tr>
+                <tr>
+                    <td>Zero Vector (multiplication)</td>
+                    <td>\[c\vec{0} = \vec{0}\]</td>
+                </tr>
+                <tr>
+                    <td>Multiplicative Identity</td>
+                    <td>\[1\vec{v} = \vec{v}\]</td>
+                </tr>
+                <tr>
+                    <td>Associative (scalar multiplication)</td>
+                    <td>\[a(c\vec{v}) = (ac)\vec{v}\]</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>Also, we already talked about the unit vectors \(\hat{\imath}\) and \(\hat{\jmath}\) in the 2D plane. When we extend this into 3D space, we get the three unit vectos \(\hat{\imath} = \langle 1,0,0 \rangle \), \(\hat{\jmath} = \langle 0,1,0 \rangle
+            \), and \(\hat{k} = \langle 0,0,1 \rangle\).</p>
+
+        <p>The following video illustrates what vectors look like when graphed in 3D space and how we can compute the magnitude and unit vectors for a given vector. All the operations we have talked about so far still apply.</p>
+
+        <div class="widget-header">Vectors in Space</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/DXi-SkzMY3g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://www.youtube.com/watch?v=DXi-SkzMY3g]</div>
 
     </div>
     <!-- End of the main content -->
 
-
     <!-- Page Footer: includes copyright column and printer link -->
-    <div id="lesson-footer">
-        <div class="l-col">
-            <p>©2024 <a href="https://www.youtube.com/channel/UCszzyEwfkBHBPk6xkNrGpAA" target="_blank">M4thG33x (new
-                    window)</a> Some Rights Reserved.</p>
-            <a rel="license " href="http://creativecommons.org/licenses/by-sa/4.0/ "><img alt="Creative Commons License " src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png "></a>
-        </div>
-        <div class="r-col">
-            <a href="# " onclick="pgPrint(); return false; "><i class="fa fa-print "></i> Printer Friendly</a>
+    <div class="myfooter">
+        <div class="row">
+            <div class="col-s-9 fleft">
+                <p>Content ©2020. Some Rights Reserved. <br> Video Content by:</p>
+                <ul>
+                    <li><a href="http://www.mathispower4u.com/" target="_blank">Mathispower4u (new window)</a></li>
+                </ul>
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+            </div>
+            <div class="col-s-3 fright">
+                <a href="#" onclick="pgPrint(); return false;"><i class="fa fa-print"></i> Printer Friendly</a>
+            </div>
         </div>
     </div>
+
 </body>
 
 </html>
