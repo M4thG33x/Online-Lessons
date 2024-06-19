@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="PrintStyle.css">
+    <!--Custom scripts-->
+    <script src="script.js"></script>
+    <!--Remove padding from grid boxes-->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+    </style>
+    <title>Overview</title>
+</head>
+
+<body id="maincontent" style="background-color: white;">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div class="printbuttonbar">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page Header: includes lesson title and subtitle, and Start Button -->
+    <div class="banner">
+        <img src="logo_custom.png" alt="Wake Tech Logo">
+        <h1>Chain Rule, Derivative, Gradient & Extrema</h1>
+        <p>Partial Derivatives</p>
+        <button onclick="location.href='Page1.html'">Start Lesson</button>
+    </div>
+
+    <!-- Lesson Objectives -->
+    <div class="body-objectives">
+        <h2>Objectives</h2>
+        <p>In this lesson, you will learn to:</p>
+        <ul>
+            <li>Determine the derivative of a function using the Chain Rule.</li>
+            <li>Determine the directional derivative of a function.</li>
+            <li>Determine the gradient of a function at a point.</li>
+            <li>Solve applications using gradients.</li>
+            <li>Find critical points of functions of two variables.</li>
+            <li>Use the Second Derivative Test to determine if a critical point is a local max or min.</li>
+            <li>Find absolute extrema on closed regions.</li>
+        </ul>
+        <hr>
+    </div>
+
+    <!-- Table of Content: list pages (w/ links) in the lesson -->
+    <div class="body-content">
+        <h2>Content</h2>
+        <ul>
+            <li><a href="Page1.html">Chain Rule</a></li>
+            <li><a href="Page2.html">Directional Derivatives</a></li>
+            <li><a href="Page3.html">Gradient</a></li>
+            <li><a href="Page4.html">Extrema</a></li>
+        </ul>
+        <hr>
+    </div>
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div class="indexfooter">
+        <div class="row">
+            <div class="col-s-9 fleft">
+                <p>Content ©2020. Some Rights Reserved. <br> Video Content by:</p>
+                <ul>
+                    <li><a href="http://www.mathispower4u.com/" target="_blank">Mathispower4u (new window)</a></li>
+                </ul>
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+            </div>
+            <div class="col-s-3 fright">
+                <a href="#" onclick="pgPrint(); return false;"><i class="fa fa-print"></i> Printer Friendly</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

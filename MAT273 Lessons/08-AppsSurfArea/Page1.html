@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="script.js"></script>
+    <!--Remove padding from grid boxes-->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+    </style>
+    <title>Applications</title>
+</head>
+
+<body id="maincontent">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div class="printbuttonbar">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div class="myheader">
+        <div class="row">
+            <div class="col-4 col-s-5">
+                <img src="logo_custom.png">
+            </div>
+            <div class="col-8 col-s-7">
+                <h1>Applications &amp; Surface Area</h1>
+                <p>Multiple Integrals</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnav" id="myTopnav">
+        <a href="index.html">Overview</a>
+        <span class="active">Applications</span>
+        <a href="Page2.html">Surface Area</a>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="mainbody">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="pagetoc">
+            <p> On this Page </p>
+            <ul>
+                <li><a href="#top">Applications of Double Integrals</a></li>
+                <li><a href="#mass">Center of Mass</a></li>
+                <li><a href="#inertia">Moment of Inertia</a></li>
+                <li><a href="#probability">Probability &amp; Expected Value</a></li>
+            </ul>
+            <br>
+            <p>Additional Reading</p>
+            <ul>
+                <li>Section 15.4</li>
+            </ul>
+        </div>
+
+        <h2 id="top">Applications of Double Integrals</h2>
+
+        <p>Now let's spend a few minutes looking at some applications of double integrals. Some of these will be similar to applications you would have seen in Calc II (see chapter 8). For example, back in Calc II we compute the center of mass of a thin
+            plate, or a lamina, that has a uniform density. Now we want to consider the mass with a variable density.</p>
+
+        <div class="def-eqn">
+            <p>For a lamina region \(D\) in the \(xy\)-plane with density function \(\rho(x, y)\), the <strong>total mass of the lamina</strong> is given by the following formula. Note that \(\rho\) is the Greek letter
+                <em>rho</em>.</p>
+
+            \[m=\underset{D}{\mathop \iint }\,\rho \left( x,y \right)~dA\]
+        </div>
+
+        <div class="widget-header">Find the Mass of a Lamina Over a Region in the xy Plane</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/QBM4psv20Jk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/QBM4psv20Jk]</div>
+
+        <h3 id="mass">Center of Mass</h3>
+
+        <p>You could think of the center of mass of a lamina object as the point on the lamina where the object would be perfectly balance, like the fulcrum point of a seesaw or balance scale. The moments of the lamina object, \(M_x\) and \(M_y\), measure
+            the tendancy of the object to rotate about the \(x\) or \(y\) axis, respectively.</p>
+
+        <div class="def-eqn">
+            <p>For a lamina region \(D\) in the \(xy\)-plane with mass \(m\) and density \(\rho(x, y)\), we can compute the <strong>moments about the \(x\)-axis and \(y\)-axis</strong> as well as the <strong>center of mass</strong> of the lamina.</p>
+
+            \[{{M}_{x}}=\underset{D}{\mathop \iint }\,y~\rho \left( x,y \right)~dA\] \[{{M}_{y}}=\underset{D}{\mathop \iint }\,x~\rho \left( x,y \right)~dA\] \[\left( \bar{x},\bar{y} \right)=\left( \frac{{{M}_{y}}}{m},\frac{{{M}_{x}}}{m} \right)\]
+        </div>
+
+        <div class="widget-header">Find the Center Mass of a Lamina Over a Region Using Polar Coordinates</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/wvLriBilXb4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/wvLriBilXb4]</div>
+
+        <h3 id="inertia">Moment of Inertia</h3>
+
+        <p>Another physics application of \(x\) double integrals involves moment of inertia, which measures the tendency of an object to resist angular acceleration. If you have a particle mass \(m\), then its moment of inertia about an axis is \(I=mr^2\)
+            where \(m\) is the mass and \(r\) is the distance of the partical from the axis. For a lamina object, we must add up the moments of inertia for all points in the lamina, about both the \(x\) and \(y\) axes.</p>
+
+        <div class="def-eqn">
+            <p>For a lamina region \(D\) in the \(xy\)-plane with mass \(m\) and density \(\rho(x, y)\), we can compute the <strong>moments of inertia</strong> about the \(x\)-axis, the \(y\)-axis, and the origin using the following formulas.</p>
+
+            \[{{I}_{x}}=\underset{D}{\mathop \iint }\,{{y}^{2}}\rho \left( x,y \right)~dA\] \[{{I}_{y}}=\underset{D}{\mathop \iint }\,{{x}^{2}}\rho \left( x,y \right)~dA\] \[{{I}_{o}}=\underset{D}{\mathop \iint }\,\left( {{x}^{2}}+{{y}^{2}} \right)\rho \left( x,y
+            \right)~dA\]
+        </div>
+
+        <p> The following video demonstrates how to compute \(I_x\) for a plane lamina. A similar process could be followed to get \(I_y\) and then \(I_o=I_x+I_y\).</p>
+
+        <div class="widget-header">Use double integrals to find the moments of inertia of a two dimensional object</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/W8nQozDDzZM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/W8nQozDDzZM]</div>
+
+        <h3 id="probability">Probability &amp; Expected Value</h3>
+
+        <p>The last application we will consider for now is computing the probability of an event happening that depends on two independent variables. For starters, a probability density function of one independent variable is a function \(f\) of a continuous
+            random variable \(X\) such that \(f(x)≥0\) for all \(x\) and \(\int_{-\infty}^{\infty}\,f(x)~dx = 1\). The probability that \(X\) lies between values \(a\) and \(b\) is found by \[P(a \leq X \leq b)=\int_{a}^{b}\,f(x)~dx.\] A common example
+            is the exponential density function below, where \(\mu\) is the mean (or average value) of the probability distribution. \(f(x)=\frac{1}{\mu}e^{-X/\mu}\). Note \(\mu\) is the Greek letter <em>mu</em>, which is often used to represent the mean.</p>
+
+        <div class="def-eqn">
+            <p>If \(X\) and \(Y\) are two random continuous variables, then the <strong>joint density function of \(X\) and \(Y\)</strong> is a function of two variables, \(f(x,y)\). The probability that both \(X\) and \(Y\) are within specific ranges can
+                be described as the point \((X, Y)\) being with a region \(D\) of the \(xy\)-plane that corresponds to the specified ranges, which is given by \[P((X,Y) \in D)=\underset{D}{\mathop \iint }\,f(x,y)~dA.\] Because \(f\) is still a probability
+                density function, both \(f(x,y) \geq 0\) and \(\underset{D}{\mathop \iint }\,f(x,y)~dA=1\) are still true.</p>
+        </div>
+
+        <p>Lastly, we say \(X\) and \(Y\) are <strong>independent random variables</strong> if \(X\) has a probability density function \(f_1(x)\) and \(Y\) has a probability density function \(f_2(y)\) where \(f(x,y)=f_1(x)f_2(y)\). In other words, the
+            joint density function is the product of their individual probability density functions.</p>
+
+        <div class="widget-header">Find a Probability Using the Exponential Density Function</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/PvfFDavUKOc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/PvfFDavUKOc]</div>
+
+        <div class="def-eqn">
+            <p>The expected value of \(X\) is the mean value of \(X\), and the expected value of \(Y\) is the mean value of \(Y\). We can compute the <strong>expected values of \(X\) and \(Y\)</strong>, \(\mu_x\) and \(\mu_y\) respectively, using the following
+                formulas.
+            </p>
+
+            \[\mu_x=\underset{R}{\mathop \iint }\,x\,f(x,y)~dA\] \[\mu_y=\underset{R}{\mathop \iint }\,y\,f(x,y)~dA\]
+        </div>
+
+    </div>
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div class="myfooter">
+        <div class="row">
+            <div class="col-s-9 fleft">
+                <p>Content ©2020. Some Rights Reserved. <br> Video Content by:</p>
+                <ul>
+                    <li><a href="http://www.mathispower4u.com/" target="_blank">Mathispower4u (new window)</a></li>
+                </ul>
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+            </div>
+            <div class="col-s-3 fright">
+                <a href="#" onclick="pgPrint(); return false;"><i class="fa fa-print"></i> Printer Friendly</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

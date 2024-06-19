@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="script.js"></script>
+    <!--Remove padding from grid boxes-->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+    </style>
+    <title>Polar Regions</title>
+</head>
+
+<body id="maincontent">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div class="printbuttonbar">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div class="myheader">
+        <div class="row">
+            <div class="col-4 col-s-5">
+                <img src="logo_custom.png">
+            </div>
+            <div class="col-8 col-s-7">
+                <h1>Double &amp; Polar Integrals</h1>
+                <p>Multiple Integrals</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnav" id="myTopnav">
+        <a href="index.html">Overview</a>
+        <a href="Page1.html">Rectangular</a>
+        <a href="Page2.html">General</a>
+        <span class="active">Polar</span>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="mainbody">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="pagetoc">
+            <p> On this Page </p>
+            <ul>
+                <li><a href="#top">Double Integrals in Polar Coordinates</a></li>
+            </ul>
+            <br>
+            <p>Additional Reading</p>
+            <ul>
+                <li>Section 15.3</li>
+            </ul>
+            <br>
+            <p>Handout</p>
+            <ul>
+                <li><a href="15.3-PolarGraphs.pdf" target="_blank">Polar
+              Graph Summary (PDF)</a></li>
+            </ul>
+        </div>
+        <h2 id="top">Double Integrals in Polar Coordinates</h2>
+
+        <p>The polar coordinate system is useful for describing functions and curves that can be expressed using rotation about the origin. A polar coordinate will have the form \((r,θ)\), where \(r\) is the distance from the origin (a negative \(r\) value
+            would represent a reflection across the origin) and \(θ\) is the angle from the positive \(x\)-axis (a positive value for \(θ\) represents counter-clockwise rotation). Back in Calc II, we learned about the graphs of various polar functions,
+            such as roses, limaçons, and lemniscates (see the attached handout for a review of these functions and their graphs).</p>
+
+        <p>To evaluate a double integral in polar coordinates, let us first apply the box approximation we looked at in the previous lesson. By breaking up a region \(R\) in the \(xy\)-plane into rectangles, we can compute the volume of the box bounded above
+            each rectangle and below a function \(z=f(x,y)\). In the rectangular or Cartesian coordinate system, these rectangles are truly rectangles. But when we switch to polar, the rectangles are shaped slightly differently since we are rotating about
+            the origin.</p>
+
+        <img src="PolarRect.png" alt="Image of a polar rectangular region divided in multiple polar rectangular sub-regions.">
+
+        <p>Notice in the image above how the blue region is divided into polar "rectangles" that are bounded by two opposite sides that are linear and two opposite sides that are curved. In order to find the volume of the box above these rectangles, we first
+            need to find their areas. We could do this using the midpoint of each rectangular region, just as we did before.</p>
+
+        <img src="PolarRectArea.png" alt="Image of a polar rectangular region divided in multiple polar rectangular sub-regions, with one rectangle of length delta r and width delta theta that is highlighted.">
+
+        <p>We could also think of each rectangle is part of a larger sector, which the area of a sector is \(A=\frac{1}{2}r^2\theta\). For a small sector angle \(∆\theta\), we get the area of the polar rectangle to be \(∆A=r∆r∆\theta\).</p>
+
+        <div class="def-eqn">
+            <p><strong>Double Integral in Polar Coordinates</strong>: For a function \(z=f(x,y)\), we can convert it to polar coordinates using \(x=r\cos\theta\) and \(y=r\sin\theta\). If \(f\) is a continuous function over the polar region \(R\), then the
+                double integral of \(f\) over \(R\) can also be converted to polar coordinates where \(a\) and \(b\) are the inner and outer radii of the region (where \(0 \leq a \leq r \leq b\)), and \( \alpha \) and \(\beta \) are the bounding angles
+                (where \(\alpha \leq \theta \leq \beta\) and \(0 \leq \beta - \alpha \leq 2\pi\)).</p>
+
+            \[\underset{R}{\mathop \iint}\, f(x,y)~dA = \int_{\alpha}^{\beta} \int_{a}^{b} \, f(r\cos \theta ,r\sin \theta )~r~dr~d\theta\]
+        </div>
+
+        <div class="widget-header">Introduction to Double Integrals in Polar Coordinates</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/5ixPVUNBi88" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" height="315" frameborder="0" width="560"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/5ixPVUNBi88]</div>
+
+        <div class="widget-header">Area Using Double Integrals in Polar Coordinates</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/d_FYyFyeGd0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" height="315" frameborder="0" width="560"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/d_FYyFyeGd0]</div>
+
+        <div class="widget-header">Double Integrals in Polar Form - Volume Bounded by Two Paraboloids</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/a30gTO1q3Aw" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" height="315" frameborder="0" width="560"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/a30gTO1q3Aw]</div>
+
+        <p> </p>
+    </div>
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div class="myfooter">
+        <div class="row">
+            <div class="col-s-9 fleft">
+                <p>Content ©2020. Some Rights Reserved. <br> Video Content by:</p>
+                <ul>
+                    <li><a href="http://www.mathispower4u.com/" target="_blank">Mathispower4u (new window)</a></li>
+                </ul>
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+            </div>
+            <div class="col-s-3 fright">
+                <a href="#" onclick="pgPrint(); return false;"><i class="fa fa-print"></i> Printer Friendly</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

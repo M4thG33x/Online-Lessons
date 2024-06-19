@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="script.js"></script>
+    <!--Remove padding from grid boxes-->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+    </style>
+    <title>Partial Derivatives</title>
+</head>
+
+<body id="maincontent">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div class="printbuttonbar">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div class="myheader">
+        <div class="row">
+            <div class="col-4 col-s-5">
+                <img src="logo_custom.png">
+            </div>
+            <div class="col-8 col-s-7">
+                <h1>Derivatives &amp; Tangents</h1>
+                <p>Partial Derivatives</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnav" id="myTopnav">
+        <a href="index.html">Overview</a>
+        <span class="active">Partial Derivatives</span>
+        <a href="Page2.html">Tangent Planes</a>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="mainbody">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="pagetoc">
+            <p> On this Page </p>
+            <ul>
+                <li><a href="#top">Partial Derivatives</a></li>
+                <li><a href="#higher">Higher Order Partial Derivatives</a></li>
+            </ul>
+            <br>
+            <p>Additional Reading</p>
+            <ul>
+                <li>Section 14.3</li>
+            </ul>
+        </div>
+
+        <!-- The main content starts here-->
+        <h2 id="top">Partial Derivatives</h2>
+
+        <p>Back in Calc 1, we defined the derivative as the instantaneous rate of change or the slope of the line tangent to a function \(f\) using the following formula, which involved the limit of the difference quotient.</p>
+
+        \[f'(x) = \frac{dy}{dx} = \lim_{h \to 0} \frac{f(x+h)-f(x)}{h}\]
+
+        <p>Now that we are studying functions of multiple variables, we want to again be able to compute and apply the instantaneous rate of change or tangent line to our multi-variable functions. For now, we will focus on computing the derivative in a direction
+            parallel to the \(x\)-axis denoted by \(f_x\) and a direction parallel to the \(y\)-axis denoted by \(f_y\) for some function \(f(x,y)\).</p>
+
+        <p>The following GeoGebra applet illustrates the partial derivatives for a given function. The two checkboxes control whether to display the lines tangent to the surface at the chosen point that are in the \(x\) or \(y\) directions, meaning they
+            would appear parallel to the \(x\) and \(y\) axes, respectively, if you were looking straight down on the \(xy\)-plane from above on the positive \(z\)-axis. You may Move the blue point on the \(xy\)-plane to move the corresponding orange
+            point on the graph at \(z = f(a,b)\). You may click-and-drag to rotate the axes about the origin.</p>
+
+        <div class="ggb-wrap">
+            <div class="ggb-cont">
+                <iframe scrolling="no" title="Partial Derivatives" src="https://www.geogebra.org/material/iframe/id/c9syaxcq/width/795/height/477/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+                    width="795px" height="477px" style="border:0px;"> </iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://www.geogebra.org/m/sd96wqbk]</div>
+
+        <div class="def-eqn">
+            <p>We define the <strong>partial derivatives</strong> of \(f\) using the formulas below.</p>
+
+            \[f_{x}(x,y) = \frac{\partial f}{\partial x} = \lim_{h \to 0} \frac{f(x+h,y)-f(x,y)}{h}\] \[f_{y}(x,y) = \frac{\partial f}{\partial y} = \lim_{h \to 0} \frac{f(x,y+h)-f(x,y)}{h}\]
+
+            <p>Note that the symbol \(\partial\) for the partial derivative are more curled, or more of a script letter, than the \(d\) for the original derivative notation.</p>
+        </div>
+
+        <p>Notice the similarities between the limit formula to define the partial derivatives of a function \(f(x,y)\) compared to the limit definition for \(f(x)\). An important thing to observe from these two new formulas is that only one variable is
+            changing in each. So the partial derivative \(f_x\) only looks at how changes in \(x\) cause \(f\) to change and \(f_y\) only looks at how changes in \(y\) cause \(f\) to change. What this means is that \(f_x\) treats \(y\) as a constant and
+            \(f_y\) treats \(x\) as a constant.</p>
+
+        <div class="example">
+            <p><strong>Example</strong>:</p>
+            <p>To illustrate this idea, consider a function \(f(x,y)\) given as a table of values. The numbers in the first row are \(x\) values and the numbers in the first column are \(y\) values. The values inside the table are the function values for
+                the corresponding \(x\) and \(y\) values.</p>
+
+            <table class="styledtable-border ltables" style="width: 50%;">
+                <caption>Table of \(f(x,y)\) Values</caption>
+                <tbody>
+                    <tr>
+                        <th>\(y\) vs \(x\)</th>
+                        <th>\(x=2\)</th>
+                        <th>\(x=5\)</th>
+                        <th>\(x=7\)</th>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center; background-color: #005480; color: white;">\(y=1\)</td>
+                        <td style="text-align: center;">5</td>
+                        <td style="text-align: center;">8</td>
+                        <td style="text-align: center;">6</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center; background-color: #005480; color: white;">\(y=5\)</td>
+                        <td style="text-align: center;">6</td>
+                        <td style="text-align: center;">10</td>
+                        <td style="text-align: center;">11</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center; background-color: #005480; color: white;">\(y=8\)</td>
+                        <td style="text-align: center;">7</td>
+                        <td style="text-align: center;">12</td>
+                        <td style="text-align: center;">15</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>Let's use the table to approximate \(f_x\) which is the change in the \(x\) direction and \(f_y\) which is the change in the \(y\) direction at the point \((5,5)\).</p>
+
+            <div class="solution"><input type="checkbox" checked="checked"><label class="sollabel">Solution</label>
+                <div class="solcont">
+                    <p>From the table we see that \(f(5,5) = 10\).</p>
+
+                    <p>To approximate the value of \(f_{x}(5, 5)\), we could find how \(f\) changes from \(x=2\) to \(x=5\) (which makes \(h=-3\)) and average it with the change from \(x=5\) to \(x=7\) (which makes \(h=2\)).</p>
+
+                    \[\frac{f(2,5)-f(5,5)}{-3} = \frac{6-10}{-3} = \frac{4}{3}\] \[\frac{f(7,5)-f(5,5)}{2} = \frac{11-10}{2} = \frac{1}{2}\] \[f_{x}(5,5) \approx \frac{\frac{4}{3} + \frac{1}{2}}{2} = \frac{11}{12} \approx 0.9167\]
+
+                    <p>We see that \(f\) is changing by approximately \(\frac{4}{3}\) from the left (in the \(x\) direction) and that \(f\) is changing by approximately \(\frac{1}{2}\) from the right (in the \(x\) direction). So we can conclude that the
+                        values of the function were increasing by approximately \(0.9167\) in the \(x\) direction <strong>at</strong> the point \((5,5)\).</p>
+
+                    <p>To approximate the value of \(f_{y}(5, 5)\), we could find how \(f\) changes from \(y=1\) to \(y=5\) (which makes \(h=-4\)) and average it with the change from \(y=5\) to \(y=8\) (which makes \(h=3\)).</p>
+
+                    \[\frac{f(5,1)-f(5,5)}{-4} = \frac{8-10}{-4} = \frac{1}{2}\] \[\frac{f(5,8)-f(5,5)}{2} = \frac{12-10}{3} = \frac{2}{3}\] \[f_{y}(5,5) \approx \frac{\frac{1}{2} + \frac{2}{3}}{2} = \frac{7}{12} \approx 0.5833\]
+
+                    <p>We see that \(f\) is changing by approximately \(\frac{1}{2}\) from the left (in the \(y\) direction) and that \(f\) is changing by approximately \(\frac{2}{3}\) from the right (in the \(y\) direction). So we can conclude that the
+                        values of the function were increasing by approximately \(0.5833\) in the \(y\) direction <strong>at</strong> the point \((5,5)\).</p>
+                </div>
+            </div>
+        </div>
+
+        <p>Another important result of treating one variable constant while determining the partial derivative of another variable is that all the derivative rules you learned back in Calc 1 still apply. Consider the function \(f(x,y) = 5 x^3 y^3\).</p>
+
+        <ul>
+            <li>The partial derivative of \(f\) with respect to \(x\) is \(f_{x}(x,y) = 15 x^2 y^3\). Notice that we only differentiated the \(x^3\) part, since the 5 and \(y^3\) are just treated as constant multiples.</li>
+            <li>The partial derivative of \(f\) with respect to \(y\) is \(f_{y}(x,y) = 15 x^3 y^2\). Notice that this time we only differentiated the \(y^3\) part, so the 5 and \(x^3\) are just constant multiples.</li>
+        </ul>
+
+        <p>So no matter how complicated the function make look, we can just use the derivative rules we already know and treat the other variable as a constant.</p>
+
+        <div class="widget-header">First Order Partial Derivatives</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/hI4r5DEm1Og" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/hI4r5DEm1Og]</div>
+
+        <p>While we have only consider functions of two variables, the above ideas can be extended to functions of any number of variables. So for \(f(x,y,z)\), we can compute the partial derivatives of \(f\) with respect to \(x\), \(y\), and \(z\), which
+            would be \(f_x\), \(f_y\), and \(f_z\), respectively.</p>
+
+        <h3 id="higher">Higher Order Partial Derivatives</h3>
+
+        <p>Recall from Calc 1 that if the first derivative of a function represents its slope at a point, then its second derivative represents its concavity at a point. Since the 2<sup>nd</sup> derivative is just the derivative of the 1<sup>st</sup> derivative
+            function, we can also find the 2<sup>nd</sup> partial derivatives using the same rules as above. The only extra piece to consider is which variables we are differentiating over - they can get mixed. This means, for example, that we can take
+            the 1<sup>st</sup> derivative of \(f\) with respect to \(x\) to get \(f_x\), and then we can take the derivatiave of \(f_x\) with respect to either \(x\) or \(y\) to get \(f_{xx}\) or \(f_{xy}\), respectively.</p>
+
+        <div class="widget-header">Second Order Partial Derivatives</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/Xn6LjHKMrqA" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/Xn6LjHKMrqA]</div>
+
+    </div>
+    <!-- End of the main content -->
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div class="myfooter">
+        <div class="row">
+            <div class="col-s-9 fleft">
+                <p>Content ©2020. Some Rights Reserved. <br> Video Content by:</p>
+                <ul>
+                    <li><a href="http://www.mathispower4u.com/" target="_blank">Mathispower4u (new window)</a></li>
+                </ul>
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+            </div>
+            <div class="col-s-3 fright">
+                <a href="#" onclick="pgPrint(); return false;"><i class="fa fa-print"></i> Printer Friendly</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

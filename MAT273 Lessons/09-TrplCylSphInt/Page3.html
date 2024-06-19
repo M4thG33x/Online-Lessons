@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="script.js"></script>
+    <!--Remove padding from grid boxes-->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+    </style>
+    <title>Spherical</title>
+</head>
+
+<body id="maincontent">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div class="printbuttonbar">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div class="myheader">
+        <div class="row">
+            <div class="col-4 col-s-5">
+                <img src="logo_custom.png">
+            </div>
+            <div class="col-8 col-s-7">
+                <h1>Triple, Cylindrical &amp; Spherical Integrals</h1>
+                <p>Multiple Integrals</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnav" id="myTopnav">
+        <a href="index.html">Overview</a>
+        <a href="Page1.html">Triple Integrals</a>
+        <a href="Page2.html">Cylindrical</a>
+        <span class="active">Spherical</span>
+        <a href="Page4.html">Application</a>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="mainbody">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="pagetoc">
+            <p> On this Page </p>
+            <ul>
+                <li><a href="#top">Spherical</a></li>
+                <li><a href="#eqn">Converting Equations</a></li>
+                <li><a href="#triple">Triple Integrals</a></li>
+            </ul>
+            <br>
+            <p>Additional Reading</p>
+            <ul>
+                <li>Section 15.8</li>
+            </ul>
+        </div>
+
+        <!-- The main content starts here-->
+        <h2 id="top">Spherical</h2>
+
+        <p>The spherical coordinate system is a bit different. We will still use \(\theta\) to represent the rotation from the positive \(x\)-axis, but we will now use \(\phi\) (phi) to represent the rotation from the positive \(z\)-axis and \(\rho\) (rho)
+            to represent the 3D radial distance from the origin.</p>
+
+        <p>The following GeoGebra applet will help illustrate how a point in space can be represented using the rectangular (Cartesian), cylindrical, and spherical coordinate systems.&nbsp;You may click-and-drag to rotate the view around the origin.</p>
+
+        <ol>
+            <li>Use the <span style="color: #ff8000">orange</span> <b>(x, y)</b> on the xy-plane to change the position of the <span style="color: #0000ff;">blue</span> point on the 3D axes. Quickly use the graph to review how the rectangular and cylindrical
+                coordinate systems represent a point in space.</li>
+            <li>Uncheck the Rectangular and Cylindrical boxes, and check the <b>Spherical</b> box.</li>
+            <li>Use the orange point and slider again to change the position of the blue point on the 3D axes. The coordinates of the point again appear in the top corner, this time in the form (&rho;, &phi;, &theta;).</li>
+        </ol>
+
+        <div class="ggb-wrap">
+            <div class="ggb-cont">
+                <iframe scrolling="no" title="Rectangular - Cylindrical - Spherical" src="https://www.geogebra.org/material/iframe/id/shqmsac6/width/795/height/477/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+                    width="795px" height="477px" style="border:0px;"> </iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://www.geogebra.org/m/ncn2cyrd]</div>
+
+        <p>Observations:</p>
+
+        <ol>
+            <li>The rectangular coordinate system uses perpendicular distances to represent the location of a point in space.</li>
+            <li>The cylindrical coordinate system uses polar coordinates in the \(xy\)-plane plus the \(z\)-value to represent the location of a point in space.</li>
+            <li>In spherical coordinates, \(\rho\) represents the direct slanted distance from the origin to the point. We usually assume \(\rho \ge 0\).</li>
+            <li>In spherical coordinates, \(\phi\) represents the angle between the point and the positive \(z\)-axis: where \(\phi=0\) is the positive \(z\)-axis, \(\phi=\pi/2\) is the \(xy\)-plane, and \(\phi=\pi\) is the negative \(z\)-axis. We usually
+                assume \(0\le\rho\le\pi\).</li>
+            <li>In spherical coordinates, just like in polar or cylindrical, \(\theta\) represents the angle of rotation from the positive \(x\)-axis. We usually assume \(0\le\theta\lt 2\pi\).</li>
+        </ol>
+
+        <p>Here are some common graphs in spherical coordinates that we will encounter.</p>
+
+        <table class="styledtable-hrborder1 ltables">
+            <caption>Common Spherical Graphs</caption>
+            <tbody>
+                <tr>
+                    <th>Equation</th>
+                    <th>Graph</th>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">Sphere at \((0,0,0)\) <br> \(\rho=a\) <br> \((a \gt 0)\)</td>
+                    <td><img src="Sph-Sphere.png" alt="Graph of a sphere centered at the origin."></td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">Sphere at \((0,0,a)\) <br> \(\rho=2a\cos(\phi)\) <br> \((a \gt 0,\, 0 \le \phi \le \pi/2)\)</td>
+                    <td><img src="Sph-ShiftedSphere.png" alt="Graph of a sphere of radius a centered at (0, 0, a)."></td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">Cylinder<br> \(\rho=a\csc(\phi)\) <br> \((a \gt 0,\, 0 \lt \phi \lt \pi)\)</td>
+                    <td><img src="Cyl-Cylinder.png" alt="Graph of a cylinder."></td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">Cone<br> \(\phi=a\) <br> \((a \ne 0, \pi/2, \pi)\)</td>
+                    <td><img src="Cyl-Cone.png" alt="Graph of a cone."></td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">Horizontal Plane<br> \(\rho=a \sec(\phi)\) <br> \((0 \le \phi \lt \pi/2)\)</td>
+                    <td><img src="Cyl-Plane.png" alt="Graph of a horizontal plane."></td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">Vertical Half Plane<br> \(\theta=a\)</td>
+                    <td><img src="Cyl-HalfPlane.png" alt="Graph of a vertical half plane."></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 id="eqn">Converting Equations</h3>
+
+        <p>There are four equations that we may need in order to convert equations between the rectangular and spherical coordinate systems.</p>
+
+        <div class="def-eqn">
+            \[x^2+y^2+z^2=\rho^2\] \[x=\rho \sin(\phi) \cos(\theta)\] \[y=\rho \sin(\phi) \sin(\theta)\] \[z=\rho \cos(\phi)\]
+        </div>
+
+        <p>The following videos give a few examples demonstrating how to convert equations between rectangular and cylindrical coordinates.</p>
+
+        <div class="widget-header">Write Spherical Equations in Rectangular Form</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/GChPkbgG55A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/GChPkbgG55A]</div>
+
+        <div class="widget-header">Convert a Spherical Equation to a Rectangular Equation rho=2csc(phi)</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/wdVmiU5Z-HE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/wdVmiU5Z-HE]</div>
+
+        <div class="widget-header">Convert a Spherical Equation to a Rectangular Equation phi=pi/6</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/574uuUmwp9k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/574uuUmwp9k]</div>
+
+        <div class="widget-header">Convert a Rectangular Equation to a Spherical Equation x^2+y^2+z^2-9z=0</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/duZQ3atoiIs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/duZQ3atoiIs]</div>
+
+        <div class="widget-header">Convert a Rectangular Equation to a Spherical Equation x^2+y^2-z^2=0</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/fJQm6mF4L54" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/fJQm6mF4L54]</div>
+
+        <h3 id="triple">Triple Integrals</h3>
+
+        <div class="def-eqn">
+            <p>Given a continuous function \(f(x,y,z)\) through a solid \(E\) that can be expressed using spherical coordinates, the triple integral of \(f\) over \(E\) can be computed using the follow formula, where \(g_1(\phi,\theta) \le \rho \le g_2(\phi,\theta)\),
+                \(c \le \phi \le d\), and \(\alpha \le \theta \le \beta\).</p>
+
+            \[\underset{E}{\mathop \iiint} \,f(x,y,z)~dV=\int_{\alpha}^{\beta}\int_{c}^{d}\int_{g_1(\phi,\theta)}^{g_2(\phi,\theta)}\,f(\rho \sin(\phi) \cos(\theta),\rho \sin(\phi) \sin(\theta),\rho \cos(\phi))\,\rho^2 \sin(\phi)~d\rho~d\phi~d\theta\]
+        </div>
+
+        <div class="widget-header">Introduction to Triple Integrals Using Spherical Coordinates</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/JMOttmQBtmY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/JMOttmQBtmY]</div>
+
+        <div class="widget-header">Triple Integrals and Volume using Spherical Coordinates</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/UTIjALWr6GM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/UTIjALWr6GM]</div>
+
+    </div>
+    <!-- End of the main content -->
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div class="myfooter">
+        <div class="row">
+            <div class="col-s-9 fleft">
+                <p>Content ©2020. Some Rights Reserved. <br> Video Content by:</p>
+                <ul>
+                    <li><a href="http://www.mathispower4u.com/" target="_blank">Mathispower4u (new window)</a></li>
+                </ul>
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+            </div>
+            <div class="col-s-3 fright">
+                <a href="#" onclick="pgPrint(); return false;"><i class="fa fa-print"></i> Printer Friendly</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

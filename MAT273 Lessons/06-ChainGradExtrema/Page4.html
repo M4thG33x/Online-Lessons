@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="script.js"></script>
+    <!--Remove padding from grid boxes-->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+    </style>
+    <title>Extrema</title>
+</head>
+
+<body id="maincontent">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div class="printbuttonbar">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div class="myheader">
+        <div class="row">
+            <div class="col-4 col-s-5">
+                <img src="logo_custom.png">
+            </div>
+            <div class="col-8 col-s-7">
+                <h1>Chain Rule, Derivative, Gradient & Extrema</h1>
+                <p>Partial Derivatives</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnav" id="myTopnav">
+        <a href="index.html">Overview</a>
+        <a href="Page1.html">Chain Rule</a>
+        <a href="Page2.html">Derivative</a>
+        <a href="Page3.html">Gradient</a>
+        <span class="active">Extrema</span>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="mainbody">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="pagetoc">
+            <p> On this Page </p>
+            <ul>
+                <li><a href="#top">Extrema</a></li>
+                <li><a href="#test">The 2<sup>nd</sup> Derivative Test</a></li>
+                <li><a href="#absolute">Absolute Extrema</a></li>
+            </ul>
+            <br>
+            <p>Additional Reading</p>
+            <ul>
+                <li>Section 14.7</li>
+            </ul>
+        </div>
+
+        <!-- The main content starts here-->
+        <h2 id="top">Extrema</h2>
+
+        <p>Recall back to learning about derivatives in Calc 1. One of the biggest applications of the derivative was finding when the slope of the tangent line equals 0 because this located potential maximum or minimum function values. We did this for a
+            function \(y = f(x)\) find find any critical points \(c\) where \(f'(c) = 0\). We then used either the 1<sup>st</sup> or 2<sup>nd</sup> Derivative Test to check whether the critical point gave us a relative maximum or minimum. In particular,
+            the 2<sup>nd</sup> Derivative Test said that the function had a maximum if \(f^{\prime\prime}(c) \lt 0\), a minimum if \(f^{\prime\prime}(c) \gt 0\), or the test was inconclusive if \(f^{\prime\prime}(c) = 0\).</p>
+
+        <p>We can do roughly the same thing with functions \(f(x,y)\) using partial derivatives. Let's first redefine what we mean by a local maximum or minimum of a function.</p>
+
+        <div class="def-eqn">
+            <p>Suppose \((a,b)\) is a point in the domain of the function \(z = f(x,y)\).</p>
+            <ul>
+                <li>If \(f(x,y) \le f(a,b)\) for all \((x,y)\) in the domain of \(f\) and in some open disk centered at \((a,b)\), then \(f(a,b)\) is a <strong>local maximum</strong> value of \(f\).</li>
+                <li>If \(f(x,y) \ge f(a,b)\) for all \((x,y)\) in the domain of \(f\) and in some open disk centered at \((a,b)\), then \(f(a,b)\) is a <strong>local minimum</strong> value of \(f\).</li>
+            </ul>
+        </div>
+
+        <img src="LocalMax.png" alt="Illustration of a local maximum." width="363" height="314" />
+
+        <p>In the illustration above, the orange point is a local maximum because it is the highest point within any of the blue circles centered around the point. In the illustration below, the orange point is neither a local maximum nor minimum since there
+            are points of \(f\) that are higher and lower within each circle. We would call this point a <strong>saddle point</strong>.</p>
+
+        <img src="Saddle.png" alt="Illustration of a saddle point." width="334" height="279" />
+
+        <p>The first step to finding the local extrema was to find any critical points. Back in Calc 1, a critical point \(c\) of a function \(y = f(x)\) was where \(f'(c) = 0\) or \(f'(c)\) was undefined. Now, we define a <strong>critical point</strong>,
+            or stationary point, of the function \(z = f(x,y)\) as a point \((a,b\)) where both \(f_x(a,b) = 0\) and \(f_y(a,b) = 0\) or where either \(f_x(a,b)\) or \(f_y(a,b)\) does not exist.</p>
+
+        <p>If \(f\) has a local maximum or minimum value at a point \((a,b)\) and the partial derivatives exist at \((a,b)\), then we know \(f_x(a,b) = 0\) and \(f_x(a,b) = 0\). Note that this does not mean that finding where a derivative is 0 will guarantee
+            that we also find a maximum or minimum value, but rather it just guarantees that if there is one, it will be located at a point where the tangent lines are horizontal.</p>
+
+        <div class="widget-header">Determine the Critical Points of a Function of Two Variables (Basic)</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/TNaDP7jV8Vc" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/TNaDP7jV8Vc]</div>
+
+
+        <div class="widget-header">Determine the Critical Points of a Function of Two Variables</strong>
+        </div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/XopRc3P2z4c" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/XopRc3P2z4c]</div>
+
+        <h3 id="test">The 2nd Derivative Test</h3>
+
+        <p>Once we have located any critical points, we can determine whether they represent a local maximum, local minimum, or saddle point using the <strong>2<sup>nd</sup> Derivative Test</strong>.</p>
+
+        <div class="def-eqn">
+            <p>Suppose the second partial derivatives of \(f\) are continuous throughout an open disk centered at the point \((a,b)\) where \(f_x(a,b) = f_y(a,b) = 0\). The <strong>descriminant</strong> of \(f\) at \((a,b)\) is defined by the following formula.</p>
+
+            \[D(a,b) = f_{xx}(a,b) \cdot f_{yy}(a,b) - {\left( f_{xy}(a,b) \right)}^2\] Based on the resulting values of the descriminat at the critical point, we can make the following conclusion about the \(f\) at the critical point.
+
+            <ul>
+                <li>If \(D(a,b) \gt 0\) and \(f_{xx}(a,b) \lt 0\), then \(f\) has a local maximum value at \((a,b)\).</li>
+                <li>If \(D(a,b) \gt 0\) and \(f_{xx}(a,b) \gt 0\), then \(f\) has a local minimum value at \((a,b)\).</li>
+                <li>If \(D(a,b) \lt 0\), then \(f\) has a saddle point at \((a,b)\).</li>
+                <li>If \(D(a,b) = 0\), then the test is inconclusive.</li>
+            </ul>
+        </div>
+
+        <div class="widget-header">Determining the Relative Extrema of a Function of Two Variables</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/Wm5qnQlAK7o" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/Wm5qnQlAK7o]</div>
+
+        <h3 id="absolute">Absolute Extrema</h3>
+
+        <p>Back in Calc I, we also looked at finding absolute extrema on a closed interval. In fact, every continuous function \(y = f(x)\) will have an absolute maximum and absolute minimum over a bounded interval \([a,b]\). These absolute exrema occur
+            either at the critical points or at the endpoints of the interval. Now let's extend this idea to functions of two variables.</p>
+
+        <div class="def-eqn">
+            <p>Let \(f\) be defined on a closed domain \(D\) in \(\mathbb{R}^2\) containing the point \((a,b)\).</p>
+            <ul>
+                <li>If \(f(x,y) \le f(a,b)\) for all \((x,y)\) in \(D\), then \(f(a,b)\) is an absolute maximum value of \(f\) on \(D\).</li>
+                <li>If \(f(x,y) \ge f(a,b)\) for all \((x,y)\) in \(D\), then \(f(a,b)\) is an absolute minimum value of \(f\) on \(D\).</li>
+            </ul>
+        </div>
+
+        <p>The following GeoGebra applet will help illustrate the absolute extrema of a function \(z = f(x,y)\). You may also click-and-drag to rotate the view around the origin.</p>
+        <ol>
+            <li>The graph shows the blue surface of <strong>f(x,y)</strong>.</li>
+            <li>The <strong>boundary</strong> is the closed, bounded region of the triangle formed by the lines \(y=0\), \(x=5\), and \(y=x\).</li>
+            <li>Select the <strong>Show All Points</strong> option. There are 7 orange points that appear on the graph: 1 inside the triangle, 1 at each of the 3 corners, and 1 on each of the 3 sides. The single point inside the triangle at \((4,1)\) is the
+                only critical point of \(f\) since that is the only point where the tangent plane would be horizontal. The 3 corner points are just the intersections of the 3 linear equations. The points on the 3 sides are the critical points of \(f\)
+                along the boundary of the function.</li>
+            <li>Unselect the Show All Points option and select the <strong>Show Max Only</strong> and <strong>Show Min Only</strong> options. Now only 3 points appear. The absolute maximum is \(6.5\), which occurs at the points \((0, 0, 6.5)\) and \((5, 5,
+                6.5)\). The absolute minimum is \(-2\), which occurs at the point \((4, 1, -2)\).</li>
+        </ol>
+
+        <div class="ggb-wrap">
+            <div class="ggb-cont">
+                <iframe scrolling="no" title="Absolute Extrema" src="https://www.geogebra.org/material/iframe/id/z3kkd9ng/width/795/height/477/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="795px"
+                    height="477px" style="border:0px;"> </iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://www.geogebra.org/m/z3kkd9ng]</div>
+
+        <p>What you should observe from the above illustration is that the absolute extrema can occur at a critical point of the function \(f(x,y)\), at an intersection of the boundary curves, or at a critical point along the boundary. To find the points
+            along the boundary, we need to define a function of one variable that describes the curve formed by intersecting the surface function \(f\) with the boundary planes.</p>
+
+        <div class="def-eqn">
+            <p>If \(f\) is continuous on a closed, bounded set \(D\) in ℝ<sup>2</sup>, then \(f\) has both an absolute maximum and minimum on \(D\). We can use the following process to <strong>find the absolute maximum and minimum values</strong> of \(f\)
+                on \(D\).</p>
+
+            <ol>
+                <li>Determine the values of \(f\) at all critical points in the interior of \(D\).</li>
+                <li>Find the maximum and minimum values of \(f\) on the boundary of \(D\).</li>
+                <li>Compare the values you found for steps #1 and #2. The absolute maximum is the largest value and the absolute minimum is the smallest value.</li>
+            </ol>
+        </div>
+
+        <p>The following videos demonstrate how to find the absolute maximum and absolute minimum values of a function over a closed and bounded region.</p>
+
+        <div class="widget-header">Absolute Extrema of Functions of Two Variables</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/UX1uENJvuO0 " width="560 " height="315 " frameborder="0 " allowfullscreen="allowfullscreen "></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/UX1uENJvuO0]</div>
+
+        <div class="widget-header">Absolute Extrema of a Function of Two Variable Over Bounded Region (Circle)</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/2HRaDVDy-5Q " width="560 " height="315 " frameborder="0 " allowfullscreen="allowfullscreen "></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/2HRaDVDy-5Q]</div>
+
+        <p>These last two videos work through a couple applications of extrema.</p>
+
+        <div class="widget-header">Applications of Extrema of Functions of Two Variables I</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/tkAOuPSPGPM " width="560 " height="315 " frameborder="0 " allowfullscreen="allowfullscreen "></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/tkAOuPSPGPM]</div>
+
+        <div class="widget-header">Applications of Extrema of Functions of Two Variables II</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/pvTiPv3gmJU " width="560 " height="315 " frameborder="0 " allowfullscreen="allowfullscreen "></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/pvTiPv3gmJU]</div>
+
+    </div>
+    <!-- End of the main content -->
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div class="myfooter ">
+        <div class="row ">
+            <div class="col-s-9 fleft ">
+                <p>Content ©2020. Some Rights Reserved. <br> Video Content by:</p>
+                <ul>
+                    <li><a href="http://www.mathispower4u.com/ " target="_blank ">Mathispower4u (new window)</a></li>
+                </ul>
+                <a rel="license " href="http://creativecommons.org/licenses/by-sa/4.0/ "><img alt="Creative Commons License " src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png "></a>
+            </div>
+            <div class="col-s-3 fright ">
+                <a href="# " onclick="pgPrint(); return false; "><i class="fa fa-print "></i> Printer Friendly</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

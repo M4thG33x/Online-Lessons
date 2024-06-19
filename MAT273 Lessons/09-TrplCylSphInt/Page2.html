@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="script.js"></script>
+    <!--Remove padding from grid boxes-->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+    </style>
+    <title>Cylindrical</title>
+</head>
+
+<body id="maincontent">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div class="printbuttonbar">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div class="myheader">
+        <div class="row">
+            <div class="col-4 col-s-5">
+                <img src="logo_custom.png">
+            </div>
+            <div class="col-8 col-s-7">
+                <h1>Triple, Cylindrical &amp; Spherical Integrals</h1>
+                <p>Multiple Integrals</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnav" id="myTopnav">
+        <a href="index.html">Overview</a>
+        <a href="Page1.html">Triple Integrals</a>
+        <span class="active">Cylindrical</span>
+        <a href="Page3.html">Spherical</a>
+        <a href="Page4.html">Application</a>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="mainbody">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="pagetoc">
+            <p> On this Page </p>
+            <ul>
+                <li><a href="#top">Cylindrical</a></li>
+                <li><a href="#eqn">Converting Equations</a></li>
+                <li><a href="#triple">Triple Integrals</a></li>
+            </ul>
+            <br>
+            <p>Additional Reading</p>
+            <ul>
+                <li>Section 15.7</li>
+            </ul>
+        </div>
+
+        <!-- The main content starts here-->
+        <h2 id="top">Cylindrical</h2>
+
+        <p>The cylindrical coordinate system is an extension of the polar coordinate system from 2D to 3D. Recall that the polar coordinate system defines \( (x,y) \) points as \( (r, \theta ) \) where \(r\) is the radial distance from the origin and \(\theta\)
+            is the rotation from the positive \(x\)-axis. In the cylindrical coordinate system, we express the point \((x,y,z)\) as \((r,\theta,z)\). So the \(x\) and \(y\) position of the point is defined in polar and the height is still \(z\).</p>
+
+        <p>The following GeoGebra applet will help illustrate how a point in space can be represented using the rectangular (Cartesian), cylindrical, and spherical coordinate systems. You may click-and-drag to rotate the view around the origin.</p>
+
+        <ol>
+            <li>Use the <span style="color: #ff8000; font-weight: bold;">orange</span> <b>(x, y)</b> point and z <b>slider</b> on the xy-plane to change the position of the <span style="color: #0000ff; font-weight: bold;">blue</span> point on the 3D axes.
+                The coordinates of the point, in the form (x, y, z), appear in the top corner of the 3D window.</li>
+            <li>Uncheck the Rectangular box and check the <b>Cylindrical</b> box. Notice how the xy-plane changes. Now the grid lines consist of concentric circles representing a distance from the origin along with a number of diagonal lines representing
+                the angle of rotation from the positive x-axis (each line is a &pi;/12 rotation).</li>
+            <li>Use the orange point and slider again to change the position of the blue point on the 3D axes. The coordinates of the point again appear in the top corner, this time in the form (r, &theta;, z).</li>
+        </ol>
+
+        <div class="ggb-wrap">
+            <div class="ggb-cont">
+                <iframe scrolling="no" title="Rectangular - Cylindrical - Spherical" src="https://www.geogebra.org/material/iframe/id/shqmsac6/width/795/height/477/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+                    width="795px" height="477px" style="border:0px;"> </iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://www.geogebra.org/m/ncn2cyrd]</div>
+
+        <p>Observations:</p>
+
+        <ol>
+            <li>The location of the point in Cartesian space is determined by the perpendicular distances, which are parallel to the individual axes.</li>
+            <li>In cylindrical space, the value of \(r\) gives the distance in the \(xy\)-plane from the origin to the point. The value of \(\theta\) represents the rotation in the \(xy\)-plane from the positive \(x\)-axis. The value of \(z\) still represents
+                the height of the point above the \(xy\)-plane.</li>
+        </ol>
+
+        <p>Here are some common graphs in cylindrical coordinates that we will encounter.</p>
+
+        <table class="styledtable-hrborder1 ltables">
+            <caption>Common Cylindrical Graphs</caption>
+            <tbody>
+                <tr>
+                    <th>Equation</th>
+                    <th>Graph</th>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">Cylinder<br> \(r=a\) <br> \((a \gt 0)\) </td>
+                    <td><img src="Cyl-Cylinder.png" alt="Graph of a cylinder."></td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">Cone<br> \(z=ar\) <br> \((a \ne 0)\) </td>
+                    <td><img src="Cyl-Cone.png" alt="Graph of a cone."></td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">Horizontal Plane<br> \(z=a\) </td>
+                    <td><img src="Cyl-Plane.png" alt="Graph of a plane."></td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">Vertical Half Plane<br> \(\theta=a\) </td>
+                    <td><img src="Cyl-HalfPlane.png" alt="Graph of a vertical half plane."></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 id="eqn">Converting Equations</h3>
+
+        <p>There are four equations that we may need in order to convert equations between the rectangular and cylindrical coordinate systems. Notice that these are the same equations we use to convert between rectangular and polar coordinates.</p>
+
+        <table class="styledtable-noborder ltables" style="width: 60%;">
+            <caption>Cylindrical Equations</caption>
+            <tbody>
+                <tr>
+                    <th>Rectangular To Cylindrical</th>
+                    <th>Cylindrical To Rectangular</th>
+                </tr>
+                <tr>
+                    <td>\[x^2+y^2=r^2\]</td>
+                    <td>\[x=r\cos(\theta)\]</td>
+                </tr>
+                <tr>
+                    <td>\[\tan(\theta)=\frac{y}{x}\]</td>
+                    <td>\[y=r\sin(\theta)\]</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>The following videos give a few examples demonstrating how to convert equations between rectangular and cylindrical coordinates.</p>
+
+        <div class="widget-header">Write a Cylindrical Equations in Rectangular Form</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/uec-1Jw1Cso" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/uec-1Jw1Cso]</div>
+
+        <div class="widget-header">Write a Rectangular Equations in Cylindrical Form</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/upCpfdZCffY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/upCpfdZCffY]</div>
+
+        <h3 id="triple">Triple Integrals</h3>
+
+        <div class="def-eqn">
+            <p>Given a continuous function \(f(x,y,z)\) through a solid \(E\) whose projection \(D\) onto the \(xy\)-plane that can be expressed using polar coordinates, the triple integral of \(f\) over \(E\) can be computed using the following integral,
+                where \(g_1(r,\theta) \le z \le g_2(r,\theta)\), \(h_1(\theta) \le r \le h_2(\theta)\), and \(\alpha \le \theta \le \beta\).</p>
+
+            \[\underset{E}{\mathop \iiint} \,f(x,y,z)~dV=\int_{\alpha}^{\beta}\int_{h_1(\theta)}^{h_2(\theta)}\int_{g_1(r,\theta)}^{g_2(r,\theta)}\,f(r\cos(\theta),r\sin(\theta),z)\,r~dz~dr~d\theta\]
+
+        </div>
+
+        <div class="widget-header">Triple Integrals Using Cylindrical Coordinates</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/SyEd-uBHnwA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/SyEd-uBHnwA]</div>
+
+        <div class="widget-header">Rewrite Triple Integrals Using Cylindrical Coordinates</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/mQgW-FeH88Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/mQgW-FeH88Q]</div>
+
+        <div class="widget-header">Triple Integral and Volume Using Cylindrical Coordinates</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/tsbFhR-A_JA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/tsbFhR-A_JA]</div>
+
+    </div>
+    <!-- End of the main content -->
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div class="myfooter">
+        <div class="row">
+            <div class="col-s-9 fleft">
+                <p>Content ©2020. Some Rights Reserved. <br> Video Content by:</p>
+                <ul>
+                    <li><a href="http://www.mathispower4u.com/" target="_blank">Mathispower4u (new window)</a></li>
+                </ul>
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+            </div>
+            <div class="col-s-3 fright">
+                <a href="#" onclick="pgPrint(); return false;"><i class="fa fa-print"></i> Printer Friendly</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

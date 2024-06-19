@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="script.js"></script>
+    <!--Remove padding from grid boxes-->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+    </style>
+    <title>The Gradient</title>
+</head>
+
+<body id="maincontent">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div class="printbuttonbar">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div class="myheader">
+        <div class="row">
+            <div class="col-4 col-s-5">
+                <img src="logo_custom.png">
+            </div>
+            <div class="col-8 col-s-7">
+                <h1>Chain Rule, Derivative, Gradient & Extrema</h1>
+                <p>Partial Derivatives</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnav" id="myTopnav">
+        <a href="index.html">Overview</a>
+        <a href="Page1.html">Chain Rule</a>
+        <a href="Page2.html">Derivative</a>
+        <span class="active">Gradient</span>
+        <a href="Page4.html">Extrema</a>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="mainbody">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="pagetoc">
+            <p> On this Page </p>
+            <ul>
+                <li><a href="#top">The Gradient</a></li>
+                <li><a href="#curves">Level Curves &amp; Tangent Planes</a></li>
+            </ul>
+            <br>
+            <p>Additional Reading</p>
+            <ul>
+                <li>Section 14.6</li>
+            </ul>
+        </div>
+
+        <!-- The main content starts here-->
+        <h2 id="top">The Gradient</h2>
+
+        <p>From the video on the previous page, we saw that the gradient of a function \(f(x,y)\) is defined as the vector of its partial derivatives.</p>
+
+        <div class="def-eqn">
+            \[\nabla f(x,y) = \langle f_x(x,y),f_y(x,y) \rangle\]
+
+            <p>Note that we read \(\nabla f\) as "gradient of f" or "del f," and the gradient symbol \(\nabla\) is called the "nabla."
+        </div>
+
+        <p>Here are a few more things to consider.</p>
+        <ul>
+            <li>The gradient of a function \(f(x,y)\) is located in the \(xy\)-plane.</li>
+            <li>The gradient is used in computing the directional derivative by \(D_{\vec{u}} f(x,y) = \nabla f(x,y) \cdot \vec{u}\).</li>
+            <li>The gradient gives the direction of the <strong>maximum</strong> value of \(D_{\vec{u}} f(x_0,y_0)\), or the maximum rate of change of \(f\). In other words, the gradient points in the direction (in the \(xy\)-plane) that corresponds to the
+                steepest incline, or ascent, of the surface at the point \((x_0,y_0)\). Its magnitude, \(\lvert \nabla f \rvert\), is the slope of the incline. Similarly, the negative of the gradient, or \(-\nabla f\), points in the direction of the steepest
+                decline, or descent, of the surface at the point \((x_0,y_0)\) which would have a rate of change of \(-\lvert \nabla f \rvert\).</li>
+            <li>The gradient can be extended to functions of more than two variables. For example, \(\nabla f(x,y,z) = \langle f_x(x,y,z), f_y(x,y,z), f_z(x,y,z) \rangle\) and therefore \(D_{\vec{u}} f(x,y,z) = \nabla f(x,y,z) \cdot \vec{u}\). In this case,
+                the gradient is a vector in \(xyz\)-space, not the \(xy\)-plane, that gives the direction in which \(f\) is increasing at the greatest rate.</li>
+        </ul>
+        <p>The following GeoGebra applet will help illustrate the gradient of a function \(f(x,y)\) at a point \((a,b)\). You can use the blue point on the \(xy\)-plane to move the corresponding orange point located on the surface of \(f\). You may also
+            click-and-drag to rotate the view around the origin.</p>
+        <ol>
+            <li>The <strong>Gradient</strong> is the yellow vector located in the \(xy\)-plane at the blue point \((a,b)\). Observe that the gradient is always perpendicular to the <strong>level curve</strong>.</li>
+            <li>Show the <strong>Increasing</strong> vector. This green vector shows the steepest incline of the surface of \(f\) at the point \((a,b)\). Imagine if the surface represented a large valley and you were standing at the orange point \((a,b,f(a,b))\).
+                The green vector would be the steepest slope of the valley if you tried walking uphill.</li>
+            <li>Show the <strong>Decreasing</strong> vector. This red vector shows the steepest decline of the the surface of \(f\) at the point \((a,b)\). Again, imagine that the surface represented a large valley and you were standing at the orange point
+                \((a,b,f(a,b))\). The red vector would be the steepest slope of the valley if you tried walking downhill. This means that if you dropped a bucket of water at this point, the water would flow downhill in the direction of the red vector.</li>
+            <li>Show the <strong>No Change</strong> vectors. First, observe that these gray vectors are both perpendicular to the gradient. They represent the direction where the values of \(f\) at the point \((a,b)\) don't change. So \(f\) is neither increasing
+                nor decreasing in these two directions. Again, one more time, imagine that the surface represented a large valley and you were standing at the orange point \((a,b,f(a,b))\). The gray vectors would represent the direction you could walk
+                and remain at the same altitude - you could walk all the way around the pink curve without changing your altitude.</li>
+        </ol>
+
+
+        <div class="ggb-wrap">
+            <div class="ggb-cont">
+                <iframe scrolling="no" title="Gradient" src="https://www.geogebra.org/material/iframe/id/gudagkb9/width/795/height/477/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="795px"
+                    height="477px" style="border:0px;"> </iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://www.geogebra.org/m/wwwgfk2s]</div>
+
+        <p>The following video demonstrates how we can compute the gradient of a function.</p>
+
+        <div class="widget-header">The Gradient</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/x8YwcwesU3Q" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/x8YwcwesU3Q]</div>
+
+        <h3 id="curves">Level Curves &amp; Tangent Planes</h3>
+
+        <p>There are a couple quick applications of the gradient that we can look at, in addition to the directional derivative. The first uses the fact that the gradient is perpendicular to the level curve of a function, as illustrated below. This also
+            means the gradient vector \(\nabla f\) is perpendicular to the unit tangent vecttor \(\hat{t}\) at the specified point.</p>
+
+        <img src="GradLevCurv.png" alt="Illustration of a gradient vector that is orthogonal to the tangent vector of a level curve at a point (x_0, y_0)." width="270" height="208" />
+
+        <div class="example">
+            <p><strong>Example</strong>:</p>
+            <p>Consider the contour map of the region around the Southern Wake Tech campus shown below. We can see several level curves marking incremental changes in altitude.</p>
+
+            <img src="ContourMapSWT.png" alt="Contour map of the Southern Wake Tech camps, including the intersection of Tech Rd and US 401." width="344" height="208">
+
+            <p>Suppose a person standing at the intersection of Tech Road and U.S. 401 decided to walk towards campus along the steepest route. Draw the estimated path the student would walk.</p>
+
+            <div class="solution"><input type="checkbox" checked="checked"><label class="sollabel">Solution</label>
+                <div class="solcont">
+                    <p>Since the gradient vector is always perpendicular to the level curves, the path shown on the map below would represent the steepest path a person could walk from the entrance at Tech Rd and 401 up to the main part of the college campus.
+                        The illustrated path is perpendicular to each curve at the point where they intersect.</p>
+
+                    <img src="GradSteepest.png" alt="Illustration of contour map with steepest path marked by orthogonal gradients." width="344" height="208" />
+                </div>
+            </div>
+        </div>
+
+        <p>The second application of the gradient involves tangent planes, which we learned about in the previous lesson. If we have a function \(F(x,y,z) = 0\) that defines \(z\) implicitly as a function of \(x\) and \(y\), then the gradient is the normal
+            vector to the surface and the equation of the plane tangent to \(F\) at the point \((x_0,y_0,z_0)\) can be expressed by the following equation.</p>
+
+        \[F_{x}(x_0,y_0,z_0)(x-x_0) + F_{y}(x_0,y_0,z_0)(y-y_0) + F_{z}(x_0,y_0,z_0)(z-z_0) = 0\]
+
+        <p>This should look familiar since it matches the tangent plane equation we saw in the previous lesson. The following video was included in the previous lesson, but will maybe make a little more sense now.</p>
+
+        <div class="widget-header">Determining the Equation of a Tangent Plane</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/UfnpcOcZAO0" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/UfnpcOcZAO0]</div>
+
+    </div>
+    <!-- End of the main content -->
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div class="myfooter">
+        <div class="row">
+            <div class="col-s-9 fleft">
+                <p>Content ©2020. Some Rights Reserved. <br> Video Content by:</p>
+                <ul>
+                    <li><a href="http://www.mathispower4u.com/" target="_blank">Mathispower4u (new window)</a></li>
+                </ul>
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+            </div>
+            <div class="col-s-3 fright">
+                <a href="#" onclick="pgPrint(); return false;"><i class="fa fa-print"></i> Printer Friendly</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

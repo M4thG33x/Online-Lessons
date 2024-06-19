@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="script.js"></script>
+    <!--Remove padding from grid boxes-->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+    </style>
+    <title>Triple Integrals</title>
+</head>
+
+<body id="maincontent">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div class="printbuttonbar">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div class="myheader">
+        <div class="row">
+            <div class="col-4 col-s-5">
+                <img src="logo_custom.png">
+            </div>
+            <div class="col-8 col-s-7">
+                <h1>Triple, Cylindrical &amp; Spherical Integrals</h1>
+                <p>Multiple Integrals</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnav" id="myTopnav">
+        <a href="index.html">Overview</a>
+        <span class="active">Triple Integrals</span>
+        <a href="Page2.html">Cylindrical</a>
+        <a href="Page3.html">Spherical</a>
+        <a href="Page4.html">Application</a>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="mainbody">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="pagetoc">
+            <p> On this Page </p>
+            <ul>
+                <li><a href="#top">Triple Integrals</a></li>
+                <li><a href="#apps">Mass &amp; Inertia</a></li>
+            </ul>
+            <br>
+            <p>Additional Reading</p>
+            <ul>
+                <li>Section 15.6</li>
+            </ul>
+        </div>
+
+        <h2 id="top">Triple Integrals</h2>
+
+        <p>In the previous lesson, you looked at double integrals which extend integration over an interval on the \(x\)-axis to a region in the \(xy\)-plane. Now we want to further extend this to a solid in \(xyz\)-space.</p>
+
+        <table class="styledtable-hrborder2 ltables">
+            <caption>Illustration of Integrals </caption>
+            <tbody>
+                <tr>
+                    <th>Visualization</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><img src="1Int.png" alt="Illustration for the integral of a function with bounded rectangle of width dx along the x-axis between x = a and x = b.">
+                    </td>
+                    <td>
+                        <p>A single integral computes the sum of the areas of infinitely many rectangles, each having an infinitely small width \(dx\), which is measured along an interval \(I\) on the \(x\)-axis.</p>
+                        \[\underset{I}{\int}\,f(x)~dA\]
+                    </td>
+                </tr>
+                <tr>
+                    <td><img src="2Int.png" alt="Illustration for a double integral of a rectangular region in the xy-plane of width dx and height dy.">
+                    </td>
+                    <td>
+                        <p>A double integral computes the sum of the volumes of infinitely many boxes, each having a rectangular base area \(dA\) of infinitely small width \(dx\) and height \(dy\), measured over the region \(R\) in the \(xy\)-plane.
+                        </p>
+                        \[\underset{R}{\mathop \iint }\,f(x,y)~dA\]
+                    </td>
+                </tr>
+                <tr>
+                    <td><img src="3Int.png" alt="Illustration for a triple integral of a rectangular solid region in xyz-spacee of width dx, depth dy, and height dz.">
+                    </td>
+                    <td>
+                        <p>A triple integral computes the sum of infinitely many hyper volumes using boxes of volume \(dV\), having length \(dx\), width \(dy\), and height \(dz\), measured over the solid \(D\) in \(xyz\)-space.
+                        </p>
+                        \[\underset{D}{\iiint }\,f(x,y,z)~dV\]
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p> When using double integrals, recall that we could use \(dA=dy\,dx\) or \(dA=dx\,dy\), meaning we could change the order of integration. This was helpful when one order of integration was easier to setup and evaluate than the other order. The same
+            is true with triple integrals, except there are now 6 options instead of just 2. Probably the most common order of integration would be \(dV=dz\,dy\,dx\), meaning we would integrate first with respect to \(z\), then with respect to \(y\),
+            and lastly with respect to \(x\).
+        </p>
+
+        <img src="dzdydx.png" alt=" Illustration of a 3D solid with dz, dy, dx lines highlighted.">
+
+        <p> In the above illustration, suppose we are wanting to setup a triple integral over the region \(D\). The blue
+            <span style="color: blue; font-weight: bold;">dz</span> line stretches from the top of \(D\) to the bottom of \(D\), parallel to the \(z\)-axis. The green
+            <span style="color: green; font-weight: bold;">dy</span> line stretches from the front of \(D\) to the back of \(D\), parallel to the \(y\)-axis. The red <span style="color: red; font-weight: bold;">dx</span> line stretches from the left face
+            of \(D\) to the right face of \(D\), parallel to the \(x\)-axis. These three lines represent the direction of integration, their endpoints serving to mark the limits of integration that will be needed for the integrals.</p>
+
+        <p> When deciding which order to use, there are a couple things to keep in mind.</p>
+
+        <ol>
+            <li><strong>Each step of integration eliminates a variable</strong>. So if you integrate the order \(dz\,dy\,dx\), the first (inner) integral will eliminate \(z\)'s from the remaining computations. This also means that the limits of integration
+                can be expressions containing only \(x\)'s and \(y\)'s. The second (middle) integration will eliminate the \(y\)'s, leaving only \(x\)'s for the third integration, and the limits of integration can only contain \(x\)'s. The limits of integration
+                for the third (outer) integral can only contain constants.</li>
+            <li>Once you determine the first variable, the remainder of the setup can be viewed as a 2D integral in a plane. So if you integrate \(dz\,dy\,dx\), once you determine the limits of integration for \(dz\), doing the rest of \(dy\,dx\) can be done
+                in the \(xy\)-plane.</li>
+            <li><strong>The hardest choice is which variable to integrate first</strong>. Try to pick a variable whose top and bottom remain the same over the entire solid. For example, in the image above, the top and bottom faces of the solid are both triangles
+                - one directly over the other. So doing \(dz\) first would be the easiest. Doing \(dx\) first would be more complicated since the the right face may change depending on where you draw the red line (the left face is always the same, but
+                the right side has a front face and a back face due to the triangular shape).
+            </li>
+            <li>Try to draw what the solid \(D\) would look like when viewed from each of the 3 coordinate planes (\(xy\)-plane, \(xz\)-plane, and \(yz\)-plane). This can help determine the best order of integration as well as the limits of integration.</li>
+        </ol>
+
+        <p> The following images show the solid \(D\) above from each of the three coordinate planes. Again, notice that when viewed from above the \(xy\)-plane, the 3D solid appears to be a triangle in the \(xy\)-plane. By integrating first with respect
+            to \(z\), we eliminate the \(z\)-component and can then focus on integrating the triangular region in terms of just \(x\) and \(y\). When integrating in the \(x\) or \(y\) directions, we will need to use two separate integrals since the region
+            does not have a uniform top/bottom or left/right side relationship.</p>
+
+        <table class="styledtable-hrborder1 ltables">
+            <caption>Viewing Solids by Coordinate Plane</caption>
+            <tbody>
+                <tr>
+                    <th>xy-Plane </th>
+                    <th>xz-Plane </th>
+                    <th>yz-Plane </th>
+                </tr>
+                <tr>
+                    <td><img src="xy-plane.png" alt="Illustration of a solid d from the xy-plane.">
+                    </td>
+                    <td><img src="xz-plane.png" alt="Illustration of a solid d from the xz-plane.">
+                    </td>
+                    <td><img src="yz-plane.png" alt="Illustration of a solid d from the yz-plane.">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="def-eqn">
+            <p>Given a continuous function \(f(x,y,z)\) through a solid region \(D\) in \(&#8477;^3\) whose project \(R\) onto the \(xy\)-plane can be expressed using rectangular coordinates, the triple integral of \(f\) over \(D\) can be computed using
+                the following integral where \(g_1(x,y) \le z \le g_2(x,y)\), \(h_1(x) \le y \le h_2(x)\), and \(a \le x \le b\).</p>
+
+            \[\underset{D}{\mathop \iiint}\, f(x,y,z)~dV = \int_{a}^{b} \int_{h_1(x)}^{h_2(x)} \int_{g_1(x,y)}^{g_2(x,y)}\, f(x,y,z)~dz~dy~dx\]
+        </div>
+
+        <p>The following videos work through several examples of setting up and evaluating triple integrals. Note that there is often not only one way to setup each problem.</p>
+
+        <div class="widget-header">Introduction to Triple Integrals</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/CPR0ZD0IYVE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/CPR0ZD0IYVE]</div>
+
+        <div class="widget-header">Triple Integrals and Volume - Part 2</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/1LUNzkIxPV4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/1LUNzkIxPV4]</div>
+
+        <div class="widget-header">Triple Integrals and Volume - Part 3</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/nW2GD3pYsXY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/nW2GD3pYsXY]</div>
+
+        <div class="widget-header">Set up a Triple Integral to Determine Volume</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/7hX1DHq7sGw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/7hX1DHq7sGw]</div>
+
+        <div class="widget-header">Use a Triple Integral to Determine Volume Ex 1</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/nDEnrGIVdjw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/nDEnrGIVdjw]</div>
+
+        <div class="widget-header">Use a Triple Integral to Determine Volume Ex 2</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/5NxnjBvCTv8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/5NxnjBvCTv8]</div>
+
+        <p>Sometimes it can be helpful if we switch the order of integration, maybe because we realize that the problem would be easier with a different order. The following video shows how to change the order of integration.</P>
+
+        <div class="widget-header">Changing the Order of Triple Integrals</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/5WGW82fSXnU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/5WGW82fSXnU]</div>
+
+        <h3 id="apps">Mass &amp; Inertia</h3>
+
+        <p>This next video works through an application of triple integrals - finding the mass of an object of variable density.</p>
+
+        <div class="widget-header">Application of Triple Integrals: Mass</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/cFSRXum_3Es" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/cFSRXum_3Es]</div>
+
+        <p>We can extend the above example to not only find the mass of a solid of variable density \(\delta (x, y, z)\), but to also find its center of mass.</p>
+
+        <table class="styledtable-hrborder1 ltables">
+            <caption>Moments and Center of Mass in 3D</caption>
+            <tbody>
+                <tr>
+                    <th>Mass</th>
+                    <th>Moments about the Coordiate Planes</th>
+                    <th>Center of Mass</th>
+                </tr>
+                <tr>
+                    <td>\[m=\underset{D}{\mathop \iiint }\,\delta (x,y,z)~dV\]</td>
+                    <td>\[M_{yz}= \underset{D}{\mathop \iiint}\,x \delta (x,y,z)~dV\]\[M_{xz}= \underset{D}{\mathop \iiint}\,y \delta (x,y,z)~dV\]\[M_{xy}= \underset{D}{\mathop \iiint}\,z \delta (x,y,z)~dV\]</td>
+                    <td>\[ \left( \bar{x}, \bar{y}, \bar{z} \right) = \left(\frac{M_{yz}}{m},\frac{M_{xz}}{m},\frac{M_{xy}}{m}\right)\]</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>We can also compute moments of inertia around the coordinate axes using the following formulas. Notice the similarities between these and the formulas that we just saw for inertia in 2D space about the axes and the origin.</p>
+
+        <table class="styledtable-hrborder1 ltables">
+            <caption>Moments of Inertia in 3D</caption>
+            <tbody>
+                <tr>
+                    <th>About the \(x\)-Axis</th>
+                    <th>About the \(y\)-Axis</th>
+                    <th>About the \(z\)-Axis</th>
+                </tr>
+                <tr>
+                    <td>\[I_x = \underset{E}{\mathop \iiint}\,(y^2+z^2) \rho (x,y,z)~dV\]</td>
+                    <td>\[I_y = \underset{E}{\mathop \iiint}\,(x^2+z^2) \rho (x,y,z)~dV\]</td>
+                    <td>\[I_z = \underset{E}{\mathop \iiint}\,(x^2+y^2) \rho (x,y,z)~dV\]</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>The following video works through an example of a moment of inertia of a solid around the z-axis.</p>
+
+        <div class="widget-header">Find the Moment of Inertia about the z-axis of a Solid Using Triple Integrals</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/ZQl_95J8shM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/ZQl_95J8shM]</div>
+
+    </div>
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div class="myfooter">
+        <div class="row">
+            <div class="col-s-9 fleft">
+                <p>Content ©2020. Some Rights Reserved. <br> Video Content by:</p>
+                <ul>
+                    <li><a href="http://www.mathispower4u.com/" target="_blank">Mathispower4u (new window)</a></li>
+                </ul>
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+            </div>
+            <div class="col-s-3 fright">
+                <a href="#" onclick="pgPrint(); return false;"><i class="fa fa-print"></i> Printer Friendly</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
