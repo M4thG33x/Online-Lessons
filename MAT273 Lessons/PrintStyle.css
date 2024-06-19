@@ -1,0 +1,385 @@
+/* All elements width/height include padding and border */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ------------------------------- Standard tags ------------------------------- */
+html {
+    background-color: white;
+    max-width: 920px;
+}
+
+body {
+    margin: 10px;
+    font-family: Calibri, Arial, Verdana, Georgia, sans-serif;
+    font-size: 16px;
+    color: black;
+}
+
+/*
+h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: black;
+}
+
+h3 {
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+}
+
+h4 {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+}
+
+a,
+a:visited {
+    color: black;
+}
+
+iframe,
+.topnav,
+.sidepanel,
+.pagetoc,
+.pagetocwrap,
+hr {
+    display: none;
+}
+*/
+
+/* ------------------------------- Print Button ------------------------------- */
+
+@media print {
+    #printbutton {
+        display: none;
+    }
+}
+
+@media screen {
+    #printbutton {
+        display: block;
+    }
+}
+
+
+/* ------------------------------- Overview Page ------------------------------- */
+
+/* ------ Overview Page: Header ------ */
+#overview-header {
+    text-align: center;
+}
+
+#overview-header h1 {
+    font-weight: bold;
+    font-size: 28px;
+}
+
+#overview-header p {
+    padding: 0 0 20px 0;
+    font-size: 20px;
+}
+
+#overview-header button,
+#overview-header img {
+    display: none;
+}
+
+
+/* ------ Overview Page: Main Body ------ */
+#overview-body {
+    padding: 20px;
+}
+
+#overview-body h2 {
+    font-weight: bold;
+    font-size: 32px;
+    text-align: left;
+}
+
+
+/* ------ Overview Page: Table of Contents ------ */
+.overview-content {
+    padding-bottom: 40px;
+}
+
+.overview-content ul {
+    margin-left: 20px;
+    list-style-type: decimal;
+}
+
+.overview-content li {
+    padding-bottom: 5px;
+}
+
+.overview-content a {
+    text-decoration: underline;
+    color: black;
+}
+
+.overview-content a:visited {
+    color: black;
+}
+
+.overview-content p {
+    padding-top: 10px;
+    font-size: 14px;
+    font-style: italic;
+}
+
+
+/* ------ Overview Page: Objectives ------ */
+.overview-objectives p {
+    padding-bottom: 10px;
+}
+
+.overview-objectives ul {
+    list-style-type: circle;
+    margin-left: 20px;
+}
+
+.overview-objectives li {
+    padding-bottom: 5px;
+}
+
+
+
+/* ------ Overview Page: Footer ------ */
+#overview-footer {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#overview-footer a:link {
+    text-decoration: underline;
+    color: black;
+}
+
+#overview-footer a:visited {
+    color: black;
+}
+
+#overview-footer .l-col {
+    display: block;
+    width: 100%;
+}
+
+#overview-footer .r-col {
+    display: none;
+}
+
+
+
+/* ------------------------------- Lesson Page ------------------------------- */
+
+#lesson-header {
+    text-align: center;
+}
+
+#lesson-header h1 {
+    font-weight: bold;
+    font-size: 28px;
+}
+
+#lesson-header p {
+    padding: 0 0 20px 0;
+    font-size: 20px;
+}
+
+#lesson-header img,
+#lesson-header .lcol {
+    display: none;
+}
+
+#lesson-footer {
+    padding: 10px;
+}
+
+#lesson-footer .r-col {
+    display: none;
+}
+
+#lesson-footer a {
+    text-decoration: underline;
+    color: black;
+}
+
+#lesson-footer a:visited {
+    color: black;
+}
+
+.topnavmenu,
+.lessonpagetoc {
+    display: none;
+}
+
+.lesson-body h2 {
+    padding-bottom: 15px;
+    font-weight: bold;
+    font-size: 32px;
+}
+
+.lesson-body h3 {
+    margin-top: 20px;
+    padding-bottom: 10px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.lesson-body img {
+    display: block;
+    margin: auto;
+    max-width: 100%;
+    padding-bottom: 10px;
+}
+
+.lesson-body p {
+    padding-bottom: 10px;
+}
+
+.lesson-body ol {
+    list-style-type: disc;
+    margin-left: 20px;
+    padding-bottom: 5px;
+}
+
+.lesson-body li {
+    padding-bottom: 5px;
+}
+
+.ggb-wrap {
+    display: none;
+}
+
+.widget-header {
+    text-align: center;
+    font-weight: bold;
+    font-size: 120%;
+}
+
+.widget-footer {
+    text-align: center;
+    font-size: 80%;
+    padding-bottom: 5px;
+}
+
+.def-eqn,
+.example {
+    margin: 20px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.example input {
+    display: none;
+}
+
+.example .example-button {
+    font-weight: bold;
+}
+
+.vid-wrap {
+    display: none;
+}
+
+.assess {
+    margin: 0 0 20px 0;
+    border: 1px solid black;;
+    border-radius: 15px;
+    padding: 5px 20px 15px 20px;
+}
+
+/* .assess input, */
+.asess label,
+.assess button {
+    display: none;
+}
+
+.assess .response {
+    display: inline;
+}
+
+.assess .tbl {
+    width: 80%;
+    margin: 0;
+    padding-bottom: 20px;
+    display: table;
+    border-collapse: separate;
+    border-spacing: 7px;
+}
+
+.assess .tbl-row {
+    display: table-row;
+}
+
+.assess .tbl-col {
+    display: table-cell;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.assess .tbl-col label img {
+    display: inline;
+    vertical-align: middle;
+}
+
+.tbl {
+    width: 80%;
+    margin: auto;
+    padding-bottom: 20px;
+    display: table;
+    /* border-collapse: separate;
+    border-spacing: 7px; */
+}
+
+.tbl-cap {
+    display: table-caption;
+    padding-top: 10px;
+    text-align: center;
+    font-style: italic;
+    /* font-weight: bold; */
+    font-size: 120%;
+}
+
+.tbl-hdr-row {
+    display: table-header-group;
+    /* background-color: #005480;
+    color: #ffffff; */
+}
+
+.tbl-hdr-col {
+    display: table-cell;
+    border: 1px solid black;
+    padding: 5px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 120%;
+}
+
+.tbl-body {
+    display: table-row-group;
+}
+
+.tbl-body .tbl-row {
+    display: table-row;
+}
+
+.tbl-body .tbl-col {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid grey;
+}
+

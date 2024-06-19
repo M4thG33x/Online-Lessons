@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!-- <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> -->
+    <!--Custom scripts-->
+    <script src="../script.js"></script>
+    <!--Assessment script-->
+    <script src="../quizlets.js"></script>
+    <title>Page1</title>
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div id="lesson-header">
+        <div class="l-col">
+            <img src="../logo_custom.png" alt="null">
+        </div>
+        <div class="r-col">
+            <h1>Title</h1>
+            <p>Subtitle</p>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <a href="index.html">Overview</a>
+        <span class="active">Page1</span>
+        <a href="Page2.html">Page2</a>
+        <a href="Page3.html">Page3</a>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="lesson-body">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="lessonpagetoc">
+            <button class="dropbtn">On this Page</button>
+            <!-- <p> On this Page </p> -->
+            <div class="dropdown-content">
+                <ul>
+                    <li><a href="#top">Top</a></li>
+                    <li><a href="#geogebra">GeoGebra</a></li>
+                    <li><a href="#ltable">Tall Tables</a></li>
+                    <li><a href="#video">Embeded Videos</a></li>
+                    <li><a href="#eqnex">Equations &amp; Examples</a></li>
+                    <li><a href="#images">Images</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+        <!-- The main content starts here-->
+        <h2 id="top">Template Page</h2>
+        <p>The following GeoGebra applet will help illustrate how a point in space can be represented using the rectangular (Cartesian), cylindrical, and spherical coordinate systems. You may click-and-drag to rotate the view around the origin.</p>
+        <ol>
+            <li>Use the <span style="color: #ff8000; font-weight: bold;">orange</span> <b>(x, y)</b> point and z <b>slider</b> on the xy-plane to change the position of the <span style="color: #0000ff; font-weight: bold;">blue</span> point on the 3D axes. The coordinates of the point, in the form (x, y, z), appear in the top corner of the 3D window.</li>
+            <li>Uncheck the Rectangular box and check the <b>Cylindrical</b> box. Notice how the xy-plane changes. Now the grid lines consist of concentric circles representing a distance from the origin along with a number of diagonal lines representing the angle of rotation from the positive x-axis (each line is a &pi;/12 rotation).</li>
+            <li>Use the orange point and slider again to change the position of the blue point on the 3D axes. The coordinates of the point again appear in the top corner, this time in the form (r, &theta;, z).</li>
+        </ol>
+
+
+        <h3 id="geogebra">GeoGebra Frame</h3>
+
+        <div class="widget-header">GeoGebra Title (Wrapper)</div>
+        <div class="ggb-wrap">
+            <div class="ggb-cont">
+                <iframe height="477px" style="border:0px;" width="795px" scrolling="no" src="https://www.geogebra.org/material/iframe/id/shqmsac6/width/795/height/477/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" title="Rectangular - Cylindrical - Spherical"> </iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://www.geogebra.org/m/ncn2cyrd]</div>
+
+        <div class="example">
+            <p>Instructions/details can go here.</p>
+            <div class="widget-header">GeoGebra Title (Illustration)</div>
+            <div class="ggb-wrap">
+                <div class="ggb-cont">
+                    <iframe height="477px" style="border:0px;" width="795px" scrolling="no" src="https://www.geogebra.org/material/iframe/id/shqmsac6/width/795/height/477/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" title="Rectangular - Cylindrical - Spherical"> </iframe>
+                </div>
+            </div>
+            <div class="widget-footer">[https://www.geogebra.org/m/ncn2cyrd]</div>
+
+            <input type="checkbox" id="ggb-demo">
+            <label for="ggb-demo" class="example-button">Solution</label>
+            <div class="solution-content">
+                <p>Instructions/details can go here.</p>
+                <ol>
+                    <li>The location of the point in Cartesian space is determined by the perpendicular distances, which are parallel to the individual axes.</li>
+                    <li>In cylindrical space, the value of \(r\) gives the distance in the \(xy\)-plane from the origin to the point. The value of \(\theta\) represents the rotation in the \(xy\)-plane from the positive \(x\)-axis. The value of \(z\) still represents the height of the point above the \(xy\)-plane.</li>
+                </ol>
+            </div>
+        </div>
+
+
+        <h3 id="ltable">Tables</h3>
+        <p>Here are some common graphs in cylindrical coordinates that we will encounter.</p>
+
+        <div class="tbl">
+            <div class="tbl-cap">
+                Common Cylindrical Graphs
+            </div>
+            <div class="tbl-hdr-row">
+                <div class="tbl-hdr-col">
+                    Equation
+                </div>
+                <div class="tbl-hdr-col">
+                    Graph
+                </div>
+            </div>
+            <div class="tbl-body">
+                <div class="tbl-row">
+                    <div class="tbl-col">
+                        Cylinder<br> \(r=a\) <br> \((a \gt 0)\)
+                    </div>
+                    <div class="tbl-col">
+                        <img src="CenteredPerspective.png" alt="Graph of a cylinder.">
+                    </div>
+                </div>
+                <div class="tbl-row">
+                    <div class="tbl-col">
+                        Cone<br> \(z=ar\) <br> \((a \ne 0)\)
+                    </div>
+                    <div class="tbl-col">
+                        <img src="CenteredPerspective.png" alt="Graph of a cone.">
+                    </div>
+                </div>
+                <div class="tbl-row">
+                    <div class="tbl-col">
+                        Horizontal Plane<br> \(z=a\)
+                    </div>
+                    <div class="tbl-col">
+                        <img src="CenteredPerspective.png" alt="Graph of a plane.">
+                    </div>
+                </div>
+                <div class="tbl-row">
+                    <div class="tbl-col">
+                        Vertical Half Plane<br> \(\theta=a\)
+                    </div>
+                    <div class="tbl-col">
+                        <img src="CenteredPerspective.png" alt="Graph of a vertical half plane.">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p>Here are some common graphs in cylindrical coordinates that we will encounter.</p>
+
+        <div class="tbl">
+            <div class="tbl-cap">
+                Illustration of Integrals
+            </div>
+            <div class="tbl-hdr-row">
+                <div class="tbl-hdr-col">
+                    Visualization
+                </div>
+                <div class="tbl-hdr-col">
+                    Description
+                </div>
+            </div>
+            <div class="tbl-body">
+                <div class="tbl-row">
+                    <div class="tbl-col">
+                        <img src="CenteredPerspective.png" alt="Illustration for the integral of a function with bounded rectangle of width dx along the x-axis between x = a and x = b.">
+                    </div>
+                    <div class="tbl-col">
+                        <p>A single integral computes the sum of the areas of infinitely many rectangles, each having an infinitely small width \(dx\), which is measured along an interval \(I\) on the \(x\)-axis. </p>
+                        \[\underset{I}{\int}\,f(x)~dA\]
+                    </div>
+                </div>
+                <div class="tbl-row">
+                    <div class="tbl-col">
+                        <img src="CenteredPerspective.png" alt="Illustration for a double integral of a rectangular region in the xy-plane of width dx and height dy.">
+                    </div>
+                    <div class="tbl-col">
+                        <p>A double integral computes the sum of the volumes of infinitely many boxes, each having a rectangular base area \(dA\) of infinitely small width \(dx\) and height \(dy\), measured over the region \(R\) in the \(xy\)-plane. </p>
+                        \[\underset{R}{\mathop \iint }\,f(x,y)~dA\]
+                    </div>
+                </div>
+                <div class="tbl-row">
+                    <div class="tbl-col">
+                        <img src="CenteredPerspective.png" alt="Illustration for a triple integral of a rectangular solid region in xyz-spacee of width dx, depth dy, and height dz.">
+                    </div>
+                    <div class="tbl-col">
+                        <p>A triple integral computes the sum of infinitely many hyper volumes using boxes of volume \(dV\), having length \(dx\), width \(dy\), and height \(dz\), measured over the solid \(D\) in \(xyz\)-space.</p>
+                        \[\underset{D}{\iiint }\,f(x,y,z)~dV\]
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p>Here are some common graphs in cylindrical coordinates that we will encounter.</p>
+
+        <div class="tbl">
+            <div class="tbl-cap">
+                Moments and Center of Mass in 3D
+            </div>
+            <div class="tbl-hdr-row">
+                <div class="tbl-hdr-col">
+                    Mass
+                </div>
+                <div class="tbl-hdr-col">
+                    Moments about the Coordiate Planes
+                </div>
+                <div class="tbl-hdr-col">
+                    Center of Mass
+                </div>
+            </div>
+            <div class="tbl-body">
+                <div class="tbl-row">
+                    <div class="tbl-col">
+                        \[m=\underset{D}{\mathop \iiint }\,\delta (x,y,z)~dV\]
+                    </div>
+                    <div class="tbl-col">
+                        \[M_{yz}= \underset{D}{\mathop \iiint}\,x \delta (x,y,z)~dV\]\[M_{xz}= \underset{D}{\mathop \iiint}\,y \delta (x,y,z)~dV\]\[M_{xy}= \underset{D}{\mathop \iiint}\,z \delta (x,y,z)~dV\]
+                    </div>
+                    <div class="tbl-col">
+                        \[ \left( \bar{x}, \bar{y}, \bar{z} \right) = \left(\frac{M_{yz}}{m},\frac{M_{xz}}{m},\frac{M_{xy}}{m}\right)\]
+                    </div>
+                </div>
+                <div class="tbl-row">
+                    <div class="tbl-col">
+                        <p>This integral computes the mass of a 3D solid given a density function.</p>
+                    </div>
+                    <div class="tbl-col">
+                        <p>These integrals compute the moments of the mass about the coordinate planes of a 3D solid given a density function.</p>
+                    </div>
+                    <div class="tbl-col">
+                        <p>The coordinates of the center of mass are determined by dividing each moment by the mass.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <h3 id="video">Embedded Video</h3>
+
+        <p>The following videos give a few examples demonstrating how to convert equations between rectangular and cylindrical coordinates.</p>
+
+        <div class="widget-header">Write a Cylindrical Equations in Rectangular Form</div>
+        <div class="vid-wrap">
+            <div class="vid-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/uec-1Jw1Cso" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/uec-1Jw1Cso]</div>
+
+        <h3 id="eqnex">Equations &amp; Examples</h3>
+
+        <div class="def-eqn">
+            <p>Given a continuous function \(f(x,y,z)\) through a solid \(E\) whose projection \(D\) onto the \(xy\)-plane that can be expressed using polar coordinates, the triple integral of \(f\) over \(E\) can be computed using the following integral, where \(g_1(r,\theta) \le z \le g_2(r,\theta)\), \(h_1(\theta) \le r \le h_2(\theta)\), and \(\alpha \le \theta \le \beta\).</p>
+
+            <!-- <div class="math-container"> -->
+            \[\underset{E}{\mathop \iiint} \,f(x,y,z)~dV=\int_{\alpha}^{\beta}\int_{h_1(\theta)}^{h_2(\theta)}\int_{g_1(r,\theta)}^{g_2(r,\theta)}\,f(r\cos(\theta),r\sin(\theta),z)\,r~dz~dr~d\theta\]
+
+            <!-- </div> -->
+        </div>
+
+        <div class="example">
+            <p><strong>Example #1</strong>: Solve the following equation.</p> \[x^2+5x=6\]
+            <input type="checkbox" id="ex-1">
+            <label for="ex-1" class="example-button">Solution</label>
+            <div class="solution-content">
+                <p>First subtract the 6 over to the left side.</p>\[x^2+5x-6=0\]
+                <p>Then factor the trinomial expression.</p> \[(x+6)(x-6)=0\] <p>Set each factor equal to 0 and solve for x.</p>
+                <span style="display: block; text-align: center; ">\(x+6=0\) or \(x-1=0\)</span>
+                <br>
+                <span style="display: block; text-align: center; ">\(x=-6\) or \(x=1\)</span>
+            </div>
+        </div>
+
+        <h3 id="images">Images</h3>
+        <p>In the previous lesson, you looked at double integrals which extend integration over an interval on the \(x\)-axis to a region in the \(xy\)-plane. Now we want to further extend this to a solid in \(xyz\)-space.</p>
+
+        <p> When using double integrals, recall that we could use \(dA=dy\,dx\) or \(dA=dx\,dy\), meaning we could change the order of integration. This was helpful when one order of integration was easier to setup and evaluate than the other order. The same is true with triple integrals, except there are now 6 options instead of just 2. Probably the most common order of integration would be \(dV=dz\,dy\,dx\), meaning we would integrate first with respect to \(z\), then with respect to \(y\), and lastly with respect to \(x\).</p>
+
+        <img src="GeoGebra-Home.png" alt=" Illustration of a 3D solid with dz, dy, dx lines highlighted.">
+
+        <p> In the above illustration, suppose we are wanting to setup a triple integral over the region \(D\). The blue <span style="color: blue; font-weight: bold;">dz</span> line stretches from the top of \(D\) to the bottom of \(D\), parallel to the \(z\)-axis. The green <span style="color: green; font-weight: bold;">dy</span> line stretches from the front of \(D\) to the back of \(D\), parallel to the \(y\)-axis. The red <span style="color: red; font-weight: bold;">dx</span> line stretches from the left face of \(D\) to the right face of \(D\), parallel to the \(x\)-axis. These three lines represent the direction of integration, their endpoints serving to mark the limits of integration that will be needed for the integrals.</p>
+
+
+        <h3>Assessments</h3>
+        <p>The following formative assessments (fill-in-the-blank and multiple choice) are possible.</p>
+
+        <div class="assess">
+            <p><strong>Self-Check #1</strong>: Prompt... (<i>Enter your answer rounded to 2 decimal places</i>) </p>
+            <!-- checkFitBSub(inputID, answer, correctID, wrongID, tolerance)-->
+            <button onclick="checkFitBSub('input1',0,'correct1','wrong1','enterans1',0.01)" id="submit1">Check</button>
+            <label for="input1">Answer:</label>
+            <input id="input1" type="text" value="" />
+            <div class="response" id="enterans1"><i>You must enter an answer</i>.</div>
+            <div class="response" id="correct1"><i class="fa fa-check" style="color: green"></i></div>
+            <div class="response" id="wrong1"><i class="fa fa-times" style="color: red"></i> (Answer: A) -- Explanation...</div>
+        </div>
+
+        <div class="assess">
+            <p><strong>Self-Check #</strong>: Prompt...(<i>Select the most appropriate response.</i>)</p>
+            <label class="radiocntrh">(A) Choice #1.
+                <input type="radio" id="opt1-1" name="mcChoice1" value="A">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(B) Choice #2.
+                <input type="radio" id="opt1-2" name="mcChoice1" value="B">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(C) Choice #3.
+                <input type="radio" id="opt1-3" name="mcChoice1" value="C">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(D) Choice #4.
+                <input type="radio" id="opt1-4" name="mcChoice1" value="D">
+                <span class="radiobtn"></span>
+            </label><br>
+            <button onclick="checkMCSub('mcChoice1','A','correct1','wrong1','makechoice1')" id="submit1">Check</button>
+            <div class="response" id="makechoice1"><i>You must select an answer above</i>.</div>
+            <div class="response" id="correct1"><i class="fa fa-check" style="color: green"></i></div>
+            <div class="response" id="wrong1"><i class="fa fa-times" style="color: red"></i> (Answer: A) -- Explanation...</div>
+        </div>
+
+        <div class="assess">
+            <p><strong>Self-Check #</strong>: Prompt...(<i>Select the most appropriate response.</i>)</p>
+            <label class="radiocntrv">(A) Choice #1.
+                <input type="radio" id="opt2-1" name="mcChoice2" value="A">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrv">(B) Choice #2.
+                <input type="radio" id="opt2-2" name="mcChoice2" value="B">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrv">(C) Choice #3.
+                <input type="radio" id="opt2-3" name="mcChoice2" value="C">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrv">(D) Choice #4.
+                <input type="radio" id="opt2-4" name="mcChoice2" value="D">
+                <span class="radiobtn"></span>
+            </label><br>
+            <button onclick="checkMCSub('mcChoice2','A','correct2','wrong2','makechoice2')" id="submit2">Check</button>
+            <div class="response" id="makechoice2"><i>You must select an answer above</i>.</div>
+            <div class="response" id="correct2"><i class="fa fa-check" style="color: green"></i></div>
+            <div class="response" id="wrong2"><i class="fa fa-times" style="color: red"></i> (Answer: A) -- Explanation...</div>
+        </div>
+
+        <div class="assess">
+            <p><strong>Self-Check #</strong>: Prompt...(<i>Select the most appropriate response.</i>)</p>
+            <div class="tbl">
+                <div class="tbl-row">
+                    <div class="tbl-col">
+                        <label class="radiocntrimg">(A) <img src="CenteredPerspective.png" alt="">
+                            <input type="radio" id="opt3-1" name="mcChoice2" value="A">
+                            <span class="radiobtn"></span>
+                        </label>
+                        <!-- <input type="radio" id="opt3-1" name="mcChoice3" value="A"><label for="opt3-1">(A) <img src="" alt=""></label> -->
+                    </div>
+                    <div class="tbl-col">
+                        <label class="radiocntrimg">(B) <img src="CenteredPerspective.png" alt="">
+                            <input type="radio" id="opt3-1" name="mcChoice2" value="B">
+                            <span class="radiobtn"></span>
+                        </label>
+                        <!-- <input type="radio" id="opt3-2" name="mcChoice3" value="B"><label for="opt3-2">(B) <img src="" alt=""></label> -->
+                    </div>
+                </div>
+                <div class="tbl-row">
+                    <div class="tbl-col">
+                        <label class="radiocntrimg">(C) <img src="CenteredPerspective.png" alt="">
+                            <input type="radio" id="opt3-1" name="mcChoice2" value="C">
+                            <span class="radiobtn"></span>
+                        </label>
+                        <!-- <input type="radio" id="opt3-3" name="mcChoice3" value="C"><label for="opt3-3">(C) <img src="" alt=""></label> -->
+                    </div>
+                    <div class="tbl-col">
+                        <label class="radiocntrimg">(D) <img src="CenteredPerspective.png" alt="">
+                            <input type="radio" id="opt3-1" name="mcChoice2" value="D">
+                            <span class="radiobtn"></span>
+                        </label>
+                        <!-- <input type="radio" id="opt3-4" name="mcChoice3" value="D"><label for="opt3-4">(D) <img src="" alt=""></label> -->
+                    </div>
+                </div>
+            </div>
+            <button onclick="checkMCSub('mcChoice3','A','correct3','wrong3','makechoice3')" id="submit3">Check</button>
+            <div class="response" id="makechoice3"><i>You must select an answer above</i>.</div>
+            <div class="response" id="correct3"><i class="fa fa-check" style="color: green"></i></div>
+            <div class="response" id="wrong3"><i class="fa fa-times" style="color: red"></i> (Answer: A) -- Explanation...</div>
+        </div>
+        
+        <!-- End of the main content -->
+    </div>
+
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div id="lesson-footer">
+        <div class="l-col">
+            <p>©2024 <a href="https://www.youtube.com/channel/UCszzyEwfkBHBPk6xkNrGpAA" target="_blank">M4thG33x (new
+                    window)</a> Some Rights Reserved.</p>
+            <a rel="license " href="http://creativecommons.org/licenses/by-sa/4.0/ "><img alt="Creative Commons License " src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png "></a>
+        </div>
+        <div class="r-col">
+            <a href="# " onclick="pgPrint(); return false; "><i class="fa fa-print "></i> Printer Friendly</a>
+        </div>
+    </div>
+</body>
+
+</html>
