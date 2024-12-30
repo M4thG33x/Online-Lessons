@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../../LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../../PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="../../script.js"></script>
+    <!--Assessment script-->
+    <script src="../../quizlets.js"></script>
+    <title>General Regions</title>
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div id="lesson-header">
+        <div class="l-col">
+            <img src="../../logo_custom.png" alt="null">
+        </div>
+        <div class="r-col">
+            <h1>Double &amp; Polar Integrals</h1>
+            <p>Multiple Integrals</p>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <a href="index.html">Overview</a>
+        <a href="rectangular.html">Rectangular</a>
+        <span class="active">General</span>
+        <a href="polar.html">Polar</a>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="lesson-body">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="lessonpagetoc">
+            <button class="dropbtn">On this Page</button>
+            <!-- <p> On this Page </p> -->
+            <div class="dropdown-content">
+                <ul>
+                    <li><a href="#top">Double Integrals over General Regions</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 id="top">Double Integrals over Non-Rectangular Regions</h2>
+
+        <p>We now want to expand our ability to evaluate double integrals over rectangular regions to double integrals over non-rectangular regions. So how can we generalize the process?</p>
+
+        <div class="example">
+            <div class="widget-header">Title</div>
+            <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+            <div class="frame-wrap">
+                <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+                <div class="frame-cont ratio-16x9">
+                    Demo with the Double Integral over a General Region applet in GeoGebra
+                </div>
+            </div>
+            <div class="widget-footer">[]</div>
+
+            <input type="checkbox" id="gen-vol-demo">
+            <label for="gen-vol-demo" class="example-button">Summary</label>
+            <div class="solution-content">
+                <p>Here is the GeoGebra graph from the video above, followed by some generalizations we can make about how to find the volume under a surface over a non-rectangular region.</p>
+
+                <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+                <div class="frame-wrap">
+                    <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+                    <div class="frame-cont ratio-16x9">
+                        <iframe scrolling="no" title="Double Integral over a General Region" src="https://www.geogebra.org/material/iframe/id/f9fttfgp/width/795/height/477/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" style="border:0px;" height="477px" width="795px"> </iframe>
+                    </div>
+                </div>
+                <div class="widget-footer">[https://www.geogebra.org/m/c4q8rf95]</div>
+
+                <ol>
+                    <li>The result of the inner integral still defines an area below a curve function along a slice parallel to the axis that corresponds to the variable we just integrated.</li>
+                    <li>The bounds for this area function are given by the boundary functions of the domain region, \(g_1\) and \(g_2\).</li>
+                    <li>We then need to integrate this area function in a direction that is parallel to the axis that corresponds to the remaining variable.</li>
+                    <li>Apply the same strategy if integrating with respect to \(dxdy\), just swapping the \(x\) and \(y\) variables in the basic setup.</li>
+                </ol>
+            </div>
+        </div>
+
+        <p>Consider the following illustrations when trying to decide whether to use vertical slices and integrate \(dydx\) or to use horizontal slices and integrate \(dxdy\).</p>
+
+        <div class="tbl">
+            <div class="tbl-cap">
+                Vertical or Horizontal Slices
+            </div>
+            <div class="tbl-hdr-row">
+                <div class="tbl-hdr-col">
+                    Vertical
+                </div>
+                <div class="tbl-hdr-col">
+                    Horizontal
+                </div>
+            </div>
+            <div class="tbl-body">
+                <div class="tbl-row">
+                    <div class="tbl-col">
+                        <p>When a region \(R\) is bounded above by \(y=g_2(x)\) and below by \(y=g_1(x)\), we want to use vertical slices and integrate \(dydx\).</p>
+
+                        <img src="Dbl-Int-V-Slices.png" alt="">
+
+                        <p>Each vertical slice represents a cross-section area having a base with length given by \(g_{2}(x) - g_{1}(x)\) and a height given by the surface function \(z = f(x,y)\). These cross-section areas are determined by the first \(dy\) integration. We then sum up all of these cross-section areas by integrating \(dx\) from left to right, or in the direction of increasing values of \(x\).</p>
+                    </div>
+                    <div class="tbl-col">
+                        <p>The region \(R\) is bounded to the right by \(x=h_2(y)\) and to the left by \(x=h_1(y)\), so we want to use horizontal slices and integrate \(dxdy\).</p>
+
+                        <img src="Dbl-Int-H-Slices.png" alt="">
+
+                        <p>Each horizontal slice represents a cross-section area having a base with length given by \(h_{2}(y) - h_{1}(y)\) and a height given by the surface function \(z = f(x,y)\). These cross-section areas are determined by the first \(dx\) integration. We then sum up all of these cross-section areas by integrating \(dy\) from bottom to top, or in the direction of increasing values of \(y\).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="def-eqn">
+            <p><strong>Double Integral of \(f\) Over the Region \(R\)</strong>: For a function \(z=f(x,y)\) defined over a region \(R\) in the \(x\)y-plane, the volume bounded under \(f\) over \(R\) can be computed using one of the following formulas.</p>
+
+            <p>If \(R\) is bounded by the functions \(y=g_1(x)\) and \(y=g_2(x)\) using vertical slices, then use the integral below.</p>
+
+            \[\underset{R}{\mathop \iint}\, f(x,y)~dA = \int_{a}^{b} \int_{g_1(x)}^{g_2(x)}\, f(x,y)~dy~dx\]
+
+            <p>If \(R\) is bounded by the functions \(x=h_1(y)\) and \(x=h_2(y)\) using horizontal slices, then use the integral below.</p>
+
+            \[\underset{R}{\mathop \iint}\, f(x,y)~dA = \int_{c}^{d} \int_{h_1(y)}^{h_2(y)}\, f(x,y)~dx~dy\]
+        </div>
+
+        <div class="widget-header">Title</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="frame-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="frame-cont ratio-16x9">
+                Example setting up a dydx integral over a non-rectangular region.
+            </div>
+        </div>
+        <div class="widget-footer">[]</div>
+
+        <div class="example">
+            <p><strong>Example:</strong> Determine the volume of the solid shape below \(f(x,y) = 12xy^2\) and above the semicircle of radius 3 with \(x \ge 0\).</p>
+
+            <input type="checkbox" id="ex-dxdy">
+            <label for="ex-dxdy" class="example-button">Solution</label>
+            <div class="solution-content">
+                <p>It is usually a good practice to sketch a graph of the domain or base region over which we are integrating. In this case, we have the circle \(x^2 + y^2 = 9\) with \(x \ge 0\).</p>
+
+                <img src="" alt=""> Graph of f(x,y) with vertical and horziontal slices
+
+                <p>Notice that if we draw vertical slices, we see that all of the lines touch the same curve at the top and bottom endpoints. While not impossible, this complicates how we could integrate in the \(dydx\) order. If instead, we draw horziontal slices, then we see that every line segment extends from \(x = 0\) to \(x = \sqrt{9-y^2}\). This means that region \(R\) can be described using the inequalities \(0 \le x \le \sqrt{9-y^2}\) and \(-3 \le y \le 3\). In other words, we can use the boundary functions \(h_{1} = 0\) and \(h_{2} = \sqrt{9-y^2}\).</p>
+
+                \[\begin{align*} V &= \underset{R}{\mathop \iint}\, f(x,y)~dA \\ &= \int_{c}^{d} \int_{h_1(y)}^{h_2(y)}\, f(x,y)~dxdy \\ &= \int_{-3}^{3} \int_{0}^{\sqrt{9-y^2}}\, 12xy^2 ~dxdy \\ &= \int_{-3}^{3} \left( 6x^2y^2 \right) \biggr|_{0}^{\sqrt{9-y^2}} ~dy \\ &= \int_{-3}^{3} \left[ 6\left(\sqrt{9-y^2}\right)^2y^2 - 6(0)^2y^2 \right] ~dy \\ &= \int_{-3}^{3} \left[ 6\left(9-y^2\right)y^2 \right] ~dy \\ &= \int_{-3}^{3} 54y^2-6y^4 ~dy \\ &= \left( 18y^3 - \frac{6}{5}y^5 \right) \biggr|_{-3}^{3} \\ &= \left[ \left(18(3)^3 - \frac{6}{5}(3)^5\right) - \left(18(-3)^3 - \frac{6}{5}(-3)^5\right) \right] \\ &= 486 - \frac{1458}{5} + 486 - \frac{1458}{5} \\ &= \frac{1944}{5} = 388.8 \end{align*}\]
+
+                <p>So, the volume of the solid illustrated below is 388.8 cubic units. <i>For a better view, minimize the expression list on the left side of the graph by clicking the <i class="fa fa-chevron-left" aria-hidden="true" style="font-size:smaller; font-weight: lighter;"></i><i class="fa fa-chevron-left" aria-hidden="true" style="font-size:smaller"></i> button. You can then rotate the graph and zoom in or out.</i></p>
+
+                <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+                <div class="frame-wrap">
+                    <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+                    <div class="frame-cont ratio-1x1">
+                        <iframe src="https://www.desmos.com/3d/r2punnoxpa?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
+                    </div>
+                </div>
+                <div class="widget-footer">[https://www.desmos.com/3d/r2punnoxpa]</div>
+            </div>
+        </div>
+
+        <div class="assess">
+            <!--Enter a prompt for the assessment.-->
+            <p><strong>Self-Check #4</strong>: Compute the volume below the function \(f(x,y) = 10x\sin{y}\) over the region \(R\), where \(R\) is the region in the \(xy\)-plane that is bounded by \(y=x^2\), \(y=0\), \(x=0\), and \(x=\frac{\pi}{2}\). (<i>Use the most appropriate order of integration and Work through the integratals by hand. Enter your answer rounded to 2 decimal places</i>)</p>
+            <!--All id's must be unique per problem per page.-->
+            <!--Enter the answer in the ans field.-->
+            <button onclick="checkFitBSub('input4',0.85,'correct4','wrong4','enterans4',0.01)" id="submit4">Check</button>
+            <label for="input4">Answer:</label>
+            <input id="input4" type="text" value="" />
+            <div class="response" id="enterans4"><i>You must enter an answer</i>.</div>
+            <div class="response" id="correct4"><i class="fa fa-check" style="color: green"></i></div>
+            <div class="response" id="wrong4"><i class="fa fa-times" style="color: red"></i>
+                <!--State the correct answer and provide a solution.-->
+                <p>(Answer: 0.85) -- First, we need to find the area of \(R\).</p>
+
+                \[A = (2-0)\left(\frac{\pi}{2}-0\right) = (2)\left(\frac{\pi}{2}\right) = \pi\]
+
+                <p>Set up and evaluate the following integral.</p>
+
+                \[\begin{align*} f_{avg} &= \frac{1}{A} \underset{R}{\mathop \iint}\, f(x,y)~dA \\ &= \frac{1}{\pi}\int_{0}^{\pi/2} \int_{0}^{2} x^2 \sin{y}~dx~dy \\ &= \frac{1}{\pi} \int_{0}^{\pi/2} \left( \frac{1}{3} x^3 \sin{y} \right) \biggr|_{0}^{2}~dy \\ &= \frac{1}{\pi} \int_{0}^{\pi/2} \left(\frac{8}{3}\sin{y}\right) - (0)~dy \\ &= \frac{1}{\pi} \int_{0}^{\pi/2} \frac{8}{3}\sin{y}~dy \\ &= \frac{8}{3\pi} \int_{0}^{\pi/2} \sin{y}~dy \\ &= \frac{8}{3\pi} \left( -\cos{y} \right)\biggr|_{0}^{\pi/2} \\ &= \frac{8}{3\pi} \left( -\cos{\left(\frac{\pi}{2}\right)} - \left( -\cos(0) \right)\right) \\ &= \frac{8}{3\pi} \left(0 + 1 \right) \\ &= \frac{8}{3\pi} \\ &\approx 0.85 \end{align*}\]
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div id="lesson-footer">
+        <div class="l-col">
+            <p>©2024 <a href="https://www.youtube.com/channel/UCszzyEwfkBHBPk6xkNrGpAA" target="_blank">M4thG33x (new
+                    window)</a> Some Rights Reserved.</p>
+            <a rel="license " href="http://creativecommons.org/licenses/by-sa/4.0/ "><img alt="Creative Commons License " src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png "></a>
+        </div>
+        <div class="r-col">
+            <a href="# " onclick="pgPrint(); return false; "><i class="fa fa-print "></i> Printer Friendly</a>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../../LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../../PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="../../script.js"></script>
+    <!--Assessment script-->
+    <script src="../../quizlets.js"></script>
+    <title>Rectangular Regions</title>
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div id="lesson-header">
+        <div class="l-col">
+            <img src="../../logo_custom.png" alt="null">
+        </div>
+        <div class="r-col">
+            <h1>Double &amp; Polar Integrals</h1>
+            <p>Multiple Integrals</p>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <a href="index.html">Overview</a>
+        <span class="active">Rectangular</span>
+        <a href="general.html">General</a>
+        <a href="polar.html">Polar</a>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="lesson-body">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="lessonpagetoc">
+            <button class="dropbtn">On this Page</button>
+            <!-- <p> On this Page </p> -->
+            <div class="dropdown-content">
+                <ul>
+                    <li><a href="#top">Double Integrals over Rectangular Regions</a></li>
+                    <li><a href="#iterated">Iterated Double Integrals</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 id="top">Double Integrals over Rectangular Regions</h2>
+
+        <p>Recall back in Calc 1 that we used Riemann Sums to approximate the <strong>area under a curve</strong>. We did this by computing the area of rectangles with heights determined by where the top of each rectangle touched the given function on the left side, right side, or midpoint. The width of each rectangle was given by \(\Delta x\). To find the total area, we computed the sum \(\Sigma\) of all of the rectangles.</p>
+
+        <img src="RiemannSum.png" alt="Image of the area below y = f(x) approximated with rectangles using left endpoints.">
+
+        <p>Now that we are in 3D space, we can use a similar idea to approximate the <strong>volume under a surface</strong>. This time, we will use rectangular boxes whose height is determined by the given function and its base area is a rectangle in the \(xy\)-plane.</p>
+
+        <div class="example">
+            <div class="widget-header">Title</div>
+            <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+            <div class="frame-wrap">
+                <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+                <div class="frame-cont ratio-16x9">
+                    Demo with the Volume over a Rectangular Region applet in GeoGebra
+                </div>
+            </div>
+            <div class="widget-footer">[]</div>
+
+            <input type="checkbox" id="rect-vol-demo">
+            <label for="rect-vol-demo" class="example-button">Summary</label>
+            <div class="solution-content">
+                <p>Here is the GeoGebra graph from the video above, followed by some generalizations we can make about how to find the volume under a surface using Riemann sums.</p>
+
+                <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+                <div class="frame-wrap">
+                    <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+                    <div class="frame-cont ratio-16x9">
+                        <iframe scrolling="no" title="Volume over a Rectangular Region" src="https://www.geogebra.org/material/iframe/id/n8akadgb/width/795/height/477/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" style="border:0px;" height="477px" width="795px"></iframe>
+                    </div>
+                </div>
+                <div class="widget-footer">[https://www.geogebra.org/m/gj6j2cfy]</div>
+
+                <ol>
+                    <li>We want to consider a surface given by \(z = f(x,y)\) and the rectangular domain region \([a,b] \times [c,d]\), which means \(a \le x \le b\) and \(c \le y \le d\) in the \(xy\)-plane. In the example above, this rectangular domain region is given by \([0,4] \times [0,3]\), or \(0 \le x \le 4\) and \(0 \le y \le 3\).</li>
+                    <li>The rectangular domain region is divided into smaller sub-rectangles having dimensions \(\Delta x\) by \(\Delta y\). The area of each sub-rectangle is \(\Delta A = \Delta x \Delta y\). In the example above, both \(\Delta x = 1\) and \(\Delta y = 1\), which means \(\Delta A = 1\) as well.</li>
+                    <li>The height of each rectangular box can be determined by any of the four corners or midpoint of the corresponding sub-rectangle in the \(xy\)-plane. In the example above, notice that the tops of all of the boxes are below the surface if we select the Lower Left option, they are above the surface if we select the Upper Right option, and the boxes are partially above and below the surface if we select the Midpoint option. We saw a similar thing happen with the Riemann sum rectangles in Calc I.</li>
+                    <li>The volume of each rectangular box can be computed using \(V = L \cdot W \cdot H = f(x, y) \cdot \Delta x \cdot \Delta y = f(x, y) \Delta A\), which is the height of the box determined by the function value times the area of the base sub-rectangle.</li>
+                    <li> The total volume can be approximated by the sum of all the boxes, or \(V \approx \sum f(x,y) \Delta A\).</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="def-eqn">
+            <p><strong>Approximate Volume Of \(f\) Over The Region \(R\)</strong>: For a function \(z=f(x,y)\) defined over a rectangular region \(R\) in the \(x\)y-plane that is divided into \(m\) sub-rectangles horizontally by \(n\) sub-rectangles vertically, the volume bounded under \(f\) over \(R\) can be approximated by the following formula.</p>
+
+            \[V ≈ \ \sum\limits_{i=1}^{m}{\sum\limits_{j=1}^{n}{f\left({{x}_{ij}},{{y}_{ij}} \right)\Delta A}}\]
+        </div>
+
+        <div class="widget-header" Title></div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="frame-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="frame-cont ratio-16x9">
+                Example of using a Riemann sum to approximate volume
+            </div>
+        </div>
+        <div class="widget-footer">[]</div>
+
+        <div class="assess">
+            <!--Enter a prompt for the assessment.-->
+            <p><strong>Self-Check #1</strong>: Approximate the volume under \(f(x,y) = \sqrt{xy+1}\) over the region \(R = [1,5] \times [2,11]\) with \(m = 2\) rectangular divisions in the \(x\) direction and \(n = 3\) rectangular divisions in the \(y\) direction using the lower-left corner of each sub-rectangle. (<i>Do not round your intermediate computations. Enter your answer rounded to 2 decimal places</i>)</p>
+            <!--All id's must be unique per problem per page.-->
+            <!--Enter the answer in the ans field.-->
+            <button onclick="checkFitBSub('input1',112.96,'correct1','wrong1','enterans1',0.01)" id="submit1">Check</button>
+            <label for="input1">Answer:</label>
+            <input id="input1" type="text" value="" />
+            <div class="response" id="enterans1"><i>You must enter an answer</i>.</div>
+            <div class="response" id="correct1"><i class="fa fa-check" style="color: green"></i></div>
+            <div class="response" id="wrong1"><i class="fa fa-times" style="color: red"></i>
+                <!--State the correct answer and provide a solution.-->
+                <p>(Answer: 112.96) -- Compute the dimensions of the sub-rectangles to be \(\Delta x = \frac{b-a}{m} = \frac{5-1}{2} = 2\) and \(\Delta y = \frac{d-c}{n} = \frac{11-2}{3} = 3\). Then we can approximate the volume as follows.</p>
+
+                \[\begin{align*} V &\approx \Delta x \Delta y \left( f(1,2) + f(3,2) + f(1,5) + f(3,5) + (1,8) + f(3,8)\right) \\ &= (2)(3)\left(\sqrt{3} + \sqrt{7} + \sqrt{6} + \sqrt{16} + \sqrt{9} + \sqrt{25} \right) \\ &\approx 6(18.8272918614) \\ &\approx 112.96 \end{align*}\]
+            </div>
+        </div>
+
+
+        <h3 id="iterated">Iterated Double Integrals</h3>
+
+        <p>In order to go from the approximate volume to the <strong>exact</strong> volume, we can decrease the size of each sub-rectangle and include more of them. In other words, we let \(\Delta x \rightarrow 0\) and \(\Delta y \rightarrow 0\) which results in \(m \rightarrow \infty\) and \(n \rightarrow \infty\), meaning that we get more and more sub-rectangles as we make their base area smaller and smaller - until we get infinitely many and the exact volume.</p>
+
+        <div class="def-eqn">
+            <p><strong>Double Integral of \(f\) Over the Region \(R\)</strong>: For a function \(z=f(x,y)\) defined over a rectangular region \(R\) in the \(x\)y-plane that is divided into \(m\) by \(n\) sub-rectangles, the volume bounded under \(f\) over \(R\) can be computed using the following formula.</p>
+
+            \[\underset{R}{\mathop\iint}\,f\left( x,y \right)~dA=\underset{m,n\to \infty }{\mathop{\lim }}\,\underset{i=1}{\overset{m}{\mathop \sum }}\,\underset{j=1}{\overset{n}{\mathop \sum }}\,f\left( {{x}_{i}},{{y}_{i}} \right)\Delta A\]
+        </div>
+
+        <p>Let's look at an illustration to better understand how an iterated integral works.</p>
+
+        <div class="example">
+            <div class="widget-header">Title</div>
+            <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+            <div class="frame-wrap">
+                <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+                <div class="frame-cont ratio-16x9">
+                    Demo the Double Integral over a Rectangular Region applet in GeoGebra
+                </div>
+            </div>
+            <div class="widget-footer">[]</div>
+
+            <input type="checkbox" id="dbl-int-demo">
+            <label for="dbl-int-demo" class="example-button">Summary</label>
+            <div class="solution-content">
+                <p>Here is the GeoGebra graph from the video above, followed by some generalizations we can make about how to find the volume under a surface using iterated integrals.</p>
+
+                <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+                <div class="frame-wrap">
+                    <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+                    <div class="frame-cont ratio-16x9">
+                        <iframe scrolling="no" title="Double Integral over a Rectangular Region" src="https://www.geogebra.org/material/iframe/id/rqqqquzq/width/795/height/477/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" style="border:0px;" height="477px" width="795px"> </iframe>
+                    </div>
+                </div>
+                <div class="widget-footer">[https://www.geogebra.org/m/jy2r8kh2]</div>
+
+                <ol>
+                    <li>A double integral can be seen as a pair of iterated, or nested, integrals containing an inner and an outer integral.</li>
+                    <li>We integrate the inner integral with respect to the first variable and then integrate that result with respect to the second variable.</li>
+                    <li>The inner integral results in an area function, defining the area under a curve along the surface that runs parallel to the 1<sup>st</sup> corresponding axis. The outer integral then computes the sum of these areas as we move parallel to the 2<sup>nd</sup> corresponding axis.</li>
+                    <li>For a rectangular domain region \([a,b] \times [c,d]\), we get the same result if integrate \(dydx\) or \(dxdy\). This is more explicity stated in the following theorem.</li>
+                </ol>
+
+            </div>
+        </div>
+
+        <p>The above illustration leads to the following theorem.</p>
+
+        <div class="def-eqn">
+            <p><strong>Fubini's Theorem</strong>: Given a continuous function \(f\) over a rectangular region \(R = [a,b] \times [c,d]\) in the \(xy\)-plane, we can compute the double integral of \(f\) over \(R\) using either iterated integral below.</p>
+
+            \[\underset{R}{\mathop \iint}\, f(x,y)~dA = \int_{a}^{b} \int_{c}^{d}\, f(x,y)~dy~dx = \int_{c}^{d} \int_{a}^{b}\, f(x,y)~dx~dy\]
+        </div>
+
+        <p>Let's look at an example of how we can use this theorem to evaluate a double integral.</p>
+
+        <div class="widget-header">Title</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="frame-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="frame-cont ratio-16x9">
+                Example evaluating a double integral using both dydx and dxdy.
+            </div>
+        </div>
+        <div class="widget-footer">[]</div>
+
+        <div class="assess">
+            <!--Enter a prompt for the assessment.-->
+            <p><strong>Self-Check #2</strong>: Compute the volume under \(f(x,y) = 12x^2y^3\) over the rectangular region \([0,3] \times [1,5]\). (<i>Select the most appropriate response.</i>)</p>
+            <!--All name and id fields must be unique per problem per page.-->
+            <label class="radiocntrh">(A) 900
+                <input type="radio" id="opt2-1" name="mcChoice2" value="A">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(B) 1,404
+                <input type="radio" id="opt2-2" name="mcChoice2" value="B">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(C) 10,044
+                <input type="radio" id="opt2-3" name="mcChoice2" value="C">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(D) 16,848
+                <input type="radio" id="opt2-4" name="mcChoice2" value="D">
+                <span class="radiobtn"></span>
+            </label><br>
+            <!--Enter the coorect choice in the ans field.-->
+            <button onclick="checkMCSub('mcChoice2','D','correct2','wrong2','makechoice2')" id="submit2">Check</button>
+            <div class="response" id="makechoice2"><i>You must select an answer above</i>.</div>
+            <div class="response" id="correct2"><i class="fa fa-check" style="color: green"></i></div>
+            <div class="response" id="wrong2"><i class="fa fa-times" style="color: red"></i>
+                <!--State the correct answer and provide a solution.-->
+                <p>(Answer: D) -- Set up and evaluate the following integral.</p>
+
+                \[\begin{align*} V &= \underset{R}{\mathop \iint}\, f(x,y)~dA \\ &= \int_{0}^{3} \int_{1}^{5}\, 12x^2y^3~dy~dx \\ &= \int_{0}^{3} \left( 3x^2y^4 \right)\biggr|_{1}^{5}~dx \\ &= \int_{0}^{3} \left( 3x^2(5)^4 - 3x^2(1)^4 \right)~dx \\ &= \int_{0}^{3} \left( 1872x^2 \right)~dx \\ &= \left( 624x^3 \right)\biggr|_{0}^{3} \\ &= 624(3)^3 - 624(0)^3 \\ &= 16,848 \end{align*}\]
+
+                <p>Remember that by Fubini's Theorem, you could have also integrated with respect to \(dxdy\) and the final result would be the same.</p>
+            </div>
+        </div>
+
+        <p>In addition to computing the volume of a solid, double integrals can also compute the average value of a function \(f(x,y)\) over a region \(R\). Normally, we think of computing an average by adding up a set of numbers and the dividing by how many numbers were added together. Thus the average value of a function \(f(x,y)\) would be the sum of all values of \(f\) over \(R\) divided by the number of values of \(f\), which would equal the value of the area of \(R\).</p>
+
+        <div class="def-eqn">
+            <p><strong>Average Value</strong>: Given a continuous function \(f\) over a region \(R\) in the \(xy\)-plane where the area of \(R\) is \(A\), we can compute the average value of \(f\) over \(R\) using the double integral below.</p>
+
+            \[f_{avg} = \frac{1}{A} \underset{R}{\mathop \iint}\, f(x,y)~dA\]
+        </div>
+
+        <div class="example">
+            <p><strong>Example:</strong> Set up and evaluate a double integral to compute the average value of the function \(f(x,y) = 10xy\) over the region \(R = [1,3] \times [-1,5]\).</p>
+            <input type="checkbox" id="ex-avg-val">
+            <label for="ex-avg-val" class="example-button">Solution</label>
+            <div class="solution-content">
+                <p>Since the given region \(R\) is a rectangle, it is very easy to compute its volume. We get \(A = L \times W = (3-1)(5+1) = (2)(6) = 12\). Now we just need to plug the area, function, and bounds of \(R\) into the above formula to complete the integral setup. Note that we could have also set up an equivalent integral using \(dxdy\).</p>
+
+                \[f_{avg} = \frac{1}{A} \underset{R}{\mathop \iint}\, f(x,y)~dA = \frac{1}{12} \int_{1}^{3} \int_{-1}^{5} 10xy ~dydx\]
+
+                <p>We can use the above strategy to evaluate this iterated integral.</p>
+
+                \[\begin{align*} f_{avg} &= \frac{1}{12} \int_{1}^{3} \int_{-1}^{5} 10xy ~dydx \\ &= \frac{1}{12} \int_{1}^{3} \left( 5xy^2 \right) \biggr|_{-1}^{5} ~dx \\ &= \frac{1}{12} \int_{1}^{3} \left( 5x(5)^2 \right) - \left( 5x(-1)^2 \right) ~dx \\ &= \frac{1}{12} \int_{1}^{3} 120x ~dx \\ &= \frac{1}{12} \left( 60x^2 \right) \biggr|_{1}^{3} \\ &= \frac{1}{12} \left[ \left( 60(3)^2 \right) - \left( 60(1)^2 \right) \right] \\ &= \frac{1}{12} \left( 480 \right) \\ &= 40 \end{align*}\]
+
+                <p>So, the average value of all of the values of \(f\) over the region \(R\) is \(40\).</p>
+            </div>
+        </div>
+        
+        <div class="assess">
+            <!--Enter a prompt for the assessment.-->
+            <p><strong>Self-Check #3</strong>: Compute the average value of \(f(x,y) = x^2\sin{y}\) over the region \(R = [0,2] \times [0,\frac{\pi}{2}]\). (<i>Enter your answer rounded to 2 decimal places</i>)</p>
+            <!--All id's must be unique per problem per page.-->
+            <!--Enter the answer in the ans field.-->
+            <button onclick="checkFitBSub('input3',0.85,'correct3','wrong3','enterans3',0.01)" id="submit3">Check</button>
+            <label for="input3">Answer:</label>
+            <input id="input3" type="text" value="" />
+            <div class="response" id="enterans3"><i>You must enter an answer</i>.</div>
+            <div class="response" id="correct3"><i class="fa fa-check" style="color: green"></i></div>
+            <div class="response" id="wrong3"><i class="fa fa-times" style="color: red"></i>
+                <!--State the correct answer and provide a solution.-->
+                <p>(Answer: 0.85) -- First, we need to find the area of \(R\).</p>
+
+                \[A = (2-0)\left(\frac{\pi}{2}-0\right) = (2)\left(\frac{\pi}{2}\right) = \pi\]
+
+                <p>Set up and evaluate the following integral.</p>
+
+                \[\begin{align*} f_{avg} &= \frac{1}{A} \underset{R}{\mathop \iint}\, f(x,y)~dA \\ &= \frac{1}{\pi}\int_{0}^{\pi/2} \int_{0}^{2} x^2 \sin{y}~dx~dy \\ &= \frac{1}{\pi} \int_{0}^{\pi/2} \left( \frac{1}{3} x^3 \sin{y} \right) \biggr|_{0}^{2}~dy \\ &= \frac{1}{\pi} \int_{0}^{\pi/2} \left(\frac{8}{3}\sin{y}\right) - (0)~dy \\ &= \frac{1}{\pi} \int_{0}^{\pi/2} \frac{8}{3}\sin{y}~dy \\ &= \frac{8}{3\pi} \int_{0}^{\pi/2} \sin{y}~dy \\ &= \frac{8}{3\pi} \left( -\cos{y} \right)\biggr|_{0}^{\pi/2} \\ &= \frac{8}{3\pi} \left( -\cos{\left(\frac{\pi}{2}\right)} - \left( -\cos(0) \right)\right) \\ &= \frac{8}{3\pi} \left(0 + 1 \right) \\ &= \frac{8}{3\pi} \\ &\approx 0.85 \end{align*}\]
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div id="lesson-footer">
+        <div class="l-col">
+            <p>©2024 <a href="https://www.youtube.com/channel/UCszzyEwfkBHBPk6xkNrGpAA" target="_blank">M4thG33x (new
+                    window)</a> Some Rights Reserved.</p>
+            <a rel="license " href="http://creativecommons.org/licenses/by-sa/4.0/ "><img alt="Creative Commons License " src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png "></a>
+        </div>
+        <div class="r-col">
+            <a href="# " onclick="pgPrint(); return false; "><i class="fa fa-print "></i> Printer Friendly</a>
+        </div>
+    </div>
+</body>
+
+</html>

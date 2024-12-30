@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../../LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../../PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="../../script.js"></script>
+    <!--Assessment script-->
+    <script src="../../quizlets.js"></script>
+    <title>Polar Regions</title>
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div id="lesson-header">
+        <div class="l-col">
+            <img src="../../logo_custom.png" alt="null">
+        </div>
+        <div class="r-col">
+            <h1>Double &amp; Polar Integrals</h1>
+            <p>Multiple Integrals</p>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <a href="index.html">Overview</a>
+        <a href="rectangular.html">Rectangular</a>
+        <a href="general.html">General</a>
+        <span class="active">Polar</span>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="lesson-body">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="lessonpagetoc">
+            <button class="dropbtn">On this Page</button>
+            <!-- <p> On this Page </p> -->
+            <div class="dropdown-content">
+                <ul>
+                    <li><a href="#top">Double Integrals in Polar Coordinates</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 id="top">Double Integrals in Polar Coordinates</h2>
+
+        <p>The polar coordinate system is useful for describing functions and curves that can be expressed using rotation about the origin, or the <em>pole</em>. A polar coordinate will have the form \((r,\theta)\), where \(r\) is the distance from the origin (a negative \(r\) value would represent a reflection across the origin) and \(\theta\) is the angle from the positive \(x\)-axis (a positive value for \(\theta\) represents counter-clockwise rotation). Back in Calc II, we learned about the graphs of various polar functions, such as roses, limaçons, and lemniscates. You may find the following graph helpful to review these graphs and their formulas. This summary of <a href="PolarGraphs.pdf" target="_blank">Polar Graphs (PDF)</a> may also be helpful.</p>
+
+        <div class="widget-header">Polar Graphs</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="frame-wrap" style="max-width: 500px;">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="frame-cont ratio-1x1">
+                <iframe scrolling="no" title="Polar Graphs" src="https://www.geogebra.org/material/iframe/id/nwnmFwuA/width/631/height/624/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false" width="631px" height="624px" style="border:0px"> </iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://www.geogebra.org/m/dFjeV5AE]</div>
+
+        <p>To evaluate a double integral in polar coordinates, let us follow a process similar to using a Riemann sum and the box approximation method that we looked at earlier with double integrals over rectangular regions. By breaking up a region \(R\) in the \(xy\)-plane into rectangles, we can compute the volume of the box bounded above each rectangle and below a function \(z=f(x,y)\). In the rectangular or Cartesian coordinate system, these rectangles are truly rectangles having dimensions \(\Delta x\) by \(\Delta y\). But when we switch to polar, these rectangles are not truly rectangles. Instead, they are shaped slightly differently since we are rotating about the origin. In the illustration below, a polar region is divided into smaller " rectangles" or sub-regions. For each sub-region, two of the facing sides are at slightly different angles because they correspond to a different angle of rotation about the origin. The other two facing sides are actually arcs of two different circles, one having an inner radius and the other having an outer radius. Even though they are not actually rectangles, if we can find the area of each of these sub-regions then we can find the volume of the box above each sub-region.</p>
+
+        <img src="PolarRect.png" alt="Graph of a polar rectangular region divided in multiple polar rectangular sub-regions.">
+
+        <p>So, how can we determine the area of these polar "rectangles" or sub-regions that are not truly rectangles? Well, if we think of each of these "rectangular" areas as part of a sector, then we can apply the sector area formula \(A=\frac{1}{2}r^2\theta\).</p>
+
+        <img src="PolarSectorArea.png" alt="Graph of a polar rectangle containing two overlapping sectors, one being a little longer than the other. The smaller sector has radius r1 and the larger sector has radius r2. Both sectors subtend a central angle of theta.">
+
+        <p>The graph above shows two overlapping sectors that subtend a central angle \(\theta\). The smaller sector has radius \(r_1\) and the larger sector has a radius of \(r_2\). The polar "rectangular" area that we want to find is the part of the larger sector that extends beyond the smaller sector, which can be done as follows.</p>
+
+        \[\begin{align*} A &= A_2 - A_1 \\ &= \frac{1}{2} (r_2)^2 \theta - \frac{1}{2} (r_1)^2 \theta \\ &= \frac{1}{2} \left( r_{2}^2-r_{1}^2 \right) \theta \\ &= \frac{1}{2} (r_2 + r_1)(r_2 - r_1) \theta \end{align*}\]
+
+        <p>In the above result, the expression \(\frac{1}{2} (r_2 + r_1)\) gives the average of the radii of the two arcs, which we can just call \(r\). The expression \(r_2 - r_1\) is the difference in the radii, which we can call \(\Delta r\). Applying the limit as the number of sub-regions increase towards infinity means we can think of \(\theta\) as \(\Delta \theta\). Putting this all together, we get that the area of each sub-rectangle can be computed by \(A = \frac{1}{2} r \Delta r \Delta\theta\) where \(r\) is the radius of the midpoint of the sub-region, and the dimensions of the region are \(\Delta r\) by \(\Delta \theta\). See the illustration below.</p>
+
+        <img src="PolarRectArea.png" alt="Graph of a polar rectangular region divided in multiple polar rectangular sub-regions, with one rectangle of length delta r and width delta theta that is highlighted.">
+
+        <div class="def-eqn">
+            <p><strong>Double Integral in Polar Coordinates</strong>: For a function \(z=f(x,y)\), we can convert it to polar coordinates using \(x=r\cos\theta\) and \(y=r\sin\theta\). If \(f\) is a continuous function over the polar region \(R\), then the double integral of \(f\) over \(R\) can also be converted to polar coordinates where \(a\) and \(b\) are the inner and outer radii of the region (where \(0 \leq a \leq r \leq b\)), and \( \alpha \) and \(\beta \) are the bounding angles (where \(\alpha \leq \theta \leq \beta\) and \(0 \leq \beta - \alpha \leq 2\pi\)).</p>
+
+            \[\underset{R}{\mathop \iint}\, f(x,y)~dA = \int_{\alpha}^{\beta} \int_{a}^{b} \, f(r,\theta )~r~dr~d\theta\]
+        </div>
+
+        <img src="" alt=""> Graph illustration of the polar region with its bounds. Comment on how we can use radial slices with polar.<br><br>
+
+        <div class="widget-header">Title</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="frame-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="frame-cont ratio-16x9">
+                Example of a double integral using polar coordinates, using z = ... over r = 5sin(3theta) in Q1.
+            </div>
+        </div>
+        <div class="widget-footer">[]</div>
+
+        <div class="assess">
+            <!--Enter a prompt for the assessment.-->
+            <p><strong>Self-Check #5</strong>: Set up and evaluate a double integral using <em>polar coordinates</em> to determine the volume below \(f(x,y) = x^3 + xy^2\) that is above the region bounded by the disks \(1 \le x^2 + y^2 \le 3\) withing the first quadrant. (<i>Select the most appropriate response.</i>)</p>
+            <!--All name and id fields must be unique per problem per page.-->
+            <label class="radiocntrh">(A) \(0\)
+                <input type="radio" id="opt5-1" name="mcChoice5" value="A">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(B) \(20\)
+                <input type="radio" id="opt5-2" name="mcChoice5" value="B">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(C) \(\frac{242}{5}\)
+                <input type="radio" id="opt5-3" name="mcChoice5" value="C">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(D) \(\frac{243}{5}\)
+                <input type="radio" id="opt5-4" name="mcChoice5" value="D">
+                <span class="radiobtn"></span>
+            </label><br>
+            <!--Enter the coorect choice in the ans field.-->
+            <button onclick="checkMCSub('mcChoice5','C','correct5','wrong5','makechoice5')" id="submit5">Check</button>
+            <div class="response" id="makechoice5"><i>You must select an answer above</i>.</div>
+            <div class="response" id="correct5"><i class="fa fa-check" style="color: green"></i></div>
+            <div class="response" id="wrong5"><i class="fa fa-times" style="color: red"></i>
+                <!--State the correct answer and provide a solution.-->
+                <p>(Answer: C) -- It is best to start problems like this by sketching a graph of the bounded region \(R\). The equations \(x^2 + y^2 = 1\) and \(x^2 + y^2 = 3\) define two cicles centered at the origin having a radius of 1 and 3, respectively. Then we can shade the region between the two circles within the 1<sup>st</sup> quadrant using radial slices.</p>
+
+                <img src="" alt=""> Graph of R<br><br>
+
+                <p>From the graph above, we can see that \(1 \le r \le 3\) and \(0 \le \theta \le \frac{\pi}{2}\). This defines the limits of integration. We then need to determine the integrand by converting \(f\) to polar.</p>
+
+                \[\begin{align*} f(x,y) &= x^3 = xy^2 \\ &= x(x^2 + y^2) \\ &= r\cos(\theta) (r^2) \\ &= r^3 \cos(\theta) = f(r,\theta) \end{align*}\]
+
+                <p>Lastly, remember that we get an extra \(r\) in the integrand as a result of the sector area method we discussed above. Putting everything together gives us the following integral, we can can evaluate.</p>
+
+                \[\begin{align*} V &= \underset{R}{\mathop \iint}\, f(x,y)~dA \\ &= \int_{\alpha}^{\beta} \int_{a}^{b} \, f(r,\theta )~r~dr~d\theta \\ &= \int_{0}^{\pi/2} \int_{1}^{3} r^4 \cos(\theta) ~dr~d\theta \\ &= \int_{0}^{\pi/2} \left(\frac{1}{5}r^5\cos(\theta)\right)\biggr|_{1}^{3}~d\theta \\ &= \int_{0}^{\pi/2} \left(\frac{243}{5}\cos(\theta) - \frac{1}{5}\cos(\theta)\right)~d\theta \\ &= \int_{0}^{\pi/2} \frac{242}{5}\cos(\theta)~d\theta \\ &= \frac{242}{5} \left(\sin(\theta)\right)\biggr|_{0}^{\pi/2} \\ &= \frac{242}{5} \left(\sin(\frac{\pi}{2}) - \sin(0)\right) \\ &= \frac{242}{5}(1 - 0) \\ &= \frac{242}{5} \end{align*}\]
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div id="lesson-footer">
+        <div class="l-col">
+            <p>©2024 <a href="https://www.youtube.com/channel/UCszzyEwfkBHBPk6xkNrGpAA" target="_blank">M4thG33x (new
+                    window)</a> Some Rights Reserved.</p>
+            <a rel="license " href="http://creativecommons.org/licenses/by-sa/4.0/ "><img alt="Creative Commons License " src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png "></a>
+        </div>
+        <div class="r-col">
+            <a href="# " onclick="pgPrint(); return false; "><i class="fa fa-print "></i> Printer Friendly</a>
+        </div>
+    </div>
+</body>
+
+</html>
