@@ -71,7 +71,249 @@
         <!-- The main content starts here-->
         <h2 id="top">Sine &amp; Cosine Transformations</h2>
 
-        
+        <p>When discussing functions of the form \(y = f(x)\), it is helpful to discuss the transformations that can be applied to the graphs of the basic functions. For example, remember that the graph of \(y = x^2 + 3\) is the graph of \(y = x^2\) that has been shifted up by 3 units, or that the graph of \(y = \sqrt{x + 2}\) is the graph of \(y = \sqrt{x}\) that has been shifted to the left by 2 units, or the graph of \(y = -5\ln{x}\) is the graph of \(y = \ln{x}\) that is reflected over the \(x\)-axis and stretched vertically by a facctor of 5. A quick summary of the relevant transformations is provided below.</p>
+
+        <div class="tbl">
+            <div class="tbl-cap">
+                Review of Transformations
+            </div>
+            <div class="tbl-hdr-row">
+                <div class="tbl-hdr-col" style="min-width: 175px;">
+                    Form
+                </div>
+                <div class="tbl-hdr-col">
+                    Effect
+                </div>
+            </div>
+            <div class="tbl-body">
+                <div class="tbl-row">
+                    <div class="tbl-col">
+                        \[y = f(x \pm h)\]
+                    </div>
+                    <div class="tbl-col" style="text-align: left;">
+                        The graph of \(y = f(x)\) is shifted horizontally by \(h\) units to the left if \(+ h\) or to the right if \(- h\).
+                    </div>
+                </div>
+                <div class="tbl-row">
+                    <div class="tbl-col">
+                        \[y = f(x) \pm k\]
+                    </div>
+                    <div class="tbl-col" style="text-align: left;">
+                        The graph of \(y = f(x)\) is shifted vertically by \(k\) units upward if \(+ k\) or downward if \(- k\).
+                    </div>
+                </div>
+                <div class="tbl-row">
+                    <div class="tbl-col">
+                        \[y = a f(x)\]
+                    </div>
+                    <div class="tbl-col" style="text-align: left;">
+                        The graph of \(y = f(x)\) is stretched vertically by a factor of \(a\) if \(|a| \gt 1\) or compressed vertically by a factor of \(a\) if \(|a| \lt 1\). If \(a \lt 0\), then the graph is also reflected across the \(x\)-axis.
+                    </div>
+                </div>
+                <div class="tbl-row">
+                    <div class="tbl-col">
+                        \[y = f(bx)\]
+                    </div>
+                    <div class="tbl-col" style="text-align: left;">
+                        The graph of \(y = f(x)\) is compressed horziontally by a factor of \(b\) if \(|b| \gt 1\) or stretched horizontally by a factor of \(b\) if \(|b| \lt 1\). If \(b \lt 0\), then the graph is also reflected across the \(y\)-axis.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p>The following video will illustrate how these transformations effect the shape of the graph of \(y = \sin{x}\).</p>
+
+        <div class="example">
+            <div class="widget-header">Transformations of y = sin(x)</div>
+            <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+            <div class="frame-wrap">
+                <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+                <div class="frame-cont ratio-16x9">
+
+                </div>
+            </div>
+            <div class="widget-footer">[]</div>
+
+            <input type="checkbox" id="sin-transform">
+            <label for="sin-transform" class="example-button">Summary</label>
+            <div class="solution-content">
+                <p>For a function having the form \(y = a \sin{\left(k\left(x - b\right)\right)} + c\) or \(y = a \cos{\left(k\left(x - b\right)\right)} + c\), we can summarize the transformations as follows. Note that we have some new vocabulary too, but the idea is still the same.</p>
+
+                <ul>
+                    <li>We call the value of \(|a|\) the <strong>amplitude</strong>, which decribes the vertical stretch or compression of the graph. For example, the function \(y = -7\cos{x}\) has an amplitude of 7 and is vertically stretched by a factor of 7. It is also reflected across the \(x\)-axis because the \(a\) value is negative.</li>
+                    <li>We call the value of \(b\) the <strong>phase shift</strong>, which describes the horizontal shift of the graph. The direction of the shift is always opposite of the sign. For example, the function \(y = \sin(x - 4)\) has a horizontal shift to the right of 4 units.</li>
+                    <li>The value of \(c\) is the vertical shift. For example, the function \(y = \cos(x) + 1\) has been vertically shifted up 1 unit.</li>
+                    <li>The value of \(k\) is related to the <strong>period</strong> of the graph by the equation \(k = \frac{2\pi}{\text{Period}}\), or \(\text{Period} = \frac{2\pi}{k}\). The value of \(k\) is NOT the period. We get this strange relationship because (1) the period length of the standard \(y = \sin{x}\) or \(y = \cos{x}\) graph is \(2\pi\) and (2) the horziontal stretch varies inversely with the coefficient \(k\). For example, the function \(y = \cos\left(\frac{1}{2}x\right)\) should have a horizontal stretch (not compression) by a factor of 2 since \(\frac{1}{2} \lt 1\), and 2 is the reciprocal of \(\frac{1}{2}\). If the standard period is \(2\pi\), then stretching it by a factor of 2, or doubling it, will result in a period of \(4\pi\). We can confirm this using the formula \(\text{Period} = \frac{2\pi}{k} = \frac{2\pi}{1/2} = 2\pi \cdot \frac{2}{1} = 4\pi\).</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="assess">
+            <!--Enter a prompt for the assessment.-->
+            <p><strong>Self-Check #1</strong>: What transformations have been applied to \(y = \cos{x}\) to get \(y = \cos(x-\pi) - 2\)? (<i>Select the most appropriate response.</i>)</p>
+            <!--All name and id fields must be unique per problem per page.-->
+            <label class="radiocntrv">(A) The graph of \(y = \cos{x}\) has a phase shift to the left of \(\pi\) units and vertical shift up of 2 units.
+                <input type="radio" id="opt1-1" name="mcChoice1" value="A">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrv">(B) The graph of \(y = \cos{x}\) has a phase shift to the right of \(\pi\) units and vertical shift down of 2 units.
+                <input type="radio" id="opt1-2" name="mcChoice1" value="B">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrv">(C) The graph of \(y = \cos{x}\) has a vertical shift up of \(\pi\) units and a phase shift to the right of 2 units.
+                <input type="radio" id="opt1-3" name="mcChoice1" value="C">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrv">(D) The graph of \(y = \cos{x}\) has a vertical shift down of \(\pi\) units and a phase shift to the left of 2 units.
+                <input type="radio" id="opt1-4" name="mcChoice1" value="D">
+                <span class="radiobtn"></span>
+            </label><br>
+            <!--Enter the coorect choice in the ans field.-->
+            <button onclick="checkMCSub('mcChoice1','B','correct1','wrong1','makechoice1')" id="submit1">Check</button>
+            <div class="response" id="makechoice1"><i>You must select an answer above</i>.</div>
+            <div class="response" id="correct1"><i class="fa fa-check" style="color: green"></i></div>
+            <div class="response" id="wrong1"><i class="fa fa-times" style="color: red"></i>
+                <!--State the correct answer and provide a solution.-->
+                <p>(Answer: B) -- The inner expression \(x - \pi\) corresponds to a phase shift to the right of \(\pi\) units, going the opposite direction of the sign, while the outer expression \(- 2\) corresponds to a vertical shift downward of 2 units.</p>
+            </div>
+        </div>
+
+        <div class="assess">
+            <!--Enter a prompt for the assessment.-->
+            <p><strong>Self-Check #2</strong>: Which graph represents the 1-period portion of \(y = 3\sin{\left(x + \frac{\pi}{2}\right)}\)? (<i>Select the most appropriate response.</i>)</p>
+            <!--All name and id fields must be unique per problem per page.-->
+            <!--Edit the following names and id's to match within each assessment.-->
+            <div class="tbl">
+                <div class="tbl-row">
+                    <div class="tbl-col">
+                        <label class="radiocntrimg">(A) <img src="2a-SinGraph.png" alt="A 1-period graph of y = sin(x) that has been vertically stretched by a factor of 3 and shifted to the left by pi/2 units.">
+                            <input type="radio" id="opt2-1" name="mcChoice2" value="A">
+                            <span class="radiobtn"></span>
+                        </label>
+                    </div>
+                    <div class="tbl-col">
+                        <label class="radiocntrimg">(B) <img src="2b-SinGraph.png" alt="A 1-period graph of y = cos(x) that has been vertically stretched by a factor of 3 and shifted to the left by pi/2 units.">
+                            <input type="radio" id="opt2-2" name="mcChoice2" value="B">
+                            <span class="radiobtn"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="tbl-row">
+                    <div class="tbl-col">
+                        <label class="radiocntrimg">(C) <img src="2c-SinGraph.png" alt="A 1-period graph of y = cos(x) that has been vertically stretched by a factor of 3 and shifted to the right by pi/2 units.">
+                            <input type="radio" id="opt2-3" name="mcChoice2" value="C">
+                            <span class="radiobtn"></span>
+                        </label>
+                    </div>
+                    <div class="tbl-col">
+                        <label class="radiocntrimg">(D) <img src="2d-SinGraph.png" alt="A 1-period graph of y = sin(x) that has been vertically stretched by a factor of 3 and shifted to the right by pi/2 units.">
+                            <input type="radio" id="opt2-4" name="mcChoice2" value="D">
+                            <span class="radiobtn"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!--Enter the coorect choice in the ans field.-->
+            <button onclick="checkMCSub('mcChoice2','A','correct2','wrong2','makechoice2')" id="submit2">Check</button>
+            <div class="response" id="makechoice2"><i>You must select an answer above</i>.</div>
+            <div class="response" id="correct2"><i class="fa fa-check" style="color: green"></i></div>
+            <div class="response" id="wrong2"><i class="fa fa-times" style="color: red"></i>
+                <!--State the correct answer and provide a solution.-->
+                <p>(Answer: A) -- We can disregard graphs B and C because they are 1-period graphs of \(\cos{x}\). The amplitude of 3 means the graph has been vertically stretched by a factor of 3, or that it is 3 times taller than the base \(y = \sin{x}\) graph. The \(x + \frac{\pi}{2}\) inner expression means it has also a phase shift to the left by \(\frac{\pi}{2}\). Graph D is close, but it is shifted to the right. Only graph A is shifted to the left by \(\frac{\pi}{2}\) and is 3 times taller than \(y = \sin{x}\).</p>
+            </div>
+        </div>
+
+
+        <div class="assess">
+            <!--Enter a prompt for the assessment.-->
+            <p><strong>Self-Check #3</strong>: Which graph represents the 1-period portion of \(y = -\frac{1}{2}\cos{x}\)? (<i>Select the most appropriate response.</i>)</p>
+            <!--All name and id fields must be unique per problem per page.-->
+            <!--Edit the following names and id's to match within each assessment.-->
+            <div class="tbl">
+                <div class="tbl-row">
+                    <div class="tbl-col">
+                        <label class="radiocntrimg">(A) <img src="3a-CosGraph.png" alt="A 1-period graph of y = sin(x) that has been reflected over the x-axis and is compressed vertically by 1/2.">
+                            <input type="radio" id="opt3-1" name="mcChoice3" value="A">
+                            <span class="radiobtn"></span>
+                        </label>
+                    </div>
+                    <div class="tbl-col">
+                        <label class="radiocntrimg">(B) <img src="3b-CosGraph.png" alt="A 1-period graph of y = cos(x) that has been compressed vertically by 1/2.">
+                            <input type="radio" id="opt3-2" name="mcChoice3" value="B">
+                            <span class="radiobtn"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="tbl-row">
+                    <div class="tbl-col">
+                        <label class="radiocntrimg">(C) <img src="3c-CosGraph.png" alt="A 1-period graph of y = cos(x) that has been reflected over the x-axis and is stretched vertically by 2.">
+                            <input type="radio" id="opt3-3" name="mcChoice3" value="C">
+                            <span class="radiobtn"></span>
+                        </label>
+                    </div>
+                    <div class="tbl-col">
+                        <label class="radiocntrimg">(D) <img src="3d-CosGraph.png" alt="A 1-period graph of y = cos(x) that has been reflected over the x-axis and is compressed vertically by 1/2.">
+                            <input type="radio" id="opt3-4" name="mcChoice3" value="D">
+                            <span class="radiobtn"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!--Enter the coorect choice in the ans field.-->
+            <button onclick="checkMCSub('mcChoice3','D','correct3','wrong3','makechoice3')" id="submit3">Check</button>
+            <div class="response" id="makechoice3"><i>You must select an answer above</i>.</div>
+            <div class="response" id="correct3"><i class="fa fa-check" style="color: green"></i></div>
+            <div class="response" id="wrong3"><i class="fa fa-times" style="color: red"></i>
+                <!--State the correct answer and provide a solution.-->
+                <p>(Answer: D) -- We can disregard graph A because it is a 1-period \(\sin{x}\) graph. We can disregard graph B because it is not reflected over the \(x\)-axis. The amplitude of \(\frac{1}{2}\) means the graph has been compressed vertically by a factor of 2, or that it is half as tall as the base \(y = \cos{x}\) graph. Only graph D has been reflected over the \(x\)-axis and is \(\frac{1}{2}\) as tall as \(y = \cos{x}\).</p>
+            </div>
+        </div>
+
+        <div class="assess">
+            <!--Enter a prompt for the assessment.-->
+            <p><strong>Self-Check #4</strong>: Which graph represents the 1-period portion of \(y = \sin(2x)\)? (<i>Select the most appropriate response.</i>)</p>
+            <!--All name and id fields must be unique per problem per page.-->
+            <!--Edit the following names and id's to match within each assessment.-->
+            <div class="tbl">
+                <div class="tbl-row">
+                    <div class="tbl-col">
+                        <label class="radiocntrimg">(A) <img src="4a-SinGraph.png" alt="A 1-period graph of y = sin(x) that has been stretched horizontally by 2.">
+                            <input type="radio" id="opt4-1" name="mcChoice4" value="A">
+                            <span class="radiobtn"></span>
+                        </label>
+                    </div>
+                    <div class="tbl-col">
+                        <label class="radiocntrimg">(B) <img src="4b-SinGraph.png" alt="A 1-period graph of y = cos(x) that has been compressed horizontally by 1/2.">
+                            <input type="radio" id="opt4-2" name="mcChoice4" value="B">
+                            <span class="radiobtn"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="tbl-row">
+                    <div class="tbl-col">
+                        <label class="radiocntrimg">(C) <img src="4c-SinGraph.png" alt="A 1-period graph of y = sin(x) that has been compressed horizontally by 1/2.">
+                            <input type="radio" id="opt4-3" name="mcChoice4" value="C">
+                            <span class="radiobtn"></span>
+                        </label>
+                    </div>
+                    <div class="tbl-col">
+                        <label class="radiocntrimg">(D) <img src="4d-SinGraph.png" alt="A 1-period graph of y = cos(x) that has been stretched horizontally by 2.">
+                            <input type="radio" id="opt4-4" name="mcChoice4" value="D">
+                            <span class="radiobtn"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!--Enter the coorect choice in the ans field.-->
+            <button onclick="checkMCSub('mcChoice4','C','correct4','wrong4','makechoice4')" id="submit4">Check</button>
+            <div class="response" id="makechoice4"><i>You must select an answer above</i>.</div>
+            <div class="response" id="correct4"><i class="fa fa-check" style="color: green"></i></div>
+            <div class="response" id="wrong4"><i class="fa fa-times" style="color: red"></i>
+                <!--State the correct answer and provide a solution.-->
+                <p>(Answer: C) -- We can disregard graphs B and D because they are 1-period graphs of \(\cos{x}\). The \(2x\) inner expression means the graph has been compressed horizontally by a factor of 2, or that its 1-period length is half of its original length. Since a 1-period graph of \(\sin{x}\) is \(2\pi\), half of that would be \(\pi\). However, graph A is twice the orignal 1-period length, having a length of \(4\pi\). Only graph C has a 1-period length that is \(\frac{1}{2}\) of the base 1-period length of \(y = \sin{x}\).</p>
+            </div>
+        </div>
+
         <!-- End of the main content -->
     </div>
 
