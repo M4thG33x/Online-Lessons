@@ -28,8 +28,8 @@ function pgPrint() {
 
     // Create the html content of the new page
     var html = '<html><head>';
-    html += '<link rel="stylesheet" type="text/css" media="screen" href="../PrintStyle.css">';
-    html += '<link rel="stylesheet" type="text/css" media="print" href="../PrintStyle.css">';
+    html += '<link rel="stylesheet" type="text/css" media="screen" href="../../PrintStyle.css">';
+    html += '<link rel="stylesheet" type="text/css" media="print" href="../../PrintStyle.css">';
     html += '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">';
     html += '<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></s' + 'cript>';
     html += '<script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></s' + 'cript>';

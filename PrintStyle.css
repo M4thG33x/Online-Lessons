@@ -250,17 +250,19 @@ hr {
 }
 
 .lesson-body ol {
-    list-style-type: disc;
+    /*list-style-type: disc;*/
+    margin-left: 20px;
+    padding-bottom: 5px;
+}
+
+.lesson-body ul {
+    /*list-style-type: disc;*/
     margin-left: 20px;
     padding-bottom: 5px;
 }
 
 .lesson-body li {
     padding-bottom: 5px;
-}
-
-.ggb-wrap {
-    display: none;
 }
 
 .widget-header {
@@ -272,14 +274,16 @@ hr {
 .widget-footer {
     text-align: center;
     font-size: 80%;
-    padding-bottom: 5px;
+    padding-bottom: 20px;
 }
 
 .def-eqn,
 .example {
     margin: 20px;
+    padding: 10px 0;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
+    border-radius: 10px;
 }
 
 .example input {
@@ -290,49 +294,16 @@ hr {
     font-weight: bold;
 }
 
-.vid-wrap {
+.frame-wrap {
     display: none;
 }
 
 .assess {
-    margin: 0 0 20px 0;
-    border: 1px solid black;;
-    border-radius: 15px;
-    padding: 5px 20px 15px 20px;
-}
-
-/* .assess input, */
-.asess label,
-.assess button {
     display: none;
 }
 
-.assess .response {
-    display: inline;
-}
-
-.assess .tbl {
-    width: 80%;
-    margin: 0;
-    padding-bottom: 20px;
-    display: table;
-    border-collapse: separate;
-    border-spacing: 7px;
-}
-
-.assess .tbl-row {
-    display: table-row;
-}
-
-.assess .tbl-col {
-    display: table-cell;
-    text-align: left;
-    vertical-align: middle;
-}
-
-.assess .tbl-col label img {
-    display: inline;
-    vertical-align: middle;
+.embedpdf {
+    display: none;
 }
 
 .tbl {
@@ -361,7 +332,7 @@ hr {
 
 .tbl-hdr-col {
     display: table-cell;
-    border: 1px solid black;
+    border: 2px solid black;
     padding: 5px;
     text-align: center;
     font-weight: bold;
@@ -381,5 +352,6 @@ hr {
     text-align: center;
     vertical-align: middle;
     border: 1px solid grey;
+    padding: 5px;
 }
 
