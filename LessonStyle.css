@@ -719,6 +719,70 @@ body {
     padding-right: 5px;
 }
 
+
+
+/* Expandable container for embedded PDFs */
+
+.embedPDF {
+    margin: 0;
+    background-color: #53534a;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #53534a;
+    padding: 0;
+}
+
+.embedPDF input {
+    display: none;
+}
+
+.embedPDF-button {
+    display: block;
+    width: 100%;
+    padding: 5px;
+    border: none;
+    background-color: #53534a;
+    color: white;
+    text-align: left;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.embedPDF-content {
+    display: block;
+    border: 0;
+    padding: 0;
+}
+
+.embedPDF input[type=checkbox]~.embedPDF-content {
+    display: none;
+}
+
+.embedPDF input[type=checkbox]:checked~.embedPDF-content {
+    display: block;
+}
+
+.embedPDF input[type=checkbox]:checked~.embedPDF-button:before {
+    font-family: FontAwesome;
+    font-weight: normal;
+    /* content: "\f150";
+    font-size: 16px; */
+    content: "\f078";
+    padding-right: 5px;
+}
+
+.embedPDF input[type=checkbox]~.embedPDF-button:before {
+    font-family: FontAwesome;
+    font-weight: normal;
+    /* content: "\f152";
+    font-size: 16px; */
+    content: "\f054";
+    padding-right: 5px;
+}
+
+
+
 /* iframe wrapper for responsive size of videos or applets */
 .frame-wrap {
     max-width: 800px;
