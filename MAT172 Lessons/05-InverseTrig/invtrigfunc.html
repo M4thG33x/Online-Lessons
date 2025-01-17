@@ -19,7 +19,7 @@
     <script src="../../script.js"></script>
     <!--Assessment script-->
     <script src="../../quizlets.js"></script>
-    <title>Harmonic Motion</title>
+    <title>Inverse Trig Functions</title>
 </head>
 
 <body id="mainbody">
@@ -34,7 +34,7 @@
             <img src="../../logo_custom.png" alt="null">
         </div>
         <div class="r-col">
-            <h1>Graphing Trig Functions</h1>
+            <h1>Inverse Trig Functions</h1>
             <p>Trigonometric Functions</p>
         </div>
     </div>
@@ -44,7 +44,7 @@
         <a href="index.html">Overview</a>
         <a href="inversetrig.html">Inverse Trigonometry</a>
         <span class="active">Inverse Trig Functions</span>
-        <a href="usinginverses.html">Using Inverses</a>
+        <a href="invtrigexpr.html">Inverse Trig Expressions</a>
         <!--narrow screen menu button -->
         <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
     </div>
@@ -67,9 +67,255 @@
         <!-- The main content starts here-->
         <h2 id="top">Inverse Trig Functions</h2>
 
+        <p>Just like we did when originally learning about our trig functions, we started our discussion of the inverse trig functions in context of the acute angles and sides of right triangles. Now let's take that a step further and discuss the inverse functions as functions.</p>
+
+        <div class="example">
+            <p>You may find it helpful to review of some inverse function properties from precalculus algreba.</p>
+            <input type="checkbox" id="inv-func-rev">
+            <label for="inv-func-rev" class="example-button">Inverse Function Review</label>
+            <div class="solution-content">
+                <p>Given a function \(f(x)\) and its inverse \(f^{-1}(x)\), the following properties are true.</p>
+                <ol>
+                    <li>If \(f\) contains the point \((a,b)\), then \(f^{-1}\) contains the point \((b,a)\).</li>
+
+                    <div style="margin: 10px 0 20px 55px">
+                        <p>As an example, the function \(f(x) = x^2\) contains the point \((3,9)\) and its inverse \(f^{-1}(x) = \sqrt{x}\) contains the point \((9,3)\).</p>
+                    </div>
+
+                    <li style="margin-bottom: 20px;">The graphs of \(f(x)\) and \(f^{-1}(x)\) are symmetric with respect to the line \(y = x\). This means that they are reflections or mirror images of each other across the diagonal line \(y = x\).</li>
+
+                    <li>\(f^{-1}(x)\) is only a function if \(f(x)\) is one-to-one. A function is one-to-one if each \(x\)-value corresponds to only one \(y\)-value and each \(y\)-value corresponds to only one \(x\)-value. The first part of this is demonstrated by the vertical line test on \(f(x)\). The second part of this is demonstrated by the horizontal line test on \(f(x)\) or the vertical line test on \(f^{-1}(x)\).</li>
+
+                    <div style="margin: 10px 0 20px 55px">
+                        <p>If a function \(f(x)\) is not one-to-one, then \(f^{-1}(x)\) is not a function. However, we can often make it one-to-one by restricting the domain of \(f(x)\) to a smaller part of the whole domain. For example, the graph of \(f(x) = x^2\) over its entire domain \((-\infty, +\infty)\) is not one-to-one because it fails the horizontal line test. This means its inverse would not be a function. However, if we restrict \(f(x) = x^2\) to the part of its domain on\([0, +\infty)\), then it becomes one-to-one and its inverse \(f^{-1}(x) = \sqrt{x}\) is also a function.</p>
+
+                        <p>This idea is illustrated in the following graphs. In the first graph, we see that the function \(f(x) = x^2\) fails the horizontal line test because there are horizontal lines that cross the graph more than once. The middle graph shows \(f(x) = x^2\) restricted to the domain of \([0, \infty)\) which now passes the horizontal line test. In the third graph, we see that \(f^{-1}(x) = \sqrt{x}\) is a reflection of \(f(x) = x^2\) across the \(y = x\) line.</p>
+
+                        <div class="tbl">
+                            <div class="tbl-body">
+                                <div class="tbl-row">
+                                    <div class="tbl-col" style="border: 0;">
+                                        <img src="func-y-x2-whole.png" alt="Graph of y equals x squared with two horizontal lines that each cross the curve twice.">
+                                    </div>
+                                    <div class="tbl-col" style="border: 0;">
+                                        <img src="func-y-x2-restrict.png" alt="Part of the graph of y equals x squared for x greater than or equal to 0 with two horizontal lines that each cross the curve once.">
+                                    </div>
+                                    <div class="tbl-col" style="border: 0;">
+                                        <img src="func-y-x2-inv.png" alt="Graph of y equals x square restricted to the interval from 0 to infinity, the line y equals x, and the graph of y equals the square root of x.">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <li>The domain and range of \(f(x)\) flip and become the range and domain of \(f^{-1}(x)\), respectively.</li>
+
+                    <div style="margin: 10px 0 20px 55px">
+                        <p>Using the same example of \(f(x) = x^2\) and \(f^{-1}(x) = \sqrt{x}\), the restricted domain of \(f\) is \([0, \infty)\) which is the range of \(f^{-1}\). Similarly, the restricted range of \(f\) is \([0, \infty)\) which is the domain of \(f^{-1}\)</p>
+                    </div>
+
+                    <li>The compositions of \(f(x)\) with \(f^{-1}(x)\) should cancel out. In other words, a function and its inverse must satisfy the equations \(f\left(f^{-1}(x)\right) = x\) and \(f^{-1}\left(f(x)\right) = x\).</li>
 
 
+                    <div style="margin: 10px 0 0 55px">
+                        <p>Continuing with our example of \(f(x) = x^2\) and \(f^{-1}(x) = \sqrt{x}\), we get the following compositions.</p>
 
+                        \[f\left(f^{-1}(x)\right) = \left(\sqrt{x}\right)^2 = x\]
+                        \[f^{-1}\left(f(x)\right) = \sqrt{x^2} = x\]
+
+                        <p>We see that both compositions cancel out. The input of the composition expression, \(x\), equals the output of the composition expression, \(x\).</p>
+                    </div>
+                </ol>
+            </div>
+        </div>
+
+        <p>The following table gives the restricted domain graph for the 3 main trig functions, the corresponding inverse trig function graph, the domain and range of the inverse trig function, and the part of the unit circle that corresponds to the range for the inverse trig functions. Note that while it is possible to think of these inverse functions in terms of degree units, we want to default to thinking in terms of radian values. Let the context of a problem determine whether to work in degrees or radians.</p>
+
+        <div class="tbl">
+            <div class="tbl-cap">
+                Inverse Trig and the Unit Circle
+            </div>
+            <div class="tbl-hdr-row">
+                <div class="tbl-hdr-col">
+                    Restricted
+                </div>
+                <div class="tbl-hdr-col">
+                    Inverse
+                </div>
+                <div class="tbl-hdr-col">
+                    Domain and Range
+                </div>
+                <div class="tbl-hdr-col">
+                    Unit Circle
+                </div>
+            </div>
+            <div class="tbl-body">
+                <div class="tbl-row">
+                    <div class="tbl-col" style="min-width: 150px;">
+                        <img src="graph-sin.png" alt="Graph of y equals sine of x on a restricted domain from negative pi over 2 to pi over 2.">
+                    </div>
+                    <div class="tbl-col" style="min-width: 150px;">
+                        <img src="graph-asin.png" alt="Graph of y equals the inverse sine of x.">
+                    </div>
+                    <div class="tbl-col" style="text-align: left;">
+                        <p>The inverse function \(y = \sin^{-1}{x}\) is restricted to the following domain and range.</p>
+                        <ul>
+                            <li>Domain: \([-1,1]\)</li>
+                            <li>Range: \(\left[-\frac{\pi}{2},\frac{\pi}{2}\right]\)</li>
+                        </ul>
+                        <p>This range corresponds to angle values on the right half of the unit circle.</p>
+                    </div>
+                    <div class="tbl-col" style="min-width: 150px;">
+                        <img src="circle-asin.png" alt="Graph of the unit circle with the right half highlighted, from negative pi over 2 to pi over 2.">
+                    </div>
+                </div>
+            </div>
+            <div class="tbl-body">
+                <div class="tbl-row">
+                    <div class="tbl-col" style="min-width: 150px;">
+                        <img src="graph-cos.png" alt="Graph of y equals cosine of x on a restricted domain from 0 to pi.">
+                    </div>
+                    <div class="tbl-col" style="min-width: 150px;">
+                        <img src="graph-acos.png" alt="Graph of y equals the inverse cosine of x.">
+                    </div>
+                    <div class="tbl-col" style="text-align: left;">
+                        <p>The inverse function \(y = \cos^{-1}{x}\) is restricted to the following domain and range.</p>
+                        <ul>
+                            <li>Domain: \([-1,1]\)</li>
+                            <li>Range: \([0,\pi]\)</li>
+                        </ul>
+                        <p>This range corresponds to angle values on the top half of the unit circle.</p>
+                    </div>
+                    <div class="tbl-col" style="min-width: 150px;">
+                        <img src="circle-acos.png" alt="Graph of the unit circle with the top half highlighted, from 0 to pi.">
+                    </div>
+                </div>
+            </div>
+            <div class="tbl-body">
+                <div class="tbl-row">
+                    <div class="tbl-col" style="min-width: 150px;">
+                        <img src="graph-tan.png" alt="Graph of y equals tanget of x on a restricted domain from negative pi over 2 to pi over 2.">
+                    </div>
+                    <div class="tbl-col" style="min-width: 150px;">
+                        <img src="graph-atan.png" alt="Graph of y equals the inverse tangent of x.">
+                    </div>
+                    <div class="tbl-col" style="text-align: left;">
+                        <p>The inverse function \(y = \tan^{-1}{x}\) is restricted to the following domain and range.</p>
+                        <ul>
+                            <li>Domain: \((-\infty,\infty)\)</li>
+                            <li>Range: \(\left(-\frac{\pi}{2},\frac{\pi}{2}\right)\)</li>
+                        </ul>
+                        <p>This range corresponds to angle values on the right half of the unit circle, excluding the points on the \(y\)-axis.</p>
+                    </div>
+                    <div class="tbl-col" style="min-width: 150px;">
+                        <img src="circle-atan.png" alt="Graph of the unit circle with the right half highlighted, from negative pi over 2 to pi over 2.">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p>Remember that since the inverse trig functions are functions, there can be only a single answer for any inverse trig expression. It is possible to be undefined too. Let's work through some examples of computing inverse trig values.</p>
+
+        <div class="widget-header">Inverse Trig and the Unit Circle</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="frame-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="frame-cont ratio-16x9">
+                <iframe width="1920" height="1080" src="https://www.youtube.com/embed/xZSZvLvUMCw" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/xZSZvLvUMCw]</div>
+
+        <div class="assess">
+            <!--Enter a prompt for the assessment.-->
+            <p><strong>Self-Check #4</strong>: Evaluate the expression \(\sin^{-1}\left(-\frac{1}{2}\right)\). (<i>Select the most appropriate response.</i>)</p>
+            <!--All name and id fields must be unique per problem per page.-->
+            <label class="radiocntrh">(A) \(-\frac{\pi}{6}\)
+                <input type="radio" id="opt4-1" name="mcChoice4" value="A">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(B) \(\frac{\pi}{6}\)
+                <input type="radio" id="opt4-2" name="mcChoice4" value="B">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(C) \(\frac{5\pi}{6}\)
+                <input type="radio" id="opt4-3" name="mcChoice4" value="C">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(D) Undefined
+                <input type="radio" id="opt4-4" name="mcChoice4" value="D">
+                <span class="radiobtn"></span>
+            </label><br>
+            <!--Enter the coorect choice in the ans field.-->
+            <button onclick="checkMCSub('mcChoice4','A','correct4','wrong4','makechoice4')" id="submit4">Check</button>
+            <div class="response" id="makechoice4"><i>You must select an answer above</i>.</div>
+            <div class="response" id="correct4"><i class="fa fa-check" style="color: green"></i></div>
+            <div class="response" id="wrong4"><i class="fa fa-times" style="color: red"></i>
+                <!--State the correct answer and provide a solution.-->
+                <p>(Answer: A) -- The expression \(\sin^{-1}\left(-\frac{1}{2}\right)\) must result in an angle within the range of \(\left[-\frac{\pi}{2},\frac{\pi}{2}\right]\), which corresponds to the right half of the unit circle. In particular, it is the angle \(\theta\) where \(\sin(\theta) = -\frac{1}{2}\). Even though \(\sin\left(\frac{5\pi}{6}\right) = -\frac{1}{2}\), the angle \(\frac{5\pi}{6}\) is not within the range and can be ignored. Since we know \(\sin\left(\frac{\pi}{6}\right) = \frac{1}{2}\) and that sine is negative in the 4<sup>th</sup> quadrant, we can conclude that \(\sin^{-1}\left(-\frac{1}{2}\right) = -\frac{\pi}{6}\).</p>
+            </div>
+        </div>
+
+        <div class="assess">
+            <!--Enter a prompt for the assessment.-->
+            <p><strong>Self-Check #5</strong>: Evaluate the expression \(\cos^{-1}(3)\). (<i>Select the most appropriate response.</i>)</p>
+            <!--All name and id fields must be unique per problem per page.-->
+            <label class="radiocntrh">(A) \(-\frac{\pi}{6}\)
+                <input type="radio" id="opt5-1" name="mcChoice5" value="A">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(B) \(\frac{\pi}{3}\)
+                <input type="radio" id="opt5-2" name="mcChoice5" value="B">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(C) \(\pi\)
+                <input type="radio" id="opt5-3" name="mcChoice5" value="C">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(D) Undefined
+                <input type="radio" id="opt5-4" name="mcChoice5" value="D">
+                <span class="radiobtn"></span>
+            </label><br>
+            <!--Enter the coorect choice in the ans field.-->
+            <button onclick="checkMCSub('mcChoice5','D','correct5','wrong5','makechoice5')" id="submit5">Check</button>
+            <div class="response" id="makechoice5"><i>You must select an answer above</i>.</div>
+            <div class="response" id="correct5"><i class="fa fa-check" style="color: green"></i></div>
+            <div class="response" id="wrong5"><i class="fa fa-times" style="color: red"></i>
+                <!--State the correct answer and provide a solution.-->
+                <p>(Answer: D) -- The domain of inverse cosine is \([-1,1]\), which does not contain 3. So the expression \(\cos^{-1}(3)\) is undefined.</p>
+            </div>
+        </div>
+
+
+        <div class="assess">
+            <!--Enter a prompt for the assessment.-->
+            <p><strong>Self-Check #6</strong>: Evaluate the expression \(\tan^{-1}(-1)\). (<i>Select the most appropriate response.</i>)</p>
+            <!--All name and id fields must be unique per problem per page.-->
+            <label class="radiocntrh">(A) \(\frac{5\pi}{4}\)
+                <input type="radio" id="opt6-1" name="mcChoice6" value="A">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(B) \(\pi\)
+                <input type="radio" id="opt6-2" name="mcChoice6" value="B">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(C) \(-\frac{\pi}{4}\)
+                <input type="radio" id="opt6-3" name="mcChoice6" value="C">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(D) Undefined
+                <input type="radio" id="opt6-4" name="mcChoice6" value="D">
+                <span class="radiobtn"></span>
+            </label><br>
+            <!--Enter the coorect choice in the ans field.-->
+            <button onclick="checkMCSub('mcChoice6','C','correct6','wrong6','makechoice6')" id="submit6">Check</button>
+            <div class="response" id="makechoice6"><i>You must select an answer above</i>.</div>
+            <div class="response" id="correct6"><i class="fa fa-check" style="color: green"></i></div>
+            <div class="response" id="wrong6"><i class="fa fa-times" style="color: red"></i>
+                <!--State the correct answer and provide a solution.-->
+                <p>(Answer: C) -- The expression \(\tan^{-1}(-1)\) must result in an angle within the range of \(\left(-\frac{\pi}{2},\frac{\pi}{2}\right)\), which corresponds to the right half of the unit circle. In particular, it is the angle \(\theta\) where \(\tan(\theta) = -1\). From the unit circle, we know that both \(\tan\left(-\frac{\pi}{4}\right) = -1\) and \(\tan\left(\frac{5\pi}{4}\right) = -1\). We also know that \(-\frac{\pi}{4}\) and \(\frac{5\pi}{4}\) are in the 4<sup>th</sup> quadrant. In fact, these two angles are coterminal to each other. But the angle \(\frac{5\pi}{4}\) is not within the range and can be ignored. Thus, we can conclude that \(\tan^{-1}(-1) = -\frac{\pi}{4}\).</p>
+            </div>
+        </div>
         <!-- End of the main content -->
     </div>
 

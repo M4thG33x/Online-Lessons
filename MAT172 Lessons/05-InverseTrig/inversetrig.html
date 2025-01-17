@@ -19,7 +19,7 @@
     <script src="../../script.js"></script>
     <!--Assessment script-->
     <script src="../../quizlets.js"></script>
-    <title>Graphing Other Trig Functions</title>
+    <title>Inverse Trigonometry</title>
 </head>
 
 <body id="mainbody">
@@ -34,7 +34,7 @@
             <img src="../../logo_custom.png" alt="null">
         </div>
         <div class="r-col">
-            <h1>Graphing Trig Functions</h1>
+            <h1>Inverse Trig Functions</h1>
             <p>Trigonometric Functions</p>
         </div>
     </div>
@@ -44,7 +44,7 @@
         <a href="index.html">Overview</a>
         <span class="active">Inverse Trigonometry</span>
         <a href="invtrigfunc.html">Inverse Trig Functions</a>
-        <a href="usinginverses.html">Using Inverses</a>
+        <a href="invtrigexpr.html">Inverse Trig Expressions</a>
         <!--narrow screen menu button -->
         <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
     </div>
@@ -63,13 +63,135 @@
             </div>
         </div>
 
-
         <!-- The main content starts here-->
         <h2 id="top">Inverse Trigonometry</h2>
 
+        <p>In precalculus algebra, you learned about inverse functions. One way to think about inverses is that a function \(f\) and its inverse \(f^{-1}\) flip inputs and outputs. In other words, if \(y = f(x)\) then \(x = f^{-1}(y)\). If the point \((a,b)\) is on the graph of \(f\), then the point \((b,a)\) is on the graph of \(f^{-1}\). If we apply this relationship to our trigonometric functions of right triangles, such as \(\sin(\theta) = \frac{\text{Opp}}{\text{Hyp}}\), then the angle \(\theta\) is the input and the ratio of the two sides is the output. If we flip those, then the ratio of sides becomes the input of the inverse sine function and the angle becomes the output.</p>
 
+        <img src="SOHCAHTOA.png" alt="Image of a right triangle with angle theta located at the bottom-right acute angle, Opposite side across from theta, Adjacent side next to theta, and a Hypotenuse.">
 
+        <div class="def-eqn">
+            <p>For a right triangle given the length of two sides, we can determine the acute angle \(\theta\) using the following inverse functions.</p>
 
+            <div class="tbl">
+                <div class="tbl-body">
+                    <div class="tbl-row">
+                        <div class="tbl-col" style="border: 0;">
+                            \[\begin{align*} \sin^{-1}\left(\frac{\text{Opp}}{\text{Hyp}}\right) &= \theta \\ \cos^{-1}\left(\frac{\text{Adj}}{\text{Hyp}}\right) &= \theta \\ \tan^{-1}\left(\frac{\text{Opp}}{\text{Adj}}\right) &= \theta \end{align*}\]
+                        </div>
+                        <div class="tbl-col" style="border: 0;">
+                            \[\begin{align*} \csc^{-1}\left(\frac{\text{Hyp}}{\text{Opp}}\right) &= \theta \\ \sec^{-1}\left(\frac{\text{Hyp}}{\text{Adj}}\right) &= \theta \\ \cot^{-1}\left(\frac{\text{Adj}}{\text{Opp}}\right) &= \theta \end{align*}\]
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p>Note that you may see the inverse trig functions expressed without the -1 exponent, such as \(\arcsin\) instead of \(\sin^{-1}\). You can read these as "arc sine" or "inverse sine."</p>
+        </div>
+
+        <p>When computing the values of inverse trig functions without technology, it can be helpful to think about the problem in reverse so that we can use the right triangle trigonometry and unit circle that we learned about earlier. So for example, how can we determine the exact value of \(\sin^{-1}\left(\frac{\sqrt{3}}{2}\right)\)? Well, first remember than an inverse function computes the angle, so we could express this as \(\theta = \sin^{-1}\left(\frac{\sqrt{3}}{2}\right)\). Then, we can apply our original idea that functions and inverse functions swap their inputs and outputs. This means we can rewrite \(\theta = \sin^{-1}\left(\frac{\sqrt{3}}{2}\right)\) as \(\sin(\theta) = \frac{\sqrt{3}}{2}\). What angle makes sine equal to \(\frac{\sqrt{3}}{2}\)? From our right triangle trig and the unit circle, we know that \(\sin(60^{\circ}) = \frac{\sqrt{3}}{2}\). So we can conclude that the value of \(\sin^{-1}\left(\frac{\sqrt{3}}{2}\right)\) is 60&deg;.</p>
+
+        <div class="example">
+            <p><strong>Example #1:</strong> Find the exact value of the angle \(\theta\) in radians for the given triangle illustrated below.</p>
+
+            <img src="right-tri-theta-6-12.png" alt="A right triangle with acute angle theta, opposite side of length 6, and hypotenuse of length 12.">
+
+            <input type="checkbox" id="exact-val-theta-6-12">
+            <label for="exact-val-theta-6-12" class="example-button">Solution</label>
+            <div class="solution-content">
+                <p>In the triangle above, we are given the length of the side opposite \(\theta\) and the length of the hypotenuse. This means that in order to find the angle, we need to use inverse sine.</p>
+
+                \[\begin{align*} \theta &= \sin^{-1}\left(\frac{\text{Opp}}{\text{Hyp}}\right) \\ \theta &= \sin^{-1}\left(\frac{6}{12}\right) \\ \theta &= \sin^{-1}\left(\frac{1}{2}\right) \end{align*}\]
+
+                <p>From our study of right triangles and the unit circle, we know that \(\sin(30^{\circ}) = \frac{1}{2}\), so we can conclude that \(\theta = 30^{\circ}\).</p>
+            </div>
+        </div>
+
+        <div class="example">
+            <p><strong>Example #2:</strong> Find the approximate value of the angle \(B\) in degrees (rounded to 1 decimal place) for the given triangle illustrated below.</p>
+
+            <img src="right-tri-B-17-12.png" alt="A right triangle with acute angle B, opposite side of length 12, and adjacent side of length 17.">
+            <input type="checkbox" id="approx-val-b-17-12">
+            <label for="approx-val-b-17-12" class="example-button">Solution</label>
+            <div class="solution-content">
+                <p>In the triangle above, we are given the length of the side opposite \(B\) and the length of the side adjacent to \(B\). This means that in order to find the angle, we need to use inverse tangent.</p>
+
+                \[\begin{align*} \theta &= \tan^{-1}\left(\frac{\text{Opp}}{\text{Adj}}\right) \\ \theta &= \tan^{-1}\left(\frac{12}{17}\right) \end{align*}\]
+
+                <p>If we try flipping the inputs and outputs, we could rewrite this as \(\tan(\theta) = \frac{12}{17}\), however this fraction is not one of the nice values that we saw on our unit circle or with the 45-45-90 or 30-60-90 triangles. So, we will need to use technology to compute this value. Whatever technology you use, be sure it is set to Degree mode. Then try computing the value. You should get \(B = 35.22^{\circ}\). If you get 0.61466, then your technology is set to Radian mode.</p>
+            </div>
+        </div>
+
+        <div class="assess">
+            <!--Enter a prompt for the assessment.-->
+            <p><strong>Self-Check #1</strong>: Find the exact value of the angle \(\alpha\) in degrees for the given triangle illustrated below. (<i>Enter an exact value</i>.)</p>
+
+            <img src="right-tri-alpha-10-5sqrt2.png" alt="A right triangle with acute angle alpha, hypotenuse side of length 10, and adjacent side of length 5 square root of 2.">
+            <!--All id's must be unique per problem per page.-->
+            <!--Enter the answer in the ans field.-->
+            <button onclick="checkFitBSub('input1',45,'correct1','wrong1','enterans1',0)" id="submit1">Check</button>
+            <label for="input1">Answer:</label>
+            <input id="input1" type="text" value="" />
+            <label for="input1">&deg;</label>
+            <div class="response" id="enterans1"><i>You must enter an answer</i>.</div>
+            <div class="response" id="correct1"><i class="fa fa-check" style="color: green"></i></div>
+            <div class="response" id="wrong1"><i class="fa fa-times" style="color: red"></i>
+                <!--State the correct answer and provide a solution.-->
+                <p>(Answer: 45&deg;) -- For angle \(\alpha\) in the triangle above, we are given the adjacent side of length \(5\sqrt{2}\) and the hypotenuse of length \(10\). Working with the adjacent side and hypotenuse means we want to use cosine. This results in the equation \(\alpha = \arccos\left(\frac{5\sqrt{2}}{10}\right)\). Remember that \(\arccos\) is just another way of expressing \(\cos^{-1}\). They mean the same thing, so we can use either expression. Continuing on, we can simplify the inner fraction which results in \(\alpha = \arccos\left(\frac{\sqrt{2}}{2}\right)\). If we then flip the input/output, we get the equation \(\cos(\alpha) = \frac{\sqrt{2}}{2}\). From our right triangles and unit circle, we know that \(\cos(45^{\circ}) = \frac{\sqrt{2}}{2}\), so we can conclude that \(\alpha = 45^{\circ}\).</p>
+            </div>
+        </div>
+
+        <div class="widget-header">Inverse Trig Application</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="frame-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="frame-cont ratio-16x9">
+                <iframe width="1920" height="1080" src="https://www.youtube.com/embed/v5wT_5ZfD3s" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/v5wT_5ZfD3s]</div>
+
+        <div class="assess">
+            <!--Enter a prompt for the assessment.-->
+            <p><strong>Self-Check #2</strong>: An escalator is being designed for a multilevel building to provide access to the second floor, which is \(14\) feet high. If the horizontal length of the escalator is \(14\sqrt{3}\) feet, what is its angle of elevation in degrees? (<i>Enter an exact value</i>.)</p>
+            <!--All id's must be unique per problem per page.-->
+            <!--Enter the answer in the ans field.-->
+            <button onclick="checkFitBSub('input2',30,'correct2','wrong2','enterans2',0)" id="submit2">Check</button>
+            <label for="input2">Answer:</label>
+            <input id="input2" type="text" value="" />
+            <label for="input2">&deg;</label>
+            <div class="response" id="enterans2"><i>You must enter an answer</i>.</div>
+            <div class="response" id="correct2"><i class="fa fa-check" style="color: green"></i></div>
+            <div class="response" id="wrong2"><i class="fa fa-times" style="color: red"></i>
+                <!--State the correct answer and provide a solution.-->
+                <p>(Answer: 30&deg;) -- It will usually be helpful to draw an illustration to represent the problem we are given. In this case, we will have the triangle below.</p>
+
+                <img src="right-tri-theta-14-14sqrt3.png" alt="A right triangle with acute angle theta, opposite side of length 14, and adjacent side of length 14 square root of 3.">
+
+                <p>Since we are given the opposite and adjacent sides of the triangle relative to the acute angle of elevation, we will want to use tangent. To find the angle, we will have the equation \(\theta = \tan^{-1}\left(\frac{14}{14\sqrt{3}}\right) = \tan^{-1}\left(\frac{1}{\sqrt{3}}\right)\). Swapping the input/output results in the equation \(\tan(\theta) = \frac{1}{\sqrt{3}}\). This looks like one of the values we saw with the 30-60-90 right triangle and unit circle, which would give us the equation \(\tan(30^{\circ}) = \frac{1}{\sqrt{3}}\). So we can conclude that the angle of elevation is 30&deg;.</p>
+            </div>
+        </div>
+
+        <div class="assess">
+            <!--Enter a prompt for the assessment.-->
+            <p><strong>Self-Check #3</strong>: Abrar is flying a drone to take aerial pictures for a landscape architecture project. During one session, Abrar kept the drone hovering stationary at a height of 120 feet. Using a range finder on the drone, he was able to determine that the distance from where the drown was hovering down to a sign in the distance was 245 feet. What is the angle of depression from the drone to the sign? (<i>Enter your answer in degrees rounded to 2 decimal places</i>.)</p>
+            <!--All id's must be unique per problem per page.-->
+            <!--Enter the answer in the ans field.-->
+            <button onclick="checkFitBSub('input3',29.33,'correct3','wrong3','enterans3',0.01)" id="submit3">Check</button>
+            <label for="input3">Answer:</label>
+            <input id="input3" type="text" value="" />
+            <label for="input3">&deg;</label>
+            <div class="response" id="enterans3"><i>You must enter an answer</i>.</div>
+            <div class="response" id="correct3"><i class="fa fa-check" style="color: green"></i></div>
+            <div class="response" id="wrong3"><i class="fa fa-times" style="color: red"></i>
+                <!--State the correct answer and provide a solution.-->
+                <p>(Answer: 29.33&deg;) -- Again, let's start by drawing an illustrion. Remember that the angle of depression is a rotation downward from the horizontal. So depending on how we draw our triangle, the angle of depression may be on the outside of the triangle above the hypotenuse. However, the angle of depression (outside the triangle) will be equal to the angle of elevation (inside the triangle). In the illustration below, the angle of elevation is at the very top of the triangle, outside and above the hypotenuse. The angle of elevation is at the bottom of the triangle, inside and below the hypotenuse.</p>
+
+                <img src="right-tri-theta-120-245.png" alt="A right trangle with acute angle theta inside the triangle, opposite side of length 120 feet, hypotenuse of length 245 feet, and equivalent acute angle theta between a horizontal line at the top of the triangle and the hypotenuse.">
+
+                <p>If we consider the acute angle \(\theta\) inside the triangle, then we are given the length of the opposite side and the length of the hypotenuse. That means we will use sine. We start with the equation \(\theta = \sin^{-1}\left(\frac{120}{245}\right) = \sin^{-1}\left(\frac{24}{49}\right)\). The inner fraction does not simplify to one of our special triangle or unit circle values, so we will need to use technolgoy (set to degree mode). The result is \(\theta \approx 29.33^{\circ}\).</p>
+            </div>
+        </div>
 
         <!-- End of the main content -->
     </div>
