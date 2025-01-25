@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../../LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../../PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="../../script.js"></script>
+    <!--Assessment script-->
+    <script src="../../quizlets.js"></script>
+    <title>Law of Sine</title>
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div id="lesson-header">
+        <div class="l-col">
+            <img src="../../logo_custom.png" alt="null">
+        </div>
+        <div class="r-col">
+            <h1>Laws of Sines &amp; Cosines</h1>
+            <p>Trigonometric Equations</p>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <a href="index.html">Overview</a>
+        <a href="lawssincos.html">The Laws</a>
+        <span class="active">Law of Sines</span>
+        <a href="lawscos.html">Law of Cosines</a>
+        <a href="trianglearea.html">Triangle Area</a>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="lesson-body">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="lessonpagetoc">
+            <button class="dropbtn">On this Page</button>
+            <!-- <p> On this Page </p> -->
+            <div class="dropdown-content">
+                <ul>
+                    <li><a href="#top">Law of Sines</a></li>
+                    <li><a href="#asa">ASA &amp; AAS Triangles</a></li>
+                    <li><a href="#ssa">SSA Triangles</a></li>
+                    <li><a href="#application">Applications</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+        <!-- The main content starts here-->
+        <h2 id="top">Law of Sines</h2>
+
+        <p>Let's restate the law of sines and then look at some examples of solving triangles and applications using the law of sines. We will also look more specifically at the ambiguous SSA case.</p>
+
+        <img src="triangle-abc.png" alt="A scalene triangle ABC with angles A, B, and C. The side opposite angle A is side a the side opposite angle B is side b, and the side opposite angle C is side c.">
+
+        <div class="def-eqn">
+            <p><strong>Law of Sines</strong>: Given triangle ABC with opposite sides a, b, and c, respectively, the following proportions are true.</p>
+
+            \[\frac{\sin{A}}{a} = \frac{\sin{B}}{b} = \frac{\sin{C}}{c}\]
+        </div>
+
+        <h3 id="asa">ASA &amp; AAS Triangles</h3>
+
+        <p>In situations where we are given two angles and a side, we can quickly find the 3<sup>rd</sup> angle because all 3 angles add up to 180&deg;. Then set ups the proportions from the law of sines and cross-multiply to find the missing sides. Let's take a look at an example.</p>
+
+        <div class="widget-header">Law of Sines - Solving ASA</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="frame-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="frame-cont ratio-16x9">
+                <iframe width="1920" height="1080" src="https://www.youtube.com/embed/r194YsNdyA8" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/r194YsNdyA8]</div>
+
+        <div class="assess">
+            <!--Enter a prompt for the assessment.-->
+            <p><strong>Self-Check #1</strong>: Find the value of x. Illustration may not be drawn to scale. (<i>Enter your answer rounded to 2 decimal places</i>.)</p>
+
+            <img src="ex1-tri-20d-75d-15.png" alt="Illustration of a triangle with angle measuring 20 degrees and 75 degrees. The side between the two angles has length x. The other side adjacent to the 70 degree angle and opposite the 20 degree angle has length 15.">
+
+            <!--All id's must be unique per problem per page.-->
+            <!--Enter the answer in the ans field.-->
+            <button onclick="checkFitBSub('input1',43.69,'correct1','wrong1','enterans1',0.01)" id="submit1">Check</button>
+            <label for="input1">Answer:</label>
+            <input id="input1" type="text" value="" />
+            <div class="response" id="enterans1"><i>You must enter an answer</i>.</div>
+            <div class="response" id="correct1"><i class="fa fa-check" style="color: green"></i></div>
+            <div class="response" id="wrong1"><i class="fa fa-times" style="color: red"></i>
+                <!--State the correct answer and provide a solution.-->
+                <p>(Answer: 43.69) -- Looking at the given values in the triangle, we have two angles and the side adjacent to only one of them (not between them). This represents the AAS case for law fo sines. The bottom side of length \(x\) is opposite the unknown angle at the top. To find this angle, remember that the sum of the 3 angles must be 180&deg;. So, if we call this unknown angle \(\theta\), then we have the equation \(20^{\circ} + 75^{\circ} + \theta = 180^{\circ}\). Solving this results in \(\theta = 85^{\circ}\). Next, we have two pairs of angles and their opposite sides which we can then set up a proportion using the law of sines.</p>
+
+                \[\frac{\sin(85^{\circ})}{x} = \frac{\sin(20^{\circ})}{15}\]
+
+                <p>Cross-multiplying results in the equation \(x\sin(20^{\circ}) = 15\sin(85^{\circ})\). Then divide both sides by \(\sin(20^{\circ})\) to isolate the \(x\).</p>
+
+                \[x = \frac{15\sin(85^{\circ})}{\sin(20^{\circ})}\]
+
+                <p>Using technology, we can compute this expression to get \(x \approx 43.69\).</p>
+            </div>
+        </div>
+
+        <h3 id="ssa">SSA Triangles</h3>
+
+        <p>As we briefly discussed earlier, triangles within the SSA or <em>ambiguous</em>case are more challenging because it is not clear from the given information whether a unique triangle exists that matches the given information. It is possible that no such triangle actually exists. It is also possible that one or even two such triangles exist. Before we start working through any examples, let's take a look at why this happens.</p>
+
+        <div class="widget-header">Law of Sines - The SSA Case</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="frame-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="frame-cont ratio-16x9">
+                <iframe width="1920" height="1080" src="https://www.youtube.com/embed/ABZveZoE76M" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/ABZveZoE76M]</div>
+
+        <div class="assess">
+            <!--Enter a prompt for the assessment.-->
+            <p><strong>Self-Check #2</strong>: Triangle \(\alpha\beta\gamma\) with corresponding sides \(a\), \(b\), and \(c\), respectively, has angle \(\beta = 35^{\circ}\) and sides of length \(a = 12\) and \(b = 10\). How many triangles exist as a solution to the given information? (<i>Select the most appropriate response.</i>)</p>
+            <!--All name and id fields must be unique per problem per page.-->
+            <label class="radiocntrh">(A) None
+                <input type="radio" id="opt2-1" name="mcChoice2" value="A">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(B) 1
+                <input type="radio" id="opt2-2" name="mcChoice2" value="B">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(C) 2
+                <input type="radio" id="opt2-3" name="mcChoice2" value="C">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(D) Infinitely many
+                <input type="radio" id="opt2-4" name="mcChoice2" value="D">
+                <span class="radiobtn"></span>
+            </label><br>
+            <!--Enter the coorect choice in the ans field.-->
+            <button onclick="checkMCSub('mcChoice2','C','correct2','wrong2','makechoice2')" id="submit2">Check</button>
+            <div class="response" id="makechoice2"><i>You must select an answer above</i>.</div>
+            <div class="response" id="correct2"><i class="fa fa-check" style="color: green"></i></div>
+            <div class="response" id="wrong2"><i class="fa fa-times" style="color: red"></i>
+                <!--State the correct answer and provide a solution.-->
+                <p>(Answer: C) -- Start by drawing a triangle and labeling all the angles and sides, including the given values. It might be easiest to put the know angle at the bottom-left of the triangle and the know sides at the top. That way, it will be similar to the illustrations we looked at in the video above. Looking at the triangle below, we can see that we are indeed given the measure of two sides and the angle that is not between them. This is the SSA case.</p>
+
+                <img src="ex2-tri-35d-12-10.png" alt="Triangle with angle beta = 35 degrees and unknown angles alpha and gamma. The side opposite angle beta is b = 10. The side opposite angle alpha is a = 12. The side opposite angle gamma is c.">
+
+                <p>The known angle is acute and the side opposite the known angle is shorter than the side adjacent the angle. Our next step is to draw a line from angle \(\gamma\) to its opposite side \(c\) that is also perpendicular to \(c\). This represents the height \(h\) of the triangle. By comparing the height of the triangle with the lengths of the two known sides, we can determine the number of solutions.</p>
+
+                <img src="ex2-tri-35d-12-10-h.png" alt="Triangle with angle beta = 35 degrees and unknown angles alpha and gamma. The side opposite angle beta is b = 10. The side opposite angle alpha is a = 12. The side opposite angle gamma is c. There is a line h extending from angle gamma to side c that is also perpendicular to side c.">
+
+                <p>The height divides the given triangle into two right triangles. Looking at the one on the left (because it contains angle \(\beta\)), we can connect angle \(\beta\) with sides \(h\) and \(a\) using sine. We can set up the equation \(\sin(35^{\circ}) = \frac{h}{12}\) and solve for \(h\), which results in \(h = 12\sin(35^{\circ}) \approx 6.88\). If we compare the lengths of the two know sides, which are on either side of angle \(\gamma\), we can see that side \(b\) is longer than the height, which means it is long enough to extend from angle \(\gamma\) to side \(c\) forming a triangle, it is also shorter than side \(a\) which means it can swing to both the left and right of \(h\). See the two triangles illustrated below. Both have an angle \(\beta\) and correponding sides of length 10 and 12. The two sides of length 10 along with part of side \(c\) form an iscoseles triangle. The original drawing of the side of length 10 is still adjacent to angle \(\alpha\), now called "\(\alpha\) one." Because of the iscoseles triangle, acute angle \(\alpha_{1}\) is supplemntary to an obtuse angle \(\alpha_{2}\) that has the other adjacent side of length 10 in the 2<sup>nd</sup> triangle.</p>
+
+                <div class="tbl" style="margin: auto;">
+                    <div class="tbl-body">
+                        <div class="tbl-row">
+                            <div class="tbl-col" style="border: 0;">
+                                <img src="ex2-tri-35d-12-10-h-a1.png" alt="Triangle with angle beta = 35 degrees and unknown angles alpha one and gamma. The side opposite angle beta is b = 10. The side opposite angle alpha one is a = 12. The side opposite angle gamma is c. There is a line h extending from angle gamma to side c that is also perpendicular to side c. Another line of length 10 extends down from gamma to side c to the left of h that forms an iscoseles triangle with side b and part of side c.">
+                            </div>
+                            <div class="tbl-col" style="border: 0;">
+                                <img src="ex2-tri-35d-12-10-h-a2.png" alt="Triangle with angle beta = 35 degrees and unknown angles alpha one and gamma. The side opposite angle beta is b = 10. The side opposite angle alpha one is a = 12. The side opposite angle gamma is c. There is a line h extending from angle gamma to side c that is also perpendicular to side c. Another line of length 10 extends down from gamma to side c to the left of h that forms an iscoseles triangle with side b and part of side c. This line also forms an alternate triangle alpha two, beta, and gamma where alpha one and alpha two are supplementary angles.">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p>From our work above, we can express the side lengths as \(6.88 \le 10 \le 12\). By considering this inequality and the triangles illustrated above, we can conclude that the given information matches 2 possible triangles.</p>
+            </div>
+        </div>
+
+        <p>Hopefully, we have a better understanding now of the various situations that may arise with the SSA case and how we can determine which situation fits a given triangle. Now let's look at a few examples.</p>
+
+        <div class="widget-header">Law of Sines - Solving SSA (Acute with 0 or 1 Soln)</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="frame-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="frame-cont ratio-16x9">
+                <iframe width="1920" height="1080" src="https://www.youtube.com/embed/th0WT3E7UMQ" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/th0WT3E7UMQ]</div>
+
+        <div class="widget-header">Law of Sines - Solving SSA (Acute with 2 Soln)</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="frame-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="frame-cont ratio-16x9">
+                <iframe width="1920" height="1080" src="https://www.youtube.com/embed/KsqKFJs--8Q" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/KsqKFJs--8Q]</div>
+
+        <div class="widget-header">Law of Sines - Solving SSA (Obtuse with 0 or 1 Soln)</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="frame-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="frame-cont ratio-16x9">
+                <iframe width="1920" height="1080" src="https://www.youtube.com/embed/La0xwnbhQ8g" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/La0xwnbhQ8g]</div>
+
+
+        <h3 id="application">Applications</h3>
+
+        <p>Usually the hardest part of solving these application problems honestly occurs before we even get to do any math. Most students tend to struggle with understanding the description or setup of the problem when they read it. It is usually a best-practice to try drawing a graph or diagram. This helps you translate the problem from a verbal interpretation to a visual interpretation. If you can't draw it, then you are going to have a hard time solving it. Let's look at a couple examples.</p>
+
+        <div class="widget-header">Law of Sines - Application #1</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="frame-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="frame-cont ratio-16x9">
+                <iframe width="1920" height="1080" src="https://www.youtube.com/embed/65fXLLW18gQ" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/65fXLLW18gQ]</div>
+
+        <div class="widget-header">Law of Sines - Application #2</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="frame-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="frame-cont ratio-16x9">
+                <iframe width="1920" height="1080" src="https://www.youtube.com/embed/DL3MUtpQnl4" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/DL3MUtpQnl4]</div>
+
+        <!-- End of the main content -->
+    </div>
+
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div id="lesson-footer">
+        <div class="l-col">
+            <p>©2024 <a href="https://www.youtube.com/channel/UCszzyEwfkBHBPk6xkNrGpAA" target="_blank">M4thG33x (new
+                    window)</a> Some Rights Reserved.</p>
+            <a rel="license " href="http://creativecommons.org/licenses/by-sa/4.0/ "><img alt="Creative Commons License " src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png "></a>
+        </div>
+        <div class="r-col">
+            <a href="# " onclick="pgPrint(); return false; "><i class="fa fa-print "></i> Printer Friendly</a>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../../LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../../PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="../../script.js"></script>
+    <!--Assessment script-->
+    <script src="../../quizlets.js"></script>
+    <title>The Laws</title>
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div id="lesson-header">
+        <div class="l-col">
+            <img src="../../logo_custom.png" alt="null">
+        </div>
+        <div class="r-col">
+            <h1>Laws of Sines &amp; Cosines</h1>
+            <p>Trigonometric Equations</p>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <a href="index.html">Overview</a>
+        <span class="active">The Laws</span>
+        <a href="lawssin.html">Law of Sines</a>
+        <a href="lawscos.html">Law of Cosines</a>
+        <a href="trianglearea.html">Triangle Area</a>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="lesson-body">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="lessonpagetoc">
+            <button class="dropbtn">On this Page</button>
+            <!-- <p> On this Page </p> -->
+            <div class="dropdown-content">
+                <ul>
+                    <li><a href="#top">The Laws</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- The main content starts here-->
+        <h2 id="top">The Laws</h2>
+
+        <p>The primary measurements that describe a triangle are the lengths of its 3 sides and the rotation of its 3 angles. Together, these 6 values define the shape of a triangle. In this lesson, we want to look at ways that we could take 3 given measurements of a triangle and find the 3 missing values. So, suppose we were given the measure of one angle and two sides. How can we find the measurements of the remaining two angles and the third side? The laws of sine and cosine are two methods, two sets of formulas, that we can use to solve such problems.</p>
+
+        <img src="triangle-abc.png" alt="A scalene triangle ABC with angles A, B, and C. The side opposite angle A is side a the side opposite angle B is side b, and the side opposite angle C is side c.">
+
+        <div class="def-eqn">
+            <p><strong>Law of Sines</strong>: Given triangle ABC with opposite sides a, b, and c, respectively, the following proportions are true.</p>
+
+            \[\frac{\sin{A}}{a} = \frac{\sin{B}}{b} = \frac{\sin{C}}{c}\]
+
+            <p>It might help to think of the law of sines as describing the proportional relationship between the size of an angle and length of its corresponding side. In other words, the largest angle of a triangle will be opposite the longest side and the smallest angle will be opposite the shortest side.</p>
+        </div>
+
+        <div class="def-eqn">
+            <p><strong>Law of Cosines</strong>: Given triangle ABC with opposite sides a, b, and c, respectively, the following equations are true.</p>
+
+            \[\begin{align*} c^2 &= a^2 + b^2 - 2ab\cos{C} \\ b^2 &= a^2 + c^2 - 2ac\cos{B} \\ a^2 &= b^2 + c^2 - 2bc\cos{A} \end{align*}\]
+
+            <p>It might help to think of the law of cosines as an extension of the Pythagorean Theorem for right triangles to a set of equations for any triangle. In particular, notice the first equation listed above is the Pythagorean Theorem equation, \(a^2 + b^2 = c^2\), with a little extra added to the equation. Now, it is no longer required to be a right triangle and \(c\) is no longer a hypotenuse.</p>
+        </div>
+
+        <p>These laws do not depend on the position, rotation, or type of triangle. If you flipped the above triangle upside down or rotated the whole image 90&deg; to the right or left, the laws outlined above remain true. Also, don't get too attached to the letters used in the illustration above or the law equations. We don't have to use the letters A, B, and C. We could use any letters, such as the Greek letters \(\alpha\) ("alpha"), \(\beta\) ("beta"), and \(\gamma\) ("gamma"). Or we may not even be given letters for a specific problem. It doesn't matter because the relationships are universal. We just use ABC as a handy reference point. Also, remember that the sum of the 3 angles of a triangle will always be 180&deg;.</p>
+
+        <p>One thing where care is required, however, is that each law is only applicable in specific situations, or cases. Below is a list of the possible cases that we might encounter and which law we should use.</p>
+
+        <div class="tbl">
+            <div class="tbl-cap">
+                Summary of Cases for Law of Sines and Cosines
+            </div>
+            <div class="tbl-hdr-row">
+                <div class="tbl-hdr-col">
+                    Illustration
+                </div>
+                <div class="tbl-hdr-col">
+                    Description
+                </div>
+            </div>
+            <div class="tbl-body">
+                <div class="tbl-row">
+                    <div class="tbl-col" style="min-width: 200px;">
+                        <img src="case-aaa.png" alt="A scalene triangle with 30 degree, 40 degree, and 110 degree angles.">
+                    </div>
+                    <div class="tbl-col" style="text-align: left;">
+                        <strong>Angle-Angle-Angle (AAA)</strong>: If we are only given the 3 angles of a triangle, then it is not possible to determine a unique triangle with those angles. The 3 angles can help us determine the shape of the triangle, but not its size. For example, a triangle with 30&deg;, 40&deg;, and 110&deg; angles could have the same shape as another triangle with 30&deg;, 40&deg;, and 110&deg; angles but one triangle could be twice the size as the other. We <em>must</em> know the length of at least one side.<br><br>No unique solution.
+                    </div>
+                </div>
+                <div class="tbl-row">
+                    <div class="tbl-col" style="min-width: 200px;">
+                        <img src="case-asa.png" alt="A scalene triangle with 30 degree and 40 degree angles, and the side between the angles has a length of 15.">
+                        <br>
+                        <img src="case-aas.png" alt="A scalene triangle with 30 degree and 40 degree angles, and the side adjacent to the 30 degree angle and not between the two angles has a length of 8.">
+                    </div>
+                    <div class="tbl-col" style="text-align: left;">
+                        <strong>Angle-Side-Angle (ASA) or Angle-Angle-Side (AAS)</strong>: If we are given two angles and one side, then we can easily find the third angle because the sum of the angles is 180&deg;. The known side could be between the two angles (ASA) or next to only one of the angles (AAS). Knowing the length of one side then lets us determine the other two sides.<br><br>Use the law of <strong>sines</strong>.
+                    </div>
+                </div>
+                <div class="tbl-row">
+                    <div class="tbl-col" style="min-width: 200px;">
+                        <img src="case-ssa.png" alt="">
+                    </div>
+                    <div class="tbl-col" style="text-align: left;">
+                        <strong>Side-Side-Angle (SSA)</strong>: The case where we are given two sides and one angle that is <em>not</em> between the two sides is the most troublesome of all because it is possible that there could be no triangle, one triangle, or even two triangles that fit the given values. This is sometimes refered to as the <i>ambiguous case</i>, which we will look at in greater detail soon.<br><br>Use the law of <strong>sines</strong>.
+                    </div>
+                </div>
+                <div class="tbl-row">
+                    <div class="tbl-col" style="min-width: 200px;">
+                        <img src="case-sas.png" alt="">
+                    </div>
+                    <div class="tbl-col" style="text-align: left;">
+                        <strong>Side-Angle-Side (SAS)</strong>: If we are given the measure of two sides and the angle between them, which is different than SSA, then we can easily find the missing side. This sort of sets up a SSA problem that you may be tempted to use the law of sines to finish, but you would then have to deal with the ambiguity of SSA again. Instead, treat it like a SSS triangle as described in the next case below.<br><br>Use the law of <strong>cosines</strong>.
+                    </div>
+                </div>
+                <div class="tbl-row">
+                    <div class="tbl-col" style="min-width: 200px;">
+                        <img src="case-sss.png" alt="">
+                    </div>
+                    <div class="tbl-col" style="text-align: left;">
+                        <strong>Angle-Angle-Side (AAS or ASA)</strong>: If we are given the measure of all 3 sides, then we can easily find two of the angles and then find the last angle because their sum is 180&deg;. It is suggested that you again avoid switching to use the law of sines equations to avoid issues related to SSA triangles.<br><br>Use the law of <strong>cosines</strong>.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p>We will look at examples of each case on the following pages.</p>
+        <!-- End of the main content -->
+    </div>
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div id="lesson-footer">
+        <div class="l-col">
+            <p>©2024 <a href="https://www.youtube.com/channel/UCszzyEwfkBHBPk6xkNrGpAA" target="_blank">M4thG33x (new
+                    window)</a> Some Rights Reserved.</p>
+            <a rel="license " href="http://creativecommons.org/licenses/by-sa/4.0/ "><img alt="Creative Commons License " src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png "></a>
+        </div>
+        <div class="r-col">
+            <a href="# " onclick="pgPrint(); return false; "><i class="fa fa-print "></i> Printer Friendly</a>
+        </div>
+    </div>
+</body>
+
+</html>
