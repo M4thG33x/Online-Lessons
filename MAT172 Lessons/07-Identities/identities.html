@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../../LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../../PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="../../script.js"></script>
+    <!--Assessment script-->
+    <script src="../../quizlets.js"></script>
+    <title>Identities</title>
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div id="lesson-header">
+        <div class="l-col">
+            <img src="../../logo_custom.png" alt="null">
+        </div>
+        <div class="r-col">
+            <h1>Trigonometric Identities</h1>
+            <p>Trigonometric Equations</p>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <a href="index.html">Overview</a>
+        <span class="active">Identities</span>
+        <a href="fundamental.html">Fundamental</a>
+        <a href="sumdiff.html">Sum &amp; Difference</a>
+        <a href="halfangle.html">Half-Angle</a>
+        <a href="doubleangle.html">Double-Angle</a>
+        <a href="sumproduct.html">Sum &amp; Product</a>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="lesson-body">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="lessonpagetoc">
+            <button class="dropbtn">On this Page</button>
+            <!-- <p> On this Page </p> -->
+            <div class="dropdown-content">
+                <ul>
+                    <li><a href="#top">Identities</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- The main content starts here-->
+        <h2 id="top">Identities</h2>
+
+        <p>We have already learned about a few identities, such as the Pythagorean identities and the Even-Odd identities. In this lesson, we want to expand our toolbag to include more identies and we want to explore how we can use all of these identities to simplify expressions and compute values. Let's start by giving a general definition of what an identity is, and what it is not.</p>
+
+        <div class="def-eqn">
+            <p>An <strong>identity</strong> is an expression that states two things are equal to each other.</p>
+        </div>
+        
+        <p>This is the same basic definition of an equation, so it might be easy to confuse identities and equations. Consider the following comparisons.</p>
+
+        <div class="tbl">
+            <div class="tbl-cap">
+                Identity vs Equation
+            </div>
+            <div class="tbl-hdr-row">
+                <div class="tbl-hdr-col">
+                    Identity
+                </div>
+                <div class="tbl-hdr-col">
+                    Equation
+                </div>
+            </div>
+            <div class="tbl-body">
+                <div class="tbl-row">
+                    <div class="tbl-col" style="text-align: left;">
+                        <ul>
+                            <li>Must always be true, regardless of what value is plugged into the variable.</li>
+                            <li>We simplify expression or solve equations by using identities to rewrite a given expression in an equivalent form.</li>
+                            <li>Some examples:
+                                \[\begin{align*} 2x + 3x &= 5x \\ 3(x+y) &= 3x + 3y \\ \sin^2{x} + \cos^2{x} &= 1  \end{align*}\]
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tbl-col" style="text-align: left;">
+                        <ul>
+                            <li>Can be true or false, depending on what value is plugged into the variable.</li>
+                            <li>We solve equations by writing equivalent equations, repeating any operations on both sides of the equal sign.</li>
+                            <li>Some examples:
+                                \[\begin{align*} 2x + 3x &= 5 \\ 3(x+y) &= 3x \\ \sin{x} + \cos{x} &= 1  \end{align*}\]
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p>Technically, you could say that an identity is a special type of equation that must <em>always</em> be true. The equations \(2x + 3x = 5x\), \(3(x+y) = 3x + 3y\), and \(\sin^2{x} + \cos^2{x} = 1\) are identities because they will remain true no matter what value we plug in for \(x\). The identity \(2x + 3x = 5x\) actually describes how we add variables together, by adding their coefficients. The identity \(3(x+y) = 3x + 3y\) is an example of the distributive property of Real numbers. The equations \(2x + 3x = 5\), \(3(x+y) = 3x\), and \(\sin{x} + \cos{x} = 1\) are not identities because they are not always true. The equation \(2x + 3x = 5\) is only true if \(x = 1\), and similarly \(3(x+y) = 3x\) is only true if \(y = 0\). The equation \(\sin{x} + \cos{x} = 1\) is true if \(x = 0\) or \(x = \frac{\pi}{2}\), but it is false if \(x = \pi\) or \(x = \frac{3\pi}{2}\).</p>
+
+        <p>We use identities to simplify expressions and solve equations. For example, we solve the equation \(2x + 3x = 5\) using the identity \(\color{RoyalBlue}2x + 3x\color{black} = \color{Bittersweet}5x\color{black}\) to rewrite the equation \(\color{RoyalBlue}2x + 3x\color{black} = 5\) as \(\color{Bittersweet}5x\color{black} = 5\), which we then divide both sides by 5 to get the equivalent equation \(x = 1\). So, we used the identity as part of the equation solving process because the identity allows us to rewrite the equation as a simpler expression.</p>
+
+        <p>Now that we have seen what an identity is and how we use identities, let's go ahead and look at some specifc trigonometric identities.</p>
+
+        <!-- End of the main content -->
+    </div>
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div id="lesson-footer">
+        <div class="l-col">
+            <p>©2024 <a href="https://www.youtube.com/channel/UCszzyEwfkBHBPk6xkNrGpAA" target="_blank">M4thG33x (new
+                    window)</a> Some Rights Reserved.</p>
+            <a rel="license " href="http://creativecommons.org/licenses/by-sa/4.0/ "><img alt="Creative Commons License " src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png "></a>
+        </div>
+        <div class="r-col">
+            <a href="# " onclick="pgPrint(); return false; "><i class="fa fa-print "></i> Printer Friendly</a>
+        </div>
+    </div>
+</body>
+
+</html>

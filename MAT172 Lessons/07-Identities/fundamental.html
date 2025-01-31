@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../../LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../../PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="../../script.js"></script>
+    <!--Assessment script-->
+    <script src="../../quizlets.js"></script>
+    <title>Fundamental Identities</title>
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div id="lesson-header">
+        <div class="l-col">
+            <img src="../../logo_custom.png" alt="null">
+        </div>
+        <div class="r-col">
+            <h1>Trigonometric Identities</h1>
+            <p>Trigonometric Equations</p>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <a href="index.html">Overview</a>
+        <a href="identities.html">Identities</a>
+        <span class="active">Fundamental</span>
+        <a href="sumdiff.html">Sum &amp; Difference</a>
+        <a href="halfangle.html">Half-Angle</a>
+        <a href="doubleangle.html">Double-Angle</a>
+        <a href="sumproduct.html">Sum &amp; Product</a>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="lesson-body">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="lessonpagetoc">
+            <button class="dropbtn">On this Page</button>
+            <!-- <p> On this Page </p> -->
+            <div class="dropdown-content">
+                <ul>
+                    <li><a href="#top">Fundamental Identities</a></li>
+                    <li><a href="#simplify-expr">Simplifying Expressions</a></li>
+                    <li><a href="#verify-id">Verifying Identities</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- The main content starts here-->
+        <h2 id="top">Fundamental Identities</h2>
+
+        <div class="def-eqn">
+            <p>For any angle or value \(\theta\), the following relationships are always true.</p>
+
+            <div class="tbl">
+                <div class="tbl-cap">
+                    Fundamental Identities
+                </div>
+                <div class="tbl-hdr-row">
+                    <div class="tbl-hdr-col">
+                        Reciprocal
+                    </div>
+                    <div class="tbl-hdr-col">
+                        Quotient
+                    </div>
+                    <div class="tbl-hdr-col">
+                        Pythagorean
+                    </div>
+                    <div class="tbl-hdr-col">
+                        Eve-Odd
+                    </div>
+                </div>
+                <div class="tbl-body">
+                    <div class="tbl-row">
+                        <div class="tbl-col" style="vertical-align: top;">
+                            \[\begin{align*} \sin(\theta) = \frac{1}{\csc(\theta)} &\qquad \csc(\theta) = \frac{1}{\sin(\theta)} \\[3pt] \cos(\theta) = \frac{1}{\sec(\theta)} &\qquad \sec(\theta) = \frac{1}{\cos(\theta)} \\[3pt] \tan(\theta) = \frac{1}{\cot(\theta)} &\qquad \cot(\theta) = \frac{1}{\tan(\theta)} \end{align*}\]
+                        </div>
+                        <div class="tbl-col" style="vertical-align: top;">
+                            \[\begin{align*} \tan(\theta) &= \frac{\sin(\theta)}{\cos(\theta)} \\[3pt] \cot(\theta) &= \frac{\cos(\theta)}{\sin(\theta)} \end{align*}\]
+                        </div>
+                        <div class="tbl-col" style="vertical-align: top;">
+                            \[\begin{align*} \sin^2(\theta) + \cos^2(\theta) = 1 \\[6pt] \tan^2(\theta) + 1 = \sec^2(\theta) \\[6pt] 1 + \cot^2(\theta) = \csc^2(\theta) \end{align*}\]
+                        </div>
+                        <div class="tbl-col" style="vertical-align: top;">
+                            \[\begin{align*} \sin(-\theta) &= -\sin(\theta) \\[8pt] \cos(-\theta) &= \cos(\theta) \\[8pt] \tan(-\theta) &= -\tan(\theta) \end{align*}\]
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p>We have already seen the sets of identities given above when we learned about the unit circle. We now want to explore using them or other contexts. Here are a couple additonal sets of identities that we should familiarize ourselves with.</p>
+
+            <div class="tbl">
+                <div class="tbl-cap">
+                    More Fundamental Identities
+                </div>
+                <div class="tbl-hdr-row">
+                    <div class="tbl-hdr-col">
+                        Complementary
+                    </div>
+                    <div class="tbl-hdr-col">
+                        Supplementary
+                    </div>
+                </div>
+                <div class="tbl-body">
+                    <div class="tbl-row">
+                        <div class="tbl-col" style="vertical-align: top;">
+                            \[\begin{align*} \sin\left(\frac{\pi}{2}-\theta\right) = \cos(\theta) &\qquad \csc\left(\frac{\pi}{2}-\theta\right) = \sec(\theta) \\[3pt] \cos\left(\frac{\pi}{2}-\theta\right) = \sin(\theta) &\qquad \sec\left(\frac{\pi}{2}-\theta\right) = \csc(\theta) \\[3pt] \tan\left(\frac{\pi}{2}-\theta\right) = \cot(\theta) &\qquad \cot\left(\frac{\pi}{2}-\theta\right) = \tan(\theta) \end{align*}\]
+                        </div>
+                        <div class="tbl-col" style="vertical-align: top;">
+                            \[\begin{align*} \sin(\pi-\theta) &= \sin(\theta) \\[3pt] \cos(\pi-\theta) &= -\sin(\theta) \\[3pt] \tan(\pi-\theta) &= -\tan(\theta) \end{align*}\]
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h3 id="simplify-expr">Simplifying Expressions</h3>
+
+        <p>When simplfying trigonometric expressions, each step in the process will involve either some algebraic operation or some trigonometric identity substitution. So ask yourself each step along the way whether there is some algebra you can do or an identity you can use. A general strategy is described below.</p>
+
+        <ul>
+            <li><strong>Can I use an identity?</strong> Look to substitute an identity to rewrite part of the expression. Look for common expressions or parts of the identities listed above. Look for relationships between a trig function in the given problem and another trig function that might be helpful. Sometimes rewriting an expression in terms of sine or cosine can be helpful.</li>
+            <li><strong>Can I do some algebra?</strong> Use algebraic operations such as factoring, combining like terms, FOILing or expanding. If you have fractions, try finding an LCD and combine the fractions, or divide fractions by multiplying the reciprocal. Cancel common terms in fractions.</li>
+            <li><strong>Try something.</strong> If you are not sure what to do, just try something. If it doesn't work or if the problem seems to be getting worse, then take a step back and try something different. Don't be afraid to experiment. It is common to require more than one attempt to work through a problem, so don't beat yourself up. If needed, ask for help. You are not alone.</li>
+        </ul>
+
+        <p>Let's look at some examples using some of these Fundamental Identities to simplify other trigonometric expressions.</p>
+
+        <div class="widget-header">Simplifying Trig Expressions - Fundamental</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="frame-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="frame-cont ratio-16x9">
+                <iframe width="1920" height="1080" src="https://www.youtube.com/embed/8u4X7aY4H8Y" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/8u4X7aY4H8Y]</div>
+
+
+
+        <h3 id="verify-id">Verify Identities</h3>
+
+        <p>When trying to verify or prove an identity, are goal is to show that a given equation is actually an identity. We follow the same process as simplifying expressions, but now our goal is not to completely simplify, but rather to rewrite one side of the equation to match the other side. There is one key restriction when verifying an identity. We cannot treat the potential identity as an equation and perform an operation to both sides of the equal sign with the thought that it "balances" the equation. Instead, treat each side of the potential identity as a separate expression that we must use algebra or other identities to rewrite, hopefully closer to matching the other side. Let's look at some examples.</p>
+
+        <div class="widget-header">Verifying Trig Identities - Fundamental</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="frame-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="frame-cont ratio-16x9">
+                <iframe width="1920" height="1080" src="https://www.youtube.com/embed/ltFI928oy-o" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/ltFI928oy-o]</div>
+
+        <!-- End of the main content -->
+    </div>
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div id="lesson-footer">
+        <div class="l-col">
+            <p>©2024 <a href="https://www.youtube.com/channel/UCszzyEwfkBHBPk6xkNrGpAA" target="_blank">M4thG33x (new
+                    window)</a> Some Rights Reserved.</p>
+            <a rel="license " href="http://creativecommons.org/licenses/by-sa/4.0/ "><img alt="Creative Commons License " src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png "></a>
+        </div>
+        <div class="r-col">
+            <a href="# " onclick="pgPrint(); return false; "><i class="fa fa-print "></i> Printer Friendly</a>
+        </div>
+    </div>
+</body>
+
+</html>
