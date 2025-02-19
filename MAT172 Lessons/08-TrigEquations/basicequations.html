@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../../LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../../PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="../../script.js"></script>
+    <!--Assessment script-->
+    <script src="../../quizlets.js"></script>
+    <title>Basic Equations</title>
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div id="lesson-header">
+        <div class="l-col">
+            <img src="../../logo_custom.png" alt="null">
+        </div>
+        <div class="r-col">
+            <h1>Solving Trigonometric Equations</h1>
+            <p>Trigonometric Equations</p>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <a href="index.html">Overview</a>
+        <a href="graphical.html">Graphical</a>
+        <span class="active">Basic Equations</span>
+        <a href="usingidentities.html">Using Identities</a>
+        <a href="multiangle.html">Multi-Angle</a>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="lesson-body">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="lessonpagetoc">
+            <button class="dropbtn">On this Page</button>
+            <!-- <p> On this Page </p> -->
+            <div class="dropdown-content">
+                <ul>
+                    <li><a href="#top">Basic Equations</a></li>
+                    <li><a href="#linear-eqn">Linear Equations</a></li>
+                    <li><a href="#nonlinear-eqn">Non-Linear Equations</a></li>
+                    <li><a href="#using-tech">Using Technology</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- The main content starts here-->
+        <h2 id="top">Basic Equations</h2>
+
+        <p>Let's take what we just learned and outline some general steps to follow when solving a trigonometric equation.</p>
+
+        <ol>
+            <li>Use algebraic techniques to isolate the \(\sin{x}\), \(\cos{x}\), or \(\tan{x}\) terms. This might include combining like terms, factoring, finding LCD's, etc.</li>
+            <li>Determine the specific solutions on \([0, 2\pi)\) for the equations \(\sin{x} = a\), \(\cos{x} = b\), or \(\tan{x} = c\) using the unit circle. If the \(a\), \(b\), and \(c\) values are not nice unit circle values, then we might need to use technology to compute the corresponding inverse trig value.</li>
+            <li>Express the infinitely many solutions by adding \(2\pi k\) for sine and cosine or \(\pi k\) for tangent.</li>
+        </ol>
+
+        <p>Note that we will amend this list over the next couple pages as the equations we try to solve become more complicated.</p>
+
+        <h3 id="linear-eqn">Linear Equations</h3>
+
+        <p>Let's look at a few examples involving linear terms of \(\sin{x}\), \(\cos{x}\), or \(\tan{x}\).</p>
+
+        <div class="widget-header">Solving Linear Trig Equations</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="frame-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="frame-cont ratio-16x9">
+                <iframe width="1920" height="1080" src="https://www.youtube.com/embed/MV5YPBt5ndQ" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/MV5YPBt5ndQ]</div>
+
+
+        <h3 id="nonlinear-eqn">Non-Linear Equations</h3>
+
+        <p>Let's look at a few examples involving non-linear terms of \(\sin{x}\), \(\cos{x}\), or \(\tan{x}\), which will probably involve some form of factoring.</p>
+
+        <div class="widget-header">Solving Non-Linear Trig Equations</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="frame-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="frame-cont ratio-16x9">
+                <iframe width="1920" height="1080" src="https://www.youtube.com/embed/wshxU05NjE4" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/wshxU05NjE4]</div>
+
+
+        <h3 id="using-tech">Using Technology</h3>
+
+        <p>Let's look at a few examples involving that include non-unit circle values, which will require the use of technology to evaluate.</p>
+
+        <div class="widget-header">Solving Trig Equations Using Technology</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="frame-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="frame-cont ratio-16x9">
+                <iframe width="1920" height="1080" src="https://www.youtube.com/embed/RAJrFdOcDvY" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/RAJrFdOcDvY]</div>
+
+        <!-- End of the main content -->
+    </div>
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div id="lesson-footer">
+        <div class="l-col">
+            <p>©2024 <a href="https://www.youtube.com/channel/UCszzyEwfkBHBPk6xkNrGpAA" target="_blank">M4thG33x (new
+                    window)</a> Some Rights Reserved.</p>
+            <a rel="license " href="http://creativecommons.org/licenses/by-sa/4.0/ "><img alt="Creative Commons License " src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png "></a>
+        </div>
+        <div class="r-col">
+            <a href="# " onclick="pgPrint(); return false; "><i class="fa fa-print "></i> Printer Friendly</a>
+        </div>
+    </div>
+</body>
+
+</html>

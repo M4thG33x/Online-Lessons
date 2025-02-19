@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../../LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../../PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="../../script.js"></script>
+    <!--Assessment script-->
+    <script src="../../quizlets.js"></script>
+    <title>Graphical Perspective</title>
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div id="lesson-header">
+        <div class="l-col">
+            <img src="../../logo_custom.png" alt="null">
+        </div>
+        <div class="r-col">
+            <h1>Solving Trigonometric Equations</h1>
+            <p>Trigonometric Equations</p>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <a href="index.html">Overview</a>
+        <span class="active">Graphical</span>
+        <a href="basicequations.html">Basic Equations</a>
+        <a href="usingidentities.html">Using Identities</a>
+        <a href="multiangle.html">Multi-Angle</a>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="lesson-body">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="lessonpagetoc">
+            <button class="dropbtn">On this Page</button>
+            <!-- <p> On this Page </p> -->
+            <div class="dropdown-content">
+                <ul>
+                    <li><a href="#top">Graphical Perspective</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- The main content starts here-->
+        <h2 id="top">Graphical Perspective</h2>
+
+        <p>Before we dig into the algebraic processes to solve trigonometric equations, let's spend a few minutes looking at the bigger picture (pun intended) to better understand conceptually what our solutions will look like. When solving equations graphically, we normally want to look for any intersections on the graph. For example, to solve the equation \(5 = 3x - 7\) graphically, we could graph the functions \(y = 5\) and \(y = 3x - 7\) and find their intersecton at the point \((4,5)\), as illustrated below. So the solution to the equation \(5 = 3x - 7\) would be \(x = 4\).</p>
+
+        <img src="solve-linear-eqn.png" alt="Graph of y = 5 and y = 3x - 7 with intersection at (4, 5).">
+
+        <p>We can use the same strategy when solving trigonometric equations, but we have two ways of looking at our trig functions, either via the unit circle or as their function graphs. These two methods are illustrated in the following examples.</p>
+
+        <div class="example">
+            <p><strong>Example #1:</strong> Solve the following equations graphically.</p>
+
+            \[\sin(x) = \frac{1}{2}\]
+
+            <input type="checkbox" id="solve-sin-graph">
+            <label for="solve-sin-graph" class="example-button">Solution</label>
+            <div class="solution-content">
+
+                <p>There are a couple ways that we can think about solving \(\sin(x) = \frac{1}{2}\). One method is to reference the unit circle and look for any angles where the terminal points on the unit circle have a \(y\)-coordinate of \(\frac{1}{2}\). These points on the unit circle will be in the 1<sup>st</sup> and 2<sup>nd</sup> quadrants (where sine is positive) at the angles of \(\frac{\pi}{6}\) and \(\frac{5\pi}{6}\). Another method is to think of sine as the function \(y = \sin{x}\) and then look for where \(y = \sin{x}\) intersects the line \(y = \frac{1}{2}\). This is illustrated on the second graph, which notes the intersections at \(x = \frac{\pi}{6}\) and at \(x = \frac{5\pi}{6}\). Using either method, we can conclude that the solution to the equation \(\sin(x) = \frac{1}{2}\) is \(x = \frac{\pi}{6}\) and at \(x = \frac{5\pi}{6}\) on the interval \([0,2\pi)\).</p>
+
+                <div class="tbl">
+                    <div class="tbl-body">
+                        <div class="tbl-row">
+                            <div class="tbl-col" style="margin: auto; border: 0; max-width: 300px;">
+                                <img src="sin-eqn-unit-circ.png" alt="Graph of unit circle intersecting the line y = 1/2.">
+                            </div>
+                            <div class="tbl-col" style="border: 0; max-width: 600px;">
+                                <img src="sin-eqn-graph.png" alt="Graph of y = sin(x) over the intervale [0, 2pi) intersecting the line y = 1/2.">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p>Why on the interval \([0, 2\pi)\)? Because that is equivalent to one revolution around the unit circle. It is also the standard 1-period graph of \(y = \sin{x}\). But remember, we can revolve around the unit circle an unlimited amount of times in either the counterclockwise \((+)\) or clockwise \((-)\) directions. Similarly, the graph of \(y = \sin{x}\) extends forever in both the \(x \rightarrow -\infty\) and \(x \rightarrow \infty\) directions. That means there are are actually infinitely many solutions to this equation, 2 each time we rotate around the unit circle or travel a distance of \(2\pi\).</p>
+
+                <p>Consider the following graph. In addition to the solution \(x = \frac{\pi}{6}\) on the \([0, 2\pi)\) part of the graph, we can also see other solutions at \(\frac{-11\pi}{6}\), \(\frac{13\pi}{6}\), and \(\frac{25\pi}{6}\). All four of these values are coterminal to each other, which means that each solution will be the sum of \(\frac{\pi}{6}\) and a multiple of \(2\pi\).</p>
+
+                <img src="sin-eqn-graph-2pik.png" alt="Graph of y = sin(x) and y = 1/2 with some intersections marked at x = -11pi/6, pi/6, 13pi/6, and 25pi/6." style="max-width: 600px;">
+
+                <p>These first 4 solutions marked on the graph above have been expressed as \(\frac{\pi}{6}\) plus an integer multiple of \(2\pi\). They are also listed below, along with the simplified result.</p>
+                
+                <ul>
+                    <li>\(x = \frac{\pi}{6} + 2\pi(\color{red}-1\color{black}) = -\frac{11\pi}{6}\)</li>
+                    <li>\(x = \frac{\pi}{6} + 2\pi(\color{red}0\color{black}) = \frac{\pi}{6}\)</li>
+                    <li>\(x = \frac{\pi}{6} + 2\pi(\color{red}1\color{black}) = \frac{13\pi}{6}\)</li>
+                    <li>\(x = \frac{\pi}{6} + 2\pi(\color{red}2\color{black}) = \frac{25\pi}{6}\)</li>
+                </ul>
+
+                <p>Since we can continue adding multiples of \(2\pi\) forever, we abbreviate the infinitely many solutions as \(x = \frac{\pi}{6} + 2\pi k\) were \(k\) is any integer (the integers are \(...,-3, -2, -1, 0, 1, 2, 3, ...\)). We could do the same thing for the solution \(x = \frac{5\pi}{6}\).</p>
+
+                <p>So, <strong>the solution</strong> of the equation \(\sin(x) = \frac{1}{2}\) is \(x = \frac{\pi}{6} + 2\pi k, \frac{5\pi}{6} + 2\pi k\), with the specific values \(x = \frac{\pi}{6}, \frac{5\pi}{6}\) on the interval \([0, 2\pi)\).</p>
+            </div>
+        </div>
+
+
+        <div class="example">
+            <p><strong>Example #2:</strong> Solve the following equations graphically. List any solutions on the interval \([0,2\pi)\).</p>
+
+            \[\cos(x) = -\frac{\sqrt{2}}{2}\]
+
+            <input type="checkbox" id="solve-cos-graph">
+            <label for="solve-cos-graph" class="example-button">Solution</label>
+            <div class="solution-content">
+
+                <p>We can approach this equation in much the same way as the previous example. The first graph below illustrates that to solve \(\cos(x) = -\frac{\sqrt{2}}{2}\), we want to find the points on the unit circle where the \(x\)-coordinate is \(-\frac{\sqrt{2}}{2}\). These points on the unit circle will be in the 2<sup>nd</sup> and 3<sup>rd</sup> quadrants (where cosine is negative) at the angles of \(\frac{3\pi}{4}\) and \(\frac{5\pi}{4}\). The second graph below illustrates that we can also think about finding where the cosine function \(y = \cos{x}\) intersects the line \(y = -\frac{\sqrt{2}}{2}\), which happens at \(x = \frac{3\pi}{4}\) and at \(x = \frac{5\pi}{4}\). Using either method, we can conclude that the solution to the equation \(\cos(x) = -\frac{\sqrt{2}}{2}\) is \(x = \frac{3\pi}{4}\) and at \(x = \frac{5\pi}{4}\) on the interval \([0,2\pi)\).</p>
+
+                <div class="tbl">
+                    <div class="tbl-body">
+                        <div class="tbl-row">
+                            <div class="tbl-col" style="margin: auto; border: 0; max-width: 300px;">
+                                <img src="cos-eqn-unit-circ.png" alt="Graph of unit circle intersecting the line x = negative square root of 2 / 2.">
+                            </div>
+                            <div class="tbl-col" style="border: 0; max-width: 600px;">
+                                <img src="cos-eqn-graph.png" alt="Graph of y = cos(x) over the intervale [0, 2pi) intersecting the line y = negative square root of 2 / 2.">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p>Just like we saw in the previous example, there will be infinitely many answers as we revolve around the unit circle or extend forever in the \(x \rightarrow -\infty\) and \(x \rightarrow \infty\) directions. Since the standard 1-period interval for \(y = \cos{x}\) is also \([0, 2\pi)\), we can express these infinitely many solutions in the same way, by adding integer multiples of \(2\pi\) to our initial solutions.</p>
+                
+                <p>So, <strong>the solution</strong> of the equation \(\cos(x) = -\frac{\sqrt{2}}{2}\) is \(x = \frac{3\pi}{4} + 2\pi k, \frac{5\pi}{4} + 2\pi k\), with the specific values \(x = \frac{3\pi}{4}, \frac{5\pi}{4}\) on the interval \([0, 2\pi)\).</p>
+
+            </div>
+        </div>
+
+
+        <div class="example">
+            <p><strong>Example #3:</strong> Solve the following equations graphically. List any solutions on the interval \([0,2\pi)\).</p>
+
+            \[\tan(x) = 1\]
+
+            <input type="checkbox" id="solve-tan-graph">
+            <label for="solve-tan-graph" class="example-button">Solution</label>
+            <div class="solution-content">
+
+                <p>We can again follow a similar strategy when solving this equation. The first graph below illustrates that to solve \(\tan(x) = 1\), we want to find the points on the unit circle where the \(x\)- and \(y\)-coordinates are the same, making \(\frac{y}{x} = 1\). These points on the unit circle will be in the 1<sup>st</sup> and 3<sup>rd</sup> quadrants (where tangent is positive) at the angles of \(\frac{\pi}{4}\) and \(\frac{5\pi}{4}\). The second graph below illustrates that we can also think about finding where the tangent function \(y = \tan{x}\) intersects the line \(y = 1\), which happens at \(x = \frac{\pi}{4}\) and at \(x = \frac{5\pi}{4}\). Using either method, we can conclude that the solution to the equation \(\tan(x) = 1\) is \(x = \frac{\pi}{4}\) and at \(x = \frac{5\pi}{4}\) on the interval \([0,2\pi)\).</p>
+
+                <div class="tbl">
+                    <div class="tbl-body">
+                        <div class="tbl-row">
+                            <div class="tbl-col" style="margin: auto; border: 0; max-width: 300px;">
+                                <img src="tan-eqn-unit-circ.png" alt="Graph of unit circle intersecting the line y = x.">
+                            </div>
+                            <div class="tbl-col" style="border: 0; max-width: 600px;">
+                                <img src="tan-eqn-graph.png" alt="Graph of y = sin(x) over the intervale [0, 2pi) intersecting the line y = 1.">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p>Once again, we need to account for the infinitely many solutions as we revolve around the unit circle an unlimited amount of times or the graph of \(y = \tan{x}\) extends forever in both the \(x \rightarrow -\infty\) and \(x \rightarrow \infty\) directions. However, this time there is going to be a small difference. By looking at the graph below, we can see that the consecutive solutions are each separated by a distance of \(\pi\), not \(2\pi\). This is because the standard 1-period interval of \(y = \tan{x}\) is \(\left(-\frac{\pi}{2}, \frac{\pi}{2}\right)\) which has a length of \(\pi\).</p>
+
+                <img src="tan-eqn-graph-pik.png" alt="Graph of y = tan(x) and y = 1 with some intersections marked at x = -3pi/4, pi/4, 5pi/4, and 9pi/4." style="max-width: 600px;">
+
+                <p>From the graph above, we can conclude that every solution will be the sum of \(\frac{\pi}{4}\) and an integer multiple of \(\pi\). Notice that our two original solutions \(x = \frac{\pi}{4}\) and \(x = \frac{5\pi}{4}\) are also a distance of \(\pi\) apart. This means that we don't need to explicitly write out both when expressing the infinitely many solutions. Writing the solution for the first value will, by nature of the tangent function, also include the second value.</p>
+
+                <p>So, <strong>the solution</strong> of the equation \(\tan(x) = 1\) is \(x = \frac{\pi}{4} + \pi k\), with the specific values \(x = \frac{\pi}{4}, \frac{5\pi}{4}\) on the interval \([0, 2\pi)\).</p>
+
+            </div>
+        </div>
+
+        <p>Let's summarize what we have seen in the above examples. When solving a trigonometric equation of the form \(\sin{x} = a\), \(\cos{x} = b\), or \(\tan{x} = c\), we want to find the correspond points on the unit circle whose \(x\) and/or \(y\) coordinates match the desired values. The angle (usually in radians) of these points will be the solution of the equation on the interval \([0, 2\pi)\). We can then express the infinitely many solutions to the equation by adding \(2\pi k\) for sine and cosine or \(\pi k\) for tangent.</p>
+        
+        <!-- End of the main content -->
+    </div>
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div id="lesson-footer">
+        <div class="l-col">
+            <p>©2024 <a href="https://www.youtube.com/channel/UCszzyEwfkBHBPk6xkNrGpAA" target="_blank">M4thG33x (new
+                    window)</a> Some Rights Reserved.</p>
+            <a rel="license " href="http://creativecommons.org/licenses/by-sa/4.0/ "><img alt="Creative Commons License " src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png "></a>
+        </div>
+        <div class="r-col">
+            <a href="# " onclick="pgPrint(); return false; "><i class="fa fa-print "></i> Printer Friendly</a>
+        </div>
+    </div>
+</body>
+
+</html>

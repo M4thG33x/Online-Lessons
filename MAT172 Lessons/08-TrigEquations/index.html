@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../../LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../../PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="../../script.js"></script>
+
+    <title>Overview</title>
+</head>
+
+<body id="mainbody"> <!-- Use mainbody ID for page script.js -->
+
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page Header: includes lesson title and subtitle, and Start Button -->
+    <div id="overview-header">
+        <img src="../../logo_custom.png" alt="Wake Tech Logo">
+        <h1>Solving Trigonometric Equations</h1>
+        <p>Trigonometric Equations</p>
+
+        <button onclick="location.href='graphical.html'">Start Lesson</button>
+    </div>
+
+    <div id="overview-body">
+        <div class="l-col">
+            <!-- Table of Content: list pages (w/ links) in the lesson -->
+            <div class="overview-content">
+                <h2>Content</h2>
+                <ul>
+                    <li><a href="graphical.html">Graphical Perspective</a></li>
+                    <li><a href="basicequations.html">Basic Equations</a></li>
+                    <li><a href="usingidentities.html">Using Identities</a></li>
+                    <li><a href="multiangle.html">Multi-Angle Equations</a></li>
+                </ul>
+                <p>Click a link above to navigate to that page of the lesson.</p>
+            </div>
+        </div>
+
+        <div class="r-col">
+            <!-- Lesson Objectives -->
+            <div class="overview-objectives">
+                <h2>Objectives</h2>
+                <p>In this lesson, you will learn to:</p>
+                <ul>
+                    <li>Solve trigonometric equations, determining all possible solutions and listing specific solutions on the interval \([0, 2\pi)\).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div id="overview-footer">
+        <div class="l-col">
+            <p>©2024 <a href="https://www.youtube.com/channel/UCszzyEwfkBHBPk6xkNrGpAA" target="_blank">M4thG33x (new window)</a> Some Rights Reserved.</p>
+            <a rel="license " href="http://creativecommons.org/licenses/by-sa/4.0/ "><img alt="Creative Commons License " src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png "></a>
+        </div>
+        <div class="r-col">
+            <a href="# " onclick="pgPrint(); return false; "><i class="fa fa-print "></i> Printer Friendly</a>
+        </div>
+    </div>
+
+</body>
+
+</html>
