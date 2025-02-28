@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../../LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../../PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="../../script.js"></script>
+    <!--Assessment script-->
+    <script src="../../quizlets.js"></script>
+    <title>Complex Numbers in Polar Form</title>
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div id="lesson-header">
+        <div class="l-col">
+            <img src="../../logo_custom.png" alt="null">
+        </div>
+        <div class="r-col">
+            <h1>Parametric Equations</h1>
+            <p>Polar, Parametric, &amp; Vectors</p>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <a href="index.html">Overview</a>
+        <a href="polarcoord.html">Coordinates</a>
+        <a href="polareqns.html">Equations</a>
+        <a href="polargraphs.html">Graphs</a>
+        <span class="active">Complex Numbers</span>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="lesson-body">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="lessonpagetoc">
+            <button class="dropbtn">On this Page</button>
+            <!-- <p> On this Page </p> -->
+            <div class="dropdown-content">
+                <ul>
+                    <li><a href="#top">Complex Numbers in Polar Form</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+        <!-- The main content starts here-->
+        <h2 id="top">Complex Numbers in Polar Form</h2>
+
+        <p>Complex numbers have the form \(z = a + bi\) where \(a\) and \(b\) are Real numbers and \(i = \sqrt{-1}\). We call \(a\) the Real part and \(b\) the Imagianary part. The complex <strong>conjugate</strong> of \(z = a + bi\) is the complex number \(\bar{z} = a - bi\). The <strong>modulus</strong> of a complex number represents its distance from the origin, which we can express as \(|z| = \sqrt{a^2 + b^2}\).</p>
+
+        <div class="example">
+            <p><strong>Example #5:</strong> Determine the complex conjugate and modulus of \(z = 5 - i\).</p>
+
+            <input type="checkbox" id="conjugate-modulus">
+            <label for="conjugate-modulus" class="example-button">Solution</label>
+            <div class="solution-content">
+                <p>The complex conjugate of \(z = 5 - i\) is \(\bar{z} = 5 + i\) and the modulus is \(|z| = \sqrt{5^2 + (-1)^2} = \sqrt{25 + 1} = \sqrt{26}\).</p>
+            </div>
+        </div>
+
+        <p>We can graph complex numbers on a rectangular grid, similar to the \(xy\)-plane, but now the horizontal axis is the <strong>Real</strong> axis and the vertical axis is the <strong>Imaginary</strong> axis.</p>
+
+        <img src="ComplexPlane.png" alt="Image of the complex plane, which looks similar to the xy-plane, but the horizontal axis is the Real axis and the vertical axis is the Imaginary axis.">
+
+        <p>To graph a complex number \(z = a + bi\), locate the point that is moved horizontally a distance of \(a\) and vertically a distance of \(b\).</p>
+
+        <div class="example">
+            <p><strong>Example #6:</strong> Graph the following complex numbers.</p>
+
+            <ol>
+                <li>\(z = 3\) (This complex number has an Imaginary part of 0.)</li>
+                <li>\(z = -4i\) (This complex number has a Real part of 0.)</li>
+                <li>\(z = -5 + 2i\)</li>
+            </ol>
+
+            <input type="checkbox" id="plot-points">
+            <label for="plot-points" class="example-button">Solution</label>
+            <div class="solution-content">
+                <p>The complex numbers \(z = 3\), \(z = -4i\), and \(z = -5 + 2i\) are graphed below.</p>
+
+                <img src="ComplexPoints.png" alt="The complex plane with the complex numbers z = 3, z = -4i, and z = -5 + 2i plotted on the grid.">
+            </div>
+        </div>
+
+        <p>So, how can we connect our knowledge of complex numbers with our understanding of polar coordinates? Since we can think of complex numbers in terms of a rectangular grid, we can use the same formulas as we used when converting rectangular to polar, just using \(a\) and \(b\) instead of \(x\) and \(y\), respectively.</p>
+
+        <div class="tbl">
+            <div class="tbl-body">
+                <div class="tbl-row">
+                    <div class="tbl-col" style="border: 0;">
+                        \[\begin{align*} a &= r\cos{\theta} \\[4pt] b &= r\sin{\theta} \end{align*}\]
+                    </div>
+                    <div class="tbl-col" style="border: 0;">
+                        \[\begin{align*}r^2 &= a^2 + b^2 \\ \tan{\theta} &= \frac{b}{a} \end{align*}\]
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="def-eqn">
+            <p>A complex number \(z = a + bi\) in rectangular form can be expressed in the following polar form.</p>
+
+            \[z = r\left( \cos{\theta} + i \sin{\theta} \right)\]
+        </div>
+        <p>Let's look at a few examples of converting complex numbers to polar form.</p>
+
+        <div class="widget-header">Convert Complex Numbers to Polar Form</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="frame-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="frame-cont ratio-16x9">
+                
+            </div>
+        </div>
+        <div class="widget-footer">[]</div>
+
+        <p>Adding or subtracting complex numbers in their standard rectangular form is pretty easy, but it turns out that multiplying and dividing complex numbers is easier to do when in polar form. The same is true if we want to raise a complex number to a power. So, how can we multiply, divide, and use powers with complex numbers?</p>
+
+        <div class="def-eqn">
+            <p>Given two complex numbers \(z_{1} = r_{1}\left( \cos{\theta_{1}} + i \sin{\theta_{1}} \right)\) and \(z_{2} = r_{2}\left( \cos{\theta_{2}} + i \sin{\theta_{2}} \right)\), we can multiply and divde according to the following formulas.</p>
+
+            \[\begin{align*} z_{1}z_{2} &= r_{1}r_{2}\left( \cos(\theta_{1}+\theta_{2}) + i \sin(\theta_{1}+\theta_{2}) \right) \\[8pt] \frac{z_{1}}{z_{2}} &= \frac{r_{1}}{r_{2}}\left( \cos(\theta_{1}-\theta_{2}) + i \sin(\theta_{1}-\theta_{2}) \right) \end{align*}\]
+
+            <p>We can also raise a complex number \(z = r\left( \cos{\theta} + i \sin{\theta} \right)\) to a power using the following formula, where \(n\) is any integer. This is called <strong>De Moivre's Theorem</strong>.</p>
+
+            \[z^{n} = r^{n}\left( \cos(n\theta) + i \sin(n\theta) \right)\]
+        </div>
+
+        <div class="widget-header">Multiplying, Dividing, and Powers of Complex Numbers in Polar Form</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="frame-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="frame-cont ratio-16x9">
+                
+            </div>
+        </div>
+        <div class="widget-footer">[]</div>
+
+        <!-- End of the main content -->
+    </div>
+
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div id="lesson-footer">
+        <div class="l-col">
+            <p>©2024 <a href="https://www.youtube.com/channel/UCszzyEwfkBHBPk6xkNrGpAA" target="_blank">M4thG33x (new
+                    window)</a> Some Rights Reserved.</p>
+            <a rel="license " href="http://creativecommons.org/licenses/by-sa/4.0/ "><img alt="Creative Commons License " src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png "></a>
+        </div>
+        <div class="r-col">
+            <a href="# " onclick="pgPrint(); return false; "><i class="fa fa-print "></i> Printer Friendly</a>
+        </div>
+    </div>
+</body>
+
+</html>
