@@ -67,7 +67,31 @@
         <!-- The main content starts here-->
         <h2 id="top">Parametric Equations</h2>
         
-        
+        <p>Up to this point in your mathematics journey, you have primarly studied functions in the \(xy\)-plane where one variable is dependent on the other variable. This usually takes the form of \(y = f(x)\) or sometimes \(x = g(y)\). For example, we learn about polynomial functions, such as \(y = 3x^2 - 5x\), and logarithmic functions, such as \(y = 4\ln{x}\), in precalculus algebra. Remember that the notation \(y = f(x)\) means that for every \((x,y)\) coordinate defined by the function, the \(y\) value <em>depends</em> on what is given for the \(x\) value. We input the \(x\) value and get the \(y\) value as an output of the function.</p>
+
+        <p> For example, you have studied polynomial functions (linear, quadratic, etc.), exponential and logarithmic functions, and rational functions in precalculus algebra. There are real-world applications involving each of these types of functions. For example, linear functions can often be used to model the cost of a product based on available resources, the charge of a service based on the time it takes to complete, or maybe how the value of a car depreciates over time. Exponential functions can be used to determine compound interest, model population growth, or the half-life of natural elements over time. This semester has focused on the trigonometric functions, such as \(f(x) = \sin{x}\), which could be used to model sound waves, displacement over time, or energy fluctations over time.</p>
+
+        <p>However, there are a lot of phenomena and behaviors in the real world that involve multiple quantities that change independently of each other, and yet it can be helpful to study and analyze the relationships formed by these independent, or seemingly independent variables. For example, a business will want to analyze its revenue and costs, which are probably not directly related to each other. But they both likely depend on some of the same things like resource availability and market competition. Physcial relationships, such as projectile motion, can involve both a horizontal displacement and a vertical displacement. While these may not be directly dependent on each other, they are often still related over time.</p>
+
+        <p>For example, consider the animation below that illustrates the orbit of a satellite around the Earth. There are 3 variables noted in the illustration: time, horizontal position (longitude is E or W), and vertical position (latitude is N or S). There are lots of other variables in real-world behaviors, such as air resistance or gravity, but we will ignore those here.</p>
+
+        <div class="widget-header"></div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="frame-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="frame-cont ratio-3x2">
+                <iframe scrolling="no" title="Satellite Animation" src="https://www.geogebra.org/material/iframe/id/pbeg9xau/width/516/height/350/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false" width="516px" height="350px" style="border:0px;"> </iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://www.geogebra.org/m/xmmydcgm]</div>
+
+        <p>For the position of the satellite illustrated above, we might be able to find a function that describes its lattitude \(y\) as a function of its longitude \(x\). But it might be better, or easier, to instead determine its latitude \(y\) as a function of time \(t\) and also its longitude \(x\) as a function of \(t\). In other words, it might be easier to determine the functions \(y = f(t)\) and \(x = g(t)\). In this case, we could refer to \(t\) as the <em>parameter</em> of the <em>parametric equations</em> \(y = f(t)\) and \(x = g(t)\).</p>
+
+        <div class="def-eqn">
+            <p>The pair of functions \(y = f(t)\) and \(x = g(t)\) are called <strong>parametric equations</strong> that define the set of all points \((x,y)\) forming a curve in the \(xy\)-plane. The variable \(t\) is called the <strong>parameter</strong>.</p>
+        </div>
+
+        <p>Normally, the graph of a function \(y = f(x)\) is drawn with a left-to-right direction, or orientation. However, that will not always be the case for parametric equations. So we define the <strong>forward</strong> direction or <strong>positive orientation</strong> to be the direction that the graph is generated as the parameter \(t\) increases in value. We will see this in more detail as we look at some examples on the following pages.</p>
         <!-- End of the main content -->
     </div>
 
