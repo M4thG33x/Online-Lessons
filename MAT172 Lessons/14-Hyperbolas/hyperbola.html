@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../../LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../../PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="../../script.js"></script>
+    <!--Assessment script-->
+    <script src="../../quizlets.js"></script>
+    <title>Standard Hyperbolas</title>
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div id="lesson-header">
+        <div class="l-col">
+            <img src="../../logo_custom.png" alt="null">
+        </div>
+        <div class="r-col">
+            <h1>Hyperbolas</h1>
+            <p>Conic Sections</p>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <a href="index.html">Overview</a>
+        <span class="active">Standard Hyperbolas</span>
+        <a href="shifted.html">Shifted Hyperbolas</a>
+        <a href="application.html">Conic Applications</a>
+        <a href="general.html">General Equation</a>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="lesson-body">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="lessonpagetoc">
+            <button class="dropbtn">On this Page</button>
+            <!-- <p> On this Page </p> -->
+            <div class="dropdown-content">
+                <ul>
+                    <li><a href="#top">Standard Hyperbolas</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- The main content starts here-->
+        <h2 id="top">Standard Hyperbolas</h2>
+
+        <p>The standard equation and many of the properties of ellipses will look very similar to the equation and properties of hyperbolas. Let's look at what a hyperbola is and what its equation looks like. Then we can look at a few examples.</p>
+
+        <div class="def-eqn">
+            <p>A <strong>hyperbola</strong> is a curve formed by all points where the difference of the distances to two fixed points called <strong>foci</strong> (plural of focus) is constant.</p>
+
+            <img src="hyperbola.png" alt="Graph of aa hyperbola which consists of two curves opening in opposite directions around two focus points, or foci, that are positioned horziontally. A point (x,y) is located on the curve and the distances between this point and the two foci are labeled as l1 and l2." style="max-width: 200px;">
+
+            <p>In the illustration above, the two distances between the point \((x,y)\) and the two foci are represented by the variables \(l_1\) and \(l_2\). Being a hyperbola means that the difference \(|l_1 - l_2|\) must remain constant. In other words, the individual distances \(l_1\) and \(l_2\) will change as we look at different points \((x,y)\) around the hyperbola, but their difference will always be the same.</p>
+
+            <p>In the illustration below, the key points on an hyperbola are marked. The shortest distance between the two curves is called the <strong>transverse axis</strong> and its endpoints are the <strong>vertices</strong>. The foci, or focus points, are located along the same line as the transverse axis except they are farther away from the center than the vertices. Each of the two curves passes through one vertex and bends around the corresponding focus point. As the two curves extend farther away from the center, they will approach one of two asymptotes that have opposite slope (same value but opposite sign) and pass through the center.</p>
+
+            <img src="hyperbola-pts.png" alt="Graph of a hyperbola with two vertices at the closest points of the two curves of the hyperbola. There are two foci about which the curve bend that are located outside of the vertices and are equal distances from the center." style="max-width: 200px;">
+        </div>
+
+        <p>Use the following graph to explore the shape and key property of ellipses. Select the <i>Hyperbola</i> option and then drag the <span style="color: rgb(3,74,215); font-weight: bold;">blue</span> point to explore the graph's characteristics.</p>
+
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="frame-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="frame-cont ratio-16x9">
+                <iframe scrolling="no" title="Conics" src="https://www.geogebra.org/material/iframe/id/z36vbzgj/width/770/height/425/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false" width="770px" height="425px" style="border:0px;"> </iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://www.geogebra.org/m/u9jntcau]</div>
+
+
+        <p>The equation of a hyperbola has two forms, depending on whether the hyperbola is oriented vertically or horizontally. The orientation is determined by the direction of the transverse axis.</p>
+
+
+        <div class="def-eqn">
+            <p>The standard conic equations of a <strong>ellipse</strong> with center at the origin have the following form.</p>
+
+            <div class="tbl">
+                <div class="tbl-hdr-row">
+                    <div class="tbl-hdr-col">
+                        Horizontal Transverse Axis
+                    </div>
+                    <div class="tbl-hdr-col">
+                        Vertical Transverse Axis
+                    </div>
+                </div>
+                <div class="tbl-body">
+                    <div class="tbl-row">
+                        <div class="tbl-col">
+                            <img src="hyperbola-horiz.png" alt="Graph of a hyperbola centered at the origin with horziontal transverse axis. The vertices are located at the intersection of the transverse axis with the hyperbola. The foci are equal distance from the center along the line of the transverse axis." style="max-width: 225px; padding: 0;">
+
+                            \[\frac{x^2}{a^2} - \frac{y^2}{b^2} = 1\]
+
+                            <p style="text-align: left;">Assuming that both \(a,b > 0\), the vertices are located at \((\pm a,0)\) and the foci are at \((\pm c,0)\). The transverse axis has a length of \(2a\). The distance between the foci is \(2c\). The rectangular box passing through the vertices with corner points on the asymptotes will have a width of \(2a\) and a height of \(2b\). The slopes of the asymptotes are \(m = \pm \frac{b}{a}\).</p>
+                        </div>
+                        <div class="tbl-col">
+                            <img src="hyperbola-vert.png" alt="Graph of a hyperbola centered at the origin with vertical transverse axis. The vertices are located at the intersection of the transverse axis with the hyperbola. The foci are equal distance from the center along the line of the transverse axis." style="max-width: 225px; padding: 0;">
+
+                            \[\frac{y^2}{a^2} - \frac{x^2}{b^2} = 1\]
+
+                            <p style="text-align: left;">Assuming that both \(a,b > 0\), the vertices are located at \((0,\pm a)\) and the foci are at \((0,\pm c)\). The transverse axis has a length of \(2a\). The distance between the foci is \(2c\). The rectangular box passing through the vertices with corner points on the asymptotes will have a width of \(2b\) and a height of \(2a\). The slopes of the asymptotes are \(m = \pm \frac{a}{b}\).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p>The main difference in these two equations is whether the hyperbola is oriented horizontally or vertically, or whether the transverse axis is horizontal or vertical. In the horizontal orientation, the positive fraction contains \(x\) and \(a\) is under the \(x\) variable while \(b\) is under the \(y\) variable. This flips for the vertical hyperbola where the positive fraction contains \(y\) and \(a\) is under \(y\) while \(b\) is under \(x\). The values of \(a\) and \(b\) relate to the stretch of the hyperbola, but can also be related to the dimensions of the rectangular box between the hyperbola curves. The size of this box effects the gap between the curves as well as the sharpness of the curvature.</p>
+
+            <p>It might be helpful to think of the values of \(a\), \(b\), and \(c\) as distances, especially when we want to determine the coordinates of the vertices and foci or the slopes of the asymptotes. We use \(a\) to represent the distance from the center to each vertex. Similarly, we use \(c\) to represent the distance from the center to each focus point. These three values, or distances, are related to each other by the equation \(c^2 = a^2 + b^2\).</p>
+
+            <p>The <em>key characteristics</em> of a hyperbola in conic form are the coordinates of the center, vertices, and foci as well as the length of the transverse axis and the slope (or equation) of the asymptotes.</p>
+        </div>
+
+        <p>We need to be able to write the standard equation of a hyperbola given information about it, such as the location of its foci and vertices or its graph. We also need to be able to sketch a graph of a hyperbola given the equation and identity its key characteristics. Let's look at a few examples.</p>
+
+        <div class="widget-header">Conic Sections - Hyperbola</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="frame-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="frame-cont ratio-16x9">
+
+            </div>
+        </div>
+        <div class="widget-footer">[]</div>
+
+        <!-- End of the main content -->
+    </div>
+
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div id="lesson-footer">
+        <div class="l-col">
+            <p>©2025 <a href="https://www.youtube.com/channel/UCszzyEwfkBHBPk6xkNrGpAA" target="_blank">M4thG33x (new
+                    window)</a> Some Rights Reserved.</p>
+            <a rel="license " href="http://creativecommons.org/licenses/by-sa/4.0/ "><img alt="Creative Commons License " src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png "></a>
+        </div>
+        <div class="r-col">
+            <a href="# " onclick="pgPrint(); return false; "><i class="fa fa-print "></i> Printer Friendly</a>
+        </div>
+    </div>
+</body>
+
+</html>

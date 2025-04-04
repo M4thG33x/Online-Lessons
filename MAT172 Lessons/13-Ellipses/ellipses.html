@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../../LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../../PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="../../script.js"></script>
+    <!--Assessment script-->
+    <script src="../../quizlets.js"></script>
+    <title>Standard Ellipses</title>
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div id="lesson-header">
+        <div class="l-col">
+            <img src="../../logo_custom.png" alt="null">
+        </div>
+        <div class="r-col">
+            <h1>Ellipses</h1>
+            <p>Conic Sections</p>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <a href="index.html">Overview</a>
+        <a href="circles.html">Circle Review</a>
+        <span class="active">Standard Ellipses</span>
+        <a href="shifted.html">Shifted Ellipses</a>
+        <a href="application.html">Conic Applications</a>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="lesson-body">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="lessonpagetoc">
+            <button class="dropbtn">On this Page</button>
+            <!-- <p> On this Page </p> -->
+            <div class="dropdown-content">
+                <ul>
+                    <li><a href="#top">Standard Ellipses</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- The main content starts here-->
+        <h2 id="top">Standard Ellipses</h2>
+
+        <p>A simplistic way of thinking about ellipses is that they are a circle that has been stretched differently in perpendicular directions. Imagine taking a circle and stretching it horziontally or shrinking it vertically. The end result would resemble an ellipse. Let's look at a more formal definition of an ellipse and the various properties of ellipses.</p>
+
+        <div class="def-eqn">
+            <p>An <strong>ellipse</strong> is a curve formed by all points where the <em>sum</em> of the distances to two fixed points called <strong>foci</strong> (plural of focus) is constant.</p>
+
+            <img src="ellipse.png" alt="Graph of an ellipse which is an oval shaped curve formed around two focus points, or foci, that are positioned horziontally along the longest diameter of the ellipse. A point (x,y) is located on the curve and the distances between this point and the two foci are labeled as l1 and l2." style="max-width: 225px;">
+
+            <p>In the illustration above, the two distances between the point \((x,y)\) and the two foci are represented by the variables \(l_1\) and \(l_2\). Being an ellipse means that the sum \(l_1 + l_2\) must remain constant. In other words, the individual distances \(l_1\) and \(l_2\) will change as we look at different points \((x,y)\) around the ellipse, but their sum will always be the same.</p>
+
+            <p>In the illustration below, the key points on an ellipse are marked. The longest diameter of an ellipse is called the <strong>major axis</strong> and its endpoints are the <strong>vertices</strong>. The shortest diameter of an ellipse is called the <strong>minor axis</strong> and its endpoints are the <strong>co-vertices</strong>. The foci, or focus points, are located along the major axis.</p>
+
+            <img src="ellipse-pts.png" alt="Graph of an ellipse with two vertices at the farthest opposite ends of the ellipse and two co-vertices at the closest opposite ends of the ellipse. There are two foci located between the vertices that are equal distances from the center." style="max-width: 300px;">
+        </div>
+
+        <p>Use the following graph to explore the shape and key property of ellipses. Select the <i>Ellipse</i> option and then drag the <span style="color: rgb(3,74,215); font-weight: bold;">blue</span> point to explore the graph's characteristics.</p>
+
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="frame-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="frame-cont ratio-16x9">
+                <iframe scrolling="no" title="Conics" src="https://www.geogebra.org/material/iframe/id/z36vbzgj/width/770/height/425/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false" width="770px" height="425px" style="border:0px;"> </iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://www.geogebra.org/m/u9jntcau]</div>
+
+
+        <p>The equation of an ellipse has two forms, depending on whether the ellipse is oriented vertically or horizontally. The orientation is determined by the direction of the major axis.</p>
+
+
+        <div class="def-eqn">
+            <p>The standard conic equations of a <strong>ellipse</strong> with center at the origin have the following form.</p>
+
+            <div class="tbl">
+                <div class="tbl-hdr-row">
+                    <div class="tbl-hdr-col">
+                        Horizontal Major Axis
+                    </div>
+                    <div class="tbl-hdr-col">
+                        Vertical Major Axis
+                    </div>
+                </div>
+                <div class="tbl-body">
+                    <div class="tbl-row">
+                        <div class="tbl-col">
+                            <img src="ellipse-horiz.png" alt="Graph of an ellipse centered at the origin with horizontal major axis and vertical minor axis. The vertices are at the intersection of the major axis with the ellipse and the co-vertices are at the intersection of the minor axis with the ellipse. The foci are both located equal distance from the center along the major axis." style="max-width: 275px; padding: 0;">
+
+                            \[\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1\]
+
+                            <p style="text-align: left;">Assuming that \(a > b > 0\), the vertices are located at \((\pm a,0)\) while the co-vertices are located at \((0,\pm b)\). The foci are at \((\pm c,0)\). The major axis has a length of \(2a\) and the minor axis has a length of is \(2b\). The distance between the foci is \(2c\).</p>
+                        </div>
+                        <div class="tbl-col">
+                            <img src="ellipse-vert.png" alt="Graph of an ellipse centered at the origin with vertical major axis and horizontal minor axis. The vertices are at the intersection of the major axis with the ellipse and the co-vertices are at the intersection of the minor axis with the ellipse. The foci are both located equal distance from the center along the major axis." style="max-width: 275px; padding: 0;">
+
+                            \[\frac{x^2}{b^2} + \frac{y^2}{a^2} = 1\]
+
+                            <p style="text-align: left;">Assuming that \(a > b > 0\), the vertices are located at \((0,\pm a)\) while the co-vertices are located at \((\pm b,0)\). The foci are at \((0,\pm c)\). The major axis has a length of \(2a\) and the minor axis has a length of is \(2b\). The distance between the foci is \(2c\).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p>The main difference in these two equations is whether the ellipse is oriented horizontally or vertically, or whether the major axis is horizontal or vertical. In both cases, we assume that \(a > b\). In the horzontal orientation, \(a\) is under the \(x\) variable and \(b\) is under the \(y\) variable. This flips for the vertical ellipse where \(a\) is under \(y\) and \(b\) is under \(x\). The values of \(a\) and \(b\) represent how much the ellipse has been stretch, so having a larger \(a\) value under \(x\) means the ellipse is wider (longer in the \(x\) direction) while having a larger \(a\) value under \(y\) means the ellipse is taller (longer in the \(y\) direction).</p>
+
+            <p>It might be helpful to think of the values of \(a\), \(b\), and \(c\) as distances, especially when we want to determine the coordinates of the vertices, co-vertices, and foci. We use \(a\) to represent the longest radius from the center to each vertex. Similarly, we use \(b\) to represent the shortest radius from the center to each co-vertex, and we use \(c\) to represent the distance from the center to each focus point. These three values, or distances, are related to each other by the equation \(c^2 = a^2 - b^2\).</p>
+
+            <p>The <strong>eccentricity</strong> of an ellipse describes the degree to which an ellipse is stretched compared to a circle. We can compute the eccentricity using the equation \(e = \frac{c}{a}\), and we will have an ellipse if \(0 < e < 1\). If the foci are located at the same point, then they would be at the center of a circle and \(e = 0\).</p>
+
+            <p>The <em>key characteristics</em> of an ellipse in conic form are the coordinates of the center, vertices, co-vertices, and foci as well as the lengths of the major and minor axes and the value of the eccentricity.</p>
+        </div>
+
+        <p>We need to be able to write the standard equation of an ellipse given information about it, such as the location of its foci and vertices or its graph. We also need to be able to sketch a graph of an ellipse given the equation and identity its key characteristics. Let's look at a few examples.</p>
+
+        <div class="widget-header">Conic Sections - Ellipses</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="frame-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="frame-cont ratio-16x9">
+                <iframe width="1920" height="1080" src="https://www.youtube.com/embed/_NYCzBgu2Vc" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://youtu.be/_NYCzBgu2Vc]</div>
+
+        <!-- End of the main content -->
+    </div>
+
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div id="lesson-footer">
+        <div class="l-col">
+            <p>©2025 <a href="https://www.youtube.com/channel/UCszzyEwfkBHBPk6xkNrGpAA" target="_blank">M4thG33x (new
+                    window)</a> Some Rights Reserved.</p>
+            <a rel="license " href="http://creativecommons.org/licenses/by-sa/4.0/ "><img alt="Creative Commons License " src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png "></a>
+        </div>
+        <div class="r-col">
+            <a href="# " onclick="pgPrint(); return false; "><i class="fa fa-print "></i> Printer Friendly</a>
+        </div>
+    </div>
+</body>
+
+</html>

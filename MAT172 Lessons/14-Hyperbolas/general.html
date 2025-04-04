@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../../LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../../PrintStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="../../script.js"></script>
+    <!--Assessment script-->
+    <script src="../../quizlets.js"></script>
+    <title>General Equation</title>
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div id="lesson-header">
+        <div class="l-col">
+            <img src="../../logo_custom.png" alt="null">
+        </div>
+        <div class="r-col">
+            <h1>Hyperbolas</h1>
+            <p>Conic Sections</p>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <a href="index.html">Overview</a>
+        <a href="hyperbola.html">Standard Hyperbolas</a>
+        <a href="shifted.html">Shifted Hyperbolas</a>
+        <a href="application.html">Conic Applications</a>
+        <span class="active">General Equation</span>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="lesson-body">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="lessonpagetoc">
+            <button class="dropbtn">On this Page</button>
+            <!-- <p> On this Page </p> -->
+            <div class="dropdown-content">
+                <ul>
+                    <li><a href="#top">General Equation</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- The main content starts here-->
+        <h2 id="top">General Equation</h2>
+
+        <p>The general equation of a conic section is given below, where \(A, B, ..., F\) are Real numbers.</p>
+            
+        \[Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0\]
+
+        <p>However, the \(Bxy\) term can result in conics that are skewed or oriented in directions other than horizontal or vertical which is beyond the scope of this course, so we will focus on conics equations where \(B = 0\). This simplifies the above equation to the following.</p>
+
+        <div class="def-eqn">
+            <p>We refer to the equation below as the <strong>general conic equation</strong> because this one equation is able to express all four primary conic sections (parabolas, circles, ellipses, and hyperbolas) as well as all degenerate conic sections (line, pair of intersecting lines, or single point).</p>
+
+            \[Ax^2 + Cy^2 + Dx + Ey + F = 0\]
+
+            <p>For a given conic equation in general form that is a non-degenerate conic, and assuming that both \(A \ne 0\) and \(C \ne 0\), we can easily determine which primary conic section is represented by the given equation using the following.</p>
+
+            <ol>
+                <li>A parabola is formed if either \(A=0\) or \(C=0\). In other words, the equation only has one squared term.</li>
+                <li>A circle is formed if \(A=C\).</li>
+                <li>An ellipse is formed if \(A\) and \(C\) have the same sign and \(A \ne C\).</li>
+                <li>A hyperbola is formed if \(A\) and \(C\) have opposite sign.</li>
+            </ol>
+
+            <p>Once we identify which conic section is represented by a given general equation, we can rewrite the general equation in the corresponding standard equation form by completing the square.</p>
+        </div>
+
+        <p>Here are a few examples of conics given in general form and their cooresponding standard form.</p>
+
+        <div class="tbl" style="width: 100%;">
+            <div class="tbl-cap">
+                General vs. Standard
+            </div>
+            <div class="tbl-hdr-row">
+                <div class="tbl-hdr-col">
+                    Graph
+                </div>
+                <div class="tbl-hdr-col">
+                    General Equation
+                </div>
+                <div class="tbl-hdr-col">
+                    Standard Equation
+                </div>
+                <div class="tbl-hdr-col">
+                    Reasoning
+                </div>
+            </div>
+            <div class="tbl-body">
+                <div class="tbl-row">
+                    <div class="tbl-col">
+                        <img src="gen-parabola.png" alt="">
+                    </div>
+                    <div class="tbl-col" style="padding: 10px">
+                        \[y^2+4x+10y-15=0\]
+                    </div>
+                    <div class="tbl-col" style="padding: 10px">
+                        \[(y+5)^2 = -4(x-10)\]
+                    </div>
+                    <div class="tbl-col" style="text-align: left;">
+                        <p>The equation represents a parabola because \(A=0\), meaning the \(x^2\) term is missing.</p>
+                    </div>
+                </div>
+                <div class="tbl-row">
+                    <div class="tbl-col">
+                        <img src="gen-circle.png" alt="">
+                    </div>
+                    <div class="tbl-col" style="padding: 10px">
+                        \[x^2+y^2-10x-10y-14=0\]
+                    </div>
+                    <div class="tbl-col" style="padding: 10px">
+                        \[(x-5)^2 + (y-5)^2 = 64\]
+                    </div>
+                    <div class="tbl-col" style="text-align: left;">
+                        <p>The equation represents a circle because \(A=C\), since \(A=1\) and \(C=1\).</p>
+                    </div>
+                </div>
+                <div class="tbl-row">
+                    <div class="tbl-col">
+                        <img src="gen-ellipse.png" alt="">
+                    </div>
+                    <div class="tbl-col" style="padding: 10px">
+                        \[x^2+4y^2+10x-40y+61=0\]
+                    </div>
+                    <div class="tbl-col" style="padding: 10px">
+                        \[\frac{(x+5)^2}{64} + \frac{(y-5)^2}{16} = 1\]
+                    </div>
+                    <div class="tbl-col" style="text-align: left;">
+                        <p>The equation represents an ellipse because \(A\) and \(C\) have the same signs but are not equal, since \(A=1\) and \(C=4\).</p>
+                    </div>
+                </div>
+                <div class="tbl-row">
+                    <div class="tbl-col">
+                        <img src="gen-hyperbola.png" alt="">
+                    </div>
+                    <div class="tbl-col" style="padding: 10px">
+                        \[-9x^2+36y^2-90x+360y+351=0\]
+                    </div>
+                    <div class="tbl-col" style="padding: 10px">
+                        \[\frac{(y+5)^2}{9} - \frac{(x+5)^2}{36} = 1\]
+                    </div>
+                    <div class="tbl-col" style="text-align: left;">
+                        <p>The equation represents a hyperbola because \(A\) and \(C\) have opposite signs, since \(A=-9\) and \(C=36\).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- End of the main content -->
+    </div>
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div id="lesson-footer">
+        <div class="l-col">
+            <p>©2025 <a href="https://www.youtube.com/channel/UCszzyEwfkBHBPk6xkNrGpAA" target="_blank">M4thG33x (new
+                    window)</a> Some Rights Reserved.</p>
+            <a rel="license " href="http://creativecommons.org/licenses/by-sa/4.0/ "><img alt="Creative Commons License " src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png "></a>
+        </div>
+        <div class="r-col">
+            <a href="# " onclick="pgPrint(); return false; "><i class="fa fa-print "></i> Printer Friendly</a>
+        </div>
+    </div>
+</body>
+
+</html>
