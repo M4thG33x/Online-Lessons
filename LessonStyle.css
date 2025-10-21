@@ -37,7 +37,6 @@ body {
 
 /* ------ Overview Page: Header ------ */
 #overview-header {
-    padding: 0 0 20px 0;
     background-color: #005480;
     color: white;
     text-align: center;
@@ -57,6 +56,7 @@ body {
 }
 
 #overview-header button {
+    margin-bottom: 20px;
     padding: 15px 30px;
     border-radius: 20px;
     border: none;
@@ -67,6 +67,51 @@ body {
 #overview-header button:hover {
     background-color: orange;
     color: white;
+}
+
+.home-page {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.home-page .l-col {
+    width: 40%;
+    text-align: right;
+}
+
+.home-page .r-col {
+    width: 60%;
+    text-align: left;
+}
+
+.home-page p {
+    display: inline-block;
+    text-align: left;
+}
+
+@media screen and (max-width: 1000px) {
+    .home-page {
+        display: block;
+        width: 100%;
+    }
+
+    .home-page .l-col {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    .home-page .r-col {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 0;
+    }
+
+    .home-page p {
+        display: inline-block;
+        text-align: center;
+    }
 }
 
 /* ------ Overview Page: Main Body ------ */
@@ -525,7 +570,8 @@ body {
     border-style: none;
     font-size: small;
 
-    position: -webkit-sticky; /* Safari */
+    position: -webkit-sticky;
+    /* Safari */
     position: sticky;
     top: 60px;
     z-index: 1;
@@ -872,10 +918,10 @@ body {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-  }
+}
 
-  .radiocntrv,
-  .radiocntrimg {
+.radiocntrv,
+.radiocntrimg {
     display: block;
     position: relative;
     padding-left: 35px;
@@ -886,18 +932,18 @@ body {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-  }
-  
-  .radiocntrh input[type="radio"],
-  .radiocntrv input[type="radio"],
-  .radiocntrimg input[type="radio"] {
+}
+
+.radiocntrh input[type="radio"],
+.radiocntrv input[type="radio"],
+.radiocntrimg input[type="radio"] {
     /* Hide the browser's default radio button */
     position: absolute;
     opacity: 0;
     cursor: pointer;
-  }
-  
-  .radiobtn {
+}
+
+.radiobtn {
     /* Create a custom radio button */
     position: absolute;
     top: 2px;
@@ -906,57 +952,58 @@ body {
     width: 21px;
     background-color: #eee;
     border-radius: 50%;
-  }
+}
 
-  .radiocntrimg .radiobtn {
+.radiocntrimg .radiobtn {
     position: absolute;
     top: 50%;
     -ms-transform: translateY(-12px);
     transform: translateY(-12px);
-  }
-  
-  .radiocntrh:hover input ~ .radiobtn,
-  .radiocntrv:hover input ~ .radiobtn,
-  .radiocntrimg:hover input ~ .radiobtn {
+}
+
+.radiocntrh:hover input~.radiobtn,
+.radiocntrv:hover input~.radiobtn,
+.radiocntrimg:hover input~.radiobtn {
     /* On mouse-over, add a grey background color */
     background-color: #ccc;
     /* background-color: orange; */
-  }
-  
-  .radiocntrh input:checked ~ .radiobtn,
-  .radiocntrv input:checked ~ .radiobtn,
-  .radiocntrimg input:checked ~ .radiobtn {
+}
+
+.radiocntrh input:checked~.radiobtn,
+.radiocntrv input:checked~.radiobtn,
+.radiocntrimg input:checked~.radiobtn {
     /* When the radio button is checked, add a blue background */
     background-color: #005480;
-  }
-  
-  .radiobtn:after {
+}
+
+.radiobtn:after {
     /* Create the indicator (the dot/circle - hidden when not checked) */
     content: "";
     position: absolute;
     display: none;
-  }
-  
-  .radiocntrh input:checked ~ .radiobtn:after,
-  .radiocntrv input:checked ~ .radiobtn:after,
-  .radiocntrimg input:checked ~ .radiobtn:after {
+}
+
+.radiocntrh input:checked~.radiobtn:after,
+.radiocntrv input:checked~.radiobtn:after,
+.radiocntrimg input:checked~.radiobtn:after {
     /* Show the indicator (dot/circle) when checked */
     display: block;
-  }
-  
-  .radiocntrh .radiobtn:after,
-  .radiocntrv .radiobtn:after,
-  .radiocntrimg .radiobtn:after {
+}
+
+.radiocntrh .radiobtn:after,
+.radiocntrv .radiobtn:after,
+.radiocntrimg .radiobtn:after {
     /* Style the indicator (dot/circle) */
-      top: 7px;
-      left: 7px;
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: white;
-  }
+    top: 7px;
+    left: 7px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: white;
+}
 
 @media screen and (max-width: 857px) {
+
     /* Adjust width and horziontal spacing for narrow window */
     .radiocntrh {
         display: block;

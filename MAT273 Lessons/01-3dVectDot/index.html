@@ -9,83 +9,81 @@
     <!--Awesome Fonts link-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--Custom CSS files-->
-    <link rel="stylesheet" type="text/css" media="screen" href="LessonStyle.css">
-    <link rel="stylesheet" type="text/css" media="print" href="PrintStyle.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="../../LessonStyle.css">
+    <!--<link rel="stylesheet" type="text/css" media="print" href="PrintStyle.css">-->
     <!--MathJax links-->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
     <!--Custom scripts-->
-    <script src="script.js"></script>
-    <!--Remove padding from grid boxes-->
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-    </style>
+    <script src="../../script.js"></script>
+
     <title>Overview</title>
+    <link rel="icon" type="image/png" href="../../logo-s.png">
 </head>
 
-<body id="maincontent" style="background-color: white;">
+<body id="mainbody">
     <!-- Print Button: only visible on the printer friendly page -->
-    <div class="printbuttonbar">
+    <div id="printbutton">
         <button onclick="loadprint()">Print Page</button>
     </div>
 
     <!-- Page Header: includes lesson title and subtitle, and Start Button -->
-    <div class="banner">
-        <img src="logo_custom.png" alt="Wake Tech Logo">
+    <div id="overview-header">
+        <img src="../../logo_custom.png" alt="Wake Tech Logo">
         <h1>3D Space, Vectors &amp; Dot Product</h1>
         <p>Vectors and the Geometry of Space</p>
+
         <button onclick="location.href='Page1.html'">Start Lesson</button>
     </div>
 
-    <!-- Lesson Objectives -->
-    <div class="body-objectives">
-        <h2>Objectives</h2>
-        <p>In this lesson, you will learn to:</p>
-        <ul>
-            <li>Identify the structure of the 3D coordinate system.</li>
-            <li>Plot points in \(&#8477;^3\).</li>
-            <li>Draw simple planes in \(&#8477;^3\).</li>
-            <li>Determine the distance and midpoint between two points in \(&#8477;^3\).</li>
-            <li>Write the equation of spheres.</li>
-            <li>Perform basic vector operations of addition, subtraction, and scalar multiplication in \(&#8477;^2\) and \(&#8477;^3\).</li>
-            <li>Express vectors in component form and \(\hat{\imath} \hat{\jmath}\) (\(\hat{\imath} \hat{\jmath} \hat{k}\)) form.</li>
-            <li>Determine magnitude and direction of a vector.</li>
-            <li>Solve applications involving vectors.</li>
-            <li>Compute the dot and cross product of two vectors.</li>
-            <li>Compute the projection of one vector onto another.</li>
-            <li>Solve applications involving the dot product.</li>
-        </ul>
-        <hr>
-    </div>
+    <div id="overview-body">
+        <div class="l-col">
+            <!-- Table of Content: list pages (w/ links) in the lesson -->
+            <div class="overview-content">
+                <h2>Content</h2>
+                <ul>
+                    <li><a href="Page1.html">3D Space</a></li>
+                    <li><a href="Page2.html">Planes &amp; Spheres</a></li>
+                    <li><a href="Page3.html">Vectors</a></li>
+                    <li><a href="Page4.html">GeoGebra</a></li>
+                    <li><a href="Page5.html">Dot Product</a></li>
+                </ul>
+                <p>Click a link above to navigate to that page of the lesson.</p>
+            </div>
+        </div>
 
-    <!-- Table of Content: list pages (w/ links) in the lesson -->
-    <div class="body-content">
-        <h2>Content</h2>
-        <ul>
-            <li><a href="Page1.html">3D Space</a></li>
-            <li><a href="Page2.html">Planes &amp; Spheres</a></li>
-            <li><a href="Page3.html">Vectors</a></li>
-            <li><a href="Page4.html">GeoGebra</a></li>
-            <li><a href="Page5.html">Dot Product</a></li>
-        </ul>
-        <hr>
+        <div class="r-col">
+
+            <!-- Lesson Objectives -->
+            <div class="overview-objectives">
+                <h2>Objectives</h2>
+                <p>In this lesson, you will learn to:</p>
+                <ul>
+                    <li>Identify the structure of the 3D coordinate system.</li>
+                    <li>Plot points in \(&#8477;^3\).</li>
+                    <li>Draw simple planes in \(&#8477;^3\).</li>
+                    <li>Determine the distance and midpoint between two points in \(&#8477;^3\).</li>
+                    <li>Write the equation of spheres.</li>
+                    <li>Perform basic vector operations of addition, subtraction, and scalar multiplication in \(&#8477;^2\) and \(&#8477;^3\).</li>
+                    <li>Express vectors in component form and \(\hat{\imath} \hat{\jmath}\) (\(\hat{\imath} \hat{\jmath} \hat{k}\)) form.</li>
+                    <li>Determine magnitude and direction of a vector.</li>
+                    <li>Solve applications involving vectors.</li>
+                    <li>Compute the dot and cross product of two vectors.</li>
+                    <li>Compute the projection of one vector onto another.</li>
+                    <li>Solve applications involving the dot product.</li>
+                </ul>
+            </div>
+        </div>
     </div>
 
     <!-- Page Footer: includes copyright column and printer link -->
-    <div class="indexfooter">
-        <div class="row">
-            <div class="col-s-9 fleft">
-                <p>Content ©2020. Some Rights Reserved. <br> Video Content by:</p>
-                <ul>
-                    <li><a href="http://www.mathispower4u.com/" target="_blank">Mathispower4u (new window)</a></li>
-                </ul>
-                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
-            </div>
-            <div class="col-s-3 fright">
-                <a href="#" onclick="pgPrint(); return false;"><i class="fa fa-print"></i> Printer Friendly</a>
-            </div>
+    <div id="overview-footer">
+        <div class="l-col">
+            <p>©2025 <a href="https://www.youtube.com/channel/UCszzyEwfkBHBPk6xkNrGpAA" target="_blank">M4thG33x (new window)</a> Some Rights Reserved.</p>
+            <a rel="license " href="http://creativecommons.org/licenses/by-sa/4.0/ "><img alt="Creative Commons License " src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png "></a>
+        </div>
+        <div class="r-col">
+            <a href="# " onclick="pgPrint(); return false; "><i class="fa fa-print "></i> Printer Friendly</a>
         </div>
     </div>
 

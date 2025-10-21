@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--Custom CSS files-->
     <link rel="stylesheet" type="text/css" media="screen" href="../../LessonStyle.css">
-    <link rel="stylesheet" type="text/css" media="print" href="../../PrintStyle.css">
     <!--MathJax links-->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
@@ -19,7 +18,9 @@
     <script src="../../script.js"></script>
     <!--Assessment script-->
     <script src="../../quizlets.js"></script>
+
     <title>Graphing Other Trig Functions</title>
+    <link rel="icon" type="image/png" href="../../logo-s.png">
 </head>
 
 <body id="mainbody">
@@ -171,6 +172,51 @@
             </div>
         </div>
         <div class="widget-footer">[https://youtu.be/ax37Fl7NDVo]</div>
+        
+        <div class="assess">
+            <!--Enter a prompt for the assessment.-->
+            <p><strong>Self-Check #5</strong>: Which graph represents the 1-period portion of \(y = \cot{\left(\frac{1}{3}\left(x + \pi\right)\right)}\)? (<i>Select the most appropriate response.</i>)</p>
+            <!--All name and id fields must be unique per problem per page.-->
+            <!--Edit the following names and id's to match within each assessment.-->
+            <div class="tbl">
+                <div class="tbl-row">
+                    <div class="tbl-col">
+                        <label class="radiocntrimg">(A) <img src="5a-CotGraph.png" alt="A 1-period graph of y = cot(x) that has been horizontally stretched by a factor of 3 and shifted to the left by pi units.">
+                            <input type="radio" id="opt5-1" name="mcChoice5" value="A">
+                            <span class="radiobtn"></span>
+                        </label>
+                    </div>
+                    <div class="tbl-col">
+                        <label class="radiocntrimg">(B) <img src="5b-CotGraph.png" alt="A 1-period graph of y = cot(x) that has been horizontally stretched by a factor of 3.">
+                            <input type="radio" id="opt5-2" name="mcChoice5" value="B">
+                            <span class="radiobtn"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="tbl-row">
+                    <div class="tbl-col">
+                        <label class="radiocntrimg">(C) <img src="5c-CotGraph.png" alt="A 1-period graph of y = cot(x) that has been shifted to the right by pi units.">
+                            <input type="radio" id="opt5-3" name="mcChoice5" value="C">
+                            <span class="radiobtn"></span>
+                        </label>
+                    </div>
+                    <div class="tbl-col">
+                        <label class="radiocntrimg">(D) <img src="5d-CotGraph.png" alt="A 1-period graph of y = cot(x) that has been horizontally stretched by a factor of 3 and shifted to the right by pi units.">
+                            <input type="radio" id="opt5-4" name="mcChoice5" value="D">
+                            <span class="radiobtn"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!--Enter the coorect choice in the ans field.-->
+            <button onclick="checkMCSub('mcChoice5','A','correct5','wrong5','makechoice5')" id="submit5">Check</button>
+            <div class="response" id="makechoice5"><i>You must select an answer above</i>.</div>
+            <div class="response" id="correct5"><i class="fa fa-check" style="color: green"></i></div>
+            <div class="response" id="wrong5"><i class="fa fa-times" style="color: red"></i>
+                <!--State the correct answer and provide a solution.-->
+                <p>(Answer: A) -- The standard 1-period graph of \(y = \cot(x)\) is a decreasing curve having a period length of \(\pi\) located between the vertical asymptotes at \(x = 0\) and \(x = \pi\). The \(\frac{1}{3}\) coefficient of \(x\) means the transformed period is \(\frac{\pi}{\frac{1}{3}} = 3\pi\). The inner expression \(x + \pi\) means the graph was also shifted to the left by \(\pi\) units. So the left vertical asymptote will be at \(x = -\pi\) and the right vertical asymptote will be a distance of \(3\pi\) units to the right at \(x = 2\pi\). Only graph A matches these transformations.</p>
+            </div>
+        </div>
         <!-- End of the main content -->
     </div>
 

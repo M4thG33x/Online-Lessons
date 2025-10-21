@@ -10,14 +10,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--Custom CSS files-->
     <link rel="stylesheet" type="text/css" media="screen" href="LessonStyle.css">
-    <link rel="stylesheet" type="text/css" media="print" href="PrintStyle.css">
+    <!--<link rel="stylesheet" type="text/css" media="print" href="PrintStyle.css">-->
     <!--MathJax links-->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
     <!--Custom scripts-->
     <script src="script.js"></script>
 
-    <title>Online Lessons for Josh Bowers</title>
+    <title>Online Lessons for J Bowers</title>
+    <link rel="icon" type="image/png" href="logo-s.png">
 </head>
 
 <body id="mainbody"> <!-- Use mainbody ID for page script.js -->
@@ -28,9 +29,19 @@
     </div>
 
     <!-- Page Header: includes lesson title and subtitle, and Start Button -->
-    <div id="overview-header">
+    <div id="overview-header"><!--
         <h1>Online Lessons</h1>
-        <p>Josh Bowers</p>
+        <p>J Bowers</p>
+        <img src="logo-m.png" alt="">-->
+        <div class="home-page">
+            <div class="l-col">
+                <img src="logo-m.png" alt="J Bowers logo" width="128px">
+            </div>
+            <div class="r-col">
+                <h1>Online Lessons</h1>
+                <p>J Bowers</p>
+            </div>
+        </div>
     </div>
 
     <div id="overview-body">
@@ -78,7 +89,7 @@
             <a rel="license " href="http://creativecommons.org/licenses/by-sa/4.0/ "><img alt="Creative Commons License " src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png "></a>
         </div>
         <div class="r-col">
-            <a href="# " onclick="pgPrint(); return false; "><i class="fa fa-print "></i> Printer Friendly</a>
+            <a href="# " onclick="pgPrintHome(); return false; "><i class="fa fa-print "></i> Printer Friendly</a>
         </div>
     </div>
 

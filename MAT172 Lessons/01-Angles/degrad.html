@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--Custom CSS files-->
     <link rel="stylesheet" type="text/css" media="screen" href="../../LessonStyle.css">
-    <link rel="stylesheet" type="text/css" media="print" href="../../PrintStyle.css">
     <!--MathJax links-->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
@@ -19,7 +18,9 @@
     <script src="../../script.js"></script>
     <!--Assessment script-->
     <script src="../../quizlets.js"></script>
+
     <title>Degrees & Radians</title>
+    <link rel="icon" type="image/png" href="../../logo-s.png">
 </head>
 
 <body id="mainbody">
@@ -107,13 +108,15 @@
 
         <div class="def-eqn">
             <p>A <strong>radian</strong> is a unit of angular measurement where 1 radian is equal to the amount of rotation for the terminal side to trace out an arc of a circle whose length is equal to the radius of the circle. The radian unit can be expressed using the "rad" abbreviation.</p>
+            
+            <p>Note that if an angle measurement is given without the &deg; symbol or "rad" abbreviation, then it is assumed to be a radian measurement.</p>
         </div>
 
-        <p>To illustrate what a radian looks like, consider the graph below. We have a circle of radius \(r\) and an angle of 1 rad. The arc along the circle between the initial and terminal sides of the angle also has a length of \(r\).</p>
+        <p>While that doesn't sound as intuitive or as easy to understand, it has its benefits. To illustrate what a radian looks like, consider the graph below. We have a circle of radius \(r\) and an angle of 1 rad. The arc along the circle between the initial and terminal sides of the angle also has a length of \(r\).</p>
 
         <img src="1rad.png" alt="Graph of a circle with radius r and an arc of length r that is traced along the circle between the initial and terminal sides of an angle of 1 radian.">
 
-        <p>So how do we use radians to measure angles? Consider a similar graph below, but now having a total angle of rotation of 3 radians, or 3 rad. Notice that the 3rd angle is just short of the negative \(x\)-axis, or 180&deg;. It turns out that this little sliver of an angle between the 3rd radian terminal side and the negative \(x\)-axis is roughly 0.14159 (rounded to 5 decimal places). That means that the negative \(x\)-axis has a rotation of \(3 + 0.14159 = 3.14159\) rad from the positive \(x\)-axis, which we define as \(\pi\) = 3.14159 (rounded to 5 decimal places). In other words, a rotation of 180&deg; is equivalent to a rotation of \(\pi\) rad.</p>
+        <p>So how do we use radians to measure angles? Consider a similar graph below, but now having a total angle of rotation of 3 radians, or 3 rad. Notice that the 3rd angle is just short of the negative \(x\)-axis, or 180&deg;. It turns out that this little sliver of an angle between the 3rd radian terminal side and the negative \(x\)-axis is roughly 0.14159 (rounded to 5 decimal places). That means that the negative \(x\)-axis has a rotation of \(3 + 0.14159 = 3.14159\) rad from the positive \(x\)-axis, which we define as \(\pi\) = 3.14159 (rounded to 5 decimal places). In other words, a rotation of 180&deg; is equivalent to a rotation of exactly \(\pi\) rad.</p>
 
         <img src="3rad.png" alt="Graph of a circle with radius r showing an arc of length 3r that is traced along the circle formed by three consecutive rotations of 1 radian each. The total arc is just short of a half-rotation about the circle, which exactly half would be pi radians.">
 
@@ -154,7 +157,7 @@
 
             \[\frac{180^{\circ}}{\pi} \text{ or } \frac{\pi}{180^{\circ}}\]
 
-            <p>This means that 1 rad &approx; 57.2958&deg; (rounded to 4 decimal places).</p>
+            <p>This also means that 1 rad &approx; 57.2958&deg; (rounded to 4 decimal places).</p>
         </div>
 
         <p>The following video demonstrates how we can use these converion ratios to convert degrees to radians and radians to degrees.</p>

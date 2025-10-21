@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--Custom CSS files-->
     <link rel="stylesheet" type="text/css" media="screen" href="../../LessonStyle.css">
-    <link rel="stylesheet" type="text/css" media="print" href="../../PrintStyle.css">
     <!--MathJax links-->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
@@ -19,7 +18,9 @@
     <script src="../../script.js"></script>
     <!--Assessment script-->
     <script src="../../quizlets.js"></script>
+
     <title>Unit Circle</title>
+    <link rel="icon" type="image/png" href="../../logo-s.png">
 </head>
 
 <body id="mainbody">
@@ -70,7 +71,7 @@
         <!-- The main content starts here-->
         <h2 id="top">The Unit Circle</h2>
 
-        <p>In our previous lesson, we learned about the six trigonometric function and defined them for <em>acute</em> angles of right triangles. In particular, we focused on the specific angles of 30&deg;, 45&deg;, and 60&deg;. We now want to develop a way to compute these trig function values for any angle, not just acute angles. This process will take some work to get through, so be patient and keep with it. The foundation for our work is the <strong>unit circle</strong>, which is simply a circle of radius 1 that is centered at the origin of the \(xy\)-plane.</p>
+        <p>In our previous lesson, we learned about the six trigonometric functions and defined them for <em>acute</em> angles of right triangles. In particular, we focused on the specific angles of 30&deg;, 45&deg;, and 60&deg;. We now want to develop a way to compute these trig function values for any angle, not just acute angles. This process will take some work to get through, so be patient and keep with it. The foundation for our work is the <strong>unit circle</strong>, which is simply a circle of radius 1 that is centered at the origin of the \(xy\)-plane.</p>
 
         <img src="unitcircle.png" alt="A circle of radius 1 centered at the origin of the xy-plane.">
 
@@ -156,31 +157,22 @@
             </div>
         </div>
 
-        <p>If we zoom into the first quadrant of the unit circle, as illustrated below, then we can see 5 terminal points that correspond to the central angles \(\theta\) = 0&deg;, 30&deg;, 45&deg;, 60&deg;, and 90&deg; which correspond to the terminal numbers \(t = 0\), \(\frac{\pi}{6}\), \(\frac{\pi}{4}\), \(\frac{\pi}{3}\), and \(\frac{\pi}{2}\), respectively.</p>
+        <p>If we zoom into the first quadrant of the unit circle, as illustrated below, then we can see 5 terminal points that correspond to the central angles of \(\theta\) = 0&deg;, 30&deg;, 45&deg;, 60&deg;, and 90&deg; which correspond to the terminal numbers \(t = 0\), \(\frac{\pi}{6}\), \(\frac{\pi}{4}\), \(\frac{\pi}{3}\), and \(\frac{\pi}{2}\), respectively.</p>
 
         <img src="angles-1st-quad.png" alt="The part of the unit circle contained within the 1st quadrant. There are five radials from the origin to the circle that represent different angles. The first radial is the positive x-axis which represents a 0 degree or 0 radian angle and it intersects the circle at the point (1, 0). The second radial forms a 30 degree or pi/6 radian angle with the positive x-axis and it intersects the circle at the point (√3/2, 1/2). The third radial forms a 45 degree or pi/4 radian angle with the positive x-axis and it intersects the circle at the point (√2/2, √2/2). The fourth radial forms a 60 degree or pi/3 radian angle with the positive x-axis and it intersects the circle at the point (1/2, √3/2). The last radial is the positive y-axis which forms a 90 degree or pi/2 radian angle with the positive x-axis and it intersects the circle at the point (0, 1)." width="267" height="250">
 
         <div class="example">
-            <p><strong>Example:</strong> For now, let's just verify that \(\left(\frac{\sqrt{3}}{2}, \frac{1}{2}\right)\) is on the unit circle.</p>
+            <p><strong>Example:</strong> For now, let's just verify that the point \(\left(\frac{\sqrt{3}}{2}, \frac{1}{2}\right)\) is on the unit circle.</p>
             <input type="checkbox" id="verify-pi-6">
             <label for="verify-pi-6" class="example-button">Solution</label>
             <div class="solution-content">
-                <p>Any point on the unit circle must satisfy the Pythagorean Equation \(x^2 + y^2 = r^2\), which is also the equation for a circle of radius r centered at the origin.</p>
+                <p>Any point on the unit circle must satisfy the Pythagorean Equation \(x^2 + y^2 = r^2\), which is also the equation for a circle of radius \(r\) centered at the origin. In other words, does the point \(\left(\frac{\sqrt{3}}{2}, \frac{1}{2}\right)\) have a radius of 1?</p>
 
-                \[\begin{align*} x^2 + y^2 &= r^2 \\ \left(\frac{\sqrt{3}}{2}\right)^2 + \left(\frac{1}{2}\right)^2 &= 1^2 \\ \frac{3}{4} + \frac{1}{4} &= 1 \\ 1 &= 1 \end{align*}\]
+                \[\begin{align*} x^2 + y^2 &= r^2 \\ \left(\frac{\sqrt{3}}{2}\right)^2 + \left(\frac{1}{2}\right)^2 &\stackrel{?}{=} 1^2 \\ \frac{3}{4} + \frac{1}{4} &\stackrel{?}{=} 1 \\ 1 &= 1 \end{align*}\]
 
                 <p>The statement \(1 = 1\) is always a true statement, so we can conclude that the point \(\left(\frac{\sqrt{3}}{2}, \frac{1}{2}\right)\) is on the unit circle.</p>
             </div>
         </div>
-
-        
-        <!-- <div class="widget-header">Counting Around the Unit Circle</div>
-        <div class="vid-wrap">
-            <div class="vid-cont ratio-16x9">
-                Show how to partition the unit circle by pi/2, pi/3, pi/4, and pi/6 angles and count around the circle.
-            </div>
-        </div>
-        <div class="widget-footer">[]</div> -->
 
         <h3 id="ref-numb">Reference Number</h3>
 
@@ -232,6 +224,8 @@
             </div>
         </div>
 
+        <p>So, whether we are talking about terminal numbers \(t\) or angles \(\theta\), the idea for a reference number or reference angle is the same. Let's look at some examples of how we can located various terminal points along the unit circle given a terminal number and then determine the reference number of that terminal number.</p>
+
         <div class="widget-header">Terminal Numbers and Reference Numbers</div>
         <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
         <div class="frame-wrap">
@@ -258,7 +252,7 @@
             </div>
         </div>
 
-        <p>The power behind thinking in terms of reference numbers or reference angles is that it provides a simple way to map the entire unit circle to just the first quadrant. So, instead of memorizing the entire circle, <em>we just need to remember 3 points in the first quadrant</em> along with the 4 intercepts. The symmetries will also be helpful with central angles or terminal numbers that are not so nice as well as future tasks like graph functions or solving equations.</p>
+        <p>The power behind thinking in terms of reference numbers or reference angles is that it provides a simple way to map the entire unit circle to just the first quadrant. So, instead of memorizing the entire circle, <em>we just need to remember 3 points in the first quadrant</em> along with the 4 intercepts. The symmetries will also be helpful with central angles or terminal numbers that are not so nice as well as future tasks like graphing functions or solving equations.</p>
         <!-- End of the main content -->
     </div>
 
