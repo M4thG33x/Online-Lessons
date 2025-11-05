@@ -98,18 +98,18 @@
 
         <div class="assess">
             <!--Enter a prompt for the assessment.-->
-            <p><strong>Self-Check #1</strong>: Find the value of x. Illustration may not be drawn to scale. (<i>Enter your answer rounded to 2 decimal places</i>.)</p>
+            <p><strong>Self-Check #3</strong>: Find the value of x. Illustration may not be drawn to scale. (<i>Enter your answer rounded to 2 decimal places</i>.)</p>
 
             <img src="ex1-tri-20d-75d-15.png" alt="Illustration of a triangle with angle measuring 20 degrees and 75 degrees. The side between the two angles has length x. The other side adjacent to the 70 degree angle and opposite the 20 degree angle has length 15.">
 
             <!--All id's must be unique per problem per page.-->
             <!--Enter the answer in the ans field.-->
-            <button onclick="checkFitBSub('input1',43.69,'correct1','wrong1','enterans1',0.01)" id="submit1">Check</button>
-            <label for="input1">Answer:</label>
-            <input id="input1" type="text" value="" />
-            <div class="response" id="enterans1"><i>You must enter an answer</i>.</div>
-            <div class="response" id="correct1"><i class="fa fa-check" style="color: green"></i></div>
-            <div class="response" id="wrong1"><i class="fa fa-times" style="color: red"></i>
+            <button onclick="checkFitBSub('input3',43.69,'correct3','wrong3','enterans3',0.01)" id="submit3">Check</button>
+            <label for="input3">Answer:</label>
+            <input id="input3" type="text" value="" />
+            <div class="response" id="enterans3"><i>You must enter an answer</i>.</div>
+            <div class="response" id="correct3"><i class="fa fa-check" style="color: green"></i></div>
+            <div class="response" id="wrong3"><i class="fa fa-times" style="color: red"></i>
                 <!--State the correct answer and provide a solution.-->
                 <p>(Answer: 43.69) -- Looking at the given values in the triangle, we have two angles and the side adjacent to only one of them (not between them). This represents the AAS case for law fo sines. The bottom side of length \(x\) is opposite the unknown angle at the top. To find this angle, remember that the sum of the 3 angles must be 180&deg;. So, if we call this unknown angle \(\theta\), then we have the equation \(20^{\circ} + 75^{\circ} + \theta = 180^{\circ}\). Solving this results in \(\theta = 85^{\circ}\). Next, we have two pairs of angles and their opposite sides which we can then set up a proportion using the law of sines.</p>
 
@@ -139,29 +139,29 @@
 
         <div class="assess">
             <!--Enter a prompt for the assessment.-->
-            <p><strong>Self-Check #2</strong>: Triangle \(\alpha\beta\gamma\) with corresponding sides \(a\), \(b\), and \(c\), respectively, has angle \(\beta = 35^{\circ}\) and sides of length \(a = 12\) and \(b = 10\). How many triangles exist as a solution to the given information? (<i>Select the most appropriate response.</i>)</p>
+            <p><strong>Self-Check #4</strong>: Triangle \(\alpha\beta\gamma\) with corresponding sides \(a\), \(b\), and \(c\), respectively, has angle \(\beta = 35^{\circ}\) and sides of length \(a = 12\) and \(b = 10\). How many triangles exist as a solution to the given information? (<i>Select the most appropriate response.</i>)</p>
             <!--All name and id fields must be unique per problem per page.-->
             <label class="radiocntrh">(A) None
-                <input type="radio" id="opt2-1" name="mcChoice2" value="A">
+                <input type="radio" id="opt4-1" name="mcChoice4" value="A">
                 <span class="radiobtn"></span>
             </label>
             <label class="radiocntrh">(B) 1
-                <input type="radio" id="opt2-2" name="mcChoice2" value="B">
+                <input type="radio" id="opt4-2" name="mcChoice4" value="B">
                 <span class="radiobtn"></span>
             </label>
             <label class="radiocntrh">(C) 2
-                <input type="radio" id="opt2-3" name="mcChoice2" value="C">
+                <input type="radio" id="opt4-3" name="mcChoice4" value="C">
                 <span class="radiobtn"></span>
             </label>
             <label class="radiocntrh">(D) Infinitely many
-                <input type="radio" id="opt2-4" name="mcChoice2" value="D">
+                <input type="radio" id="opt4-4" name="mcChoice4" value="D">
                 <span class="radiobtn"></span>
             </label><br>
             <!--Enter the coorect choice in the ans field.-->
-            <button onclick="checkMCSub('mcChoice2','C','correct2','wrong2','makechoice2')" id="submit2">Check</button>
-            <div class="response" id="makechoice2"><i>You must select an answer above</i>.</div>
-            <div class="response" id="correct2"><i class="fa fa-check" style="color: green"></i></div>
-            <div class="response" id="wrong2"><i class="fa fa-times" style="color: red"></i>
+            <button onclick="checkMCSub('mcChoice4','C','correct4','wrong4','makechoice4')" id="submit4">Check</button>
+            <div class="response" id="makechoice4"><i>You must select an answer above</i>.</div>
+            <div class="response" id="correct4"><i class="fa fa-check" style="color: green"></i></div>
+            <div class="response" id="wrong4"><i class="fa fa-times" style="color: red"></i>
                 <!--State the correct answer and provide a solution.-->
                 <p>(Answer: C) -- Start by drawing a triangle and labeling all the angles and sides, including the given values. It might be easiest to put the know angle at the bottom-left of the triangle and the know sides at the top. That way, it will be similar to the illustrations we looked at in the video above. Looking at the triangle below, we can see that we are indeed given the measure of two sides and the angle that is not between them. This is the SSA case.</p>
 

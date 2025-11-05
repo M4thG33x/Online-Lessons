@@ -90,6 +90,23 @@
         </div>
         <div class="widget-footer">[https://youtu.be/JeQWGYh1dDM]</div>
         
+
+        <div class="assess">
+            <!--Enter a prompt for the assessment.-->
+            <p><strong>Self-Check #5</strong>: Use Heron's formula to compute the area of a triangle having sides with length 14, 23, and 27. (<i>Enter your answer rounded to the nearest whole number</i>.)</p>
+            <!--All id's must be unique per problem per page.-->
+            <!--Enter the answer in the ans field.-->
+            <button onclick="checkFitBSub('input5',161,'correct5','wrong5','enterans5',0.01)" id="submit5">Check</button>
+            <label for="input5">Answer:</label>
+            <input id="input5" type="text" value="" />
+            <div class="response" id="enterans5"><i>You must enter an answer</i>.</div>
+            <div class="response" id="correct5"><i class="fa fa-check" style="color: green"></i></div>
+            <div class="response" id="wrong5"><i class="fa fa-times" style="color: red"></i>
+                <!--State the correct answer and provide a solution.-->
+                <p>(Answer: 161) -- We must first compute the semi-perimeter using the formula \(s = \frac{1}{2}\left(14+23+27\right) = 32\). Then we can find the area.</p>
+                \[A = \sqrt{32(32-14)(32-23)(32-27)} = \sqrt{32(18)(9)(5)} = 72\sqrt{5} \approx 161.\]
+            </div>
+        </div>
         <!-- End of the main content -->
     </div>
 

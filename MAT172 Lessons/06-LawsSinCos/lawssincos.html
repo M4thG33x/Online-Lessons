@@ -150,6 +150,68 @@
             </div>
         </div>
 
+        <div class="assess">
+            <!--Enter a prompt for the assessment.-->
+            <p><strong>Self-Check #1</strong>: Which case matches the triangle illustrated below? (<i>Select the most appropriate response.</i>)</p>
+            <img src="case-check1.png" alt="A triangle with side of length 5, adjacent angle of 55 degrees, and opposite angle of 30 degrees.">
+            <!--All name and id fields must be unique per problem per page.-->
+            <label class="radiocntrh">(A) SAS
+                <input type="radio" id="opt1-1" name="mcChoice1" value="A">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(B) AAS
+                <input type="radio" id="opt1-2" name="mcChoice1" value="B">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(C) ASA
+                <input type="radio" id="opt1-3" name="mcChoice1" value="C">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(D) SSA
+                <input type="radio" id="opt1-4" name="mcChoice1" value="D">
+                <span class="radiobtn"></span>
+            </label><br>
+            <!--Enter the coorect choice in the ans field.-->
+            <button onclick="checkMCSub('mcChoice1','B','correct1','wrong1','makechoice1')" id="submit1">Check</button>
+            <div class="response" id="makechoice1"><i>You must select an answer above</i>.</div>
+            <div class="response" id="correct1"><i class="fa fa-check" style="color: green"></i></div>
+            <div class="response" id="wrong1"><i class="fa fa-times" style="color: red"></i>
+                <!--State the correct answer and provide a solution.-->
+                <p>(Answer: B) -- We are given the measure of two angles of the triangle and the measure of one side. So, it can't be SAS or SSA. If the given side was between the two angles, then we would have ASA. But instead, the given side is not between the two angles. It is opposite the 30&deg; angle, so we are looking at a AAS case (or SAA).</p>
+            </div>
+        </div>
+
+        <div class="assess">
+            <!--Enter a prompt for the assessment.-->
+            <p><strong>Self-Check #2</strong>: Which case matches the triangle illustrated below? (<i>Select the most appropriate response.</i>)</p>
+            <img src="case-check2.png" alt="A triangle with side of length 14, another side of length 19, and the angle between the two sides has a measure of 25 degrees.">
+            <!--All name and id fields must be unique per problem per page.-->
+            <label class="radiocntrh">(A) SAS
+                <input type="radio" id="opt2-1" name="mcChoice2" value="A">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(B) AAS
+                <input type="radio" id="opt2-2" name="mcChoice2" value="B">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(C) ASA
+                <input type="radio" id="opt2-3" name="mcChoice2" value="C">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(D) SSA
+                <input type="radio" id="opt2-4" name="mcChoice2" value="D">
+                <span class="radiobtn"></span>
+            </label><br>
+            <!--Enter the coorect choice in the ans field.-->
+            <button onclick="checkMCSub('mcChoice2','A','correct2','wrong2','makechoice2')" id="submit2">Check</button>
+            <div class="response" id="makechoice2"><i>You must select an answer above</i>.</div>
+            <div class="response" id="correct2"><i class="fa fa-check" style="color: green"></i></div>
+            <div class="response" id="wrong2"><i class="fa fa-times" style="color: red"></i>
+                <!--State the correct answer and provide a solution.-->
+                <p>(Answer: A) -- We are given the measure of two sides of the triangle and the measure of one angle. Since the given angle is between both sides, meaning both sides are adjacent to the given angle, we can categorize this triangle as SAS.</p>
+            </div>
+        </div>
+
         <p>We will look at examples of each case on the following pages.</p>
         <!-- End of the main content -->
     </div>
