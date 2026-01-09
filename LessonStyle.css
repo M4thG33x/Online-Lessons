@@ -569,7 +569,6 @@ body {
     color: black;
     border-style: none;
     font-size: small;
-
     position: -webkit-sticky;
     /* Safari */
     position: sticky;
@@ -579,7 +578,7 @@ body {
 
 .lessonpagetoc button {
     width: 100%;
-    padding: 5px;
+    padding: 5px 0px 5px 5px;
     font-weight: bold;
     text-align: center;
     background-color: #53534a;
@@ -592,6 +591,8 @@ body {
     position: absolute;
     background-color: #f1f1f1;
     min-width: 100px;
+    width: 100%;
+/*  */
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
@@ -605,7 +606,9 @@ body {
     font-weight: normal;
     /* content: "\f150"; */
     content: "\f053";
-    padding-left: 5px;
+    display: inline-block;
+    width: 1em;
+    margin-left: 5px;
 }
 
 .lessonpagetoc:hover button:after {
@@ -613,25 +616,15 @@ body {
     font-weight: normal;
     /* content: "\f150"; */
     content: "\f078";
-    padding-left: 5px;
+    margin-left: 5px;
 }
-
-/* .lessonpagetoc p {
-    margin: 10px 0 0 0;
-    padding: 5px;
-    font-weight: bold;
-    text-align: center;
-    font-size: 120%;
-    background-color: #53534a;
-    color: white;
-} */
 
 .lessonpagetoc ul {
     margin: 0;
     padding: 5px;
     border-style: solid;
     border-color: #53534a;
-    border-width: 1px;
+    border-width: 0 1px 1px 1px;
     background-color: white;
     font-weight: bold;
     list-style: none;
@@ -648,14 +641,13 @@ body {
     display: block;
     text-decoration: none;
     color: black;
+    border: 1px solid transparent;
+    border-radius: 15px;
 }
 
 .lessonpagetoc a:hover {
-    background-color: #e2e2e2;
     background-color: #fff7ee;
-    border: 1px solid orange;
-    border-radius: 15px;
-    /* background: orange; */
+    border-color: orange;
 }
 
 .lessonpagetoc a:visited {
@@ -669,7 +661,8 @@ body {
         width: auto;
         min-width: 175px;
         max-width: 300px;
-        padding: 0 0 10px 10px;
+        padding: 0 0 10px 0;
+        margin-left: 10px;
     }
 }
 
