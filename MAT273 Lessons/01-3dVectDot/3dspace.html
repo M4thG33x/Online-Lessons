@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../../LessonStyle.css">
+    <!--MathJax links-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="../../script.js"></script>
+    <!--Assessment script-->
+    <script src="../../quizlets.js"></script>
+
+    <title>3D Space</title>
+    <link rel="icon" type="image/png" href="../../logo-s.png">
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div id="lesson-header">
+        <div class="l-col">
+            <img src="../../logo_custom.png" alt="">
+        </div>
+        <div class="r-col">
+            <h1>3D Space, Vectors &amp; Dot Product</h1>
+            <p>Vectors and the Geometry of Space</p>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <a href="index.html">Overview</a>
+        <span class="active">3D Space</span>
+        <a href="Page2.html">Planes &amp; Spheres</a>
+        <a href="Page3.html">Vectors</a>
+        <a href="Page4.html">GeoGebra</a>
+        <a href="Page5.html">Dot Product</a>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="lesson-body">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="lessonpagetoc">
+            <button class="dropbtn">On this Page</button>
+            <!-- <p> On this Page </p> -->
+            <div class="dropdown-content">
+                <ul>
+                    <li><a href="#top">3D Space</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- The main content starts here-->
+        <h2 id="top">3D Space</h2>
+
+        <p>Up to this point, probably all of the functions and graphs you have studied have been expressions of the form \(y = f(x)\) that were graphed on the \(xy\)-plane. All of the concepts and skills that you learned in Calculus I and II (derivatives, integrals, optimization, related rates, series, polar, conics, etc.) can be extended from the 2-dimensional space of x and y to 3-dimensional space. This is the foundational idea for this course. Since the world is in 3D, how do we do calculus in 3D?</p>
+
+        <p>If any point in the 2D \(xy\)-plane \(\mathbb{R}^2\) can be expressed as a coordinate pair \((x,y)\), then any point in 3D space \(\mathbb{R}^3\) can be expressed as a coordinate triple \((x,y,z)\). The \(z\)-coordinate represents how far a point is above or below the \(xy\)-plane. We can express 3D space as the set of all of these triples using the following notation.</p>
+
+        \[\mathbb{R}^3 = \{(x,y,z) \, | \, x,y,z \in \mathbb{R}\}\]
+
+        <p>You would read this as "R 3 is the set of all triples (x, y, z) such that x, y, and z are Real numbers." The symbol \(\in\) means "element of," or that the x, y, and z values must be in \(\mathbb{R}\).</p>
+
+        <p>Use the following GeoGebra app to explore various aspects of 3D space. The initial appearance of the app is of the \(xy\)-plane. You can click-and-drag to rotate the view around. Use the selection boxes on the left to highlight the <strong>coordinate planes</strong>. You can also show the <strong>octants</strong> of 3D space, similar to the quadrants of the \(xy\)-plane. Lastly, you can view how a <strong>point</strong> appears in 3D space. You can change the coordinates of the point by moving the corresponding point on a coordinate axis.
+        </p>
+
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="frame-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="frame-cont ratio-16x9">
+                <iframe height="477px" width="795px" style="border:0px;" scrolling="no" title="3D Space" src="https://www.geogebra.org/material/iframe/id/w4grzpyz/width/795/height/477/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"> </iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://www.geogebra.org/m/snrdkucp]</div>
+
+
+        <p>There are many ways to orient the \(x\), \(y\), and \(z\) axes. We will use a <strong>right-hand rule</strong>, which is illustrated below. If the thumb on your right hand represents the \(z\)-axis, then your fingers would rotate from the \(x\)-axis through the \(y\)-axis as you curl your fingers into a fist.</p>
+
+        <img src="RightHandRule.png" alt="Illustration of the righ-hand rule.">
+
+        <p>Drawing the axes of 3D space on a 2D surface like a piece of paper requires us to use our imagination. We have to slightly alter our perspective on the 3D axes to make a sort of optical illusion. A couple options are illustrated below.</p>
+
+        <img src="CenteredPerspective.png" alt="Illustration of the xyz axes from a point of view centered in the first octant looking down on the origin with the x-axis extending downward to the left, the y-axis extending downward to the right, and the z-axis pointing upward.">
+
+        <p>The image above shows the axes from a point of view centered in the first octant looking down on the origin with the \(x\)-axis extending downward to the left, the \(y\)-axis extending downward to the right, and the \(z\)-axis pointing upward. The image below shows the axes more from the side, where the y-axis is horizontal, the z-axis is vertical, and the x-axis extends forward as if it stretches out of your screen or up off the page. This second perspective is what we will typically want to use throughout the semester, as it gives us a reference frame for width (\(y\)), height (\(z\)), and depth (\(x\)).</p>
+
+        <img src="HorizontalPerspective.png" alt="Illustration of the xyz axes from the side, where the y-axis is horizontal , the z-axis is vertical, and the x-axis extends forward as if it stretches out of your screen or up off the page.">
+
+        <div class="assess">
+            <!--Enter a prompt for the assessment.-->
+            <p><strong>Self-Check #1</strong>: Which graph represents the point \(\left(2, 3, -1\right)\)? (<i>Select the most appropriate response.</i>)</p>
+            <!--All name and id fields must be unique per problem per page.-->
+            <!--Edit the following names and id's to match within each assessment.-->
+            <div class="tbl">
+                <div class="tbl-row">
+                    <div class="tbl-col">
+                        <label class="radiocntrimg">(A) <img src="" alt="">
+                            <input type="radio" id="opt1-1" name="mcChoice1" value="A">
+                            <span class="radiobtn"></span>
+                        </label>
+                    </div>
+                    <div class="tbl-col">
+                        <label class="radiocntrimg">(B) <img src="" alt="">
+                            <input type="radio" id="opt1-2" name="mcChoice1" value="B">
+                            <span class="radiobtn"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="tbl-row">
+                    <div class="tbl-col">
+                        <label class="radiocntrimg">(C) <img src="" alt="">
+                            <input type="radio" id="opt1-3" name="mcChoice1" value="C">
+                            <span class="radiobtn"></span>
+                        </label>
+                    </div>
+                    <div class="tbl-col">
+                        <label class="radiocntrimg">(D) <img src="" alt="">
+                            <input type="radio" id="opt1-4" name="mcChoice1" value="D">
+                            <span class="radiobtn"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!--Enter the coorect choice in the ans field.-->
+            <button onclick="checkMCSub('mcChoice1','ans','correct1','wrong1','makechoice1')" id="submit1">Check</button>
+            <div class="response" id="makechoice1"><i>You must select an answer above</i>.</div>
+            <div class="response" id="correct1"><i class="fa fa-check" style="color: green"></i></div>
+            <div class="response" id="wrong1"><i class="fa fa-times" style="color: red"></i>
+                <!--State the correct answer and provide a solution.-->
+                <p>(Answer: ans) -- Explanation...</p>
+            </div>
+        </div>
+
+
+        <p>In a previous math class, you should have learned how to find the distance between two points on the \(xy\)-plane using \(d = \sqrt{(x_2-x_1)^2 + (y_2 - y_1)^2}\) as well as the location in the middle between two points on the \(xy\)-plane using \(\left(\frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2}\right)\). Since the distance formula comes from the Pythagorean Theorem and the midpoint formula is just the average of the coordinates of the two points, we can easily extend these from the 2D plane to 3D space.</p>
+
+        <div class="def-eqn">
+            <p>In \(\mathbb{R}^3\) we can compute the <strong>distance between two points</strong> \((x_1,y_1,z_1\)) and \((x_2,y_2,z_2\)) using the following formula.</p>
+
+            \[d=\sqrt{(x_2-x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2}\]
+
+            <p>We can also compute the <strong>midpoint of the segment between two points</strong> using the formula below.</p>
+
+            \[\left( \frac{x_1+x_2}{2}, \frac{y_1+y_2}{2}, \frac{z_1+z_2}{2} \right)\]
+        </div>
+
+        <div class="assess">
+            <!--Enter a prompt for the assessment.-->
+            <p><strong>Self-Check #2</strong>: Compute the distance between the points \(\left(3, -1, 5\right)\) and \(\left(4, 1, 0\right)\). (<i>Enter your answer rounded to 2 decimal places</i>.)</p>
+            <!--All id's must be unique per problem per page.-->
+            <!--Enter the answer in the ans field.-->
+            <button onclick="checkFitBSub('input2',5.48,'correct2','wrong2','enterans2',0.01)" id="submit2">Check</button>
+            <label for="input2">Answer:</label>
+            <input id="input2" type="text" value="" />
+            <div class="response" id="enterans2"><i>You must enter an answer</i>.</div>
+            <div class="response" id="correct2"><i class="fa fa-check" style="color: green"></i></div>
+            <div class="response" id="wrong2"><i class="fa fa-times" style="color: red"></i>
+                <!--State the correct answer and provide a solution.-->
+                <p>(Answer: 5.48) -- Using the above formula, we get the following.</p>
+
+                \[\begin{align*} d &= \sqrt{(4 - 3)^2 + (1 - (-1))^2 + (0 - 5)^2} \\ &= \sqrt{1 + 4 + 25} \\ &= \sqrt{30} \\ &\approx 5.48 \end{align*}\]
+            </div>
+        </div>
+
+        <div class="assess">
+            <!--Enter a prompt for the assessment.-->
+            <p><strong>Self-Check #3</strong>: Prompt... (<i>Select the most appropriate response.</i>)</p>
+            <!--All name and id fields must be unique per problem per page.-->
+            <label class="radiocntrh">(A) Choice
+                <input type="radio" id="opt3-1" name="mcChoice3" value="A">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(B) Choice
+                <input type="radio" id="opt3-2" name="mcChoice3" value="B">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(C) Choice
+                <input type="radio" id="opt3-3" name="mcChoice3" value="C">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrh">(D) Choice
+                <input type="radio" id="opt3-4" name="mcChoice3" value="D">
+                <span class="radiobtn"></span>
+            </label><br>
+            <!--Enter the coorect choice in the ans field.-->
+            <button onclick="checkMCSub('mcChoice3','ans','correct3','wrong3','makechoice3')" id="submit3">Check</button>
+            <div class="response" id="makechoice3"><i>You must select an answer above</i>.</div>
+            <div class="response" id="correct3"><i class="fa fa-check" style="color: green"></i></div>
+            <div class="response" id="wrong3"><i class="fa fa-times" style="color: red"></i>
+                <!--State the correct answer and provide a solution.-->
+                <p>(Answer: ans) -- Explanation...</p>
+            </div>
+        </div>
+
+    </div>
+    <!-- End of the main content -->
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div id="lesson-footer">
+        <div class="l-col">
+            <p>©2025 <a href="https://www.youtube.com/channel/UCszzyEwfkBHBPk6xkNrGpAA" target="_blank">M4thG33x (new
+                    window)</a> Some Rights Reserved.</p>
+            <a rel="license " href="http://creativecommons.org/licenses/by-sa/4.0/ "><img alt="Creative Commons License " src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png "></a>
+        </div>
+        <div class="r-col">
+            <a href="# " onclick="pgPrint(); return false; "><i class="fa fa-print "></i> Printer Friendly</a>
+        </div>
+    </div>
+
+</body>
+
+</html>

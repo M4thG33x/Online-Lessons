@@ -21,7 +21,7 @@ function navResp() {
 // Code for printer friendly page
 function pgPrint() {
     // Create a new window
-    var frog = window.open("", "", "width=920,height=600,scrollbars=1,resizable=1")
+    var printDoc = window.open("", "", "width=760,height=600,scrollbars=1,resizable=1")
 
     // Store the html content
     var text = document.getElementById("mainbody").innerHTML;
@@ -29,10 +29,9 @@ function pgPrint() {
     // Create the html content of the new page
     var html = '<html><head>';
     html += '<link rel="stylesheet" type="text/css" media="screen" href="../../PrintStyle.css">';
-    //html += '<link rel="stylesheet" type="text/css" media="print" href="../../PrintStyle.css">';
+    html += '<link rel="stylesheet" type="text/css" media="print" href="../../PrintStyle.css">';
     html += '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">';
-    html += '<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></s' + 'cript>';
-    html += '<script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></s' + 'cript>';
+    html += '<script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-svg.js"></s' + 'cript>';
     html += '<title>Printer Friendly</title>'
     html += '</head><body>';
 
@@ -43,37 +42,7 @@ function pgPrint() {
     html += '<script>function loadprint() {window.print();}</s' + 'cript>'
     html += '</body></html>';
 
-    frog.document.open();
-    frog.document.write(html);
-    frog.document.close();
-}
-
-
-// Code for printer friendly page for Home page
-function pgPrintHome() {
-    // Create a new window
-    var frog = window.open("", "", "width=920,height=600,scrollbars=1,resizable=1")
-
-    // Store the html content
-    var text = document.getElementById("mainbody").innerHTML;
-
-    // Create the html content of the new page
-    var html = '<html><head>';
-    html += '<link rel="stylesheet" type="text/css" media="screen" href="PrintStyle.css">';
-    html += '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">';
-    html += '<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></s' + 'cript>';
-    html += '<script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></s' + 'cript>';
-    html += '<title>Printer Friendly</title>'
-    html += '</head><body>';
-
-    // Copy the body content into the new page
-    html += text;
-
-    // Close the new page
-    html += '<script>function loadprint() {window.print();}</s' + 'cript>'
-    html += '</body></html>';
-
-    frog.document.open();
-    frog.document.write(html);
-    frog.document.close();
+    printDoc.document.open();
+    printDoc.document.write(html);
+    printDoc.document.close();
 }

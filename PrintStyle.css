@@ -245,7 +245,8 @@ hr {
 }
 
 .lesson-body p {
-    padding-bottom: 10px;
+    padding-bottom: 20px;
+    line-height: 1.5;
 }
 
 .lesson-body ol {
@@ -306,7 +307,7 @@ hr {
 }
 
 .tbl {
-    width: 80%;
+    width: 100%;
     margin: auto;
     padding-bottom: 20px;
     display: table;

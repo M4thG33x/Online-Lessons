@@ -10,7 +10,7 @@ function checkFitBSub(inputID, ans, correctID, wrongID, enteransID, tolerance) {
 
         if (tolerance > 0) {
             //enter answer within allowed tolerance
-            if (guess >= ans - tolerance && guess <= ans + tolerance) {
+            if (Number(guess) >= (ans / tolerance - 1) *  tolerance && guess <= (ans / tolerance + 1 ) * tolerance) {
                 //answer is correct, display checkmark
                 document.getElementById(enteransID).style.display = "none";
                 document.getElementById(correctID).style.display = "inline";
