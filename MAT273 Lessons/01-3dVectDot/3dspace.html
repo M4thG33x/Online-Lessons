@@ -44,10 +44,10 @@
     <div class="topnavmenu" id="mytopnavmenu">
         <a href="index.html">Overview</a>
         <span class="active">3D Space</span>
-        <a href="Page2.html">Planes &amp; Spheres</a>
-        <a href="Page3.html">Vectors</a>
-        <a href="Page4.html">GeoGebra</a>
-        <a href="Page5.html">Dot Product</a>
+        <a href="planesphere.html">Planes &amp; Spheres</a>
+        <a href="vectors.html">Vectors</a>
+        <a href="geogebra.html">GeoGebra</a>
+        <a href="dotproduct.html">Dot Product</a>
         <!--narrow screen menu button -->
         <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
     </div>
@@ -91,31 +91,48 @@
 
         <p>There are many ways to orient the \(x\), \(y\), and \(z\) axes. We will use a <strong>right-hand rule</strong>, which is illustrated below. If the thumb on your right hand represents the \(z\)-axis, then your fingers would rotate from the \(x\)-axis through the \(y\)-axis as you curl your fingers into a fist.</p>
 
-        <img src="RightHandRule.png" alt="Illustration of the righ-hand rule.">
+        <img src="righthandorientation.png" alt="Illustration of the right-hand rule." style="max-width: 350px;">
 
         <p>Drawing the axes of 3D space on a 2D surface like a piece of paper requires us to use our imagination. We have to slightly alter our perspective on the 3D axes to make a sort of optical illusion. A couple options are illustrated below.</p>
 
-        <img src="CenteredPerspective.png" alt="Illustration of the xyz axes from a point of view centered in the first octant looking down on the origin with the x-axis extending downward to the left, the y-axis extending downward to the right, and the z-axis pointing upward.">
+        <div class="tbl">
+            <div class="tbl-body">
+                <div class="tbl-row">
+                    <div class="tbl-col" style="border: 0">
+                        <img src="CenteredPerspective.png" alt="Illustration of the xyz axes from a point of view centered in the first octant looking down on the origin with the x-axis extending downward to the left, the y-axis extending downward to the right, and the z-axis pointing upward.">
+                    </div>
+                    <div class="tbl-col">
 
-        <p>The image above shows the axes from a point of view centered in the first octant looking down on the origin with the \(x\)-axis extending downward to the left, the \(y\)-axis extending downward to the right, and the \(z\)-axis pointing upward. The image below shows the axes more from the side, where the y-axis is horizontal, the z-axis is vertical, and the x-axis extends forward as if it stretches out of your screen or up off the page. This second perspective is what we will typically want to use throughout the semester, as it gives us a reference frame for width (\(y\)), height (\(z\)), and depth (\(x\)).</p>
+                    </div>
+                    <div class="tbl-col" style="border: 0">
+                        <img src="HorizontalPerspective.png" alt="Illustration of the xyz axes from the side, where the y-axis is horizontal , the z-axis is vertical, and the x-axis extends forward as if it stretches out of your screen or up off the page.">
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <img src="HorizontalPerspective.png" alt="Illustration of the xyz axes from the side, where the y-axis is horizontal , the z-axis is vertical, and the x-axis extends forward as if it stretches out of your screen or up off the page.">
+
+        <!-- <img src="CenteredPerspective.png" alt="Illustration of the xyz axes from a point of view centered in the first octant looking down on the origin with the x-axis extending downward to the left, the y-axis extending downward to the right, and the z-axis pointing upward."> -->
+
+        <p>The first image above shows the axes from a point of view centered in the first octant looking down on the origin with the \(x\)-axis extending downward to the left, the \(y\)-axis extending downward to the right, and the \(z\)-axis pointing upward. The second image shows the axes more from the side, where the y-axis is horizontal, the z-axis is vertical, and the x-axis extends forward as if it stretches out of your screen towards you. This second perspective is what we will typically want to use throughout the semester, as it gives us a reference frame for width (\(y\)), height (\(z\)), and depth (\(x\)).</p>
+
+        <!-- <img src="HorizontalPerspective.png" alt="Illustration of the xyz axes from the side, where the y-axis is horizontal , the z-axis is vertical, and the x-axis extends forward as if it stretches out of your screen or up off the page."> -->
 
         <div class="assess">
             <!--Enter a prompt for the assessment.-->
-            <p><strong>Self-Check #1</strong>: Which graph represents the point \(\left(2, 3, -1\right)\)? (<i>Select the most appropriate response.</i>)</p>
+            <p><strong>Self-Check #1</strong>: Which graph represents the point \(\left(2, 3, \text{-}1\right)\)? (<i>Select the most appropriate response.</i>)</p>
             <!--All name and id fields must be unique per problem per page.-->
             <!--Edit the following names and id's to match within each assessment.-->
             <div class="tbl">
                 <div class="tbl-row">
                     <div class="tbl-col">
-                        <label class="radiocntrimg">(A) <img src="" alt="">
+                        <label class="radiocntrimg">(A) <img src="point-1a.png" alt="Graph of the xyz axes with a point plotted -2 units in the x-direction, -3 units in the y-direction, and 1 unit in the z-direction.">
                             <input type="radio" id="opt1-1" name="mcChoice1" value="A">
                             <span class="radiobtn"></span>
                         </label>
                     </div>
                     <div class="tbl-col">
-                        <label class="radiocntrimg">(B) <img src="" alt="">
+                        <label class="radiocntrimg">(B) <img src="point-1b.png" alt="Graph of the xyz axes with a point plotted 2 units in the x-direction, 3 units in the y-direction, and -1 unit in the z-direction.">
                             <input type="radio" id="opt1-2" name="mcChoice1" value="B">
                             <span class="radiobtn"></span>
                         </label>
@@ -123,13 +140,13 @@
                 </div>
                 <div class="tbl-row">
                     <div class="tbl-col">
-                        <label class="radiocntrimg">(C) <img src="" alt="">
+                        <label class="radiocntrimg">(C) <img src="point-1c.png" alt="Graph of the xyz axes with a point plotted -1 units in the x-direction, 3 units in the y-direction, and -2 unit in the z-direction.">
                             <input type="radio" id="opt1-3" name="mcChoice1" value="C">
                             <span class="radiobtn"></span>
                         </label>
                     </div>
                     <div class="tbl-col">
-                        <label class="radiocntrimg">(D) <img src="" alt="">
+                        <label class="radiocntrimg">(D) <img src="point-1d.png" alt="Graph of the xyz axes with a point plotted 2 units in the x-direction, -1 units in the y-direction, and 3 unit in the z-direction.">
                             <input type="radio" id="opt1-4" name="mcChoice1" value="D">
                             <span class="radiobtn"></span>
                         </label>
@@ -137,12 +154,12 @@
                 </div>
             </div>
             <!--Enter the coorect choice in the ans field.-->
-            <button onclick="checkMCSub('mcChoice1','ans','correct1','wrong1','makechoice1')" id="submit1">Check</button>
+            <button onclick="checkMCSub('mcChoice1','B','correct1','wrong1','makechoice1')" id="submit1">Check</button>
             <div class="response" id="makechoice1"><i>You must select an answer above</i>.</div>
             <div class="response" id="correct1"><i class="fa fa-check" style="color: green"></i></div>
             <div class="response" id="wrong1"><i class="fa fa-times" style="color: red"></i>
                 <!--State the correct answer and provide a solution.-->
-                <p>(Answer: ans) -- Explanation...</p>
+                <p>(Answer: B) -- The point \(\left(2,3,\text{-}1\right)\) should be located 2 units in the \(x\)-direction, 3 units in the \(y\)-direction, and \(\text{-}1\) unit in the \(z\)-direction. This should put it 1 unit below the point \(\left(2,3\right)\) in the first quadrant of the \(xy\)-plane.</p>
             </div>
         </div>
 
@@ -161,7 +178,7 @@
 
         <div class="assess">
             <!--Enter a prompt for the assessment.-->
-            <p><strong>Self-Check #2</strong>: Compute the distance between the points \(\left(3, -1, 5\right)\) and \(\left(4, 1, 0\right)\). (<i>Enter your answer rounded to 2 decimal places</i>.)</p>
+            <p><strong>Self-Check #2</strong>: Compute the distance between the points \(\left(3, \text{-}1, 5\right)\) and \(\left(4, 1, 0\right)\). (<i>Enter your answer rounded to 2 decimal places</i>.)</p>
             <!--All id's must be unique per problem per page.-->
             <!--Enter the answer in the ans field.-->
             <button onclick="checkFitBSub('input2',5.48,'correct2','wrong2','enterans2',0.01)" id="submit2">Check</button>
@@ -173,37 +190,39 @@
                 <!--State the correct answer and provide a solution.-->
                 <p>(Answer: 5.48) -- Using the above formula, we get the following.</p>
 
-                \[\begin{align*} d &= \sqrt{(4 - 3)^2 + (1 - (-1))^2 + (0 - 5)^2} \\ &= \sqrt{1 + 4 + 25} \\ &= \sqrt{30} \\ &\approx 5.48 \end{align*}\]
+                \[\begin{align*} d &= \sqrt{(4 - 3)^2 + (1 - (\text{-}1))^2 + (0 - 5)^2} \\ &= \sqrt{1 + 4 + 25} \\ &= \sqrt{30} \\ &\approx 5.48 \end{align*}\]
             </div>
         </div>
 
         <div class="assess">
             <!--Enter a prompt for the assessment.-->
-            <p><strong>Self-Check #3</strong>: Prompt... (<i>Select the most appropriate response.</i>)</p>
+            <p><strong>Self-Check #3</strong>: Compute the midpoint of the points \(\left(3, \text{-}1, 5\right)\) and \(\left(4, 1, 0\right)\). (<i>Select the most appropriate response.</i>)</p>
             <!--All name and id fields must be unique per problem per page.-->
-            <label class="radiocntrh">(A) Choice
+            <label class="radiocntrh">(A) \(\left( \frac{1}{2}, 0, \text{-}\frac{5}{2} \right)\)
                 <input type="radio" id="opt3-1" name="mcChoice3" value="A">
                 <span class="radiobtn"></span>
             </label>
-            <label class="radiocntrh">(B) Choice
+            <label class="radiocntrh">(B) \(\left( 7, 0, 5 \right)\)
                 <input type="radio" id="opt3-2" name="mcChoice3" value="B">
                 <span class="radiobtn"></span>
             </label>
-            <label class="radiocntrh">(C) Choice
+            <label class="radiocntrh">(C) \(\left( \text{-}\frac{1}{2}, 0, \frac{5}{2} \right)\)
                 <input type="radio" id="opt3-3" name="mcChoice3" value="C">
                 <span class="radiobtn"></span>
             </label>
-            <label class="radiocntrh">(D) Choice
+            <label class="radiocntrh">(D) \(\left( \frac{7}{2}, 0, \frac{5}{2} \right)\)
                 <input type="radio" id="opt3-4" name="mcChoice3" value="D">
                 <span class="radiobtn"></span>
             </label><br>
             <!--Enter the coorect choice in the ans field.-->
-            <button onclick="checkMCSub('mcChoice3','ans','correct3','wrong3','makechoice3')" id="submit3">Check</button>
+            <button onclick="checkMCSub('mcChoice3','D','correct3','wrong3','makechoice3')" id="submit3">Check</button>
             <div class="response" id="makechoice3"><i>You must select an answer above</i>.</div>
             <div class="response" id="correct3"><i class="fa fa-check" style="color: green"></i></div>
             <div class="response" id="wrong3"><i class="fa fa-times" style="color: red"></i>
                 <!--State the correct answer and provide a solution.-->
-                <p>(Answer: ans) -- Explanation...</p>
+                <p>(Answer: D) -- Using the formula above, we get the following.</p>
+
+                \[\left( \frac{3+4}{2}, \frac{\text{-}1+1}{2}, \frac{5+0}{2} \right) = \left( \frac{7}{2}, 0, \frac{5}{2} \right)\]
             </div>
         </div>
 

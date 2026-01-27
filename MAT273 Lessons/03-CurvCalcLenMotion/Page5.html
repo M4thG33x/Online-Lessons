@@ -12,8 +12,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="LessonStyle.css">
     <link rel="stylesheet" type="text/css" media="print" href="PrintStyle.css">
     <!--MathJax links-->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-svg.js"></script>
     <!--Custom scripts-->
     <script src="script.js"></script>
     <!--Remove padding from grid boxes-->
@@ -135,19 +134,20 @@
 
         <div class="ggb-wrap">
             <div class="ggb-cont">
-                <iframe scrolling="no" title="TNB Vectors" src="https://www.geogebra.org/material/iframe/id/acfbhqbf/width/795/height/477/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="795px"
+                <iframe scrolling="no" title="TNB Framework" src="https://www.geogebra.org/material/iframe/id/tuwtk9s5/width/1496/height/915/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false" width="1496px" height="915px" style="border:0px;"> </iframe>
+                <!-- <iframe scrolling="no" title="TNB Vectors" src="https://www.geogebra.org/material/iframe/id/acfbhqbf/width/795/height/477/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="795px" -->
                     height="477px" style="border:0px;"> </iframe>
             </div>
         </div>
-        <div class="widget-footer">[https://www.geogebra.org/m/r54kqs2h]</div>
+        <div class="widget-footer">[https://www.geogebra.org/m/tuwtk9s5]</div>
 
         <p>Go back to the above Geogebra applet and continue with the remaining items.</p>
 
         <ol start="4">
-            <li><strong>Oscillating Plane</strong>: This plane is formed by the <strong>T</strong> and <strong>N</strong> vectors, and it is perpendicular to <strong>B</strong>. As the point moves around the curve, the vectors change and therefore the plane
-                will change. So the normal vector points in the direction that the curve will turn <em>within</em> the oscillating plane at the specified point.</li>
+            <li><strong>Osculating Plane</strong>: This plane is formed by the <strong>T</strong> and <strong>N</strong> vectors, and it is perpendicular to <strong>B</strong>. As the point moves around the curve, the vectors change and therefore the plane
+                will change. So the normal vector points in the direction that the curve will turn <em>within</em> the osculating plane at the specified point.</li>
             <li><strong>Normal Plane</strong>: The plane is formed by the <strong>N</strong> and <strong>B</strong> vectors, and it is perpendicular to <strong>T</strong>.</li>
-            <li><strong>Circle of Curvature</strong> (try turning off N, B and the Normal Plane): This circle is located within the oscillating plane and it is tangent to the curve at the orange point. Its <strong>radius of curvature</strong> is \(\frac{1}{\kappa}\),
+            <li><strong>Circle of Curvature</strong> (try turning off N, B and the Normal Plane): This circle is located within the osculating plane and it is tangent to the curve at the orange point. Its <strong>radius of curvature</strong> is \(\frac{1}{\kappa}\),
                 so a smaller radius would be a tighter turn (larger curvature) and a larger radius would be a more gradual turn (smaller curvature).</li>
         </ol>
 
