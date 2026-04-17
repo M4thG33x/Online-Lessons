@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../../LessonStyle.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../../PrintStyle.css">
+    <!--MathJax links-->
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-svg.js"></script>
+    <!--Custom scripts-->
+    <script src="../../script.js"></script>
+    <!--Assessment script-->
+    <script src="../../quizlets.js"></script>
+
+    <title>Lines &amp; Planes</title>
+    <link rel="icon" type="image/png" href="../../logo-s.png">
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Page header: includes WTCC logo, lesson title and subtitle -->
+    <div id="lesson-header">
+        <div class="l-col">
+            <img src="../../logo_custom.png" alt="">
+        </div>
+        <div class="r-col">
+            <h1>Cross Product, Planes &amp; Surfaces</h1>
+            <p>Vectors and the Geometry of Space</p>
+        </div>
+    </div>
+
+    <!-- Lesson Navigation Menu: links to Overview and lesson pages, shows active page & adjusts to narrow screens -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <a href="index.html">Overview</a>
+        <a href="crossproduct.html">Cross Product</a>
+        <span class="active">Lines &amp; Planes</span>
+        <a href="geogebra.html">GeoGebra</a>
+        <a href="surfaces.html">Surfaces</a>
+        <!--narrow screen menu button -->
+        <a href="javascript:void(0);" class="icon" onclick="navResp()"><i class="fa fa-bars"></i></a>
+    </div>
+
+    <!-- Main Body: container for linked lesson pages -->
+    <div class="lesson-body">
+        <!-- On This Page Menu: lists headers on the active page, floats right or top for small screens -->
+        <div class="lessonpagetoc">
+            <button class="dropbtn">On this Page</button>
+            <!-- <p> On this Page </p> -->
+            <div class="dropdown-content">
+                <ul>
+                    <li><a href="#top">Lines &amp; Planes</a></li>
+                    <li><a href="#lines">Lines</a></li>
+                    <li><a href="#planes">Planes</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- The main content starts here-->
+        <h2 id="top">Lines &amp; Planes</h2>
+
+        <p>Just as we built up our toolset of functions in precalculus, starting with lines and moving on to polynomials and other functions in the xy-plane, we need to build up to the point where we can express curves and surfaces in 3D space. We have already looked at spheres and simple planes. Now let's look at lines and planes in space.</p>
+
+        <h3 id="lines">Lines</h3>
+
+        <p>Recall from algebra that a line can be expressed by the equation \(y = mx + b\), where \(m\) is the slope and \(b\) is the \(y\)-intercept. We can basically do the same thing for lines in 3D space. We need a point and a slope. In terms of vectors, this means we need an initial position vector and a direction vector.</p>
+
+        <div class="def-eqn">
+            <p>Given a point \(P(x_0, y_0, z_0)\) with position vector \(\vec{r}_0 = \langle x_0, y_0, z_0 \rangle\) and a direction vector \(\vec{v} = \langle a, b, c \rangle\), the <strong>vector equation of the line</strong> that passes through the point \(P\) parallel to \(\vec{v}\) is defined by the following equation, for some parameter variable \(t\) where \(-\infty \lt t \lt \infty\).</p>
+
+            \[\begin{align*} \vec{r}(t) &= \vec{r}_0 + \vec{v}t \\ &= \langle x_0, y_0, z_0 \rangle + \langle a, b, c \rangle t \\ &= \langle x_0 + at, y_0 + bt, z_0 + ct \rangle \end{align*}\]
+
+            <p>We can also separate the components of the linear vector to get the parametric equations \(x = x_0 + at\), \(y = y_0 + bt\), and \(z = z_0 + ct\).</p>
+        </div>
+
+        <p>The following Geogebra applet illustrates a line in 3D space. We are given the point \(P\left(1, 0, \text{-}1\right)\) and its corresponding position vector \(\mathbf{r}_0 = \langle 1, 0, \text{-}1 \rangle\). In addition, we are also given the vector \(\mathbf{v} = \langle 1, \text{-}1, 2\rangle\). You can click-and-drag to rotate the view around the origin. To draw the line, click the "Animate t" button. You should see point \(P\) and its corresponding vector move along the straight path parallel to \(\mathbf{v}\) as the values of \(t\) change.</p>
+
+        <div class="widget-header"></div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="frame-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="frame-cont ratio-16x9">
+                <iframe scrolling="no" title="Vector Line" src="https://www.geogebra.org/material/iframe/id/gdpukhhb/width/795/height/477/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="795px" height="477px" style="border:0px;"> </iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://www.geogebra.org/m/gdpukhhb]</div>
+
+        <p>The following videos gives an example of writing the vector equation of a line in 3D space.</p>
+
+        <div class="widget-header">Vector Equation of a Line Passing Through Two Points</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="frame-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="frame-cont ratio-16x9">
+                Find the equation of the line passing through (1, 2,3) and (7, 9, 5).
+            </div>
+        </div>
+        <div class="widget-footer">[]</div>
+
+        <h3 id="planes">Planes</h3>
+
+        <p>The following Geogebra applet illustrates the setup of a plane. We are given an initial point \(P_0\) and a second point \(N\) with vector \(\vec{n}\) pointing from \(P\) to \(N\). In addition, we are given another point \(P\) and the vector \(\vec{v} = \overrightarrow{P_0 P}\), which means \(\vec{v}\) is the vector from \(P_0\) to \(P\). If vector \(\vec{v}\) is perpendicular to \(\vec{n}\), then the set of all points \(P\) form a plane and any vector \(\vec{v}\) is contained within the plane. Try moving point \(P\) anywhere within the plane and \(\vec{v}\) will remain perpendicular to \(\vec{n}\). What happens if you move point \(N\)? <em>Note that you can click-and-drag to rotate the view around the origin. Also, clicking on movable points will alternate between moving them along the \(z\)-direction or in the \(xy\)-direction.</em></p>
+
+        <div class="widget-header"></div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="frame-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="frame-cont ratio-16x9">
+                <iframe height="477px" style="border:0px;" width="795px" scrolling="no" src="https://www.geogebra.org/material/iframe/id/f2m8cbac/width/795/height/477/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" title="3D Axes - Plane"> </iframe>
+            </div>
+        </div>
+        <div class="widget-footer">[https://www.geogebra.org/m/f2m8cbac]</div>
+
+        <p>So what does the equation of a plane look like? Since \(\vec{v}\) must always be perpendicular to \(\vec{n}\), we can apply the property of dot products for perpendicular vectors to get \(\vec{v} \cdot \vec{n} = 0\). If we have \(\vec{v} = \overrightarrow{P_0 P} = \langle x-x_0, y-y_0, z-z_0 \rangle\) and if we let \(\mathbf{n} = \langle a, b, c \rangle\), then we get the following equation.</p>
+
+        \[\langle x-x_0, y-y_0, z-z_0 \rangle \cdot \langle a, b, c \rangle = 0\]
+
+        <p>Simplifying this equation results in the following</p>
+
+        <div class="def-eqn">
+            <p>The <strong>equation of the plane</strong> containing the point \(P(x_0, y_0, z_0)\) with perpendicular <strong>normal</strong> vector \(\vec{n} = \langle a, b, c \rangle\) is given by the following equation.</p>
+
+            \[a(x - x_0) + b(y - y_0) + c(z - z_0) = 0\]
+
+            <p>This can be simplified to the equation \(ax + by + cz = d\) where \(d = ax_0 + by_0 + cz_0\).</p>
+        </div>
+
+        <div class="widget-header">Plane Equations</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="frame-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="frame-cont ratio-16x9">
+                1. Determine the equation of the plane that contains the points (1, 2, -1), (2, 3, 1), and (3, -1, 2).<br>
+                2. Determine the normal vector of the plane 3x + 4y + 2z = 12, then sketch a graph of the plane.
+            </div>
+        </div>
+        <div class="widget-footer">[]</div>
+
+        <p>Here are a few properties worth considering about parallel and intersecting planes.</p>
+
+        <ul>
+            <li>Two distinct planes are parallel if their normal vectors are parallel, meaning their cross product is \(\vec{0}\) or one vector is a constant multiple of the other.</li>
+            <li>Two planes are orthogonal if their normal vectors are orthogonal, which means their dot product is 0.</li>
+            <li>Non-parallel planes intersect to form a line whose direction vector is perpendicular to both normal vectors of the planes, which we can find by computing the cross product of the normal vectors.</li>
+        </ul>
+
+
+        <div class="assess">
+            <!--Enter a prompt for the assessment.-->
+            <p><strong>Self-Check #3</strong>: Are the planes given by \(3x - 4y + 6z = 6\) and \(x + 2y + 3z = 4\) parallel, perpendicular, or intersect without being perpendicular? If they are perpendicular or intersecting, find the equation of the line formed by their intersection. (<i>Select the most appropriate response.</i>)</p>
+            <!--All name and id fields must be unique per problem per page.-->
+            <label class="radiocntrv">(A) Parallel with no intersecting line
+                <input type="radio" id="opt3-1" name="mcChoice3" value="A">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrv">(B) Perpendicular with intersecting line \(\vec{r}(t) = \langle 3 + t, \text{-}4 + 2t, 6 + 3t \rangle\)
+                <input type="radio" id="opt3-2" name="mcChoice3" value="B">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrv">(C) Intersect with intersecting line \(\vec{r}(t) = \langle \text{-}2 - 24t, \text{-}3t, 2 + 10t \rangle\)
+                <input type="radio" id="opt3-3" name="mcChoice3" value="C">
+                <span class="radiobtn"></span>
+            </label>
+            <label class="radiocntrv">(D) Intersect with intersecting line \(\vec{r}(t) = \langle 1 + 3t, 2 - 4t, 3 + 6t \rangle\)
+                <input type="radio" id="opt3-4" name="mcChoice3" value="D">
+                <span class="radiobtn"></span>
+            </label><br>
+            <!--Enter the coorect choice in the ans field.-->
+            <button onclick="checkMCSub('mcChoice3','C','correct3','wrong3','makechoice3')" id="submit3">Check</button>
+            <div class="response" id="makechoice3"><i>You must select an answer above</i>.</div>
+            <div class="response" id="correct3"><i class="fa fa-check" style="color: green"></i></div>
+            <div class="response" id="wrong3"><i class="fa fa-times" style="color: red"></i>
+                <!--State the correct answer and provide a solution.-->
+                <p>(Answer: C) -- The normal vectors for the planes are \(\vec{n_1} = \langle 3, \text{-}4, 6 \rangle\) and \(\vec{n_2} = \langle 1, 2, 3 \rangle\), which we can easily get from the coefficients in the equations. The dot product of these two vectors is \(\vec{n_1} \cdot \vec{n_2} = 13 \neq 0\) which tells us that the vectors are not parallel, and therefore the planes are not parallel. The cross product of these two vectors is \(\vec{n_1} \times \vec{n_2} = \langle \text{-}24, \text{-}3, 10 \rangle \neq \vec{0}\) which tells us that the normal vectors are not perpendicular, and therefore the planes are not perpendicular. We have two planes that are intersecting without being perpendicular.</p>
+
+                <p>To find the equation of the line of intersection, we need to find a point on the line and the direction vector of the line. We already have the direction vector because we have already computed the cross product of the two normal vectors. The vector \(\vec{v} = \langle \text{-}24, \text{-}3, 10 \rangle\) is perpendicular to both normal vectors and is therefore parallel to the intersecting line.</p>
+
+                <p>The line of intersection must pass through at least one of the coordinate planes. Let's start by assuming it passes through the \(xz\)-plane. Substitute \(y = 0\) into the two plane equations to set up the following system of equations.</p>
+
+                \[\left\{ \begin{aligned} 3x + 6z &= 6 \\ x + 3z &= 4 \end{aligned} \right.\]
+
+                <p>The solution to this system is \(x = \text{-}2\) and \(z = 2\), which corresponds to the point \(\left( \text{-}2, 0, 2 \right)\). If the system of equations had resulted in no solution, then try to find the intersection of the line with a different coordinate plane. Combining this point with the direction vector above gives us the following vector equation of the line of intersection formed by the two planes.</p>
+
+                \[\vec{r}(t) = \langle \text{-}2 - 24t, \text{-}3t, 2 + 10t \rangle\]
+            </div>
+        </div>
+
+    </div>
+    <!-- End of the main content -->
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <div id="lesson-footer">
+        <div class="l-col">
+            <p>©2025 <a href="https://www.youtube.com/channel/UCszzyEwfkBHBPk6xkNrGpAA" target="_blank">M4thG33x (new
+                    window)</a> Some Rights Reserved.</p>
+            <a rel="license " href="http://creativecommons.org/licenses/by-sa/4.0/ "><img alt="Creative Commons License " src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png "></a>
+        </div>
+        <div class="r-col">
+            <a href="# " onclick="pgPrint(); return false; "><i class="fa fa-print "></i> Printer Friendly</a>
+        </div>
+    </div>
+
+</body>
+
+</html>
