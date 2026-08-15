@@ -1862,3 +1862,44 @@ input[type="submit"]:focus-visible {
         text-align: center;
     }
 }
+
+
+
+/* ==========================================================================
+   MOBILE CHROMIUM STICKY POSITION ENGINE REINFORCEMENT
+   ========================================================================== */
+@media screen and (max-width: 600px), (orientation: portrait) {
+    /* 1. Reset root canvas heights to force smooth natural window scrolling */
+    html, 
+    body, 
+    #mainbody {
+        height: auto !important;
+        min-height: 100% !important;
+        
+        /* Unblocks hidden clipping traps that deactivate sticky calculations */
+        overflow: visible !important;
+        overflow-x: hidden !important; /* Safely blocks accidental side-swiping wiggle */
+        
+        /* Bypasses layout containment isolation layers on mobile viewports */
+        contain: none !important;
+    }
+
+    /* 2. Lock the menu bar's rendering context to top-layer positioning */
+    .topnavmenu {
+        position: -webkit-sticky !important; /* Explicit Safari iOS safety support link */
+        position: sticky !important;
+        top: 0 !important;
+        
+        /* Guarantees the bar floats over mobile graphic layers or tables */
+        z-index: 99999 !important; 
+    }
+
+    /* 3. Ensure the main content block has enough continuous height to scroll */
+    .lesson-body,
+    #main-content {
+        display: block !important;
+        clear: both !important;
+        width: 100% !important;
+        height: auto !important;
+    }
+}
