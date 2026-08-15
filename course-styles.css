@@ -109,7 +109,8 @@ img {
     box-sizing: border-box;
     padding: 0;
 
-    overflow: hidden;
+    /* overflow: hidden; */
+    overflow: visible !important;
 }
 
 .topnavmenu span,
@@ -117,7 +118,7 @@ img {
     display: block;
     color: white;
     text-align: center;
-    padding: 0 20px;
+    padding: 0 15px;
     text-decoration: none;
     text-transform: uppercase;
     font-weight: bold;
@@ -125,6 +126,12 @@ img {
     height: 50px;
     line-height: 50px;
     box-sizing: border-box;
+
+
+    flex-shrink: 1 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important; /* Adds a clean "..." if a link truncates */
 }
 
 .topnavmenu span.active {
@@ -284,6 +291,8 @@ img {
     height: 50px !important;
     box-sizing: border-box !important;
     position: relative !important;
+
+    flex-shrink: 0 !important; 
 }
 
 /* Specific class targeting overrides standard webkit browser rendering shapes */
