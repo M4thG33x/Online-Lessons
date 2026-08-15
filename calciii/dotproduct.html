@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../course-styles.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../print-styles.css">
+
+    <!--MathJax links-->
+    <script src="../site-math.js"></script>
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <link rel="icon" type="image/png" href="../logo-s.png">
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button type="button" onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- EMPTY PLACEHOLDER HEADER: Script will automatically inject the logo and subtitle -->
+    <header class="page-header" id="global-site-header" role="banner"></header>
+
+    <!-- Insert this uniform element block across all root, overview, and lesson files -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <!-- Links are automatically populated here via the site-nav.js script -->
+    </div>
+
+    <!-- Main content area shell container is a semantic <main> tag -->
+    <main class="lesson-body" id="main-content">
+        <!-- On This Page Menu -->
+        <nav class="lesson-page-toc" aria-label="On this Page Section Navigation Links">
+            <button class="dropbtn">On this Page</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li><a id="toc-top" href="#top"><!--Filled by page name from script--></a></li>
+                    <li><a href="#proj">Projections</a></li>
+                    <li><a href="#apps">Applications</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- The main core lesson header is a native semantic <h1> tag -->
+        <h1 id="top"><!--Filled by page name from script--></h1>
+
+        <div class="objective-region" role="region" aria-label="Lesson Objectives">
+            <!-- Content goes here. -->
+            <p>On this page, you will learn to:</p>
+            <ul>
+                <li>Compute the dot and cross product of two vectors.</li>
+                <li>Compute the projection of one vector onto another.</li>
+                <li>Solve applications involving the dot product.</li>
+            </ul>
+        </div>
+
+        <p>We have already looked at the basic vector operations of addition, subtraction, and scalar multiplication. Now, we want to look at a way to multiplying vectors. There are two primary ways that we can do this, which may seem odd. We will start by looking at what is called the dot product now, and then we will look at the other method called the cross product in the next lesson.</p>
+
+        <p>The vector dot product is probably the most obvious method of multiplying vectors, i.e. we multiply the corresponding components like we did with addition and subtraction. However, there is a little twist. Once we multiply the components, we also add up the resulting values. This means that a dot product results in a scalar quantity, not another vector.</p>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Vector Dot Product">
+            <!-- Content goes here. -->
+            <p>We define the <strong>dot product</strong> of two vectors \(\vec{u} = \langle u_1,u_2,u_3 \rangle \) and \(\vec{v} = \langle v_1,v_2,v_3 \rangle \) as follows.</p>
+
+            \[\vec{u} \cdot \vec{v} = u_1 v_1 + u_2 v_2 + u_3 v_3 \]
+        </div>
+
+        <p>The dot product has the following properties given vectors \(\vec{u}\), \(\vec{v}\) and \(\vec{w}\) and a scalar \(c\).</p>
+
+        <!-- A 2 column table of listed pairings per row to stack as rows per card -->
+        <!-- Add a caption, column headers, and row cells -->
+        <table class="tbl-responsive-list" role="table" style="width: 60%; margin: auto;">
+            <caption>Properties of the Dot Product</caption>
+            <thead role="rowgroup">
+                <tr role="row">
+                    <th scope="col" role="columnheader">Property</th>
+                    <th scope="col" role="columnheader">Operation</th>
+                </tr>
+            </thead>
+            <tbody role="rowgroup">
+                <!-- Row 1 -->
+                <tr role="row">
+                    <td class="r1c1" role="cell">Commutative</td>
+                    <td class="r1c2" role="cell">\[\vec{u} \cdot \vec{v} = \vec{v} \cdot \vec{u}\]</td>
+                </tr>
+                <!-- Row 2 -->
+                <tr role="row">
+                    <td class="r2c1" role="cell">Associative (scalar)</td>
+                    <td class="r2c2" role="cell" style="text-align: center;">\[c(\vec{u} \cdot \vec{v}) = (c\vec{u}) \cdot \vec{v}\] or \[c(\vec{u} \cdot \vec{v}) = \vec{u} \cdot (c\vec{v})\]</td>
+                </tr>
+                <!-- Row 3 -->
+                <tr role="row">
+                    <td class="r3c1" role="cell">Distributive (vector)</td>
+                    <td class="r3c2" role="cell">\[\vec{u} \cdot (\vec{v} + \vec{w}) = \vec{u} \cdot \vec{v} + \vec{u} \cdot \vec{w}\]</td>
+                </tr>
+                <!-- Row 4 -->
+                <tr role="row">
+                    <td class="r3c1" role="cell">Magnitude</td>
+                    <td class="r3c2" role="cell">\[\vec{u} \cdot \vec{u} = |\vec{u}|^2\]</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>To understand what the dot product represents geometrically, we can consider the following theorem that connects the dot product of two vectors to the angle formed by the vectors.</p>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Dot Product and the Angle Between Vectors">
+            <!-- Content goes here. -->
+            <p>If \(\vec{u}\) and \(\vec{v}\) are two vectors and \(\theta\) is the angle between them, where \(0 \le \theta \le \pi\), then we can equate the vector dot product with the angle using the following equation.</p>
+
+            \[\vec{u} \cdot \vec{v} = |\vec{u}| |\vec{v}| \cos \theta\]
+        </div>
+
+        <p>If the vectors \(\vec{u}\) and \(\vec{v}\) are parallel and point in the same, then \(\vec{u} \cdot \vec{v} = |\vec{u}||\vec{v}|\). If the vectors are <strong>orthogonal</strong> (or perpendicular), then \(\vec{u} \cdot \vec{v} = 0\). And if the vectors are parallel but point in opposite directions, then \(\vec{u} \cdot \vec{v} = -|\vec{u}||\vec{v}|\). If the vectors are neither parallel nor perpendicular, then the value of the dot product will bounded by the product of their magnitudes. In other words, \(-|\vec{u}||\vec{v}| \le \vec{u} \cdot \vec{v} \le |\vec{u}||\vec{v}|\).</p>
+
+        <p> Using this alternate formula for the dot product, we get a few more properties for the dot product.</p>
+
+        <ul>
+            <li>If \(\vec{u} = \vec{0}\) or \(\vec{v} = \vec{0}\), then \(\vec{u} \cdot \vec{v} = 0\) and \(\theta\) is undefined.</li>
+            <li>The vectors \(\vec{u}\) and \(\vec{v}\) are parallel (meaning \(\theta = 0\) or \(\theta = \pi\)) if and only if \(\vec{u} \cdot \vec{v} = \pm |\vec{u}||\vec{v}|\).</li>
+            <li>The vectors \(\vec{u}\) and \(\vec{v}\) are perpendicular (meaning \(\theta = \frac{\pi}{2}\)) if and only if \(\vec{u} \cdot \vec{v} = 0\).</li>
+        </ul>
+
+        <p>The following examples demonstrate how we can algebraically compute the dot product of two given vectors and how the result compares to the angle between them.</p>
+
+        <div class="widget-header">Dot Product of Vectors - 2D</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/hkZtGslMcbQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="http://youtu.be/hkZtGslMcbQ" target="_blank" rel="noopener noreferrer">http://youtu.be/hkZtGslMcbQ</a>]</div>
+
+        <div class="widget-header">Dot Product of Vectors From a Graph - 2D</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/WGBW9O_1D7Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="http://youtu.be/WGBW9O_1D7Y" target="_blank" rel="noopener noreferrer">http://youtu.be/WGBW9O_1D7Y</a>]</div>
+
+        <div class="widget-header">Dot Product of Vectors - 3D</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/86ALeODKd-g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="http://youtu.be/86ALeODKd-g" target="_blank" rel="noopener noreferrer">http://youtu.be/86ALeODKd-g</a>]</div>
+
+        <h2 id="proj">Orthogonal Projections</h2>
+
+        <p>Sometimes we need to know how much of one vector points in the direction of another vector. We call this an <strong>orthogonal projection</strong> of one vector <em>onto</em> another vector. For example, the projection of any vector \(\vec{v} = \langle a,b \rangle\) onto the unit vector \(\mathbf{i}\) (which corresponds to the \(x\)-axis) would result in the component vector \(\langle a,0 \rangle\). Similarly, projecting \(\vec{v} = \langle a,b \rangle\) on the the unit vector \(\mathbf{j}\) (which corresponds to the \(y\)-axis) would result in the component vector \(\langle 0,b \rangle\). But we can project a vector onto any vector, not just \(\mathbf{i}\) and \(\mathbf{j}\).</p>
+
+        <p>We see two vectors, \(\vec{u} = \langle 2,3 \rangle\) and \(\vec{v} = \langle 5,3 \rangle\), in the illustration below. The red vector \(\vec{w}\) represents the projection of \(\vec{u}\) onto \(\vec{v}\). It is almost like vector \(w\) is the component of \(\vec{u}\) in the direction of \(\vec{v}\).</p>
+
+        <figure>
+            <img src="content/VectorProjection.png" alt="Illustration of an orthogonal projection of vector u onto vector v.">
+            <figcaption>Vector Projection</figcaption>
+        </figure>
+
+        <p>So, in general, how do we find the orthogonal projection of one vector onto another? In the illustration above, notice that we can form a right triangle by extending a line segment from the terminal point of the projected vector to the vector being projected onto. Using right-triangle trigonometry, we get the following relationship.</p>
+
+        \[\cos\theta = \frac{|\vec{w}|}{|\vec{u}|}\]
+
+        <p>Rewriting this equation, we get that the magnitude of the projection can be expressed by \(|\vec{w}| = |\vec{u}|\cos\theta\). If we apply the above dot product equation for vectors \(\vec{u}\) and \(\vec{v}\) to solve for \(\cos\theta\), then we can substitute the result in this equation, which gives us the following.</p>
+
+        \[
+        \begin{aligned}
+        <!-- Use &= to align at equal sign.
+        Use double slashes for new line (can use [4pt] for spacing) -->
+        |\vec{w}| &= |\vec{u}|\cos\theta \\
+        &= |\vec{u}| \left(\frac{\vec{u} \cdot \vec{v}}{|\vec{u}||\vec{v}|}\right) \\
+        &= \frac{\vec{u} \cdot \vec{v}}{|\vec{v}|}
+        \end{aligned}
+        \]
+
+
+        <p>Now that we have the magnitude of the projection, we can find its direction by computing the unit vector of \(\vec{v}\), which is \(\frac{\vec{v}}{|\vec{v}|}\). Then, if multiply this unit vector by the magnitude of the projection, we will get the vector of the projection, having both magnitude and direction now.</p>
+
+        \[
+        \begin{aligned}
+        <!-- Use &= to align at equal sign.
+        Use double slashes for new line (can use [4pt] for spacing) -->
+        \vec{w} &= |\vec{w}|\frac{\vec{v}}{|\vec{v}|} \\
+        &= \left(\frac{\vec{u} \cdot \vec{v}}{|\vec{v}|}\right)\frac{\vec{v}}{|\vec{v}|} \\
+        &= \left(\frac{\vec{u} \cdot \vec{v}}{|\vec{v}|^2}\right)\vec{v} \\
+        &= \frac{\vec{u} \cdot \vec{v}}{\vec{v} \cdot \vec{v}} \vec{v}
+        \end{aligned}
+        \]
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Orthogonal Projection">
+            <!-- Content goes here. -->
+            <p>The <strong>orthogonal projection</strong> of \(\vec{u}\) onto \(\vec{v}\) is the part of \(\vec{u}\) that is in the direction of \(\vec{v}\), and it can be computed using the following formula.</p>
+
+            \[\text{proj}_\vec{v} \vec{u} = \frac{\vec{u} \cdot \vec{v}}{\vec{v} \cdot \vec{v}} \vec{v}\]
+
+            <p>The magnitude of this projection is called the <strong>scalar component</strong> of \(\vec{u}\) in the direction of \(\vec{v}\), and it can be computed using the following formula.</p>
+
+            \[\text{scal}_\vec{v} \vec{u} = \frac{\vec{u} \cdot \vec{v}}{|\vec{v}|}\]
+        </div>
+
+        <p>The following videos demonstrate how to compute orthogonal projections algebraically and illustrates what they represent graphically.</p>
+
+        <div class="widget-header">Vector Projection in Two Dimensions</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/2c_qop6iUKE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="http://youtu.be/2c_qop6iUKE" target="_blank" rel="noopener noreferrer">http://youtu.be/2c_qop6iUKE</a>]</div>
+
+        <div class="widget-header">Vector Projection in Three Dimensions</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/RxRwK81CVew" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="http://youtu.be/RxRwK81CVew" target="_blank" rel="noopener noreferrer">http://youtu.be/RxRwK81CVew</a>]</div>
+
+
+        <h2 id="apps">Applications</h2>
+
+        <p>We often use dot projects when dealing with vectors that need to be parallel or perpendicular (orthogonal) to each other. The following video gives an example.</p>
+
+        <div class="widget-header">Find a Component of a Vector So Two Vectors are Orthogonal (Dot Product)</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/2k-sjNwfiT4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="http://youtu.be/2k-sjNwfiT4" target="_blank" rel="noopener noreferrer">http://youtu.be/2k-sjNwfiT4</a>]</div>
+
+        <p>Probably the most common application of the vector dot product deals with force and work. If you remember your physics, we can desribe the work done moving an object a distance \(d\) by applying a constant force \(F\) in the direction of the motion as \(W = Fd\). Well, what if the force is not applied in the same direction as the movement of the object? We would need to determine <em>how much of the force is parallel to the direction of motion</em>, which is where the projection comes into play.</p>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Work">
+            <!-- Content goes here. -->
+            <p>The amount of <strong>work</strong> \(\vec{W}\) done by a force \(\vec{F}\) along a distance \(\vec{d}\) is given by the following dot product.</p>
+
+            \[\vec{W} = \vec{F} \cdot \vec{d} = \left| \text{proj}_{\vec{d}} \vec{F} \right| |\vec{d}|\]
+        </div>
+
+        <div class="widget-header">Vector Applications: Force and Work</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/LOhSSWsT6vU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="http://www.youtube.com/watch?v=LOhSSWsT6vU" target="_blank" rel="noopener noreferrer">http://www.youtube.com/watch?v=LOhSSWsT6vU</a>]</div>
+
+    </main>
+    <!-- End of the main content -->
+
+    <!-- EMPTY PLACEHOLDER FOOTER: Script will automatically inject the copyright blocks -->
+    <footer class="lesson-footer" id="global-site-footer" role="contentinfo"></footer>
+
+    <!--Custom scripts-->
+    <script src="../site-nav.js" defer></script>
+    <script src="../site-ui.js" defer></script>
+    <script src="../site-quizlets.js" defer></script>
+</body>
+
+</html>

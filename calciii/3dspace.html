@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../course-styles.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../print-styles.css">
+
+    <!--MathJax links-->
+    <script src="../site-math.js"></script>
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <link rel="icon" type="image/png" href="../logo-s.png">
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button type="button" onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- EMPTY PLACEHOLDER HEADER: Script will automatically inject the logo and subtitle -->
+    <header class="page-header" id="global-site-header" role="banner"></header>
+
+    <!-- Insert this uniform element block across all root, overview, and lesson files -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <!-- Links are automatically populated here via the site-nav.js script -->
+    </div>
+
+    <!-- Main content area shell container is a semantic <main> tag -->
+    <main class="lesson-body" id="main-content">
+        <!-- On This Page Menu -->
+        <nav class="lesson-page-toc" aria-label="On this Page Section Navigation Links">
+            <button class="dropbtn">On this Page</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li><a id="toc-top" href="#top"><!--Filled by page name from script--></a></li>
+                    <!-- <li><a href="#operations">...</a></li> -->
+                </ul>
+            </div>
+        </nav>
+
+        <!-- The main core lesson header is a native semantic <h1> tag -->
+        <h1 id="top"><!--Filled by page name from script--></h1>
+
+        <div class="objective-region" role="region" aria-label="Lesson Objectives">
+            <!-- Content goes here. -->
+            <p>On this page, you will learn to:</p>
+            <ul>
+                <li>Identify the structure of the 3D coordinate system.</li>
+                <li>Plot points in \(\mathbb{R}^3\).</li>
+                <li>Determine the distance and midpoint between two points in \(\mathbb{R}^3\).</li>
+            </ul>
+        </div>
+
+
+
+        <p>Up to this point, probably all of the functions and graphs you have studied have been expressions of the form \(y = f(x)\) that were graphed on the \(xy\)-plane. All of the concepts and skills that you learned in Calculus I and II (derivatives, integrals, optimization, related rates, series, polar, conics, etc.) can be extended from the 2-dimensional space of x and y to 3-dimensional space. This is the foundational idea for this course. Since the world is in 3D, how do we do calculus in 3D?</p>
+
+        <p>If any point in the 2D \(xy\)-plane \(\mathbb{R}^2\) can be expressed as a coordinate pair \((x,y)\), then any point in 3D space \(\mathbb{R}^3\) can be expressed as a coordinate triple \((x,y,z)\). The \(z\)-coordinate represents how far a point is above or below the \(xy\)-plane. We can express 3D space as the set of all of these triples using the following notation.</p>
+
+        \[\mathbb{R}^3 = \{(x,y,z) \, | \, x,y,z \in \mathbb{R}\}\]
+
+        <p>You would read this as "R 3 is the set of all triples (x, y, z) such that x, y, and z are Real numbers." The symbol \(\in\) means "element of," or that the x, y, and z values must be in \(\mathbb{R}\).</p>
+
+        <p>Use the following GeoGebra app to explore various aspects of 3D space. The initial appearance of the app is of the \(xy\)-plane. You can click-and-drag to rotate the view around. Use the selection boxes on the left to highlight the <strong>coordinate planes</strong>. You can also show the <strong>octants</strong> of 3D space, similar to the quadrants of the \(xy\)-plane. Lastly, you can view how a <strong>point</strong> appears in 3D space. You can change the coordinates of the point by moving the corresponding point on a coordinate axis.</p>
+
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <!-- Edit the title to clearly state it is an interactive tool -->
+                <iframe height="477px" width="795px" style="border:0px;" scrolling="no" title="Interactive GeoGebra 3D Space Graphing Calculator Application" src="https://www.geogebra.org/material/iframe/id/w4grzpyz/width/795/height/477/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"> </iframe>
+            </div>
+        </div>
+        <div class="widget-footer">GeoGebra Applet: [<a href="https://www.geogebra.org/m/snrdkucp" target="_blank" rel="noopener noreferrer">https://www.geogebra.org/m/snrdkucp</a>]</div>
+
+        <p>There are many ways to orient the \(x\), \(y\), and \(z\) axes. We will use a <strong>right-hand rule</strong>, which is illustrated below. If the thumb on your right hand represents the \(z\)-axis, then your fingers would rotate from the \(x\)-axis through the \(y\)-axis as you curl your fingers into a fist.</p>
+
+        <figure>
+            <img src="content/righthandorientation.png" alt="Illustration of the right-hand rule." style="max-width: 350px;">
+            <figcaption>Illustration of the right-hand rule.</figcaption>
+        </figure>
+
+        <p>Drawing the axes of 3D space on a 2D surface like a piece of paper requires us to use our imagination. We have to slightly alter our perspective on the 3D axes to make a sort of optical illusion. A couple options are illustrated below.</p>
+
+        <div class="flex-grid-container">
+            <!-- columns: flex-col-2, flex-col-3, or flex-col-4 -->
+            <div class="flex-grid-item flex-col-2">
+                <figure>
+                    <img src="content/CenteredPerspective.png" alt="Illustration of the xyz axes from a point of view centered in the first octant looking down on the origin with the x-axis extending downward to the left, the y-axis extending downward to the right, and the z-axis pointing upward.">
+                    <figcaption>Centered Perspective</figcaption>
+                </figure>
+            </div>
+            <!-- columns: flex-col-2, flex-col-3, or flex-col-4 -->
+            <div class="flex-grid-item flex-col-2">
+                <figure>
+                    <img src="content/HorizontalPerspective.png" alt="Illustration of the xyz axes from the side, where the y-axis is horizontal , the z-axis is vertical, and the x-axis extends forward as if it stretches out of your screen or up off the page.">
+                    <figcaption>Horizontal Perspecitve</figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <p>The first image above shows the axes from a point of view centered in the first octant looking down on the origin with the \(x\)-axis extending downward to the left, the \(y\)-axis extending downward to the right, and the \(z\)-axis pointing upward. The second image shows the axes more from the side, where the y-axis is horizontal, the z-axis is vertical, and the x-axis extends forward as if it stretches out of your screen towards you. This second perspective is what we will typically want to use throughout the semester, as it gives us a reference frame for width (\(y\)), height (\(z\)), and depth (\(x\)).</p>
+
+        <!-- A multiple choice question containing 4 images. -->
+        <!-- Add a prompt within the legend, add 4 images sources with alt-text, and enter the solution. -->
+        <!-- Update the opt1-1 IDs, radio names, and response names if more than one assessment per page. -->
+        <div class="assess">
+            <!-- Wrap form elements inside a native fieldset and legend mapping container -->
+            <fieldset>
+                <!-- Prompt text wrapped inside legend so it is announced immediately on field entry focus -->
+                <legend>
+                    <strong>Self-Check #1</strong>: Which graph represents the point \(\left(2, 3, \text{-}1\right)\)? (<i>Select the most appropriate response.</i>)
+                </legend>
+                <!-- Flex/grid container -->
+                <div class="image-grid-layout">
+
+                    <!-- Choice A -->
+                    <div class="quiz-option-card">
+                        <label class="radiocntrimg">
+                            <input type="radio" id="opt1-1" name="mcChoice1" value="A">
+                            <span class="radio-text-wrapper">
+                                (A) <br>
+                                <img src="content/point-1a.png" alt="Graph of the xyz axes with a point plotted -2 units in the x-direction, -3 units in the y-direction, and 1 unit in the z-direction.">
+                            </span>
+                            <span class="radiobtn"></span>
+                        </label>
+                    </div>
+
+                    <!-- Choice B -->
+                    <div class="quiz-option-card">
+                        <label class="radiocntrimg">
+                            <input type="radio" id="opt1-2" name="mcChoice1" value="B">
+                            <span class="radio-text-wrapper">
+                                (B) <br>
+                                <img src="content/point-1b.png" alt="Graph of the xyz axes with a point plotted 2 units in the x-direction, 3 units in the y-direction, and -1 unit in the z-direction.">
+                            </span>
+                            <span class="radiobtn"></span>
+                        </label>
+                    </div>
+
+                    <!-- Choice C -->
+                    <div class="quiz-option-card">
+                        <label class="radiocntrimg">
+                            <input type="radio" id="opt1-3" name="mcChoice1" value="C">
+                            <span class="radio-text-wrapper">
+                                (C) <br>
+                                <img src="content/point-1c.png" alt="Graph of the xyz axes with a point plotted -1 units in the x-direction, 3 units in the y-direction, and -2 unit in the z-direction.">
+                            </span>
+                            <span class="radiobtn"></span>
+                        </label>
+                    </div>
+
+                    <!-- Choice D -->
+                    <div class="quiz-option-card">
+                        <label class="radiocntrimg">
+                            <input type="radio" id="opt1-4" name="mcChoice1" value="D">
+                            <span class="radio-text-wrapper">
+                                (D) <br>
+                                <img src="content/point-1d.png" alt="Graph of the xyz axes with a point plotted 2 units in the x-direction, -1 units in the y-direction, and 3 unit in the z-direction.">
+                            </span>
+                            <span class="radiobtn"></span>
+                        </label>
+                    </div>
+
+                </div>
+            </fieldset>
+
+            <button onclick="checkMCSub('mcChoice1','B','correct1','wrong1','makechoice1')" id="submit1">Check Answer</button>
+
+            <!-- Wrapped your dynamic script targets inside an aria-live region -->
+            <div class="quiz-feedback-region" aria-live="polite" role="status" style="margin-top: 15px;">
+                <div class="response" id="makechoice1"><i>You must select an answer above</i>.</div>
+                <div class="response" id="correct1"><i class="fa fa-check" style="color: green" aria-label="Correct"></i> Correct!</div>
+                <div class="response" id="wrong1">
+                    <i class="fa fa-times" style="color: red" aria-label="Incorrect"></i> Incorrect.
+                    <p>(Answer: B) -- The point \(\left(2,3,\text{-}1\right)\) should be located 2 units in the \(x\)-direction, 3 units in the \(y\)-direction, and \(\text{-}1\) unit in the \(z\)-direction. This should put it 1 unit below the point \(\left(2,3\right)\) in the first quadrant of the \(xy\)-plane.</p>
+                </div>
+            </div>
+        </div>
+
+        <p>In a previous math class, you should have learned how to find the distance between two points on the \(xy\)-plane using \(d = \sqrt{(x_2-x_1)^2 + (y_2 - y_1)^2}\) as well as the location in the middle between two points on the \(xy\)-plane using \(\left( \frac{x_1+x_2}{2}, \frac{y_1+y_2}{2} \right)\). Since the distance formula comes from the Pythagorean Theorem and the midpoint formula is just the average of the coordinates of the two points, we can easily extend these from the 2D plane to 3D space.</p>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: ">
+            <!-- Content goes here. -->
+            <p>In \(\mathbb{R}^3\) we can compute the <strong>distance between two points</strong> \((x_1,y_1,z_1\)) and \((x_2,y_2,z_2\)) using the following formula.</p>
+
+            \[d=\sqrt{(x_2-x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2}\]
+
+            <p>We can also compute the <strong>midpoint of the segment between two points</strong> using the formula below.</p>
+
+            \[\left( \frac{x_1+x_2}{2}, \frac{y_1+y_2}{2}, \frac{z_1+z_2}{2} \right)\]
+        </div>
+
+        <!-- A numerical input question. -->
+        <!-- Add a prompt, enter the numerical answer, and enter the solution. -->
+        <!-- Update the check1-prompt and input1 IDs, and response names if more than one assessment per page. -->
+        <div class="assess">
+            <!-- Question Prompt Description Card -->
+            <p id="check2-prompt">
+                <strong>Self-Check #2</strong>: Compute the distance between the points \(\left(3, \text{-}1, 5\right)\) and \(\left(4, 1, 0\right)\). (<i>Enter your answer rounded to 2 decimal places</i>.)
+            </p>
+
+            <div class="quiz-input-row">
+                <!-- Label and input Linked via aria-describedby for clear instruction context -->
+                <label for="input2"><strong>Answer:</strong></label>
+                <input id="input2" type="text" value="" aria-describedby="check2-prompt" />
+
+                <button onclick="checkFitBSub('input2',5.48,'correct2','wrong2','enterans2',0.01)" id="submit2">Check Answer</button>
+            </div>
+
+            <!-- Wrapped dynamic script targets inside an aria-live region -->
+            <div class="quiz-feedback-region" aria-live="polite" role="status">
+                <div class="response" id="enterans2"><i>You must enter an answer</i>.</div>
+                <div class="response" id="correct2"><i class="fa fa-check" style="color: green" aria-label="Correct"></i> Correct!</div>
+                <div class="response" id="wrong2">
+                    <i class="fa fa-times" style="color: red" aria-label="Incorrect"></i> Incorrect.
+                    <!-- State the correct answer and provide a solution. -->
+                    <p>(Answer: 5.48) -- Using the above formula, we get the following.</p>
+
+                    \[\begin{align*} d &= \sqrt{(4 - 3)^2 + (1 - (\text{-}1))^2 + (0 - 5)^2} \\ &= \sqrt{1 + 4 + 25} \\ &= \sqrt{30} \\ &\approx 5.48 \end{align*}\]
+                </div>
+            </div>
+        </div>
+
+
+        <!-- A multiple choice question of 4 choices horziontally. -->
+        <!-- Add a prompt within the legend, add 4 choices, and enter the solution. -->
+        <!-- Update the opt1-1 IDs, radio names, and response names if more than one assessment per page. -->
+        <div class="assess">
+            <!-- Wrap form elements inside a native fieldset and legend mapping container -->
+            <fieldset>
+                <!-- Prompt text wrapped inside legend so it is announced immediately on field entry focus -->
+                <legend>
+                    <strong>Self-Check #3</strong>: Compute the midpoint of the points \(\left(3, \text{-}1, 5\right)\) and \(\left(4, 1, 0\right)\). (<i>Select the most appropriate response.</i>)
+                </legend>
+
+                <!-- Flex/grid container -->
+                <div class="quiz-grid-layout">
+
+                    <!-- Choice A -->
+                    <div class="quiz-option-card">
+                        <label class="radiocntrimg">
+                            <input type="radio" id="opt3-1" name="mcChoice3" value="A">
+                            <span class="radio-text-wrapper">
+                                (A) &emsp; \(\left( \frac{1}{2}, 0, \text{-}\frac{5}{2} \right)\)
+                            </span>
+                            <span class="radiobtn"></span>
+                        </label>
+                    </div>
+
+                    <!-- Choice B -->
+                    <div class="quiz-option-card">
+                        <label class="radiocntrimg">
+                            <input type="radio" id="opt3-2" name="mcChoice3" value="B">
+                            <span class="radio-text-wrapper">
+                                (B) &emsp; \(\left( 7, 0, 5 \right)\)
+                            </span>
+                            <span class="radiobtn"></span>
+                        </label>
+                    </div>
+
+                    <!-- Choice C -->
+                    <div class="quiz-option-card">
+                        <label class="radiocntrimg">
+                            <input type="radio" id="opt3-3" name="mcChoice3" value="C">
+                            <span class="radio-text-wrapper">
+                                (C) &emsp; \(\left( \text{-}\frac{1}{2}, 0, \frac{5}{2} \right)\)
+                            </span>
+                            <span class="radiobtn"></span>
+                        </label>
+                    </div>
+
+                    <!-- Choice D -->
+                    <div class="quiz-option-card">
+                        <label class="radiocntrimg">
+                            <input type="radio" id="opt3-4" name="mcChoice3" value="D">
+                            <span class="radio-text-wrapper">
+                                (D) &emsp; \(\left( \frac{7}{2}, 0, \frac{5}{2} \right)\)
+                            </span>
+                            <span class="radiobtn"></span>
+                        </label>
+                    </div>
+                </div>
+            </fieldset>
+
+            <button onclick="checkMCSub('mcChoice3','D','correct3','wrong3','makechoice3')" id="submit3">Check Answer</button>
+
+            <!-- Wrapped your dynamic script targets inside an aria-live region -->
+            <div class="quiz-feedback-region" aria-live="polite" role="status" style="margin-top: 15px;">
+                <div class="response" id="makechoice3"><i>You must select an answer above</i>.</div>
+                <div class="response" id="correct3"><i class="fa fa-check" style="color: green" aria-label="Correct"></i> Correct!</div>
+                <div class="response" id="wrong3"> <i class="fa fa-times" style="color: red" aria-label="Incorrect"></i> Incorrect.
+                    <!--State the correct answer and provide a solution.-->
+                    <p>(Answer: D) -- Using the formula above, we get the following.</p>
+
+                    \[\left( \frac{3+4}{2}, \frac{\text{-}1+1}{2}, \frac{5+0}{2} \right) = \left( \frac{7}{2}, 0, \frac{5}{2} \right)\]
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <!-- End of the main content -->
+
+    <!-- EMPTY PLACEHOLDER FOOTER: Script will automatically inject the copyright blocks -->
+    <footer class="lesson-footer" id="global-site-footer" role="contentinfo"></footer>
+
+    <!--Custom scripts-->
+    <script src="../site-nav.js" defer></script>
+    <script src="../site-ui.js" defer></script>
+    <script src="../site-quizlets.js" defer></script>
+</body>
+
+</html>

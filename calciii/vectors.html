@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../course-styles.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../print-styles.css">
+
+    <!--MathJax links-->
+    <script src="../site-math.js"></script>
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <link rel="icon" type="image/png" href="../logo-s.png">
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button type="button" onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- EMPTY PLACEHOLDER HEADER: Script will automatically inject the logo and subtitle -->
+    <header class="page-header" id="global-site-header" role="banner"></header>
+
+    <!-- Insert this uniform element block across all root, overview, and lesson files -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <!-- Links are automatically populated here via the site-nav.js script -->
+    </div>
+
+    <!-- Main content area shell container is a semantic <main> tag -->
+    <main class="lesson-body" id="main-content">
+        <!-- On This Page Menu -->
+        <nav class="lesson-page-toc" aria-label="On this Page Section Navigation Links">
+            <button class="dropbtn">On this Page</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li><a id="toc-top" href="#top"><!--Filled by page name from script--></a></li>
+                    <li><a href="#2dops">2D Vector Operations</a></li>
+                    <li><a href="#2dapps">2D Vector Applications</a></li>
+                    <li><a href="#3dvectors">Vectors in Space</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- The main core lesson header is a native semantic <h1> tag -->
+        <h1 id="top"><!--Filled by page name from script--></h1>
+
+        <div class="objective-region" role="region" aria-label="Lesson Objectives">
+            <!-- Content goes here. -->
+            <p>On this page, you will learn to:</p>
+            <ul>
+                <li>Perform basic vector operations of addition, subtraction, and scalar multiplication in \(&#8477;^2\) and \(&#8477;^3\).</li>
+                <li>Express vectors in component form and \(\hat{\imath} \hat{\jmath}\) (\(\hat{\imath} \hat{\jmath} \hat{k}\)) form.</li>
+                <li>Determine magnitude and direction of a vector.</li>
+                <li>Solve applications involving vectors.</li>
+            </ul>
+        </div>
+
+        <p>You have probably already seen vectors in a precalculus or phsycis course, but only in the xy-plane. We want to look at vectors in 3D space. Let's first review vector basics in the plane and then at the end we will extend what we know to space. The following video defines what a vector is and the terminology we use as we work with vectors.</p>
+
+        <div class="widget-header">Introduction to Vectors (2D)</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/IKzR0Odurm0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://www.youtube.com/watch?v=IKzR0Odurm0" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=IKzR0Odurm0</a>]</div>
+
+        <p>After watching the above video, you should know...</p>
+        <ul>
+            <li>The difference between a <strong>vector</strong> and a <strong>scalar</strong>. Note that in a typed text we often represent scalar variables as an italicized letter, such as \(x\), and vector variables as a bold letter, such as <b>v</b>.
+                When handwriting a vector variable, we put an arror over the letter, such as \(\vec{v}\). (The arrow may not display properly depending on the browser you are using.)</li>
+            <li>How to compute the magnitude and direction of a vector. Note that magnitude may be represented as either \(|\vec{v}|\) or \(||\vec{v}||\).</li>
+            <li>How to determine the <strong>components</strong> and express the vector in <strong>component form</strong>, \(\langle a,b \rangle\).
+            </li>
+            <li>How to use the <strong>unit vectors</strong> \(\hat{\imath}\) and \(\hat{\jmath}\) to express a vector in \(\hat{\imath}\hat{\jmath}\) form, \(a\hat{\imath} + b\hat{\jmath}\). Note that when handwriting unit vectors, it is common to use a
+                "hat" symbol rather than an arrow. So if \(\vec{v}\) is a unit vector, we could write it as \(\hat{v}\).</li>
+        </ul>
+
+        <h2 class="2dops">2D Vector Operations</h2>
+
+        <p>There are three vector operations that you should know for now: vector addition, vector subtraction, and scalar multiplication. You are probably already familiar with them, but the following video defines these operations from and algebraic and graphical perspective and gives a few examples. Note that he also discusses a vector dot product, but we will come back to that in the next section.</p>
+
+        <div class="widget-header">Vector Operations (2D)</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/EYIxFJXoUvA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://www.youtube.com/watch?v=EYIxFJXoUvA" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=EYIxFJXoUvA</a>]</div>
+
+
+        <p>One helpful result of scalar multiplication is that is allows us to take any given vector and determine a unit vector that is parallel to it. We can use the following formula where the unit vector "v hat" is determined by dividing the vector by its own magnitude.</p>
+
+        \[\hat{v} = \frac{\vec{v}}{|\vec{v}|}\]
+
+        <p>The following video demonstrates how we can determine the unit vector for a given vector.</p>
+
+        <div class="widget-header">The Unit Vector (2D)</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/Ect0fBnBlLc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="http://www.youtube.com/watch?v=Ect0fBnBlLc" target="_blank" rel="noopener noreferrer">http://www.youtube.com/watch?v=Ect0fBnBlLc</a>]</div>
+
+        <h2 class="2dapps">2d Vector Applications</h2>
+
+        <p>Common applications of vectors include forces, computer programming, computer imagery, and projectile motion. The following videos give a couple examples.</p>
+
+        <div class="widget-header">Find the Net Force of Three Vectors and the Opposite Force</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/4EFXTBK-5e0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://www.youtube.com/watch?v=4EFXTBK-5e0" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=4EFXTBK-5e0</a>]</div>
+
+        <div class="widget-header">Direction and Speed of a Plane in the Wind Using Vectors</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/f5vWlnpw9nc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://www.youtube.com/watch?v=f5vWlnpw9nc" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=f5vWlnpw9nc</a>]</div>
+
+        <h2 class="3dvectors">Vectors in Space</h2>
+
+        <p>Before we extend the 2D vector concepts we have just covered into 3D space, let's first list the properties of vector operations. Suppose \(\vec{u}\), \(\vec{v}\), and \(\vec{w}\) are vectors and \(a\) and \(c\) are scalars. Note the difference between the scalar 0 and the vector \(\vec{0}\), which has no direction and a 0 magnitude.</p>
+
+        <!-- A 2 column table of listed pairings per row to stack as rows per card -->
+        <!-- Add a caption, column headers, and row cells -->
+        <table class="tbl-responsive-list" role="table" style="width: 60%; margin: auto;">
+            <caption>Properties of Vector Operations</caption>
+            <thead role="rowgroup">
+                <tr role="row">
+                    <th scope="col" role="columnheader">Property</th>
+                    <th scope="col" role="columnheader">Operation</th>
+                </tr>
+            </thead>
+            <tbody role="rowgroup">
+                <!-- Row 1 -->
+                <tr role="row">
+                    <td class="r1c1" role="cell">Commutative (addition)</td>
+                    <td class="r1c2" role="cell">\[\vec{u} + \vec{v} = \vec{v} + \vec{u}\]</td>
+                </tr>
+                <!-- Row 2 -->
+                <tr role="row">
+                    <td class="r2c1" role="cell">Associative (addition)</td>
+                    <td class="r2c2" role="cell">\[(\vec{u} + \vec{v}) + \vec{w} = \vec{u} + (\vec{v} + \vec{w})\]</td>
+                </tr>
+                <!-- Row 3 -->
+                <tr role="row">
+                    <td class="r3c1" role="cell">Additive Identity</td>
+                    <td class="r3c2" role="cell">\[\vec{v} + \vec{0} = \vec{v}\]</td>
+                </tr>
+                <!-- Row 4 -->
+                <tr role="row">
+                    <td class="r4c1" role="cell">Additive Inverse</td>
+                    <td class="r4c2" role="cell">\[\vec{v} + -\vec{v} = \vec{0}\]</td>
+                </tr>
+                <!-- Row 5 -->
+                <tr role="row">
+                    <td class="r5c1" role="cell">Distributive (scalar)</td>
+                    <td class="r5c2" role="cell">\[c(\vec{u} + \vec{v}) = c\vec{u} + c\vec{v}\]</td>
+                </tr>
+                <!-- Row 6 -->
+                <tr role="row">
+                    <td class="r6c1" role="cell">Distributive (vector)</td>
+                    <td class="r6c2" role="cell">\[(a + b)\vec{v} = a\vec{v} + b\vec{v}\]</td>
+                </tr>
+                <!-- Row 7 -->
+                <tr role="row">
+                    <td class="r7c1" role="cell">Zero Scalar (multiplication)</td>
+                    <td class="r7c2" role="cell">\[0\vec{v} = \vec{0}\]</td>
+                </tr>
+                <!-- Row 8 -->
+                <tr role="row">
+                    <td class="r8c1" role="cell">Zero Vector (multiplication)</td>
+                    <td class="r8c2" role="cell">\[c\vec{0} = \vec{0}\]</td>
+                </tr>
+                <!-- Row 9 -->
+                <tr role="row">
+                    <td class="r9c1" role="cell">Multiplicative Identity</td>
+                    <td class="r9c2" role="cell">\[1\vec{v} = \vec{v}\]</td>
+                </tr>
+                <!-- Row 10 -->
+                <tr role="row">
+                    <td class="r10c1" role="cell">Associative (scalar multiplication)</td>
+                    <td class="r10c2" role="cell">\[a(c\vec{v}) = (ac)\vec{v}\]</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>Also, we already talked about the unit vectors \(\hat{\imath}\) and \(\hat{\jmath}\) in the 2D plane. When we extend this into 3D space, we get the three unit vectos \(\hat{\imath} = \langle 1,0,0 \rangle \), \(\hat{\jmath} = \langle 0,1,0 \rangle \), and \(\hat{k} = \langle 0,0,1 \rangle\).</p>
+
+        <p>The following video illustrates what vectors look like when graphed in 3D space and how we can compute the magnitude and unit vectors for a given vector. All the operations we have talked about so far still apply.</p>
+
+        <div class="widget-header">Vectors in Space</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/DXi-SkzMY3g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://www.youtube.com/watch?v=DXi-SkzMY3g" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=DXi-SkzMY3g</a>]</div>
+
+    </main>
+    <!-- End of the main content -->
+
+    <!-- EMPTY PLACEHOLDER FOOTER: Script will automatically inject the copyright blocks -->
+    <footer class="lesson-footer" id="global-site-footer" role="contentinfo"></footer>
+
+    <!--Custom scripts-->
+    <script src="../site-nav.js" defer></script>
+    <script src="../site-ui.js" defer></script>
+    <script src="../site-quizlets.js" defer></script>
+</body>
+
+</html>

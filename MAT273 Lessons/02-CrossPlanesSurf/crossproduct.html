@@ -105,12 +105,12 @@
         <p>As we will see below, a cross product of two vectors is defined as the determinant of a 3x3 matrix, which involves computing several 2x2 determinants. So let's quickly look at the process for computing a 3x3 determinant, and then we can finally look at how to compute a cross product</p>
 
         <div class="def-eqn">
-            <p>The <strong>determinant of a 3x3 matrix</strong> is a scalar value computed using the following formula.</p>
+            <p>The <strong>determinant of a 3x3 matrix</strong> is a vector computed using the following formula.</p>
 
             \[\begin{align*} \left| \begin{matrix} a & b & c \\ d & e & f \\ g & h & i \end{matrix} \right| &= a \left| \begin{matrix} e & f \\ h & i \end{matrix} \right| - b \left| \begin{matrix} d & f \\ g & i \end{matrix} \right| + c \left| \begin{matrix} d & e \\ g & h \end{matrix} \right| \end{align*}\]
         </div>
 
-        <p>Notice that the result of the 3x3 determinant requires computing three 2x2 determinants, which we already learned about above. Each 2x2 determinant is multiplied by a value from the top row of the matrix. The values within each determinant come from the 2nd and 3rd rows of the matrix and skip the column where the coefficient was located. So for example, the first coefficient is the \(a\) value which is located in the 1st row and 1st column. The values inside the corresponding determinant come from the 2nd and 3rd columns (we skip the 1st column since that is where \(a\) is located). Repeat this idea for \(b\) in the 2nd column and \(c\) in the 3rd column. Also, notice that the middle term is being subtracted. We need to always subtract or change the sign of the middle term. Let's apply this idea to computing a cross product of two vectors.</p>
+        <p>Notice that the result of the 3x3 determinant requires computing three 2x2 determinants, which we already learned about above. Each 2x2 determinant is multiplied by a value from the top row of the 3x3 matrix. The values within each determinant come from the 2nd and 3rd rows of the matrix and skip the column where the coefficient was located. So for example, the first coefficient is the \(a\) value which is located in the 1st row and 1st column. The values inside the corresponding determinant come from the 2nd and 3rd columns (we skip the 1st column since that is where \(a\) is located). Repeat this idea for \(b\) in the 2nd column and \(c\) in the 3rd column. Also, notice that the middle term is being subtracted. We need to always subtract or change the sign of the middle term. Let's apply this idea to computing a cross product of two vectors.</p>
 
         <div class="def-eqn">
             <p>The <strong>cross product</strong> of vectors \(\vec{u} = \langle u_1,u_2,u_3 \rangle\) and \(\vec{v} = \langle v_1,v_2,v_3 \rangle\) is defined by the following formula.</p>

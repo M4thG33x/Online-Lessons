@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../course-styles.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../print-styles.css">
+
+    <!--MathJax links-->
+    <script src="../site-math.js"></script>
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <link rel="icon" type="image/png" href="../logo-s.png">
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button type="button" onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- EMPTY PLACEHOLDER HEADER: Script will automatically inject the logo and subtitle -->
+    <header class="page-header" id="global-site-header" role="banner"></header>
+
+    <!-- Insert this uniform element block across all root, overview, and lesson files -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <!-- Links are automatically populated here via the site-nav.js script -->
+    </div>
+
+    <!-- Main content area shell container is a semantic <main> tag -->
+    <main class="lesson-body" id="main-content">
+        <!-- On This Page Menu -->
+        <nav class="lesson-page-toc" aria-label="On this Page Section Navigation Links">
+            <button class="dropbtn">On this Page</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li><a id="toc-top" href="#top"><!--Filled by page name from script--></a></li>
+                    <!-- <li><a href="#operations">...</a></li> -->
+                </ul>
+            </div>
+        </nav>
+
+        <!-- The main core lesson header is a native semantic <h1> tag -->
+        <h1 id="top"><!--Filled by page name from script--></h1>
+
+        <div class="objective-region" role="region" aria-label="Lesson Objectives">
+            <!-- Content goes here. -->
+            <p>On this page, you will learn to:</p>
+            <ul>
+                <li>Graph and compute basic expressions using the free online app GeoGebra.</li>
+            </ul>
+        </div>
+
+        <p>You have already used GeoGebra at this point if you interacted with the 3D graphs on previous pages. But you should probably learn how to use the graphing software for your own needs. GeoGebra is a free web-based graphing and calculator technology, and there are free app versions available on iTunes or the Google Play Store. It is not required for this course, but it can be a very helpful resource. You are welcome to use other graphing software (such as Desmos) if you want, however GeoGebra will be used within the lessons throughout the semester. You will not be allowed to use GeoGebra or any apps on tests.</p>
+
+        <p>Open a browser and nagivate to <a href="https://www.geogebra.org" target="_blank" rel="noopener noreferrer">GeoGebra (new window)</a> [https://www.geogebra.org/]. You can create a free user account if you think you will want to save any graphs or work you do, but this is not required. On the GeoGebra home page, click the <strong>Start Calculator</strong> button to begin.</p>
+        
+        <p>Let's start by exploring the different areas of the GeoGebra graph, which is illustrated below. On the right side of the screen is the 3D Calculator Graph view. If you need to change the mode of the calculator, say to switch between a 2D or 3D graph, use the drop-down menu at the top of the page. On the left side of screen is the Input space. Here you can type any commands or functions to be added to the graph, or to be used as a calculator. You can edit the settings to change formatting or appearance for any input or the overall graph by clicking on the 3 dots next to each input. There is also a GeoGebra menu at the top-left of the screen where you will find options to save your current work (if you created an optional account or download to your computer).</p>
+
+        <img src="content/geogebra.png" alt="Image of the GeoGebra 3D Calcutor view, including the 3D graph on the right side of the page and the Input area on the left side of the page. Input expressions include f:y = x^2 + 1, A = (1,2,3), u = vector((-2,-1,0),(1,0,1)), and v = vector((3,0,1)).">
+
+        <p>There are many commands and functions that you can enter in GeoGebra, as illustrated above. You can graph functions and surfaces such as <b>y = x^2 + 1</b> or even implicit equations like <b>x^2 + y^2 = 1</b>. You can plot points by simply typing in the coordinates, such as <b>(1, 2, 3)</b>. There is a vector command with two variations, <b>vector(point1, point2)</b> draws a vector from point1 to point2 while <b>vector(point)</b> draws a vector from the origin to the specified point. Notice that each command expression has been given a unique identifying name, or letter. The parabola is named <b>f</b>, the 3D point is named <b>A</b>, and the vectors are <b>u</b> and <b>v</b>. You can specify these names or let GeoGebra given them automatically. You can also change them later. GeoGebra uses these unique names for further computions. For example, if we entered "u+v" into the graph activity illustrated above, it would compute the sum of the two vectors that correspond to the <b>u</b> and <b>v</b> names. Also, notice that the colors can be changed from the settings menu. From within the settings menu, changes can also be made to the activity or graph, such as changing angle messures between radians and degrees or changing how many decimals to use for rounding purposes. In this example, a grid was added to the xy-plane.</p>
+
+        <p>Be aware that while GeoGebra is a wonderful graphing and computational tool, it does have a bit of a learning curve. It may look very similar to other resoures such as <a href="https://www.desmos.com" target="_blank" rel="noopener noreferrer">Desmos (new window)</a> [https://www.desmos.com/], but it can do so much more. If you want to use GeoGebra (and I suggest you do), then you will want to invest plenty of time to explore what it can do. Play around with it - try to graph different functions, change settings to see what happens, try doing things with the different views, explore the various commands and tools. It is not perfect, but hey, its free!</p>
+
+
+    </main>
+    <!-- End of the main content -->
+
+    <!-- EMPTY PLACEHOLDER FOOTER: Script will automatically inject the copyright blocks -->
+    <footer class="lesson-footer" id="global-site-footer" role="contentinfo"></footer>
+
+    <!--Custom scripts-->
+    <script src="../site-nav.js" defer></script>
+    <script src="../site-ui.js" defer></script>
+    <script src="../site-quizlets.js" defer></script>
+</body>
+
+</html>

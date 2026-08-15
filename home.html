@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../../course-styles.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../../print-styles.css">
+    <!--MathJax links-->
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-svg.js"></script>
+    <!--Assessment script-->
+    <script src="../../quizlets.js"></script>
+
+    <title>M4thG33x Home</title>
+    <link rel="icon" type="image/png" href="../../logo-s.png">
+
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- Wrap top page banner elements inside a semantic <header> landmark element -->
+    <header class="page-header" role="banner">
+        <img src="../../logo-m.png" alt="M4thg33x Logo">
+        <p id="subtitle" class="header-subtitle"><!--Filled by page name from script--></p>
+    </header>
+
+    <!-- Wrap page navigation menus into a single semantic <nav> block -->
+    <nav class="navmenu-container" aria-label="Lesson Navigation Bar">
+        <div class="navmenu-main-button">
+            <!-- Expandable side navigation panel for all pages -->
+            <button id="panel-open-btn" class="open-btn">☰</button>
+
+            <div id="side-panel" class="side-panel">
+                <div class="course-name">Calculus III</div>
+                <button id="panel-close-btn" class="close-btn">&times;</button>
+                <div id="side-panel-menu-items">
+                    <!-- Menu items inserted automatically on page load via script.js -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Drop-down menu for specific pages in the current section -->
+        <div class="navmenu-pages-button">
+            <button class="dropbtn">Pages <i class="fa fa-caret-down"></i></button>
+            <div class="dropdown-content">
+                <ul id="pages-dropdown-list">
+                    <!-- JavaScript will insert the items here seamlessly -->
+                </ul>
+            </div>
+        </div>
+
+        <!-- Previous / next page links with title of current page in between -->
+        <div class="navmenu-nav-buttons">
+            <div class="navigation-controls">
+                <button id="prevPageBtn" disabled aria-label="Previous Page"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+                <div id="curPageTitle"><!--Filled by page name from script--></div>
+                <button id="nextPageBtn" disabled aria-label="Next Page"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+            </div>
+        </div>
+
+        <!-- Visually hidden tracking label element linked via 'for' attribute -->
+        <div class="navmenu-search-box">
+            <label for="lesson-search">Search all lessons</label>
+            <input id="lesson-search" class="search-bar-input" type="text" placeholder="Search lessons..">
+        </div>
+    </nav>
+
+    <!-- Wrap floating quick menu links inside an <aside> landmark container -->
+    <aside class="right-side-container" aria-label="Quick Actions Link Menu">
+        <div class="right-side-nav-links">
+            <a href="../../home.html" class="home"><i class="fa fa-home" aria-hidden="true"></i>&ensp; Home</a>
+            <a href="https://www.youtube.com/@M4thG33x/courses" target="_blank" rel="noopener noreferrer" class="youtube"><i class="fa fa-youtube" aria-hidden="true"></i>&ensp; YouTube (opens in a new tab)</a>
+            <button type="button" onclick="pgPrint();" class="print"><i class="fa fa-print" aria-hidden="true"></i>&ensp; Print</a></button>
+            <a href="../../contact.html" class="contact"><i class="fa fa-envelope-o" aria-hidden="true"></i>&ensp; Contact Me</a>
+        </div>
+    </aside>
+
+    <!-- Main content area shell container is a semantic <main> tag -->
+    <main class="lesson-body" id="main-content">
+
+
+
+    </main>
+    <!-- End of the main content -->
+
+    <!-- Page Footer: includes copyright column and printer link -->
+    <footer class="lesson-footer" role="contentinfo">
+
+        <div class="l-col">
+            <!-- Enhanced link description text context and added security relays -->
+            <p>©2025 <a href="https://www.youtube.com/channel/UCszzyEwfkBHBPk6xkNrGpAA" target="_blank" rel="noopener" aria-label="M4thG33x YouTube Channel - opens in a new window">M4thG33x YouTube Channel</a>. Some Rights Reserved.</p>
+
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">
+                <img alt="Creative Commons Attribution-ShareAlike 4.0 International License" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" style="border-width:0;">
+            </a>
+        </div>
+
+        <div class="r-col">
+            <a href="#" onclick="pgPrint(); return false;"><i class="fa fa-print" aria-hidden="true"></i> Printer Friendly Page</a>
+        </div>
+
+    </footer>
+
+    <!--Custom scripts-->
+    <script src="../../scripts.js"></script>
+</body>
+
+</html>

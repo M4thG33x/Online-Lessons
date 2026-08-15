@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../course-styles.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../print-styles.css">
+
+    <!--MathJax links-->
+    <script src="../site-math.js"></script>
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <link rel="icon" type="image/png" href="../logo-s.png">
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button type="button" onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- EMPTY PLACEHOLDER HEADER: Script will automatically inject the logo and subtitle -->
+    <header class="page-header" id="global-site-header" role="banner"></header>
+
+    <!-- Insert this uniform element block across all root, overview, and lesson files -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <!-- Links are automatically populated here via the site-nav.js script -->
+    </div>
+
+    <!-- Main content area shell container is a semantic <main> tag -->
+    <main class="lesson-body" id="main-content">
+        <!-- On This Page Menu -->
+        <nav class="lesson-page-toc" aria-label="On this Page Section Navigation Links">
+            <button class="dropbtn">On this Page</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li><a id="toc-top" href="#top"><!--Filled by page name from script--></a></li>
+                    <li><a href="#planes">Simple Planes</a></li>
+                    <li><a href="#spheres">Spheres</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- The main core lesson header is a native semantic <h1> tag -->
+        <h1 id="top"><!--Filled by page name from script--></h1>
+
+        <div class="objective-region" role="region" aria-label="Lesson Objectives">
+            <!-- Content goes here. -->
+            <p>On this page, you will learn to:</p>
+            <ul>
+                <li>Draw simple planes in \(\mathbb{R}^3\).</li>
+                <li>Write the equation of spheres.</li>
+            </ul>
+        </div>
+
+        <p>Using the GeoGebra app on the previous page, we saw three specific planes called the <strong>coordinate planes</strong>.</p>
+
+        <ul>
+            <li>The <strong><em>xy</em>-plane</strong> is the set of all points where the \(z\)-coordinate is 0, which can be expressed as the set \(\{(x,y,z) \, | \, z=0 \}\) or simply \(z=0\).</li>
+            <li>The <strong><em>xz</em>-plane</strong> is the set of all points where the \(y\)-coordinate is 0, which can be expressed as the set \(\{(x,y,z) \, | \, y=0 \}\) or simply \(y=0\).</li>
+            <li>The <strong><em>yz</em>-plane</strong> is the set of all points where the \(x\)-coordinate is 0, which can be expressed as the set \(\{(x,y,z) \, | \, x=0 \}\) or simply \(x=0\).</li>
+        </ul>
+
+        <!-- Update the aria-label with a descriptive title -->
+        <div class="example-region" role="region" aria-label="Example Exercise: Graphing the Coordinate Planes and Octants">
+            <!-- example body goes here -->
+            <p>These planes can be viewed in the GeoGebra graph below. What might you observe about the planes and the axes?</p>
+            <div class="widget-wrap">
+                <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+                <div class="widget-frame-cont ratio-16x9">
+                    <!-- Edit the title to clearly state it is an interactive tool -->
+                    <iframe height="477px" width="795px" style="border:0px;" scrolling="no" title="Interactive GeoGebra Simple Planes Graphing Calculator Application" src="https://www.geogebra.org/material/iframe/id/w4grzpyz/width/795/height/477/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"> </iframe>
+                </div>
+            </div>
+            <div class="widget-footer">GeoGebra Applet: [<a href="https://www.geogebra.org/m/snrdkucp" target="_blank" rel="noopener noreferrer">https://www.geogebra.org/m/snrdkucp</a>]</div>
+
+            <!-- Interactive button to show/hide the answer usinga aria-expanded attribute -->
+            <!-- Update toggle-sol-1 and sol-content-1 if multiple examples per page -->
+            <button type="button" id="toggle-sol-1" aria-expanded="false" aria-controls="sol-content-1" onclick="toggleSolution('toggle-sol-1', 'sol-content-1')">Show Answer</button>
+            <!-- Uses aria-hidden and mapped relationship ID links cleanly -->
+            <div id="sol-content-1" class="solution" aria-hidden="true">
+                <!-- Example solution goes here -->
+                <p>Notice that the \(xy\)-plane contains both the \(x\) and \(y\) axes and is perpendicular to the \(z\) axis. Similarly, the \(xz\)-plane contains both the \(x\) and \(z\) axes and is perpendicular to the \(y\) axis, and the \(yz\)-plane contains both the \(y\) and \(z\) axes and is perpendicular to the \(x\) axis</p>
+            </div>
+        </div>
+
+        <h2 id="planes">Simple Planes</h2>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Simple Planes">
+            <!-- Content goes here. -->
+            <p>A <strong>simple plane</strong> is a plane that is parallel to one of the coordinate planes.</p>
+        </div>
+
+        <p>An example of a simple plane would be the plane given by the equation \(z=3\) which is a plane parallel to the \(xy\)-plane where all the \(z\)-coordinates are 3.</p>
+
+        <figure>
+            <img src="content/PlaneZeq3.png" alt="Graph of the simple plane z = 3.">
+            <figcaption>The simple plane z = 3.</figcaption>
+        </figure>
+
+        <p>Similarly, the equation \(y=-1\) is a simple plane parallel to the \(xz\)-plane where all \(y\)-coordinates are \(-1\).</p>
+
+        <figure>
+            <img src="content/PlaneYeq-1.png" alt="Graph of the simple plane y = -1.">
+            <figcaption>The simple plane z = 3.</figcaption>
+        </figure>
+
+        <h2 id="spheres">Spheres</h2>
+
+        <p>Recall that a circle with center \((a,b)\) and radius \(r\) is given by the equation \((x-a)^2 + (y-b)^2 = r^2\). If we extend this 2D shape into 3D space, we get a sphere.</p>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Sphere">
+            <!-- Content goes here. -->
+            <p>A <strong>sphere</strong> of radius \(r\) and center \((a,b,c)\) is defined by the following equation.</p>
+
+            \[(x-a)^2 + (y-b)^2 + (z-c)^2 = r^2\]
+        </div>
+
+        <p>The equation of the sphere illustrated below is \((x-1)^2 + (y+2)^2 + (z-3)^2 = 4\). It is centered at the point \((1,-2,3)\) and has a radius of \(2\).</p>
+
+        <figure>
+            <img src="content/SphereEx.png" alt="Image of the sphere of radius 2 centered at (1, -2, 3).">
+            <figcaption>Sphere of radius 2 centered at (1, -2, 3).</figcaption>
+        </figure>
+
+        <p>The following video demonstrates how we can write the equation of a sphere in standard form when given the equation in the more general form (using completing the square).</p>
+
+        <div class="widget-header">Equation of a Sphere Given the Center and Radius</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="1331" height="749" src="https://www.youtube.com/embed/gU-vC1ROt_A" title="Ex: Equation of a Sphere Given the Center and Radius" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/gU-vC1ROt_A" target="_blank" rel="noopener noreferrer">https://youtu.be/gU-vC1ROt_A</a>]</div>
+
+        <!-- A multiple choice question of 4 choices vertically. -->
+        <!-- Add a prompt within the legend, add 4 choices, and enter the solution. -->
+        <!-- Update the opt1-1 IDs, radio names, and response names if more than one assessment per page. -->
+        <div class="assess">
+            <!-- Wrap form elements inside a native fieldset and legend mapping container -->
+            <fieldset>
+                <!-- Prompt text wrapped inside legend so it is announced immediately on field entry focus -->
+                <legend>
+                    <strong>Self-Check #4</strong>: Write the standard equation of a sphere with center \(\left(0,\text{-}2,6\right)\) and the point \(\left(1,4,8\right)\) on the surface of the sphere. (<i>Select the most appropriate response.</i>)
+                </legend>
+
+                <!-- Flex/grid container -->
+                <div class="vertical-grid-layout">
+
+                    <!-- Choice A -->
+                    <div class="quiz-option-card">
+                        <label class="radiocntrimg">
+                            <input type="radio" id="opt4-1" name="mcChoice4" value="A">
+                            <span class="radio-text-wrapper">
+                                (A) &emsp; \(x^2 + \left(y+2\right)^2 + \left(z-6\right)^2 = 41\)
+                            </span>
+                            <span class="radiobtn"></span>
+                        </label>
+                    </div>
+
+                    <!-- Choice B -->
+                    <div class="quiz-option-card">
+                        <label class="radiocntrimg">
+                            <input type="radio" id="opt4-2" name="mcChoice4" value="B">
+                            <span class="radio-text-wrapper">
+                                (B) &emsp; \(x^2 + \left(y+2\right)^2 + \left(z-6\right)^2 = 9\)
+                            </span>
+                            <span class="radiobtn"></span>
+                        </label>
+                    </div>
+
+                    <!-- Choice C -->
+                    <div class="quiz-option-card">
+                        <label class="radiocntrimg">
+                            <input type="radio" id="opt4-3" name="mcChoice4" value="C">
+                            <span class="radio-text-wrapper">
+                                (C) &emsp; \(\left(x-1\right)^2 + \left(y-4\right)^2 + \left(z-8\right)^2 = 41\)
+                            </span>
+                            <span class="radiobtn"></span>
+                        </label>
+                    </div>
+
+                    <!-- Choice D -->
+                    <div class="quiz-option-card">
+                        <label class="radiocntrimg">
+                            <input type="radio" id="opt4-4" name="mcChoice4" value="D">
+                            <span class="radio-text-wrapper">
+                                (D) &emsp; \(\left(x-1\right)^2 + \left(y-4\right)^2 + \left(z-8\right)^2 = 9\)
+                            </span>
+                            <span class="radiobtn"></span>
+                        </label>
+                    </div>
+                </div>
+            </fieldset>
+
+            <button onclick="checkMCSub('mcChoice4','A','correct4','wrong4','makechoice4')" id="submit4">Check Answer</button>
+
+            <!-- Wrapped your dynamic script targets inside an aria-live region -->
+            <div class="quiz-feedback-region" aria-live="polite" role="status" style="margin-top: 15px;">
+                <div class="response" id="makechoice4"><i>You must select an answer above</i>.</div>
+                <div class="response" id="correct4"><i class="fa fa-check" style="color: green" aria-label="Correct"></i> Correct!</div>
+                <div class="response" id="wrong4"> <i class="fa fa-times" style="color: red" aria-label="Incorrect"></i> Incorrect.
+                    <!--State the correct answer and provide a solution.-->
+                    <p>(Answer: A) -- We are given the center of the sphere, so we just need to find the radius using the given point and the distance formula.</p>
+
+                    \[r = \sqrt{\left(1-0\right)^2 + \left(4-\text{-}2\right)^2 + \left(8-6\right)^2} = \sqrt{1 + 36 + 4} = \sqrt{41}\]
+
+                    <p>Plug the center and radius into the sphere equation.</p>
+
+                    \[\left(x-0\right)^2 + \left(y-\text{-}2\right)^2 + \left(z-6\right)^2 = \left(\sqrt{41}\right)^2\]
+
+                    <p>Simplifying, we get the following.</p>
+
+                    \[x^2 + \left(y+2\right)^2 + \left(z-6\right)^2 = 41\]
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <!-- End of the main content -->
+
+    <!-- EMPTY PLACEHOLDER FOOTER: Script will automatically inject the copyright blocks -->
+    <footer class="lesson-footer" id="global-site-footer" role="contentinfo"></footer>
+
+    <!--Custom scripts-->
+    <script src="../site-nav.js" defer></script>
+    <script src="../site-ui.js" defer></script>
+    <script src="../site-quizlets.js" defer></script>
+</body>
+
+</html>
