@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../course-styles.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../print-styles.css">
+
+    <!--MathJax links-->
+    <script src="../site-math.js"></script>
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <link rel="icon" type="image/png" href="../logo-s.png">
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button type="button" onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- EMPTY PLACEHOLDER HEADER: Script will automatically inject the logo and subtitle -->
+    <header class="page-header" id="global-site-header" role="banner"></header>
+
+    <!-- Insert this uniform element block across all root, overview, and lesson files -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <!-- Links are automatically populated here via the site-nav.js script -->
+    </div>
+
+    <!-- Main content area shell container is a semantic <main> tag -->
+    <main class="lesson-body" id="main-content">
+        <!-- On This Page Menu -->
+        <nav class="lesson-page-toc" aria-label="On this Page Section Navigation Links">
+            <button class="dropbtn">On this Page</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li><a id="toc-top" href="#top"><!--Filled by page name from script--></a></li>
+                    <!-- <li><a href="#operations">...</a></li> -->
+                </ul>
+            </div>
+        </nav>
+
+        <!-- The main core lesson header is a native semantic <h1> tag -->
+        <h1 id="top"><!--Filled by page name from script--></h1>
+
+        <div class="objective-region" role="region" aria-label="Lesson Objectives">
+            <!-- Content goes here. -->
+            <p>On this page, you will learn to:</p>
+            <ul>
+                <li>Compute the cross product of two vectors.</li>
+                <li>Solve applications involving the cross product.</li>
+            </ul>
+        </div>
+
+        <p>Relatively speaking, the cross product is a bit more difficult to compute compared to the dot project. For one thing, the result of a cross product is a vector, not a scalar like the dot product. It is also going to involve a little bit of linear algebra, namely determinants of 2x2 and 3x3 matrices. A matrix is just a collection of numbers organized into rows and columns. So a 2x2 matrix has 2 rows and 2 columns, such as the matrix below.</p>
+
+        \[\begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}\]
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: 2-by-2 Matrix">
+            <!-- Content goes here. -->
+            <p>The <strong>determinant of a 2x2 matrix</strong> is a scalar computed using the following formula.</p>
+
+            \[\left| \begin{matrix} a & b \\ c & d \end{matrix} \right| = ad - bc\]
+        </div>
+
+        <p>The easy way to remember this is that you are just multiplying the diagonal values and subtracting the results. The following video gives a couple examples. (You can ignore any of the other linear algebra stuff in the video.)</p>
+
+        <div class="widget-header">Determinant of a 2x2 Matrix</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/JTeAPYturls" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://www.youtube.com/watch?v=JTeAPYturls" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=JTeAPYturls</a>]</div>
+
+        <p>There are several ways to compute the determinants of larger matrices, but let us quickly look at one method to compute the determinant of a 3x3 matrix.</p>
+
+        \[ \left| \begin{matrix} a & b & c \\ e & f & g \\ h & i & j \end{matrix} \right| = a \left| \begin{matrix} f & g \\ i & j \end{matrix} \right| - b \left| \begin{matrix} e & g \\ h & j \end{matrix} \right| + c \left| \begin{matrix} e & f \\ h & i \end{matrix} \right| \]
+
+        <p>In the formula above, notice that we can rewrite a 3x3 determinant as the sum of three 2x3 determinants. Each 2x2 determint is multiplied by a scalar coefficient which comes from one of the values in the top row. The values inside each 2x2 determinant are the values the remain in the 3x3 matrix if we remove the row and column containing the scalar coefficient. Also, be aware that the middle determinant is always subtracted. We can define a vector cross product as the 3x3 determinant.</p>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Cross Product and the Right-Hand Rule">
+            <!-- Content goes here. -->
+            <p>The <strong>cross product</strong> of vectors \(\vec{u} = \langle u_1,u_2,u_3 \rangle\) and \(\vec{v} = \langle v_1,v_2,v_3 \rangle\) is defined by the following formula.</p>
+
+            \[
+            \begin{aligned}
+            <!-- Use &= to align at equal sign. Use double slashes for new line (can use [4pt] for spacing) -->
+            \vec{u} \times \vec{v} &= \left| \begin{matrix} \hat{\imath} & \hat{\jmath} & \hat{k} \\ u_1 & u_2 & u_3 \\ v_1 & v_2 & v_3 \end{matrix} \right| \\[4pt]
+            &= \left| \begin{matrix} u_2 & u_3 \\ v_2 & v_3 \end{matrix} \right| \hat{\imath} - \left| \begin{matrix} u_1 & u_3 \\ v_1 & v_3 \end{matrix} \right| \hat{\jmath} + \left| \begin{matrix} u_1 & u_2 \\ v_1 & v_2 \end{matrix} \right| \hat{k} \\[4pt]
+            &= \langle u_2 v_3 - u_3 v_2, -(u_1 v_3 - u_3 v_1), u_1 v_2 - u_2 v_1 \rangle
+            \end{aligned}
+            \]
+
+            <p><strong>Right-Hand Rule</strong>: If you point your right hand in the direction of \(\vec{u}\) and then curl your fingers in the direction of \(\vec{v}\), then extending your thumb will point in the direction of \(\vec{u} \times \vec{v}\).</p>
+        </div>
+
+        <p>The first row of the 3x3 matrix will always be \(\hat{\imath}\), \(\hat{\jmath}\) and \(\hat{k}\). The middle row will always be the <em>first</em> vector of the \(\vec{u} \times \vec{v}\) notation, and the bottom row will always be the <em>second</em> vector.
+        </p>
+
+        <div class="widget-header">Vector Cross Products</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/A8SFkakUA_g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://www.youtube.com/watch?v=A8SFkakUA_g" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=A8SFkakUA_g</a>]</div>
+
+        <p>Let's review some of the properties of the cross product stated in the video above.</p>
+
+        <ul>
+            <li>\(\vec{u} \times \vec{v}\) is a vector that is orthogonal (perpendicular) to both \(\vec{u}\) and \(\vec{v}\).</li>
+            <li>\(\vec{u} \times \vec{v} = -(\vec{v} \times \vec{u})\), which is the anticommutative property.</li>
+            <li>\(|\vec{u} \times \vec{v}| = |\vec{u} |\vec{v}| \sin \theta\), where \(\theta\) is the angle between \(\vec{u}\) and \(\vec{v}\).</li>
+            <li>\(\vec{u} \times \vec{v} = \vec{0}\) (zero vector) if and only if \(\vec{u}\) and \(\vec{v}\) are scalar multiples of each other, i.e. \(\vec{u}\) and \(\vec{v}\) are parallel.</li>
+            <li>\(|\vec{u} \times \vec{v}|\) equals the area of the parallelogram formed by adjacent sides \(\vec{u}\) and \(\vec{v}\).</li>
+        </ul>
+
+        <p>Here is one more example of how to compute the cross product.</p>
+
+        <div class="widget-header">Find the Cross Product of Two Vectors</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/f7umVs_vl-Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://www.youtube.com/watch?v=f7umVs_vl-Q" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=f7umVs_vl-Q</a>]</div>
+
+    </main>
+    <!-- End of the main content -->
+
+    <!-- EMPTY PLACEHOLDER FOOTER: Script will automatically inject the copyright blocks -->
+    <footer class="lesson-footer" id="global-site-footer" role="contentinfo"></footer>
+
+    <!--Custom scripts-->
+    <script src="../site-nav.js" defer></script>
+    <script src="../site-ui.js" defer></script>
+    <script src="../site-quizlets.js" defer></script>
+</body>
+
+</html>

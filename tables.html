@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="tables.css">
+</head>
+
+<body>
+
+    <main>
+
+        <!-- 2-col comparison table -->
+        <table class="table-stack-mimic" role="table">
+            <caption>Multi-Row 2-Column Comparison Table</caption>
+            <thead role="rowgroup">
+                <tr role="row">
+                    <th role="columnheader">Header Row 0, Column 1</th>
+                    <th role="columnheader">Header Row 0, Column 2</th>
+                </tr>
+            </thead>
+            <tbody role="rowgroup">
+                <tr role="row">
+                    <td role="cell">Row 1, Column 1</td>
+                    <td role="cell">Row 1, Column 2</td>
+                </tr>
+                <tr role="row">
+                    <td role="cell">Row 2, Column 1</td>
+                    <td role="cell">Row 2, Column 2</td>
+                </tr>
+                <tr role="row">
+                    <td role="cell">Row 3, Column 1</td>
+                    <td role="cell">Row 3, Column 2</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+        <!-- Table 2: Multi-Row Multi-Column Column-Grouping Table -->
+        <div class="table-column-card-container">
+            <table class="table-column-group" role="table">
+                <caption>Multi-Row Multi-Column Column-Stacking Table</caption>
+                <thead role="rowgroup">
+                    <tr role="row">
+                        <th role="columnheader">Header Row 0, Column 1</th>
+                        <th role="columnheader">Header Row 0, Column 2</th>
+                        <th role="columnheader">Header Row 0, Column 3</th>
+                        <th role="columnheader">Header Row 0, Column 4</th>
+                    </tr>
+                </thead>
+                <tbody role="rowgroup">
+                    <tr role="row">
+                        <td role="cell">Row 1, Column 1</td>
+                        <td role="cell">Row 1, Column 2</td>
+                        <td role="cell">Row 1, Column 3</td>
+                        <td role="cell">Row 1, Column 4</td>
+                    </tr>
+                    <tr role="row">
+                        <td role="cell">Row 2, Column 1</td>
+                        <td role="cell">Row 2, Column 2</td>
+                        <td role="cell">Row 2, Column 3</td>
+                        <td role="cell">Row 2, Column 4</td>
+                    </tr>
+                    <tr role="row">
+                        <td role="cell">Row 3, Column 1</td>
+                        <td role="cell">Row 3, Column 2</td>
+                        <td role="cell">Row 3, Column 3</td>
+                        <td role="cell">Row 3, Column 4</td>
+                    </tr>
+                    <tr role="row">
+                        <td role="cell">Row 4, Column 1</td>
+                        <td role="cell">Row 4, Column 2</td>
+                        <td role="cell">Row 4, Column 3</td>
+                        <td role="cell">Row 4, Column 4</td>
+                    </tr>
+                    <tr role="row">
+                        <td role="cell">Row 5, Column 1</td>
+                        <td role="cell">Row 5, Column 2</td>
+                        <td role="cell">Row 5, Column 3</td>
+                        <td role="cell">Row 5, Column 4</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Table 3: Multi-Row Multi-Column Row-Grouping Table -->
+        <table class="table-row-group" role="table">
+            <caption>Multi-Row Multi-Column Row-Grouping Table</caption>
+            <thead role="rowgroup">
+                <tr role="row">
+                    <th role="columnheader">Header Row 0, Column 1</th>
+                    <th role="columnheader">Header Row 0, Column 2</th>
+                    <th role="columnheader">Header Row 0, Column 3</th>
+                    <th role="columnheader">Header Row 0, Column 4</th>
+                </tr>
+            </thead>
+            <tbody role="rowgroup">
+                <!-- Row 1 -->
+                <tr role="row">
+                    <td role="cell" data-label="Header Row 0, Column 1">Row 1, Column 1</td>
+                    <td role="cell" data-label="Header Row 0, Column 2">Row 1, Column 2</td>
+                    <td role="cell" data-label="Header Row 0, Column 3">Row 1, Column 3</td>
+                    <td role="cell" data-label="Header Row 0, Column 4">Row 1, Column 4</td>
+                </tr>
+                <!-- Row 2 -->
+                <tr role="row">
+                    <td role="cell" data-label="Header Row 0, Column 1">Row 2, Column 1</td>
+                    <td role="cell" data-label="Header Row 0, Column 2">Row 2, Column 2</td>
+                    <td role="cell" data-label="Header Row 0, Column 3">Row 2, Column 3</td>
+                    <td role="cell" data-label="Header Row 0, Column 4">Row 2, Column 4</td>
+                </tr>
+                <!-- Row 3 -->
+                <tr role="row">
+                    <td role="cell" data-label="Header Row 0, Column 1">Row 3, Column 1</td>
+                    <td role="cell" data-label="Header Row 0, Column 2">Row 3, Column 2</td>
+                    <td role="cell" data-label="Header Row 0, Column 3">Row 3, Column 3</td>
+                    <td role="cell" data-label="Header Row 0, Column 4">Row 3, Column 4</td>
+                </tr>
+                <!-- Row 4 -->
+                <tr role="row">
+                    <td role="cell" data-label="Header Row 0, Column 1">Row 4, Column 1</td>
+                    <td role="cell" data-label="Header Row 0, Column 2">Row 4, Column 2</td>
+                    <td role="cell" data-label="Header Row 0, Column 3">Row 4, Column 3 What happens if a cell has a lot of data and it chagnes thes size of the cell? What happens if a cell has a lot of data and it chagnes thes size of the cell? What happens if a cell has a lot of data and it chagnes thes size of the cell?</td>
+                    <td role="cell" data-label="Header Row 0, Column 4">Row 4, Column 4</td>
+                </tr>
+                <!-- Row 5 -->
+                <tr role="row">
+                    <td role="cell" data-label="Header Row 0, Column 1">Row 5, Column 1</td>
+                    <td role="cell" data-label="Header Row 0, Column 2">Row 5, Column 2</td>
+                    <td role="cell" data-label="Header Row 0, Column 3">Row 5, Column 3</td>
+                    <td role="cell" data-label="Header Row 0, Column 4">Row 5, Column 4</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <!-- Table 4: Dynamic Scroll Container -->
+        <div class="table-scroll-container" tabindex="0" aria-label=" Ledger table data, horizontal scrollable">
+            <table class="table-scroll-target" role="table">
+                <caption>Multi-Row Multi-Column Horizontal Scroll Table</caption>
+                <thead role="rowgroup">
+                    <tr role="row">
+                        <th role="columnheader">Header Row 0, Column 1</th>
+                        <th role="columnheader">Header Row 0, Column 2</th>
+                        <th role="columnheader">Header Row 0, Column 3</th>
+                        <th role="columnheader">Header Row 0, Column 4</th>
+                    </tr>
+                </thead>
+                <tbody role="rowgroup">
+                    <tr role="row">
+                        <td role="cell">Row 1, Column 1</td>
+                        <td role="cell">Row 1, Column 2</td>
+                        <td role="cell">Row 1, Column 3</td>
+                        <td role="cell">Row 1, Column 4</td>
+                    </tr>
+                    <tr role="row">
+                        <td role="cell">Row 2, Column 1</td>
+                        <td role="cell">Row 2, Column 2</td>
+                        <td role="cell">Row 2, Column 3</td>
+                        <td role="cell">Row 2, Column 4</td>
+                    </tr>
+                    <tr role="row">
+                        <td role="cell">Row 3, Column 1</td>
+                        <td role="cell">Row 3, Column 2</td>
+                        <td role="cell">Row 3, Column 3</td>
+                        <td role="cell">Row 3, Column 4</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+
+
+        <!-- Table 3: Multi-Row Multi-Column Row-Grouping Table --> <!--
+<table class="table-row-group" role="table">
+    <caption>Multi-Row Multi-Column Row-Grouping Table</caption>
+    <thead role="rowgroup">
+        <tr role="row">
+            <th role="columnheader">Header Row 0, Column 1</th>
+            <th role="columnheader">Header Row 0, Column 2</th>
+            <th role="columnheader">Header Row 0, Column 3</th>
+            <th role="columnheader">Header Row 0, Column 4</th>
+        </tr>
+    </thead>
+    <tbody role="rowgroup">
+        <tr role="row">
+            <td role="cell">Row 1, Column 1</td>
+            <td role="cell">Row 1, Column 2</td>
+            <td role="cell">Row 1, Column 3</td>
+            <td role="cell">Row 1, Column 4</td>
+        </tr>
+        <tr role="row">
+            <td role="cell">Row 2, Column 1</td>
+            <td role="cell">Row 2, Column 2</td>
+            <td role="cell">Row 2, Column 3</td>
+            <td role="cell">Row 2, Column 4</td>
+        </tr>
+    </tbody>
+</table>
+-->
+
+
+
+        <!-- Table 4: Dynamic Scroll Container --><!--
+<div class="table-scroll-container" tabindex="0" aria-label="Horizontal scrollable ledger data">
+    <table role="table">
+        <caption>Multi-Row Multi-Column Horizontal Scroll Table</caption>
+        <thead role="rowgroup">
+            <tr role="row">
+                <th role="columnheader">Header Row 0, Column 1</th>
+                <th role="columnheader">Header Row 0, Column 2</th>
+                <th role="columnheader">Header Row 0, Column 3</th>
+                <th role="columnheader">Header Row 0, Column 4</th>
+            </tr>
+        </thead>
+        <tbody role="rowgroup">
+            <tr role="row">
+                <td role="cell">Row 1, Column 1</td>
+                <td role="cell">Row 1, Column 2</td>
+                <td role="cell">Row 1, Column 3</td>
+                <td role="cell">Row 1, Column 4</td>
+            </tr>
+            <tr role="row">
+                <td role="cell">Row 2, Column 1</td>
+                <td role="cell">Row 2, Column 2</td>
+                <td role="cell">Row 2, Column 3</td>
+                <td role="cell">Row 2, Column 4</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+-->
+
+
+
+
+
+
+
+        <!--        
+        <!-- 2-col comparison table -->
+        <!--        <table style="width: 80%; margin: auto; border: 1px solid blue;">
+            <caption>Multi-Row 2-Column Comparison Table</caption>
+            <thead>
+                <tr>
+                    <th>Header Row 0, Column 1</th>
+                    <th>Header Row 0, Column 2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Row 1 -->
+        <!--                <tr>
+                    <td>Row 1, Column 1</td>
+                    <td>Row 1, Column 2</td>
+                </tr>
+                <!-- Row 2 -->
+        <!--                <tr>
+                    <td>Row 2, Column 1</td>
+                    <td>Row 2, Column 2</td>
+                </tr>
+                <!-- Row 3 -->
+        <!--                <tr>
+                    <td>Row 3, Column 1</td>
+                    <td>Row 3, Column 2</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <table style="width: 80%; margin: auto; border: 1px solid blue;">
+            <caption>Multi-Row Multi-Column Column-Stacking Table</caption>
+            <thead>
+                <tr>
+                    <th>Header Row 0, Column 1</th>
+                    <th>Header Row 0, Column 2</th>
+                    <th>Header Row 0, Column 3</th>
+                    <th>Header Row 0, Column 4</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Row 1 -->
+        <!--               <tr>
+                    <td>Row 1, Column 1</td>
+                    <td>Row 1, Column 2</td>
+                    <td>Row 1, Column 3</td>
+                    <td>Row 1, Column 4</td>
+                </tr>
+                <!-- Row 2 -->
+        <!--                <tr>
+                    <td>Row 2, Column 1</td>
+                    <td>Row 2, Column 2</td>
+                    <td>Row 2, Column 3</td>
+                    <td>Row 2, Column 4</td>
+                </tr>
+                <!-- Row 3 -->
+        <!--                <tr>
+                    <td>Row 3, Column 1</td>
+                    <td>Row 3, Column 2</td>
+                    <td>Row 3, Column 3</td>
+                    <td>Row 3, Column 4</td>
+                </tr>
+                <!-- Row 4 -->
+        <!--                <tr>
+                    <td>Row 4, Column 1</td>
+                    <td>Row 4, Column 2</td>
+                    <td>Row 4, Column 3</td>
+                    <td>Row 4, Column 4</td>
+                </tr>
+                <!-- Row 5 -->
+        <!--                <tr>
+                    <td>Row 5, Column 1</td>
+                    <td>Row 5, Column 2</td>
+                    <td>Row 5, Column 3</td>
+                    <td>Row 5, Column 4</td>
+                </tr>
+            </tbody>
+        </table>
+    -->
+
+
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const table = document.querySelector(".table-column-group");
+            if (!table) return;
+
+            const tbody = table.querySelector("tbody");
+
+            // Save an exact backup copy of your original desktop rows
+            const desktopBackupHTML = tbody.innerHTML;
+
+            // Gather elements needed to build the mobile card stacks
+            const headers = Array.from(table.querySelectorAll("thead th"));
+            const rows = Array.from(table.querySelectorAll("tbody tr"));
+
+            // Pre-calculate the mobile array formatting map
+            const columnStacks = headers.map((th) => {
+                const mimicHeader = document.createElement("td");
+                mimicHeader.className = "header-mimic";
+                mimicHeader.setAttribute("role", "cell");
+                mimicHeader.innerText = th.innerText;
+                return [mimicHeader];
+            });
+
+            rows.forEach((row) => {
+                const cells = Array.from(row.querySelectorAll("td"));
+                cells.forEach((cell, colIndex) => {
+                    if (columnStacks[colIndex]) {
+                        // Clone cells so we don't accidentally destroy references
+                        columnStacks[colIndex].push(cell.cloneNode(true));
+                    }
+                });
+            });
+
+            // Mark the last cell inside each card stack for mobile styling
+            columnStacks.forEach((stack) => {
+                if (stack.length > 0) {
+                    stack[stack.length - 1].classList.add("last-in-card");
+                }
+            });
+
+            // Track the current view state to avoid reloading the DOM unnecessarily
+            let isMobileView = null;
+
+            function adjustTableStructure() {
+                const width = window.innerWidth || document.documentElement.clientWidth;
+
+                if (width <= 768) {
+                    // Screen is narrow: Apply mobile layout if not already active
+                    if (isMobileView !== true) {
+                        tbody.innerHTML = "";
+                        columnStacks.forEach((stack) => {
+                            stack.forEach(cell => tbody.appendChild(cell.cloneNode(true)));
+                        });
+                        isMobileView = true;
+                    }
+                } else {
+                    // Screen is wide: Restore the original rows instantly
+                    if (isMobileView !== false) {
+                        tbody.innerHTML = desktopBackupHTML;
+                        isMobileView = false;
+                    }
+                }
+            }
+
+            // Run right away on page load
+            adjustTableStructure();
+
+            // Listen for window resizing to swap layouts seamlessly
+            window.addEventListener("resize", adjustTableStructure);
+        });
+    </script>
+
+
+</body>
+
+</html>

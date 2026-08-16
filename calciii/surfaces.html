@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../course-styles.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../print-styles.css">
+
+    <!--MathJax links-->
+    <script src="../site-math.js"></script>
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <link rel="icon" type="image/png" href="../logo-s.png">
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button type="button" onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- EMPTY PLACEHOLDER HEADER: Script will automatically inject the logo and subtitle -->
+    <header class="page-header" id="global-site-header" role="banner"></header>
+
+    <!-- Insert this uniform element block across all root, overview, and lesson files -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <!-- Links are automatically populated here via the site-nav.js script -->
+    </div>
+
+    <!-- Main content area shell container is a semantic <main> tag -->
+    <main class="lesson-body" id="main-content">
+        <!-- On This Page Menu -->
+        <nav class="lesson-page-toc" aria-label="On this Page Section Navigation Links">
+            <button class="dropbtn">On this Page</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li><a id="toc-top" href="#top"><!--Filled by page name from script--></a></li>
+                    <li><a href="#cylinder">Cylinder</a></li>
+                    <li><a href="#traces">Traces</a></li>
+                    <li><a href="#surfaces">Surfaces</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- The main core lesson header is a native semantic <h1> tag -->
+        <h1 id="top"><!--Filled by page name from script--></h1>
+
+        <div class="objective-region" role="region" aria-label="Lesson Objectives">
+            <!-- Content goes here. -->
+            <p>On this page, you will learn to:</p>
+            <ul>
+                <li>Identify surfaces and write their equations.</li>
+            </ul>
+        </div>
+
+
+        <p>Recall that in precalculus we studied different types of conic sections (circle, ellipse, hyperbola, and parabola) in the \(xy\)-plane. We now want to extend these conics into surfaces in 3D space. For example, an ellipse in the \(xy\)-plane would be similar to an ellipsoid in 3D space.</p>
+
+        <img src="content/Ellipse-oid.png" alt="Graphs of ellipse x^2/4 + y^2/9 = 1 and x^2/4 + y^2/9 + z^2/1 = 1.">
+
+        <p>Notice the similarities in the equations and graphs above. Both extend along the \(x\)-axis to \(\pm 2\), and both extend along the \(y\)-axis to \(\pm 3\). Then the ellipsoid extends along the \(z\)-axis to \(\pm 1\).</p>
+
+        <p>Before we get to actually defining all our surfaces, there are a couple building blocks that we need to cover first. These will provide a sort of skeletal structure or scaffolding for how we can visualize and draw the surfaces.</p>
+
+        <h2 id="cylinder">Cylinder</h2>
+
+        <p>The most basic type of surface is called a cylinder. By the term cylinder, we do not mean a right circular cylinder like a can. Rather, a <strong>cylinder</strong> is a surface made up of all lines parallel to a given line that passes through a plane curve.</p>
+
+        <p>Use the Geogebra applet below to explore the definition of a cylinder. You may want to follow these steps. You can click-and-drag to rotate the view around the origin.</p>
+
+        <ol>
+            <li>Click the "Plane" checkbox. You should see a plane appear in 3D space.</li>
+            <li>Click the "Curve in Plane" checkbox. You should see a sinusoidal graph appear within the plane.</li>
+            <li>Click the "Line through Plane" checkbox. You should see a blue line that passes through the curve and plane. In this illustration, the line is perpendicular to the plane.</li>
+            <li>Click the "Parallel Lines" checkbox. You should see an orange line appear that is parallel to the blue line and also passes through the curve.</li>
+            <li>Use the slider to slowly advance the x-values from -3.53 to +3.53. You should see new lines appear, all of which are parallel to the blue line and pass through the curve.</li>
+            <li>Click the "Cylinder" checkbox. This should show a green surface that is shaped like all the orange lines. So the idea is that if we could actually draw ALL the lines that were parallel to the blue line, the result would be the green surface.</li>
+        </ol>
+
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <!-- Edit the title to clearly state it is an interactive tool: Interactive GeoGebra ... Graphing Calculator Application -->
+                <div class="ggb-cont"><iframe height="477px" width="795px" style="border:0px;" scrolling="no" title="Interactive GeoGebra Cylinder Graphing Calculator Application" src="https://www.geogebra.org/material/iframe/id/r69vnuuw/width/795/height/477/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"> </iframe>
+                </div>
+            </div>
+        </div>
+        <div class="widget-footer">GeoGebra Applet: [<a href="https://www.geogebra.org/m/r69vnuuw" target="_blank" rel="noopener noreferrer">https://www.geogebra.org/m/r69vnuuw</a>]</div>
+
+        <p>The following video gives a few more examples.</p>
+
+        <div class="widget-header">Cylindrical Surfaces</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/mjPnJnB0L-A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/mjPnJnB0L-A" target="_blank" rel="noopener noreferrer">https://youtu.be/mjPnJnB0L-A</a>]</div>
+
+        <p>Go to <a title="GeoGebra Classic 3D" href="https://www.geogebra.org/classic#3d" target="_blank" rel="noopener noreferrer">GeoGebra Classic 3D (new window)</a> [https://www.geogebra.org/classic#3d] and graph the following cylinders. To graph a cylinder in GeoGebra, just type the given equation into the Input space.</p>
+
+        <ol>
+            <li>\(y = x^2 + 1\)</li>
+            <li>\(z = x^2 - 2\)</li>
+            <li>\(y^2 + z^2 = 9\)</li>
+        </ol>
+
+        <p>Do the graphs you get make sense to you in terms of the given equations?</p>
+
+        <h2 id="traces">Traces</h2>
+
+        <p>A <strong>trace</strong> of a surface is a point or curve formed by the intersection of a surface with a plane that is parallel to one of the coordinate planes. You could think of a trace as a cross-section of the surface.</p>
+
+        <p>Use the Geogebra applet below to explore the definition of a trace. You may want to follow these steps. You can click-and-drag to rotate the view around the origin.</p>
+
+        <ol>
+            <li>Click the "Surface" checkbox. You should see a blue paraboloid appear, which looks like a parabola rotated around the z-axis.</li>
+            <li>Click the "Planes" checkbox. You should see several horizontal planes appear, each parallel to the xy-plane. What shape does it look like each plane makes when it intersects the blue surface?</li>
+            <li>Click the "Plane Trace" checkbox. You should see orange curves appear that outline these intersections. In this illustration, notice that they are all circles of increasing radius as the z value increases.</li>
+            <li>Click the "xz &amp; yz Traces" checkbox. You should see additional orange curves appear. These represent the intersections of the the xz-plane and yz-plane with the surface.</li>
+            <li>Uncheck the "Surface" and "Planes" checkbox. All that should remain is the orange curves. These represent some of the traces that, when all put together, would generate the entire paraboloid. They serve as a mesh or skeletal structure for the surface.</li>
+        </ol>
+
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <!-- Edit the title to clearly state it is an interactive tool: Interactive GeoGebra ... Graphing Calculator Application -->
+                <iframe height="477px" width="795px" style="border:0px;" scrolling="no" title="Interactive GeoGebra Traces Graphing Calculator Application" src="https://www.geogebra.org/material/iframe/id/gf49huuf/width/795/height/477/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"> </iframe>
+            </div>
+        </div>
+        <div class="widget-footer">GeoGebra Applet: [<a href="https://www.geogebra.org/m/gf49huuf" target="_blank" rel="noopener noreferrer">https://www.geogebra.org/m/gf49huuf</a>]</div>
+
+        <p>The idea with traces is that we could determine a collection of the traces for a given surface and sketching those traces would create a skeletal graph of the surface. In the above applet, the paraboloid equation was \(z = x^2 + y^2 - 1\). We could start by determining the trace equations for the coordinate planes and then for planes parallel to the xy-plane.</p>
+
+        <ul>
+            <li>Coordinate: The \(xy\)-plane is \(z = 0\), so \(0 = x^2 + y^2 - 1\) results in the circle \(x^2 + y^2 = 1\).</li>
+            <li>Coordinate: The \(xz\)-plane is \(y = 0\), so \(z = x^2 + 0^2 - 1\) results in the parabola \(z = x^2 - 1\).</li>
+            <li>Coordinate: The \(yz\)-plane is \(x = 0\), so \(z = 0^2 + y^2 - 1\) results in the parabola \(z = y^2 - 1\).</li>
+            <li>Parallel: For the plane \(z = -1\), we get \(-1 = x2 + y2 - 1\) which results in the equation \(0 = x^2 + y^2\) meaning we only have the origin as the intersection.</li>
+            <li>Parallel: For the plane \(z = 1\), we get \(1 = x^2 + y^2 - 1\) which results in the circle \(x^2 + y^2 = 2\).</li>
+            <li>Parallel: For the plane \(z = 2\), we get \(2 = x^2 + y^2 - 1\) which results in the circle \(x^2 + y^2 = 3\).</li>
+            <li>Parallel: For the plane \(z = 3\), we get \(3 = x^2 + y^2 - 1\) which results in the circle \(x^2 + y^2 = 4\). If we continued going, higher values of \(z\) will just result in circles with larger radius.</li>
+        </ul>
+
+        <p>In practice, once we figured out all these traces, we could sketch them on a graph to see what the original surface would look like.</p>
+
+        <h2 id="surfaces">Surfaces</h2>
+
+        <p>Here are the common surfaces that you should be familiar with, which we call <strong>quadric surfaces</strong>.</p>
+
+        <!-- Multi-Row Multi-Column Row-Grouping Table -->
+        <!-- Number of columns and rows can be increased as needed -->
+        <!-- Each cell must contain the corresponding data-lable for mobile screens -->
+        <!-- To center text in <p> tags, include table-center-align in the table class -->
+        <!-- Set the width of the reponsive left column by adding --column-one-width: ###px; to the table style  -->
+        <table class="table-row-group" role="table" style="width: 90%;">
+            <caption>Quadric Surfaces</caption>
+            <thead role="rowgroup">
+                <tr role="row">
+                    <th role="columnheader">Graph</th>
+                    <th role="columnheader">Equation</th>
+                    <th role="columnheader">Properties</th>
+                </tr>
+            </thead>
+            <tbody role="rowgroup">
+                <tr role="row">
+                    <td role="cell" data-label="Graph">
+                        <figure>
+                            <img src="content/Ellipsoid.png" alt="Graph of Ellipsoid" style="min-width: 175px;">
+                            <figcaption>Ellipsoid</figcaption>
+                        </figure>
+                    </td>
+                    <td role="cell" data-label="Equation">\[\frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2} = 1\]</td>
+                    <td role="cell" data-label="Properties">
+                        <p>All traces are ellipses.</p>
+                        <p>If \(a = b = c\), then the ellipsoid is a sphere.</p>
+                        <p>The intercepts are at \((\pm a, 0, 0)\), \((0, \pm b, 0)\), and \((0, 0, \pm c)\).</p>
+                    </td>
+                </tr>
+                <tr role="row">
+                    <td role="cell" data-label="Graph">
+                        <figure>
+                            <img src="content/Hyper1Sheet.png" alt="Graph of Hyperboloid of 1 Sheet" />
+                            <figcaption>Hyperboloid of 1 Sheet</figcaption>
+                        </figure>
+                    </td>
+                    <td role="cell" data-label="Equation">\[\frac{x^2}{a^2} + \frac{y^2}{b^2} - \frac{z^2}{c^2} = 1\]</td>
+                    <td role="cell" data-label="Properties">
+                        <p>Horizontal traces are ellipses.</p>
+                        <p>Vertical traces are hyperbolas.</p>
+                        <p>The central axis (of symmetry) corresponds to the variable with a negative coefficient.</p>
+                    </td>
+                </tr>
+                <tr role="row">
+                    <td role="cell" data-label="Graph">
+                        <figure>
+                            <img src="content/Hyper2Sheet.png" alt="Graph of Hyperboloid of 2 Sheets" width="175" height="190" />
+                            <figcaption>Hyperboloid of 2 Sheets</figcaption>
+                        </figure>
+                    </td>
+                    <td role="cell" data-label="Equation">\[\frac{z^2}{c^2} - \frac{x^2}{a^2} - \frac{y^2}{b^2} = 1\]</td>
+                    <td role="cell" data-label="Properties">
+                        <p>Horizontal traces above \(c\) or below \(-c\) are ellipses.</p>
+                        <p>Vertical traces are hyperbolas.</p>
+                        <p>The two negative signs indicate two sheets, and the positive variable represents the central axis.</p>
+                    </td>
+                </tr>
+                <tr role="row">
+                    <td role="cell" data-label="Graph">
+                        <figure>
+                            <img src="content/Cone.png" alt="Graph of a Cone" width="175" height="190" />
+                            <figcaption>Cone</figcaption>
+                        </figure>
+                    </td>
+                    <td role="cell" data-label="Equation">\[\frac{z^2}{c^2} = \frac{x^2}{a^2} + \frac{y^2}{b^2}\]</td>
+                    <td role="cell" data-label="Properties">
+                        <p>Horizontal traces are ellipses.</p>
+                        <p>Vertical traces in the coordinate planes are two intersecting lines. Vertical traces not in the coordinate planes are hyperbolas.</p>
+                    </td>
+                </tr>
+                <tr role="row">
+                    <td role="cell" data-label="Graph">
+                        <figure>
+                            <img src="content/EllipPara.png" alt="Graph of Elliptic Paraboloid" width="175" height="190" />
+                            <figcaption>Elliptic Paraboloid</figcaption>
+                        </figure>
+                    </td>
+                    <td role="cell" data-label="Equation">\[\frac{z}{c} = \frac{x^2}{a^2} + \frac{y^2}{b^2}\]</td>
+                    <td role="cell" data-label="Properties">
+                        <p>Horizontal traces are ellipses.</p>
+                        <p>Vertical traces are parabolas.</p>
+                        <p>The variable with a power of 1 indicates the central axis.</p>
+                    </td>
+                </tr>
+                <tr role="row">
+                    <td role="cell" data-label="Graph">
+                        <figure>
+                            <img src="content/HyperPara.png" alt="Graph of Hyperbolic Paraboloid" width="175" height="190" />
+                            <figcaption>Hyperbolic Paraboloid</figcaption>
+                        </figure>
+                    </td>
+                    <td role="cell" data-label="Equation">\[\frac{z}{c} = \frac{x^2}{a^2} - \frac{y^2}{b^2}\]</td>
+                    <td role="cell" data-label="Properties">
+                        <p>Horizontal traces are hyperbolas.</p>
+                        <p>Vertical traces are parabolas: those parallel to the \(yz\)-plane open down and those parallel to the \(xz\)-plane open up. If the signs flip, then so does the opening directions.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>You may use the Geogebra applet <a title="Geogebra applet: Quadric Surfaces" href="https://www.geogebra.org/m/kdkupn36" target="_blank">Quadric Surfaces (opens in new window)</a> to interact with the graphs illustrated above. The following videos give examples for each type of surface above.</p>
+
+        <div class="widget-header">The Ellipsoid</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/uTUB_a-tyWI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/uTUB_a-tyWI" target="_blank" rel="noopener noreferrer">https://youtu.be/uTUB_a-tyWI</a>]</div>
+
+        <div class="widget-header">The Hyperboloid of One Sheet</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/SKU19ffTFX4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/SKU19ffTFX4" target="_blank" rel="noopener noreferrer">https://youtu.be/SKU19ffTFX4</a>]</div>
+
+        <div class="widget-header">The Hyperboloid of Two Sheets</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/ASaQbMyPYLo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/ASaQbMyPYLo" target="_blank" rel="noopener noreferrer">https://youtu.be/ASaQbMyPYLo</a>]</div>
+
+        <div class="widget-header">The Elliptical Cone</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/tPltj2YWHTM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/tPltj2YWHTM" target="_blank" rel="noopener noreferrer">https://youtu.be/tPltj2YWHTM</a>]</div>
+
+        <div class="widget-header">The Elliptical Paraboloid</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/IQpTjE-u6Uw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/IQpTjE-u6Uw" target="_blank" rel="noopener noreferrer">https://youtu.be/IQpTjE-u6Uw</a>]</div>
+
+        <div class="widget-header">The Hyperbolic Paraboloid</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/1Ixu7-wbmdU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/1Ixu7-wbmdU" target="_blank" rel="noopener noreferrer">https://youtu.be/1Ixu7-wbmdU</a>]</div>
+
+    </main>
+    <!-- End of the main content -->
+
+    <!-- EMPTY PLACEHOLDER FOOTER: Script will automatically inject the copyright blocks -->
+    <footer class="lesson-footer" id="global-site-footer" role="contentinfo"></footer>
+
+    <!--Custom scripts-->
+    <script src="../site-nav.js" defer></script>
+    <script src="../site-ui.js" defer></script>
+    <script src="../site-quizlets.js" defer></script>
+</body>
+
+</html>

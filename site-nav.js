@@ -13,7 +13,11 @@ const SiteMap = [
     { courseFolder: "calciii", file: "planes.html", pageName: "Planes & Spheres", lessonName: "3D Space, Vectors & Dot Product" },
     { courseFolder: "calciii", file: "vectors.html", pageName: "Vectors", lessonName: "3D Space, Vectors & Dot Product" },
     { courseFolder: "calciii", file: "geogebraintro.html", pageName: "GeoGebra", lessonName: "3D Space, Vectors & Dot Product" },
-    { courseFolder: "calciii", file: "dotproduct.html", pageName: "Dot Product", lessonName: "3D Space, Vectors & Dot Product" }
+    { courseFolder: "calciii", file: "dotproduct.html", pageName: "Dot Product", lessonName: "3D Space, Vectors & Dot Product" },
+    { courseFolder: "calciii", file: "crossproduct.html", pageName: "Cross Product", lessonName: "Cross Product, Planes & Surfaces" },
+    { courseFolder: "calciii", file: "lines.html", pageName: "Lines & Planes", lessonName: "Cross Product, Planes & Surfaces" },
+    { courseFolder: "calciii", file: "geogebravectors.html", pageName: "GeoGebra", lessonName: "Cross Product, Planes & Surfaces" },
+    { courseFolder: "calciii", file: "surfaces.html", pageName: "Surfaces", lessonName: "Cross Product, Planes & Surfaces" }
 ];
 
 

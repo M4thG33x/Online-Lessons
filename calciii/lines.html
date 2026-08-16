@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../course-styles.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../print-styles.css">
+
+    <!--MathJax links-->
+    <script src="../site-math.js"></script>
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <link rel="icon" type="image/png" href="../logo-s.png">
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button type="button" onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- EMPTY PLACEHOLDER HEADER: Script will automatically inject the logo and subtitle -->
+    <header class="page-header" id="global-site-header" role="banner"></header>
+
+    <!-- Insert this uniform element block across all root, overview, and lesson files -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <!-- Links are automatically populated here via the site-nav.js script -->
+    </div>
+
+    <!-- Main content area shell container is a semantic <main> tag -->
+    <main class="lesson-body" id="main-content">
+        <!-- On This Page Menu -->
+        <nav class="lesson-page-toc" aria-label="On this Page Section Navigation Links">
+            <button class="dropbtn">On this Page</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li><a id="toc-top" href="#top"><!--Filled by page name from script--></a></li>
+                    <li><a href="#lines">Lines</a></li>
+                    <li><a href="#planes">Planes</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- The main core lesson header is a native semantic <h1> tag -->
+        <h1 id="top"><!--Filled by page name from script--></h1>
+
+        <div class="objective-region" role="region" aria-label="Lesson Objectives">
+            <!-- Content goes here. -->
+            <p>On this page, you will learn to:</p>
+            <ul>
+                <li>Write the vector equation of a line in ℝ<sup>3</sup>.</li>
+                <li>Write the equation of a plane.</li>
+            </ul>
+        </div>
+
+        <p>Just as we built up our toolset of functions in precalculus, starting with lines and moving on to polynomials and other functions in the xy-plane, we need to build up to the point where we can express curves and surfaces in 3D space. We will start in a similar fashion, looking at lines and planes in space.</p>
+
+        <h2 id="lines">Lines</h2>
+
+        <p>Recall from algebra that a line can be expressed by the equation \(y = mx + b\), where \(m\) is the slope and \(b\) is the \(y\)-intercept. Describing a line in 3D space is a little more complicated as it will require using an additional parameter, but the result will be a similar vector equation. We just need a point (position vector) and a slope (direction vector). Suppose we are given a position vector \(\vec{r}_0\) and a direction vector \(\vec{v}\). Then all points given by \(\vec{r}_0 + \vec{v}t\) would describe a line in 3D space. This would be similar to the linear expression \(b + mx\) which means \(\vec{r}_0\) corresponds to the initial value, \(\vec{v}\) corresponds to the slope, and \(t\) corresponds to the independent variable.</p>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Vector Equation of a Line">
+            <!-- Content goes here. -->
+            <p>Given a point \(P(x_0, y_0, z_0)\) with position vector \(\vec{r}_0 = \langle x_0, y_0, z_0 \rangle\) and a direction vector \(\vec{v} = \langle a, b, c \rangle\), the <strong>vector equation of the line</strong> that passes through the point \(P\) in a direction parallel to \(\vec{v}\) is defined by the following equation for some parameter \(t\) where \(-\infty \lt t \lt \infty\).</p>
+
+            \[
+            \begin{aligned}
+            <!-- Use &= to align at equal sign. Use double slashes for new line (can use [4pt] for spacing) -->
+            \vec{r}(t) &= \vec{r}_0 + \vec{v}t \\[4pt]
+            &= \langle x_0, y_0, z_0 \rangle + \langle a, b, c \rangle t \\[4pt]
+            &= \langle x_0 + at, y_0 + bt, z_0 + ct \rangle
+            \end{aligned}
+            \]
+
+            <p>We can also separate the components of the linear vector to get the parametric equations \(x = x_0 + at\), \(y = y_0 + bt\), and \(z = z_0 + ct\).</p>
+        </div>
+
+        <p>The following Geogebra applet illustrates a line in 3D space. We are given the point \(P = (1, 0, -1)\) and its corresponding position vector \(\vec{r}_0 = \langle 1, 0, -1 \rangle \). In addition, we are also given the direction vector \(\vec{v} = \langle 1, -1, 2 \rangle \). You can click-and-drag to rotate the view around the origin. To draw the line, click the "Animate t" button. You should see point \(P\) and its corresponding vector move along the straight path parallel to \(\vec{v}\) as the values of \(t\) change.</p>
+
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <!-- Edit the title to clearly state it is an interactive tool: Interactive GeoGebra ... Graphing Calculator Application -->
+                <iframe height="477px" width="795px" style="border:0px;" scrolling="no" title="Interactive GeoGebra Vector Line Graphing Calculator Application" src="https://www.geogebra.org/material/iframe/id/gdpukhhb/width/795/height/477/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"> </iframe>
+            </div>
+        </div>
+        <div class="widget-footer">GeoGebra Applet: [<a href="https://www.geogebra.org/m/gdpukhhb" target="_blank" rel="noopener noreferrer">https://www.geogebra.org/m/gdpukhhb</a>]</div>
+
+        <p>The following videos give some examples of writing the vector equations of lines in 3D space.</p>
+
+        <div class="widget-header">Vector Equation, Parametric Equations and Symmetric Equation Passing Through Two Points (3D)</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/eaD722OgY7s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/eaD722OgY7s" target="_blank" rel="noopener noreferrer">https://youtu.be/eaD722OgY7s</a>]</div>
+
+        <div class="widget-header">Find the Point of Intersection of a Line Given by a Vector Function and a Coordinate Plane</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/5g2YSL2Dpw0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/5g2YSL2Dpw0" target="_blank" rel="noopener noreferrer">https://youtu.be/5g2YSL2Dpw0</a>]</div>
+
+        <h2 id="planes">Planes</h2>
+
+        <p>In essence, we could think of a line as the set of all points (including the initial point) that are <em>parallel</em> to a given vector. Similarly, we could think of a plane as the set of all points (including the initial point) formed by vectors that are <em>perpendicular</em> to a given vector.</p>
+
+        <p>The following Geogebra applet illustrates the setup of a plane. We are given an initial point \(P_0\) and a vector \(\vec{n}\), which we call the <strong>normal</strong> vector. In addition, we are given another point \(P\) and vector \(\vec{v}\) where \(\vec{v}\) extends from \(P_0\) to \(P\) such that \(\vec{v}\) will always be perpendicular to \(\vec{n}\). You can move point \(P\) (and therefore vector \(\vec{v}\)) anywhere within the plane and \(\vec{v}\) will remain perpendicular to \(\vec{n}\).</p>
+
+        <ol>
+            <li>What happens to the plane if you move point \(P_0\) around or if you move point \(N\) (and therefore vector \(\vec{n}\)) around?</li>
+            <li>Does \(\vec{v}\) continue to be perpendicular to \(\vec{n}\)?</li>
+        </ol>
+
+        <p>Note: You can click-and-drag to rotate the view around the origin. Also, clicking on movable points will alternate between moving them along the <em>z</em>-direction or in the <em>xy</em>-direction.</p>
+
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <!-- Edit the title to clearly state it is an interactive tool: Interactive GeoGebra ... Graphing Calculator Application -->
+                <iframe height="477px" style="border:0px;" width="795px" scrolling="no" src="https://www.geogebra.org/material/iframe/id/f2m8cbac/width/795/height/477/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" title="Interactive GeoGebra Plane and Perpendicular Vectors Graphing Calculator Application"> </iframe>
+            </div>
+        </div>
+        <div class="widget-footer">GeoGebra Applet: [<a href="https://www.geogebra.org/m/f2m8cbac" target="_blank" rel="noopener noreferrer">https://www.geogebra.org/m/f2m8cbac</a>]</div>
+
+        <p>So what does the equation of a plane look like?</p>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Equation of a Plane">
+            <!-- Content goes here. -->
+            <p>Given a point \(P_0(x_0, y_0, z_0)\) and a normal vector \(\vec{n} = \langle a, b, c \rangle\), the scalar <strong>equation of the plane</strong> that passes through \(P_0\) and is perpendicular to \(\vec{n}\) is given by the following formula.</p>
+
+            \[a(x - x_0) + b(y - y_0) + c(z - z_0) = 0\]
+
+            <p>This can be simplified to the equation \(ax + by + cz = d\) where \(d = ax_0 + by_0 + cz_0\).</p>
+        </div>
+
+        <div class="widget-header">Determine the Equation of a Plane Given a Point and Normal Vector</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/p_JItfXpGlQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/p_JItfXpGlQ" target="_blank" rel="noopener noreferrer">https://youtu.be/p_JItfXpGlQ</a>]</div>
+
+        <p>This last video will show how many of the concepts in this lesson (lines, planes and cross products) are tied together.</p>
+
+        <div class="widget-header">Determine the Linear Equation of the Intersection to Two Planes</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/q2FO675dmyM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/q2FO675dmyM" target="_blank" rel="noopener noreferrer">https://youtu.be/q2FO675dmyM</a>]</div>
+
+    </main>
+    <!-- End of the main content -->
+
+    <!-- EMPTY PLACEHOLDER FOOTER: Script will automatically inject the copyright blocks -->
+    <footer class="lesson-footer" id="global-site-footer" role="contentinfo"></footer>
+
+    <!--Custom scripts-->
+    <script src="../site-nav.js" defer></script>
+    <script src="../site-ui.js" defer></script>
+    <script src="../site-quizlets.js" defer></script>
+</body>
+
+</html>

@@ -203,64 +203,6 @@
 
         <h2 id="operations">Vector Operations</h2>
 
-        <!-- HTML Structure -->
-        <table class="tbl-responsive-list" role="table">
-            <caption>Generalized 2-Column Title</caption>
-            <thead role="rowgroup">
-                <tr role="row">
-                    <th scope="col" role="columnheader">Header Row 0, Column 1</th>
-                    <th scope="col" role="columnheader">Header Row 0, Column 2</th>
-                </tr>
-            </thead>
-            <tbody role="rowgroup">
-                <!-- Row 1 -->
-                <tr role="row">
-                    <td class="r1c1" role="cell">Row 1, Column 1</td>
-                    <td class="r1c2" role="cell">Row 1, Column 2</td>
-                </tr>
-                <!-- Row 2 -->
-                <tr role="row">
-                    <td class="r2c1" role="cell">Row 2, Column 1</td>
-                    <td class="r2c2" role="cell">Row 2, Column 2</td>
-                </tr>
-                <!-- Row 3 -->
-                <tr role="row">
-                    <td class="r3c1" role="cell">Row 3, Column 1</td>
-                    <td class="r3c2" role="cell">Row 3, Column 2</td>
-                </tr>
-            </tbody>
-        </table>
-
-
-        <table class="tbl-responsive-grid">
-            <caption>Generalized 4-Column Title</caption>
-            <thead>
-                <tr>
-                    <th scope="col" class="h-col1">Header Row 0, Column 1</th>
-                    <th scope="col" class="h-col2">Header Row 0, Column 2</th>
-                    <th scope="col" class="h-col3">Header Row 0, Column 3</th>
-                    <th scope="col" class="h-col4">Header Row 0, Column 4</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Row 1 -->
-                <tr>
-                    <td class="r1c1">Row 1, Column 1</td>
-                    <td class="r1c2">Row 1, Column 2</td>
-                    <td class="r1c3">Row 1, Column 3</td>
-                    <td class="r1c4">Row 1, Column 4</td>
-                </tr>
-                <!-- Row 2 -->
-                <tr>
-                    <td class="r2c1">Row 2, Column 1</td>
-                    <td class="r2c2">Row 2, Column 2</td>
-                    <td class="r2c3">Row 2, Column 3</td>
-                    <td class="r2c4">Row 2, Column 4</td>
-                </tr>
-            </tbody>
-        </table>
-
-
         <!-- Good -->
         \[
         \begin{aligned}
@@ -278,6 +220,115 @@
         \end{aligned}
         \]
 
+
+        <!-- Multi-Row 2-Column Comparison Table -->
+        <!-- This table provides a list of comparison, such as a term and an example, per row -->
+        <table class="table-stack-mimic" role="table">
+            <caption></caption>
+            <thead role="rowgroup">
+                <tr role="row">
+                    <th role="columnheader"></th>
+                    <th role="columnheader"></th>
+                </tr>
+            </thead>
+            <tbody role="rowgroup">
+                <tr role="row">
+                    <td role="cell"></td>
+                    <td role="cell"></td>
+                </tr>
+                <tr role="row">
+                    <td role="cell"></td>
+                    <td role="cell"></td>
+                </tr>
+                <tr role="row">
+                    <td role="cell"></td>
+                    <td role="cell"></td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <!-- Multi-Row Multi-Column Column-Grouping Table -->
+        <!-- Number of columns and rows can be increased as needed -->
+        <div class="table-column-card-container">
+            <table class="table-column-group" role="table">
+                <caption></caption>
+                <thead role="rowgroup">
+                    <tr role="row">
+                        <th role="columnheader"></th>
+                        <th role="columnheader"></th>
+                        <th role="columnheader"></th>
+                    </tr>
+                </thead>
+                <tbody role="rowgroup">
+                    <tr role="row">
+                        <td role="cell"></td>
+                        <td role="cell"></td>
+                        <td role="cell"></td>
+                    </tr>
+                    <tr role="row">
+                        <td role="cell"></td>
+                        <td role="cell"></td>
+                        <td role="cell"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <!-- Multi-Row Multi-Column Row-Grouping Table -->
+        <!-- Number of columns and rows can be increased as needed -->
+        <!-- Each cell must contain the corresponding data-lable for mobile screens -->
+        <table class="table-row-group" role="table">
+            <caption></caption>
+            <thead role="rowgroup">
+                <tr role="row">
+                    <th role="columnheader"></th>
+                    <th role="columnheader"></th>
+                    <th role="columnheader"></th>
+                </tr>
+            </thead>
+            <tbody role="rowgroup">
+                <tr role="row">
+                    <td role="cell" data-label="Header Row 0, Column 1"></td>
+                    <td role="cell" data-label="Header Row 0, Column 2"></td>
+                    <td role="cell" data-label="Header Row 0, Column 3"></td>
+                </tr>
+                <tr role="row">
+                    <td role="cell" data-label="Header Row 0, Column 1"></td>
+                    <td role="cell" data-label="Header Row 0, Column 2"></td>
+                    <td role="cell" data-label="Header Row 0, Column 3"></td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <!-- Table 4: Dynamic Scroll Container -->
+        <!-- Number of columns and rows can be increased as needed -->
+        <div class="table-scroll-container" tabindex="0" aria-label=" Ledger table data, horizontal scrollable">
+            <table class="table-scroll-target" role="table">
+                <caption></caption>
+                <thead role="rowgroup">
+                    <tr role="row">
+                        <th role="columnheader"></th>
+                        <th role="columnheader"></th>
+                        <th role="columnheader"></th>
+                    </tr>
+                </thead>
+                <tbody role="rowgroup">
+                    <tr role="row">
+                        <td role="cell"></td>
+                        <td role="cell"></td>
+                        <td role="cell"></td>
+                    </tr>
+                    <tr role="row">
+                        <td role="cell"></td>
+                        <td role="cell"></td>
+                        <td role="cell"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
 
         <p>Use the following GeoGebra app to explore various aspects of 3D space. The initial appearance of the app is of the \(xy\)-plane. You can click-and-drag to rotate the view around. Use the selection boxes on the left to highlight the <strong>coordinate planes</strong>. You can also show the <strong>octants</strong> of 3D space, similar to the quadrants of the \(xy\)-plane. Lastly, you can view how a <strong>point</strong> appears in 3D space. You can change the coordinates of the point by moving the corresponding point on a coordinate axis.

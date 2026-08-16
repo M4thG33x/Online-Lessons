@@ -1,0 +1,305 @@
+
+/* =========================================================================
+   1. ISOLATED DOCK/DESKTOP STYLES (Only targets your 4 specific classes)
+   ========================================================================= */
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+/* Scopes universal layout settings to your four custom table wrappers */
+.table-stack-mimic,
+.table-column-group,
+.table-row-group,
+.table-scroll-target {
+    width: 80%;
+    margin: 2rem auto;
+    font-family: sans-serif;
+    border-collapse: separate;
+    border-spacing: 15px 0px;
+    /* 15px horizontal gap between columns, 0px vertical gap between rows */
+}
+
+/* Scopes universal caption text alignments to your four elements */
+.table-stack-mimic caption,
+.table-column-group caption,
+.table-row-group caption,
+.table-scroll-target caption {
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 0.75rem;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Scopes high-contrast header block settings */
+.table-stack-mimic th,
+.table-column-group th,
+.table-row-group th,
+.table-scroll-target th {
+    background-color: #0056b3;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 0.75rem;
+    text-align: left;
+}
+
+/* Scopes intermediate body cell dividers */
+.table-stack-mimic td,
+.table-column-group td,
+.table-row-group td,
+.table-scroll-target td {
+    padding: 0.75rem;
+    border-bottom: 1px dotted #0056b3;
+}
+
+/* Scopes thick baseline border closure formatting to the final row of cells */
+.table-stack-mimic tr:last-child td,
+.table-column-group tr:last-child td,
+.table-row-group tr:last-child td,
+.table-scroll-target tr:last-child td {
+    border-bottom: 2px solid #0056b3;
+}
+
+/* --- TABLE 4: Desktop Container Framework Scoping --- */
+.table-scroll-container {
+    width: 100%;
+    margin: 2rem auto;
+    box-sizing: border-box;
+    border: none;
+}
+
+.table-scroll-target {
+    margin: 0 auto;
+}
+
+
+/* =========================================================================
+   2. UNIFIED RESPONSIVE NARROW STYLES (< 768px)
+   ========================================================================= */
+@media (max-width: 768px) {
+
+    /* --- GLOBAL MOBILE RESETS & BASE MARGINS --- */
+    .table-stack-mimic,
+    .table-column-group,
+    .table-row-group,
+    .table-scroll-container {
+        width: 100% !important;
+        margin: 1rem 0 !important;
+        border-spacing: 0px 0px !important;
+    }
+
+    /* --- TABLE 1: Column Stacking Layout --- */
+    .table-stack-mimic,
+    .table-stack-mimic thead,
+    .table-stack-mimic tbody,
+    .table-stack-mimic tr,
+    .table-stack-mimic td {
+        display: block;
+        width: 100%;
+    }
+
+    .table-stack-mimic caption {
+        display: block;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .table-stack-mimic thead {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+    }
+
+    .table-stack-mimic tr {
+        margin-bottom: 1.5rem;
+        border: 1px solid #0056b3;
+        overflow: hidden;
+    }
+
+    .table-stack-mimic td {
+        padding: 0.75rem;
+    }
+
+    .table-stack-mimic tr td:first-child {
+        background-color: #0056b3;
+        color: #ffffff;
+        font-weight: bold;
+        border-bottom: none;
+    }
+
+    .table-stack-mimic tr td:last-child {
+        border-bottom: none;
+    }
+
+
+    /* --- TABLE 2: Column Group Transposition Layout --- */
+    .table-column-card-container {
+        width: 100%;
+        padding: 0;
+    }
+
+    .table-column-group {
+        display: block;
+    }
+
+    .table-column-group caption {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin: 0 auto 1rem auto;
+        box-sizing: border-box;
+    }
+
+    .table-column-group thead {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+    }
+
+    .table-column-group tbody {
+        display: block;
+        width: 100%;
+    }
+
+    .table-column-group td {
+        display: block;
+        width: 100%;
+        padding: 0.75rem;
+        background-color: #ffffff;
+        border-left: 1px solid #0056b3;
+        border-right: 1px solid #0056b3;
+        border-top: none;
+        border-bottom: none;
+        box-sizing: border-box;
+    }
+
+    .table-column-group td.header-mimic {
+        background-color: #0056b3;
+        color: #ffffff;
+        font-weight: bold;
+        border-top: 1px solid #0056b3;
+    }
+
+    .table-column-group td.last-in-card {
+        border-bottom: 1px solid #0056b3;
+        margin-bottom: 2rem;
+    }
+
+
+    /* --- TABLE 3: Row Group Block Grid Layout --- */
+    .table-row-group {
+        display: block;
+    }
+
+    .table-row-group caption {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin: 0 auto 1rem auto;
+        box-sizing: border-box;
+    }
+
+    .table-row-group thead {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+    }
+
+    .table-row-group tbody {
+        display: block;
+        width: 100%;
+    }
+
+    .table-row-group tr {
+        display: block;
+        width: 100%;
+        margin-bottom: 2rem;
+        box-sizing: border-box;
+        border-left: 1px solid #0056b3;
+        border-right: 1px solid #0056b3;
+        border-top: 1px solid #0056b3;
+        border-bottom: 1px solid #0056b3;
+        overflow: hidden;
+    }
+
+    .table-row-group td {
+        display: grid !important;
+        grid-template-columns: 45% 55%;
+        align-items: center;
+        width: 100%;
+        padding: 0.75rem 0.75rem 0.75rem 0px !important;
+        background-color: #ffffff;
+        border: none !important;
+        box-sizing: border-box;
+        color: #000000;
+        font-weight: normal;
+        text-align: left;
+        background-image: linear-gradient(to right, transparent 45%, #0056b3 45%);
+        background-position: bottom;
+        background-size: 4px 1px;
+        background-repeat: repeat-x;
+    }
+
+    .table-row-group td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        background-color: #0056b3;
+        color: #ffffff;
+        padding: 0.75rem;
+        display: flex;
+        align-items: center;
+        text-align: left;
+        align-self: stretch;
+        box-sizing: border-box;
+        margin-right: 0.75rem;
+        margin-top: -0.75rem;
+        margin-bottom: -0.75rem;
+    }
+
+    .table-row-group tr:last-child td {
+        background-image: linear-gradient(to right, transparent 45%, #0056b3 45%) !important;
+    }
+
+    .table-row-group tr td:last-child,
+    .table-row-group tr:last-child td:last-child {
+        background-image: none !important;
+    }
+
+    .table-row-group tr td:first-child {
+        background-color: #ffffff;
+    }
+
+
+    /* --- TABLE 4: Horizontal Scroll Container Layout --- */
+    .table-scroll-container {
+        overflow-x: auto;
+        display: block;
+        -webkit-overflow-scrolling: touch;
+        border: 1px solid #0056b3;
+        padding: 0.25rem;
+    }
+
+    .table-scroll-target {
+        width: auto !important;
+        min-width: 600px;
+        margin: 0 !important;
+    }
+}

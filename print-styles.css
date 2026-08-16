@@ -18,7 +18,9 @@ body {
 
 img {
     max-width: 100%;
-    height: auto;
+    display: block;
+    /* height: auto; */
+    margin: 0 auto;
 }
 
 p {
@@ -66,6 +68,13 @@ h1 {
 .right-side-container,
 .lesson-page-toc {
     display: none;
+}
+
+
+.lesson-body ul,
+.lesson-body ol {
+    margin-left: 40px;
+    padding-bottom: 15px;
 }
 
 /* ------------------------------- Print Button ------------------------------- */
@@ -188,8 +197,10 @@ figcaption {
 }
 
 /* ------------------------------- Tables ------------------------------- */
-.tbl-responsive-grid,
-.tbl-responsive-list {
+.table-stack-mimic,
+.table-columng-group,
+.table-row-group,
+.table-scroll-container {
     margin: auto;
     max-width: 90%;
     padding-bottom: 20px;
@@ -198,8 +209,10 @@ figcaption {
     /* font-family: sans-serif; */
 }
 
-.tbl-responsive-grid caption,
-.tbl-responsive-list caption {
+.table-stack-mimic caption,
+.table-columng-group caption,
+.table-row-group caption,
+.table-scroll-container caption {
     padding-top: 10px;
     text-align: center;
     font-size: 1.2rem;
@@ -213,8 +226,10 @@ figcaption {
     border-bottom: 2px solid black;
 } */
 
-.tbl-responsive-grid th,
-.tbl-responsive-list th {
+.table-stack-mimic th,
+.table-columng-group th,
+.table-row-group th,
+.table-scroll-container th {
     /* padding: 10px 5px; */
     font-weight: bold;
     font-size: 1.2rem;
@@ -223,14 +238,18 @@ figcaption {
     border-right: 1px dashed black;
 }
 
-.tbl-responsive-grid th:last-of-type,
-.tbl-responsive-list th:last-of-type {
+.table-stack-mimic th:last-of-type,
+.table-columng-group th:last-of-type,
+.table-row-group th:last-of-type,
+.table-scroll-container th:last-of-type {
     border-right: none;
 }
 
 /* MATCHED: Desktop cell padding changed from 10px 5px to 10px 8px */
-.tbl-responsive-grid td,
-.tbl-responsive-list td {
+.table-stack-mimic td,
+.table-columng-group td,
+.table-row-group td,
+.table-scroll-container td {
     padding: 10px 8px;
     /* text-align: center; */
     vertical-align: middle;
@@ -239,8 +258,10 @@ figcaption {
     border-right: 1px dashed black;
 }
 
-.tbl-responsive-grid td:last-of-type,
-.tbl-responsive-list td:last-of-type {
+.table-stack-mimic td:last-of-type,
+.table-columng-group td:last-of-type,
+.table-row-group td:last-of-type,
+.table-scroll-container td:last-of-type {
     border-right: none;
 }
 

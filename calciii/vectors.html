@@ -148,69 +148,60 @@
 
         <p>Before we extend the 2D vector concepts we have just covered into 3D space, let's first list the properties of vector operations. Suppose \(\vec{u}\), \(\vec{v}\), and \(\vec{w}\) are vectors and \(a\) and \(c\) are scalars. Note the difference between the scalar 0 and the vector \(\vec{0}\), which has no direction and a 0 magnitude.</p>
 
-        <!-- A 2 column table of listed pairings per row to stack as rows per card -->
-        <!-- Add a caption, column headers, and row cells -->
-        <table class="tbl-responsive-list" role="table" style="width: 60%; margin: auto;">
+        <!-- Multi-Row 2-Column Comparison Table -->
+        <!-- This table provides a list of comparison, such as a term and an example, per row -->
+        <table class="table-stack-mimic" role="table" style="width: 60%;">
             <caption>Properties of Vector Operations</caption>
             <thead role="rowgroup">
                 <tr role="row">
-                    <th scope="col" role="columnheader">Property</th>
-                    <th scope="col" role="columnheader">Operation</th>
+                    <th role="columnheader">Property</th>
+                    <th role="columnheader">Operation</th>
                 </tr>
             </thead>
             <tbody role="rowgroup">
-                <!-- Row 1 -->
                 <tr role="row">
-                    <td class="r1c1" role="cell">Commutative (addition)</td>
-                    <td class="r1c2" role="cell">\[\vec{u} + \vec{v} = \vec{v} + \vec{u}\]</td>
+                    <td role="cell">Commutative (addition)</td>
+                    <td role="cell">\[\vec{u} + \vec{v} = \vec{v} + \vec{u}\]</td>
                 </tr>
-                <!-- Row 2 -->
                 <tr role="row">
-                    <td class="r2c1" role="cell">Associative (addition)</td>
-                    <td class="r2c2" role="cell">\[(\vec{u} + \vec{v}) + \vec{w} = \vec{u} + (\vec{v} + \vec{w})\]</td>
+                    <td role="cell">Associative (addition)</td>
+                    <td role="cell">\[(\vec{u} + \vec{v}) + \vec{w} = \vec{u} + (\vec{v} + \vec{w})\]</td>
                 </tr>
-                <!-- Row 3 -->
                 <tr role="row">
-                    <td class="r3c1" role="cell">Additive Identity</td>
-                    <td class="r3c2" role="cell">\[\vec{v} + \vec{0} = \vec{v}\]</td>
+                    <td role="cell">Additive Identity</td>
+                    <td role="cell">\[\vec{v} + \vec{0} = \vec{v}\]</td>
                 </tr>
-                <!-- Row 4 -->
                 <tr role="row">
-                    <td class="r4c1" role="cell">Additive Inverse</td>
-                    <td class="r4c2" role="cell">\[\vec{v} + -\vec{v} = \vec{0}\]</td>
+                    <td role="cell">Additive Inverse</td>
+                    <td role="cell">\[\vec{v} + -\vec{v} = \vec{0}\]</td>
                 </tr>
-                <!-- Row 5 -->
                 <tr role="row">
-                    <td class="r5c1" role="cell">Distributive (scalar)</td>
-                    <td class="r5c2" role="cell">\[c(\vec{u} + \vec{v}) = c\vec{u} + c\vec{v}\]</td>
+                    <td role="cell">Distributive (scalar)</td>
+                    <td role="cell">\[c(\vec{u} + \vec{v}) = c\vec{u} + c\vec{v}\]</td>
                 </tr>
-                <!-- Row 6 -->
                 <tr role="row">
-                    <td class="r6c1" role="cell">Distributive (vector)</td>
-                    <td class="r6c2" role="cell">\[(a + b)\vec{v} = a\vec{v} + b\vec{v}\]</td>
+                    <td role="cell">Distributive (vector)</td>
+                    <td role="cell">\[(a + b)\vec{v} = a\vec{v} + b\vec{v}\]</td>
                 </tr>
-                <!-- Row 7 -->
                 <tr role="row">
-                    <td class="r7c1" role="cell">Zero Scalar (multiplication)</td>
-                    <td class="r7c2" role="cell">\[0\vec{v} = \vec{0}\]</td>
+                    <td role="cell">Zero Scalar (multiplication)</td>
+                    <td role="cell">\[0\vec{v} = \vec{0}\]</td>
                 </tr>
-                <!-- Row 8 -->
                 <tr role="row">
-                    <td class="r8c1" role="cell">Zero Vector (multiplication)</td>
-                    <td class="r8c2" role="cell">\[c\vec{0} = \vec{0}\]</td>
+                    <td role="cell">Zero Vector (multiplication)</td>
+                    <td role="cell">\[c\vec{0} = \vec{0}\]</td>
                 </tr>
-                <!-- Row 9 -->
                 <tr role="row">
-                    <td class="r9c1" role="cell">Multiplicative Identity</td>
-                    <td class="r9c2" role="cell">\[1\vec{v} = \vec{v}\]</td>
+                    <td role="cell">Multiplicative Identity</td>
+                    <td role="cell">\[1\vec{v} = \vec{v}\]</td>
                 </tr>
-                <!-- Row 10 -->
                 <tr role="row">
-                    <td class="r10c1" role="cell">Associative (scalar multiplication)</td>
-                    <td class="r10c2" role="cell">\[a(c\vec{v}) = (ac)\vec{v}\]</td>
+                    <td role="cell">Associative (scalar multiplication)</td>
+                    <td role="cell">\[a(c\vec{v}) = (ac)\vec{v}\]</td>
                 </tr>
             </tbody>
         </table>
+
 
         <p>Also, we already talked about the unit vectors \(\hat{\imath}\) and \(\hat{\jmath}\) in the 2D plane. When we extend this into 3D space, we get the three unit vectos \(\hat{\imath} = \langle 1,0,0 \rangle \), \(\hat{\jmath} = \langle 0,1,0 \rangle \), and \(\hat{k} = \langle 0,0,1 \rangle\).</p>
 

@@ -5,13 +5,13 @@ document.addEventListener("DOMContentLoaded", () => {
     // 1. First, build and inject your hollow shell structural templates
     injectGlobalHeaderBanner();
     injectGlobalFooterBanner();
-    
+
     // 2. Next, trigger your navbar and text injections immediately afterward.
     // This absolute sequence guarantees the subtitle tag is waiting in the DOM tree!
     if (typeof loadStickyTopNav === "function") {
         loadStickyTopNav();
     }
-    
+
     // 3. Finally, trigger your accessible table of contents toggle hooks
     if (typeof initializeTocDropdownController === "function") {
         initializeTocDropdownController();
@@ -159,3 +159,65 @@ function toggleSolution(buttonId, contentId) {
         });
     }
 }
+
+
+/* =========================================================================
+   RESPONSIVE TABLE MATRIX TRANSPOSITION (TABLE 2)
+   ========================================================================= */
+document.addEventListener("DOMContentLoaded", () => {
+    const table = document.querySelector(".table-column-group");
+    if (!table) return;
+
+    const tbody = table.querySelector("tbody");
+    const desktopBackupHTML = tbody.innerHTML;
+
+    const headers = Array.from(table.querySelectorAll("thead th"));
+    const rows = Array.from(table.querySelectorAll("tbody tr"));
+
+    const columnStacks = headers.map((th) => {
+        const mimicHeader = document.createElement("td");
+        mimicHeader.className = "header-mimic";
+        mimicHeader.setAttribute("role", "cell");
+        mimicHeader.innerText = th.innerText;
+        return [mimicHeader];
+    });
+
+    rows.forEach((row) => {
+        const cells = Array.from(row.querySelectorAll("td"));
+        cells.forEach((cell, colIndex) => {
+            if (columnStacks[colIndex]) {
+                columnStacks[colIndex].push(cell.cloneNode(true));
+            }
+        });
+    });
+
+    columnStacks.forEach((stack) => {
+        if (stack.length > 0) {
+            stack[stack.length - 1].classList.add("last-in-card");
+        }
+    });
+
+    let isMobileView = null;
+
+    function adjustTableStructure() {
+        const width = window.innerWidth || document.documentElement.clientWidth;
+
+        if (width <= 768) {
+            if (isMobileView !== true) {
+                tbody.innerHTML = "";
+                columnStacks.forEach((stack) => {
+                    stack.forEach(cell => tbody.appendChild(cell.cloneNode(true)));
+                });
+                isMobileView = true;
+            }
+        } else {
+            if (isMobileView !== false) {
+                tbody.innerHTML = desktopBackupHTML;
+                isMobileView = false;
+            }
+        }
+    }
+
+    adjustTableStructure();
+    window.addEventListener("resize", adjustTableStructure);
+});
