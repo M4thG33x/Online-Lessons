@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../course-styles.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../print-styles.css">
+
+    <!--MathJax links-->
+    <script src="../site-math.js"></script>
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <link rel="icon" type="image/png" href="../logo-s.png">
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button type="button" onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- EMPTY PLACEHOLDER HEADER: Script will automatically inject the logo and subtitle -->
+    <header class="page-header" id="global-site-header" role="banner"></header>
+
+    <!-- Insert this uniform element block across all root, overview, and lesson files -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <!-- Links are automatically populated here via the site-nav.js script -->
+    </div>
+
+    <!-- Main content area shell container is a semantic <main> tag -->
+    <main class="lesson-body" id="main-content">
+        <!-- On This Page Menu -->
+        <nav class="lesson-page-toc" aria-label="On this Page Section Navigation Links">
+            <button class="dropbtn">On this Page</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li><a id="toc-top" href="#top"><!--Filled by page name from script--></a></li>
+                    <li><a href="#curves">Level Curves</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- The main core lesson header is a native semantic <h1> tag -->
+        <h1 id="top"><!--Filled by page name from script--></h1>
+
+        <div class="objective-region" role="region" aria-label="Lesson Objectives">
+            <!-- Content goes here. -->
+            <p>On this page, you will learn to:</p>
+            <ul>
+                <li>Determine the domain and range of a function with two dependent variables.</li>
+                <li>Sketch level curves for a function.</li>
+            </ul>
+        </div>
+
+
+
+        <p>For the most part, the functions you have seen and studied thus far have been of one variable. We have expressed this as \(y = f(x)\). Now we want to look at functions of multiple variables. A function of two variables would have the form \(z = f(x,y)\), meaning that the domain consists of two inputs, an \(x\) and a \(y\) value. The domain of a two variable function would be a region on the \(xy\)-plane and the function would create a surface of height \(z\) for each \((x,y)\) point in the domain. Simple examples include functions such as \(f(x,y) = x^2 + y^2\), which would be an elliptic paraboloid, or the function \(f(x,y) = \sin(x) \cos(y)\).</p>
+
+
+        <div class="flex-grid-container">
+            <!-- columns: flex-col-2, flex-col-3, or flex-col-4 -->
+            <div class="flex-grid-item flex-col-2">
+                <figure>
+                    <img src="content/ellipticparaboloid.png" alt="Graph of f(x,y) = x^2 + y^2">
+                    <figcaption>\(f(x,y) = x^2 + y^2\)</figcaption>
+                </figure>
+            </div>
+            <!-- columns: flex-col-2, flex-col-3, or flex-col-4 -->
+            <div class="flex-grid-item flex-col-2">
+                <figure>
+                    <img src="content/sinxcosy.png" alt="Graph of f(x,y) = sin(x)cos(y)">
+                    <figcaption>\(f(x,y) = \sin(x)\cos(y)\)</figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <p>A function of three variables would have the form \(w = f(x,y,z)\). The domain of a 3-variable function would be a region of \((x,y,z)\) points in 3D space. For example, a function \(T(x,y,z)\) could give the temperature of the air in a room at each point within the room, or a function \(\delta(x,y,z)\) could give the density of an object at each point in the object.</p>
+
+        <p>The domain of a multi-variable function must account for all of the independent variables. Consider the following examples.</p>
+
+        <!-- Multi-Row Multi-Column Row-Grouping Table -->
+        <!-- Number of columns and rows can be increased as needed -->
+        <!-- Each cell must contain the corresponding data-label for mobile screens -->
+        <!-- To center text in <p> tags, include table-center-align in the table class -->
+        <!-- Set the width of the reponsive left column by adding --column-one-width: ###px; to the table style  -->
+        <table class="table-row-group" role="table" style="width: 90%;">
+            <caption>Examples of 2-Variable Functions and Their Domains</caption>
+            <thead role="rowgroup">
+                <tr role="row">
+                    <th role="columnheader">Function</th>
+                    <th role="columnheader" style="min-width: 300px;">Graph</th>
+                    <th role="columnheader">Description &amp; Domain</th>
+                </tr>
+            </thead>
+            <tbody role="rowgroup">
+                <tr role="row">
+                    <td role="cell" data-label="Function">\[f(x,y) = x^2 + y^2\]</td>
+                    <td role="cell" data-label="Graph"><img src="content/Domain1.png" alt="Graph of f(x, y) = x^2 + y^2" width="300" height="254" /></td>
+                    <td role="cell" data-label="Description &amp; Domain">
+                        <p>The function is an elliptic paraboloid opening up the positive z-axis. The domain is the set of all \((x,y)\) coordinates where \(x\) and \(y\) are real numbers. In other words, the domain is the entire \(xy\)-plane.</p>
+
+                        \[\{ (x,y) \, | \, x,y \in \mathbb{R} \} \]
+                    </td>
+                </tr>
+                <tr role="row">
+                    <td role="cell" data-label="Function">\[f(x,y) = \frac{25}{25-x^2-y^2}\]</td>
+                    <td role="cell" data-label="Graph"><img src="content/Domain2.png" alt="Graph of f(x, y) = 25 / (25 - x^2 - y^2)" width="300" height="254" /></td>
+                    <td role="cell" data-label="Description &amp; Domain">
+                        <p>The domain would be the entire \(xy\)-plane except for the circle centered at the origin with a radius of 5.</p>
+
+                        \[\{(x,y) \, | \, x^2 + y^2 \ne 25\}\]
+                    </td>
+                </tr>
+                <tr role="row">
+                    <td role="cell" data-label="Function">\[f(x,y) = \sqrt{36-x^2-y^2}\]</td>
+                    <td role="cell" data-label="Graph"><img src="content/Domain3.png" alt="Graph of f(x, y) = sqrt(36 - x^2 - y^2)" width="300" height="254" /></td>
+                    <td role="cell" data-label="Description &amp; Domain">
+                        <p>The function is the top half of a sphere of radius 6. The domain would be the boundary and interior of the circle \(x^2 + y^2 = 36\).</p>
+
+                        \[\{(x,y) \, | \, x^2 + y^2 \le 36 \}\]
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <p>Watch the following video.</p>
+
+        <div class="widget-header">Introduction to Functions of Two Variables</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="890" height="501" src="https://www.youtube.com/embed/c0wd_9yF8bg" title="Introduction to Functions of Two Variables" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/c0wd_9yF8bg" target="_blank" rel="noopener noreferrer">https://youtu.be/c0wd_9yF8bg</a>]</div>
+
+        <p>A common example of two variable functions in the Cobb-Douglass production function. This is a simplifed function in economics that predicts the output production based on the amount of labor and capital invested.</p>
+
+        <div class="widget-header">Evaluate a Function of Two Variables (Cobb-Douglas Production Function)</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="890" height="527" src="https://www.youtube.com/embed/pUh36X7FQos" title="Ex: Evaluate a Function of Two Variables (Cobb-Douglas Production Function)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/pUh36X7FQos" target="_blank" rel="noopener noreferrer">https://youtu.be/pUh36X7FQos</a>]</div>
+
+        <h2 id="curves">Level Curves</h2>
+
+        <p>We talked about horizontal traces in the previous unit. Recall that a trace is the curve created by the intersection of a surface with a horizontal plane. A level curve is the projection of the trace onto the xy-plane. The image below shows the graph of a function \(f(x,y)\) with yellow curves that represent the traces formed by intersecting the function with the horizontal planes of \(z = 4.2, 4.4, 4.6, ..., 5.8\). The black curves on the \(xy\)-plane are the level curves.</p>
+
+        <figure>
+            <img src="content/LevelCurves.png" alt="Graph of a function with highlighted traces for sequential values of z and their corresponding level curves in the xy-plane." />
+            <figcaption>Level Curves</figcaption>
+        </figure>
+
+
+
+        <p>Notice on the graph above that the level curves are closer together where the graph of \(f(x, y)\) is steeper and they are further apart as as the graph levels out (this assumes the traces are formed by equally spaced steps in the \(z\)-values, as illustrated above). Probably the most common example of level curves would be a contour map.</p>
+
+
+        <img src="content/ContourMapWTCC.png" alt="Contour Map around Wake Tech's Southern Campus" />
+        <div class="widget-footer">Image Source: [<a href="https://topobuilder.nationalmap.gov/" target="_blank" rel="noopener noreferrer">https://topobuilder.nationalmap.gov/</a>]</div>
+
+        <p>The map above shows the area around Wake Tech's Southern Campus. All the curving lines represents different altitudes, each 10 ft higher or lower in altitude than the adjacent curve. Curves closer together represent steeper hills. The following video will show how to determine the equation of level curves for a given function.</p>
+
+        <div class="widget-header">Level Curves of Functions of Two Variables</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="1149" height="647" src="https://www.youtube.com/embed/CCLrfpD5_sE" title="Level Curves of Functions of Two Variables" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/CCLrfpD5_sE" target="_blank" rel="noopener noreferrer">https://youtu.be/CCLrfpD5_sE</a>]</div>
+
+    </main>
+    <!-- End of the main content -->
+
+    <!-- EMPTY PLACEHOLDER FOOTER: Script will automatically inject the copyright blocks -->
+    <footer class="lesson-footer" id="global-site-footer" role="contentinfo"></footer>
+
+    <!--Custom scripts-->
+    <script src="../site-nav.js" defer></script>
+    <script src="../site-ui.js" defer></script>
+    <script src="../site-quizlets.js" defer></script>
+</body>
+
+</html>

@@ -19,12 +19,14 @@ const SiteMap = [
     { courseFolder: "calciii", file: "geogebravectors.html", pageName: "GeoGebra", lessonName: "Cross Product, Planes & Surfaces" },
     { courseFolder: "calciii", file: "surfaces.html", pageName: "Surfaces", lessonName: "Cross Product, Planes & Surfaces" },
     { courseFolder: "calciii", file: "curves.html", pageName: "Curves", lessonName: "Curves, Calculus, Length & Curvature" },
-    { courseFolder: "calciii", file: "vectorcalculus.html", pageName: "Calculus", lessonName: "Curves, Calculus, Length & Curvature" },
-    { courseFolder: "calciii", file: "geogebracurves.html", pageName: "GeoGebra", lessonName: "Curves, Calculus, Length & Curvature" },
-    { courseFolder: "calciii", file: "arclength.html", pageName: "Arc Length", lessonName: "Curves, Calculus, Length & Curvature" },
-    { courseFolder: "calciii", file: "curvature.html", pageName: "Curvature", lessonName: "Curves, Calculus, Length & Curvature" },
-    { courseFolder: "calciii", file: "motion.html", pageName: "Motion", lessonName: "Curves, Calculus, Length & Curvature" },
-    { courseFolder: "calciii", file: "tnb.html", pageName: "Computing TNB", lessonName: "Curves, Calculus, Length & Curvature" }
+    { courseFolder: "calciii", file: "vectorcalculus.html", pageName: "Calculus", lessonName: "Curves, Calculus, Length & Motion" },
+    { courseFolder: "calciii", file: "geogebracurves.html", pageName: "GeoGebra", lessonName: "Curves, Calculus, Length & Motion" },
+    { courseFolder: "calciii", file: "arclength.html", pageName: "Arc Length", lessonName: "Curves, Calculus, Length & Motion" },
+    { courseFolder: "calciii", file: "curvature.html", pageName: "Curvature", lessonName: "Curves, Calculus, Length & Motion" },
+    { courseFolder: "calciii", file: "motion.html", pageName: "Motion", lessonName: "Curves, Calculus, Length & Motion" },
+    { courseFolder: "calciii", file: "tnb.html", pageName: "Computing TNB", lessonName: "Curves, Calculus, Length & Motion" },
+    { courseFolder: "calciii", file: "functions.html", pageName: "Functions", lessonName: "Functions & Limits" },
+    { courseFolder: "calciii", file: "limits.html", pageName: "Limits", lessonName: "Functions & Limits" }
 ];
 
 

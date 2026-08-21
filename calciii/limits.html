@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../course-styles.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../print-styles.css">
+
+    <!--MathJax links-->
+    <script src="../site-math.js"></script>
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <link rel="icon" type="image/png" href="../logo-s.png">
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button type="button" onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- EMPTY PLACEHOLDER HEADER: Script will automatically inject the logo and subtitle -->
+    <header class="page-header" id="global-site-header" role="banner"></header>
+
+    <!-- Insert this uniform element block across all root, overview, and lesson files -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <!-- Links are automatically populated here via the site-nav.js script -->
+    </div>
+
+    <!-- Main content area shell container is a semantic <main> tag -->
+    <main class="lesson-body" id="main-content">
+        <!-- On This Page Menu -->
+        <nav class="lesson-page-toc" aria-label="On this Page Section Navigation Links">
+            <button class="dropbtn">On this Page</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li><a id="toc-top" href="#top"><!--Filled by page name from script--></a></li>
+                    <li><a href="#continuity">Continuity</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- The main core lesson header is a native semantic <h1> tag -->
+        <h1 id="top"><!--Filled by page name from script--></h1>
+
+        <div class="objective-region" role="region" aria-label="Lesson Objectives">
+            <!-- Content goes here. -->
+            <p>On this page, you will learn to:</p>
+            <ul>
+                <li>Evaluate limits of two variable functions.</li>
+                <li>Determine continuity of two variable functions.</li>
+            </ul>
+        </div>
+
+
+        <p>Back in Calc 1, the first real step into calculus topics begins with the study of limits and continuity. A lot of what you learned back then can also be applied to functions of multiple variables. With functions of 1-variable, we consider limits as \(x\) approaches some number \(a\), or \(x \rightarrow a\). If the function was continuous at \(x = a\), then we could easily evaluate the limit using direct substitution. If it wasn't continuous, then we had to try other strategies like L'H&ocirc;pital's Rule or we could look at the left and right limits, \(x \rightarrow a^{-}\) and \(x \rightarrow a^{+}\), respectively.</p>
+
+        <p>With functions of two variables, we must consider limits as points in the \(xy\)-plane approach a specific location, i.e., \((x,y) \rightarrow (a,b)\) where \(a\) and \(b\) are real numbers and \((x,y)\) is in the domain of \(f\). If the function is continuous at the point \((a,b)\), then just like before, we can evaluate the limit by direction substitution. However, if doing so results in an indeterminate form such as \(\frac{0}{0}\), then we cannot just jump to L'H&ocirc;pital's Rule because it only applies to single-variable functions. So how can we determine whether a 2-variable function limit exists? The difference is that instead of left and right limits, we must consider any and every path that could be taken to get to the point \((a,b)\) within the \(xy\)-plane. For the limit to exist, the limit along <strong>ALL</strong> possible paths must be the same. This is not feasible to check as any point would have infinitely many paths. So, instead this leads us to a test to show that a limit does <strong>NOT</strong> exist.</p>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Two Path Test for Limits">
+            <!-- Content goes here. -->
+            <p><strong>Two Path Test for Limits:</strong> The limit of a function \(f\) as \((x,y) \rightarrow (a,b)\) does not exist if any two paths that pass through \((a,b)\) can be found such that the limit along those paths results in two different values for the limit.</p>
+        </div>
+
+        <p>Think of this test as comparing the left and right sided limits for 1-variable functions, except now there are more than just two sides. Common paths include \(y=b\), \(x = a\), \(y = x\) or \(y = -x\), \(y = x^2\) or \(x = \sqrt{y}\), etc. In general, we want to pick functions in the \(xy\)-plane which pass through the point \((a,b)\) that make evaluating the corresponding limit possible.</p>
+
+        <div class="widget-header">Limits of Functions of Two Variables</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="1149" height="647" src="https://www.youtube.com/embed/d0SPcQNy78E" title="Limits of Functions of Two Variables" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/d0SPcQNy78E" target="_blank" rel="noopener noreferrer">https://youtu.be/d0SPcQNy78E</a>]</div>
+
+        <p>As you watch these videos, pay attention to the types of paths that can be used to evaluate a limit.</p>
+
+        <div class="widget-header">Limit of a Function of Two Variables (Origin - DNE)</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="1149" height="647" src="https://www.youtube.com/embed/6bkFDru-g-M" title="Ex: Limit of a Function of Two Variables (Origin - DNE)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/6bkFDru-g-M" target="_blank" rel="noopener noreferrer">https://youtu.be/6bkFDru-g-M</a>]</div>
+
+        <div class="widget-header">Limit of a Function of Two Variables (Not Origin - DNE)</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="1149" height="647" src="https://www.youtube.com/embed/ZjgHOreTUmw" title="Ex: Limit of a Function of Two Variables (Not Origin - DNE)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/ZjgHOreTUmw" target="_blank" rel="noopener noreferrer">https://youtu.be/ZjgHOreTUmw</a>]</div>
+
+        <h2 id="continuity">Continuity</h2>
+
+        <p>The intuitive idea of continuity of a function \(y = f(x)\) back in Calc 1 was that the graph of a function must be one single curve with no breaks, jumps or gaps in order to be continuous. If you could draw the graph of a function in one motion without lifting your pen then it was continuous. Mathematically speaking, a function \(y = f(x)\) is continuous at a point \(x = a\) if we have \(\lim_{x \to a} f(x) = f(a)\), meaning that the limit and function are both defined at the point \(x = a\) and they are also equal to each other. Any break, jump, or gap was called a point of discontinuity. This same idea is true for a function of multiple variables. It will be continuous everywhere on its domain except where there are breaks or holes. Here is a more formal definition of continuity.</p>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Continuity">
+            <!-- Content goes here. -->
+            <p>A function \(f(x,y)\) is <strong>continuous at a point</strong> \((a,b)\) if the following limit exists and is equal to the value of \(f\) at \((a,b)\).</p>
+
+            \[\lim_{(x,y) \to (a,b)} f(x,y) = f(a,b)\]
+        </div>
+
+        <p>The following three criteria for continuity of a function \(f(x,y)\) at a point \((a,b)\) come from the definition of continuity in Calc 1.</p>
+        <ol>
+            <li>\(f(a,b)\) is defined.</li>
+            <li>The limit as \((x,y) \rightarrow (a,b)\) exists.</li>
+            <li>The limit is equal to \(f(a,b)\).</li>
+        </ol>
+
+        <p>Watch the following video.</p>
+
+        <div class="widget-header">Understand the conditions for continuity of a function of two variables at a point</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="1149" height="647" src="https://www.youtube.com/embed/VcRj9rU9f54" title="LO 80 Understand the conditions for continuity of a function of two variables at a point" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/VcRj9rU9f54" target="_blank" rel="noopener noreferrer">https://youtu.be/VcRj9rU9f54/a>]</div>
+
+
+    </main>
+    <!-- End of the main content -->
+
+    <!-- EMPTY PLACEHOLDER FOOTER: Script will automatically inject the copyright blocks -->
+    <footer class="lesson-footer" id="global-site-footer" role="contentinfo"></footer>
+
+    <!--Custom scripts-->
+    <script src="../site-nav.js" defer></script>
+    <script src="../site-ui.js" defer></script>
+    <script src="../site-quizlets.js" defer></script>
+</body>
+
+</html>
