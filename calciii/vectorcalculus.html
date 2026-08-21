@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../course-styles.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../print-styles.css">
+
+    <!--MathJax links-->
+    <script src="../site-math.js"></script>
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <link rel="icon" type="image/png" href="../logo-s.png">
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button type="button" onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- EMPTY PLACEHOLDER HEADER: Script will automatically inject the logo and subtitle -->
+    <header class="page-header" id="global-site-header" role="banner"></header>
+
+    <!-- Insert this uniform element block across all root, overview, and lesson files -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <!-- Links are automatically populated here via the site-nav.js script -->
+    </div>
+
+    <!-- Main content area shell container is a semantic <main> tag -->
+    <main class="lesson-body" id="main-content">
+        <!-- On This Page Menu -->
+        <nav class="lesson-page-toc" aria-label="On this Page Section Navigation Links">
+            <button class="dropbtn">On this Page</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li><a id="toc-top" href="#top"><!--Filled by page name from script--></a></li>
+                    <li><a href="#derivatives">Derivatives</a></li>
+                    <li><a href="#integrals">Integrals</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- The main core lesson header is a native semantic <h1> tag -->
+        <h1 id="top"><!--Filled by page name from script--></h1>
+
+        <div class="objective-region" role="region" aria-label="Lesson Objectives">
+            <!-- Content goes here. -->
+            <p>On this page, you will learn to:</p>
+            <ul>
+                <li>Determine derivatives of vector-valued functions.</li>
+                <li>Evaluate integrals of vector-valued functions.</li>
+            </ul>
+        </div>
+
+
+        <p>As we saw on the previous page, we can evaluate the limit of a vector-valued function by evaluating the limits of the separate component functions. If you recall from back in Calculus I, the definition of the derivative and integral both use a limit. So in order to determine the derivative or integal of a vector-valued function, we can do so by determining the derivative or integral of the separate component functions.</p>
+
+        <h2 id="derivatives">Derivatives</h2>
+
+        <p>Recall from Calculus I that we define the derivative to represent the instantaneous rate of change or slope of the tangent line at each point of the function. This is still true even when using vector-valued functions. The following GeoGebra applet illustrates the tangent vectors of the given curve at any point for a given value of \(t\). You can click-and-drag to rotate the view about the origin. The orange point represents the point on the curve at \(t=2\).</p>
+
+        <ol>
+            <li>Click on the <b>T</b> checkbox. You should see a purple vector appear at the orange point. This is the tangent vector. Rotate the view around to see how it is tangent to the curve at this point in 3D space.</li>
+            <li>Check the <b>m<sub>x</sub></b>, <b>m<sub>y</sub></b> and <b>m<sub>z</sub></b> checkboxes. As you check each box, you should see another vector added to the orange point. You will have to rotate the view to see all three. These vectors represent the slope vectors of the curve in the directions parallel to the coordinate axes. In other words, they are the component vector of the tangent vector <b>T</b>. So <b>T</b> = <b>m<sub>x</sub></b> + <b>m<sub>y</sub></b> + <b>m<sub>z</sub></b>.</li>
+            <li>Use the slider to move the orange point around. Notice that as it moves and the curvature of the function changes, so does the tangent vector and its component vectors.</li>
+        </ol>
+
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <!-- Edit the title to clearly state it is an interactive tool: Interactive GeoGebra ... Graphing Calculator Application -->
+                <iframe scrolling="no" title="Interactive GeoGebra Tangent Vector Graphing Calculator Application" src="https://www.geogebra.org/material/iframe/id/qdej99jq/width/795/height/477/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="795px" height="477px" style="border:0px;"> </iframe>
+            </div>
+        </div>
+        <div class="widget-footer">GeoGebra Applet: [<a href="https://www.geogebra.org/m/qdej99jq" target="_blank" rel="noopener noreferrer">https://www.geogebra.org/m/qdej99jq</a>]</div>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: ">
+            <!-- Content goes here. -->
+            <p>For a vector-valued function \(\vec{r}(t) = \langle f(t), g(t), h(t) \rangle\) where \(f\), \(g\), and \(h\) are differentiable functions, the <strong>derivative</strong> of \(\vec{r}\) is \[\vec{r}'(t) = \langle f'(t), g'(t), h'(t) \rangle.\]</p>
+        </div>
+
+        <p>Again, the derivative of a vector-valued function is just the derivatives of its component functions. This same idea holds when determining higher-order derivatives such as \(\vec{r}^{\prime\prime}(t)\) and \(\vec{r}^{\prime\prime\prime}(t)\). Because \(f\), \(g\) and \(h\) are just Real scalar-valued functions of \(t\), we can use all of the derivative rules you learned back in Calculus I. It follows that we have the derivative properties listed below.</p>
+
+        <p>Let \(\vec{u}\) and \(\vec{v}\) be differentiable vector functions, let \(f\) be a differentiable scalar function, let \(\vec{c}\) be a constant vector, and let \(c\) be a constant scalar.</p>
+
+        <!-- Multi-Row 2-Column Comparison Table -->
+        <!-- This table provides a list of comparison, such as a term and an example, per row -->
+        <table class="table-stack-mimic" role="table">
+            <caption>Vector Function Derivative Rules</caption>
+            <thead role="rowgroup">
+                <tr role="row">
+                    <th role="columnheader">Rule</th>
+                    <th role="columnheader">Derivative</th>
+                </tr>
+            </thead>
+            <tbody role="rowgroup">
+                <tr role="row">
+                    <td role="cell">Constant Vector</td>
+                    <td role="cell">\(\frac{\partial}{\partial t} \left[ \vec{c} \right] = 0 \)</td>
+                </tr>
+                <tr role="row">
+                    <td role="cell">Constant Multiple</td>
+                    <td role="cell">\(\frac{\partial}{\partial t} \left[ c\, \vec{u}(t) \right] = c\, \vec{u}'(t) \)</td>
+                </tr>
+                <tr role="row">
+                    <td role="cell">Sum / Difference</td>
+                    <td role="cell">\(\frac{\partial}{\partial t} \left[ \vec{u}(t) \pm \vec{v}(t) \right] = \vec{u}'(t) \pm \vec{v}'(t) \)</td>
+                </tr>
+                <tr role="row">
+                    <td role="cell">Scalar Product</td>
+                    <td role="cell">\(\frac{\partial}{\partial t} \left[ f(t) \, \vec{u}(t) \right] = f'(t) \, \vec{u}(t) + f(t) \, \vec{u}'(t) \)</td>
+                </tr>
+                <tr role="row">
+                    <td role="cell">Dot Product</td>
+                    <td role="cell">\(\frac{\partial}{\partial t} \left[ \vec{u}(t) \cdot \vec{v}(t) \right] = \vec{u}'(t) \cdot \vec{v}(t) + \vec{u}(t) \cdot \vec{v}'(t) \)</td>
+                </tr>
+                <tr role="row">
+                    <td role="cell">Cross Product</td>
+                    <td role="cell">\(\frac{\partial}{\partial t} \left[ \vec{u}(t) \times \vec{v}(t) \right] = \vec{u}'(t) \times \vec{v}(t) + \vec{u}(t) \times \vec{v}'(t) \)</td>
+                </tr>
+                <tr role="row">
+                    <td role="cell">Chain Rule</td>
+                    <td role="cell">\(\frac{\partial}{\partial t} \left[ \vec{u} \left( f(t) \right) \right] = f'(t) \, \vec{u}' \left( f(t) \right) \)</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <p>The following video gives some examples of derivatives using these properties.</p>
+
+        <div class="widget-header">Properties of the Derivatives of Vector Valued Functions</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="1331" height="749" src="https://www.youtube.com/embed/sRSUkP5RB5I" title="Properties of the Derivatives of Vector Valued Functions" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/sRSUkP5RB5I" target="_blank" rel="noopener noreferrer">https://youtu.be/sRSUkP5RB5I</a>]</div>
+
+        <h2 id="integrals">Integrals</h2>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Integrals">
+            <!-- Content goes here. -->
+            <p>For a continuous vector-valued function \(\vec{r}(t) = \langle f(t), g(t), h(t) \rangle\), the <strong>antiderivative</strong> or <strong>indefinite integral</strong> of \(\vec{r}\) is is the antiderivative of its component functions.</p>
+
+            \[\mathop \int \vec{r} dt = \langle \int f(t) dt, \int g(t) dt, \int h(t) dt \rangle \]
+
+            <p>This applies to definite integrals as well.</p>
+        </div>
+
+        <p>Again, since the component functions \(f\), \(g\) and \(h\) are Real scalar valued functions, we can use the integration rules you learned back in Calculus I &amp; II.</p>
+
+        <div class="widget-header">Indefinite Integration of Vector Valued Functions</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="1331" height="749" src="https://www.youtube.com/embed/rPCJonfswMY" title="Indefinite Integration of Vector Valued Functions" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/rPCJonfswMY" target="_blank" rel="noopener noreferrer">https://youtu.be/rPCJonfswMY</a>]</div>
+
+        <div class="widget-header">Indefinite Integration of Vector Valued Functions with Initial Conditions</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="1331" height="749" src="https://www.youtube.com/embed/1_LeVnr2Hzw" title="Indefinite Integration of Vector Valued Functions with Initial Conditions" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/1_LeVnr2Hzw" target="_blank" rel="noopener noreferrer">https://youtu.be/1_LeVnr2Hzw</a>]</div>
+
+        <div class="widget-header">Definite Integration of Vector Valued Functions</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="1331" height="749" src="https://www.youtube.com/embed/2t0BT3mLx9U" title="Definite Integration of Vector Valued Functions" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/2t0BT3mLx9U" target="_blank" rel="noopener noreferrer">https://youtu.be/2t0BT3mLx9U</a>]</div>
+
+    </main>
+    <!-- End of the main content -->
+
+    <!-- EMPTY PLACEHOLDER FOOTER: Script will automatically inject the copyright blocks -->
+    <footer class="lesson-footer" id="global-site-footer" role="contentinfo"></footer>
+
+    <!--Custom scripts-->
+    <script src="../site-nav.js" defer></script>
+    <script src="../site-ui.js" defer></script>
+    <script src="../site-quizlets.js" defer></script>
+</body>
+
+</html>

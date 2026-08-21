@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../course-styles.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../print-styles.css">
+
+    <!--MathJax links-->
+    <script src="../site-math.js"></script>
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <link rel="icon" type="image/png" href="../logo-s.png">
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button type="button" onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- EMPTY PLACEHOLDER HEADER: Script will automatically inject the logo and subtitle -->
+    <header class="page-header" id="global-site-header" role="banner"></header>
+
+    <!-- Insert this uniform element block across all root, overview, and lesson files -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <!-- Links are automatically populated here via the site-nav.js script -->
+    </div>
+
+    <!-- Main content area shell container is a semantic <main> tag -->
+    <main class="lesson-body" id="main-content">
+        <!-- On This Page Menu -->
+        <nav class="lesson-page-toc" aria-label="On this Page Section Navigation Links">
+            <button class="dropbtn">On this Page</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li><a id="toc-top" href="#top"><!--Filled by page name from script--></a></li>
+                    <li><a href="#functions">Vector Functions</a></li>
+                    <li><a href="#limits">Limits</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- The main core lesson header is a native semantic <h1> tag -->
+        <h1 id="top"><!--Filled by page name from script--></h1>
+
+        <div class="objective-region" role="region" aria-label="Lesson Objectives">
+            <!-- Content goes here. -->
+            <p>On this page, you will learn to:</p>
+            <ul>
+                <li>Graph vector-valued functions.</li>
+                <li>Evaluate limits of vector-valued functions.</li>
+            </ul>
+        </div>
+
+        <p>We have already seen how to graph lines and planes using vectors, so now we want to expand our toolbox to be able to graph more complex functions. We can do this by defining these functions as vectors.</p>
+
+        <h2 id="functions">Vector Functions</h2>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Vector-Valued Function">
+            <!-- Content goes here. -->
+            <p>A <strong>vector-valued function</strong> has the form \(\vec{r} \left( t \right) = \langle x(t),y(t),z(t) \rangle\) where the components of \(\vec{r}\) are scalar functions of some Real number parameter \(t\).</p>
+        </div>
+
+        <p>So each point of a vector function is defined by a vector whose components are parametric equations. See the following GeoGebra examples.</p>
+
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <!-- Edit the title to clearly state it is an interactive tool: Interactive GeoGebra ... Graphing Calculator Application -->
+                <iframe scrolling="no" title="Interactive GeoGebra Vector Functions Graphing Calculator Application" src="https://www.geogebra.org/material/iframe/id/hrgyrjup/width/795/height/477/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="795px" height="477px" style="border:0px;"> </iframe>
+            </div>
+        </div>
+        <div class="widget-footer">GeoGebra Applet: [<a href="https://www.geogebra.org/m/hrgyrjup" target="_blank" rel="noopener noreferrer">https://www.geogebra.org/m/hrgyrjup</a>]</div>
+
+
+        <p>In both the example above and the helix below, note that the orange points that generate the curve are actually the <strong>terminal points</strong> of the vector \(\vec{r}\) for each numerical value of \(t\).</p>
+
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <!-- Edit the title to clearly state it is an interactive tool: Interactive GeoGebra ... Graphing Calculator Application -->
+                <iframe scrolling="no" title="Interactive GeoGebra Helix in 3D Graphing Calculator Application" src="https://www.geogebra.org/material/iframe/id/vnwswvuz/width/795/height/477/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="795px" height="477px" style="border:0px;"> </iframe>
+            </div>
+        </div>
+        <div class="widget-footer">GeoGebra Applet: [<a href="https://www.geogebra.org/m/v79m8jwm" target="_blank" rel="noopener noreferrer">https://www.geogebra.org/m/v79m8jwm</a>]</div>
+
+        <p>The following videos give more examples of vector functions, including how to evaluate values and determine domains.</p>
+
+        <div class="widget-header">Introduction to Vector Valued Functions</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="1331" height="749" src="https://www.youtube.com/embed/gjTO0dMZWU4" title="Introduction to Vector Valued Functions" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/gjTO0dMZWU4" target="_blank" rel="noopener noreferrer">https://youtu.be/gjTO0dMZWU4</a>]</div>
+
+        <div class="widget-header">The Domain of a Vector Valued Function</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="1331" height="749" src="https://www.youtube.com/embed/Cv1NGaA5H9Y" title="The Domain of a Vector Valued Function" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/Cv1NGaA5H9Y" target="_blank" rel="noopener noreferrer">https://youtu.be/Cv1NGaA5H9Y</a>]</div>
+
+
+
+        <p>Go to the <a title="GeoGebra Calculator Suite" href="https://www.geogebra.org/calculator" target="_blank" rel="noopener noreferrer">GeoGebra Calculator Suite (opens in new window)</a> [https://www.geogebra.org/calculator] and change the mode at the top of the screen from "Graphing" to "3D Calculator." Then graph the following vector functions. To graph a vector function in GeoGebra, you will use the <strong>curve(r(t), t, a, b)</strong> command. The <strong>a</strong> and <strong>b</strong> values represents the domain interval [a, b] for the variable t. For example, to graph the helix above you would need to enter the expression <strong>curve((4cos(t),sin(t),t/2),t,-4&pi;, 4&pi;)</strong>.
+        </p>
+
+        <ol>
+            <li>\(\vec{r} = \langle \cos(t), \sin(t), \frac{1}{2} \sin(t) \rangle\)</li>
+            <li>\(\vec{r} = \langle \lvert t \rvert, \frac{t^2}{5}, t^2-4t \rangle\)</li>
+        </ol>
+
+        <p>Note that you will need to choose reasonable values for a and b to get a good view of the graph. Play around with different values and see how it affects the graph. Also, to enter absolute value you can either use the command abs(#) or type the vertical bar that is above the backslash key (or "SHIFT + \").</p>
+
+        <h2 id="limits">Limits</h2>
+
+        <p>Now that we can think of functions as vectors, we need to take the next step towards doing calculus with these functions. This involves evaluating limits of vector functions. We can define limits of vector function using language similar to how we defined limits in Calculus I.</p>
+
+        <div class="def-eqn">
+            <p>The <strong>limit of a vector-valued function</strong> \(\vec{r}\) is the vector \(\vec{L}\) if \(\vec{r}\) approaches \(\vec{L}\) as \(t\) approaches \(a\). In other words, \[\mathop {\lim} \limits_{t \to a} \vec{r}(t) = \vec{L}.\]</p>
+        </div>
+
+        <p>In practical terms, we can evaluate a limit by evaluating the limits of the component functions of the vector function.</p>
+
+        \[
+        \begin{aligned}
+        <!-- Use &= to align at equal sign. Use double slashes for new line (can use [4pt] for spacing) -->
+        \lim_{t \to a} \vec{r}(t) &= \lim_{t \to a} \langle f(t), g(t), h(t) \rangle \\[4pt]
+        &= \langle \lim_{t \to a} f(t), \lim_{t \to a} g(t), \lim_{t \to a} h(t) \rangle \\[4pt]
+        &= \vec{L}
+        \end{aligned}
+        \]
+
+        <p>The following video gives several examples demonstrating how to evaluate limits of vector-valued functions.</p>
+
+        <div class="widget-header">Limits of Vector Valued Functions</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="1331" height="749" src="https://www.youtube.com/embed/59tydOl49Mw" title="Limits of Vector Valued Functions" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/59tydOl49Mw" target="_blank" rel="noopener noreferrer">https://youtu.be/59tydOl49Mw</a>]</div>
+
+    </main>
+    <!-- End of the main content -->
+
+    <!-- EMPTY PLACEHOLDER FOOTER: Script will automatically inject the copyright blocks -->
+    <footer class="lesson-footer" id="global-site-footer" role="contentinfo"></footer>
+
+    <!--Custom scripts-->
+    <script src="../site-nav.js" defer></script>
+    <script src="../site-ui.js" defer></script>
+    <script src="../site-quizlets.js" defer></script>
+</body>
+
+</html>

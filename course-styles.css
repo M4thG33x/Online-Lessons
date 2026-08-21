@@ -14,7 +14,7 @@ html {
 
 body {
     font-family: Calibri, Arial, Verdana, Georgia, sans-serif;
-    font-size: 1em;
+    font-size: 1.1em;
 
     height: auto;
     min-height: 100%;
@@ -32,6 +32,7 @@ img {
     display: block;
     /* height: auto; */
     margin: 0 auto;
+    padding: 10px 0;
 
 }
 
@@ -985,7 +986,7 @@ figure figcaption {
     color: #ffffff;
     font-weight: 600;
     padding: 0.75rem;
-    text-align: left;
+    text-align: center;
 }
 
 /* Scopes intermediate body cell dividers */
@@ -1109,6 +1110,11 @@ figure figcaption {
         overflow: hidden;
         clip: rect(0, 0, 0, 0);
         border: 0;
+    }
+
+    .table-column-group th {
+        
+        text-align: center;
     }
 
     .table-column-group tbody {
@@ -1267,7 +1273,7 @@ figure figcaption {
 
     /* --- FIXED FOR ABSOLUTE CENTERING: Targets Large Standalone Block Math Expressions --- */
     /* Forces the wrapping elements to behave as a centered Flex block instead of inheriting left alignment */
-    .table-row-group td mjx-container[display="true"],
+    /* .table-row-group td mjx-container[display="true"],
     .table-row-group td [class*="MathJax_Display"],
     .table-row-group td .math-display,
     .table-row-group td .katex-display {
@@ -1279,25 +1285,25 @@ figure figcaption {
         overflow-x: auto !important;
         padding: 0.25rem 0 !important;
         margin: 0.5rem 0 !important;
-    }
+    } */
 
     /* Internal node reset ensures mathematical symbols stay center-aligned inside their layout canvas */
-    .table-row-group td mjx-container[display="true"] mjx-math,
+    /* .table-row-group td mjx-container[display="true"] mjx-math,
     .table-row-group td [class*="MathJax_Display"]>*,
     .table-row-group td .katex-display .katex-html {
         text-align: center !important;
         margin: 0 auto !important;
-    }
+    } */
 
     /* Generic text-nested inline equations fallback alignment (Maintains text integration flow) */
-    .table-row-group td mjx-container:not([display="true"]),
+    /* .table-row-group td mjx-container:not([display="true"]),
     .table-row-group td [class*="MathJax"]:not([class*="Display"]),
     .table-row-group td .katex:not(.katex-display) {
         display: inline-block !important;
         max-width: 100%;
         overflow-x: visible;
         vertical-align: middle;
-    }
+    } */
 
     /* Core Card Frame Closures */
     .table-row-group tr:last-child td {
@@ -1981,4 +1987,6 @@ mjx-container {
     overflow-x: auto;
     overflow-y: hidden;
     max-width: 100%;
+    border-collapse: collapse !important;
+    border-spacing: 0 !important;
 }

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../course-styles.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../print-styles.css">
+
+    <!--MathJax links-->
+    <script src="../site-math.js"></script>
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <link rel="icon" type="image/png" href="../logo-s.png">
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button type="button" onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- EMPTY PLACEHOLDER HEADER: Script will automatically inject the logo and subtitle -->
+    <header class="page-header" id="global-site-header" role="banner"></header>
+
+    <!-- Insert this uniform element block across all root, overview, and lesson files -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <!-- Links are automatically populated here via the site-nav.js script -->
+    </div>
+
+    <!-- Main content area shell container is a semantic <main> tag -->
+    <main class="lesson-body" id="main-content">
+        <!-- On This Page Menu -->
+        <nav class="lesson-page-toc" aria-label="On this Page Section Navigation Links">
+            <button class="dropbtn">On this Page</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li><a id="toc-top" href="#top"><!--Filled by page name from script--></a></li>
+                    <!-- <li><a href="#operations">...</a></li> -->
+                </ul>
+            </div>
+        </nav>
+
+        <!-- The main core lesson header is a native semantic <h1> tag -->
+        <h1 id="top"><!--Filled by page name from script--></h1>
+
+        <div class="objective-region" role="region" aria-label="Lesson Objectives">
+            <!-- Content goes here. -->
+            <p>On this page, you will learn to:</p>
+            <ul>
+                <li>Determine the unit Tangent, unit Normal and unit Binormal vectors.</li>
+                <li>Determine the Curvature and Torsion of a curve.</li>
+            </ul>
+        </div>
+
+
+        <p>In addition to describing the length of a vector function, we want to look at the curvature of the function. Is it curving rapidly or gradually? Is it curving up or down, left or right? How do we define direction in a 3D space? To discuss the curvature of a vector function in space, we will define three vectors: the unit <strong>Tangent</strong> vector, the unit <strong>Normal</strong> vector, and the unit <strong>Binormal</strong> vector. These three vectors create a framework that we can use to hopefully describe the shape of a curve in space. We will look at a lot of formulas here too, so don't get lost in them.</p>
+
+        <p>Given a smooth curved defined by a parameterized vector function <strong>r</strong>(<em>t</em>), we have the following formulas.</p>
+
+        <!-- Multi-Row Multi-Column Column-Grouping Table -->
+        <!-- Number of columns and rows can be increased as needed -->
+        <div class="table-column-card-container">
+            <table class="table-column-group" role="table">
+                <caption>NB Framework Formulas</caption>
+                <thead role="rowgroup">
+                    <tr role="row">
+                        <th role="columnheader" style="width: 25%;">Tangent</th>
+                        <th role="columnheader" style="width: 25%;">Normal</th>
+                        <th role="columnheader" style="width: 25%;">Binormal</th>
+                        <th role="columnheader" style="width: 25%;">Curvature</th>
+                    </tr>
+                </thead>
+                <tbody role="rowgroup">
+                    <tr role="row">
+                        <td role="cell">\[\vec{T}(t) = \frac{\vec{r}'(t)}{\lvert \vec{r}'(t) \rvert}\]</td>
+                        <td role="cell">\[\vec{N}(t) = \frac{\vec{T}'(t)}{\lvert \vec{T}'(t) \rvert}\]</td>
+                        <td role="cell">\[\vec{B}(t) = \vec{T} \times \vec{N}\]</td>
+                        <td role="cell">\[\kappa = \frac{\lvert \vec{T}'(t) \rvert)}{\lvert \vec{r}'(t) \rvert}\]</td>
+                    </tr>
+                    <tr role="row">
+                        <td role="cell">\[\vec{T}(t) = \vec{N} \times \vec{B}\]</td>
+                        <td role="cell">\[\vec{N}(t) = \vec{B} \times \vec{T}\]</td>
+                        <td role="cell">\[\vec{B}(t) = \frac{\vec{r}' \times \vec{r}^{\prime\prime}}{\lvert \vec{r}' \times \vec{r}^{\prime\prime} \rvert}\]</td>
+                        <td role="cell">\[\kappa = \frac{\lvert \vec{r}' \times \vec{r}^{\prime\prime} \rvert}{{\lvert \vec{r}' \rvert}^3}\]</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <p>The first row of formulas gives the definition for the tangent, normal, and binormal vectors as well as the <strong>curvature</strong> of a function. The second row gives alternate versions of the formula that may be more helpful computationally, which we will discuss in a couple pages. Here is a quick interpretation of each from the definition formula.</p>
+
+        <ul>
+            <li><strong>Unit Tangent Vector</strong>: Just like in Calc I &amp; II, the derivative of a function represents the direction of the tangent line. In 3D space, the unit tangent vector points in the direction that is parallel to the direction of the curve at the specified valute of \(t\). Dividing by the magnitude converts the tangent vector into a unit vector.</li>
+            <li><strong>Unit Normal Vector</strong>: The derivative of the derivative is the second derivative, which represents concavity or acceleration. So in other words, the normal vector represents the lateral acceleration of the curve. It points in the direction that the curve is turning. If the curve were linear, i.e. if it were straight, then \(\vec{N} = 0\).</li>
+            <li><strong>Unit Binormal Vector</strong>: This is defined by the cross product of \(\vec{T}\) and \(\vec{N}\), so \(\vec{B}\) must be perpendicular to both \(\vec{T}\) and \(\vec{N}\) by definition. A loose interpretation of the binormal vector would be to think of it as a representation of how much the curve is turning up/down (assuming the normal points left/right). If the curve only turned within the plane defined by the \(\vec{T}\) and \(\vec{N}\) vectors, then \(\vec{B} = 0\).</li>
+            <li><strong>Curvature</strong>: This gives a measure of the change in acceleration versus velocity. A linear function would have \(\kappa = 0\). A shaper curve in the function's graph would have a larger value for \(\kappa\).</li>
+        </ul>
+
+        <p>Now let's explore the TNB framework graphically to better understand these vectors and how they are related to the curvature of a given function. The graph below shows the graph of the function \(\vec{r}(t) = \langle \cos(t), \sin(t), 2t-\frac{t^2}{\pi} \rangle \) for \(0 \le t \le 2\pi\). There is an orange point located at \(\vec{r}(0)\) which is the coordinate \( (1,0,0) \). Use the scroll bar to move the yellow point around the curve. As it moves around the curve, select the different options to be displayed.</p>
+
+        <ol>
+            <li><strong>Show T</strong>: This will display the unit tangent vector. Notice that it is tangent to the curve at the orange point. It represents the direction of the curve at that point.</li>
+            <li><strong>Show N</strong>: This will display the principle unit normal vector. Notice that this vector is perpendicular to <strong>T</strong> and it points inward, toward the direction that the curve is turning.</li>
+            <li><strong>Show B</strong>: This will display the unit binormal vector. Notice that this vector is perpendicular to both <strong>T</strong> and <strong>N</strong>.</li>
+        </ol>
+
+        <p>Click-and-drag the rotate the graphical view around. Observe how these three vectors change as the orange point moves around the curve.</p>
+
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <!-- Edit the title to clearly state it is an interactive tool: Interactive GeoGebra ... Graphing Calculator Application -->
+                <iframe scrolling="no" title="Interactive GeoGebra TNB Framework Graphing Calculator Application" src="https://www.geogebra.org/material/iframe/id/tuwtk9s5/width/1496/height/915/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false" width="1496px" height="915px" style="border:0px;"> </iframe>
+            </div>
+        </div>
+        <div class="widget-footer">GeoGebra Applet: [<a href="https://www.geogebra.org/m/tuwtk9s5" target="_blank" rel="noopener noreferrer">https://www.geogebra.org/m/tuwtk9s5</a>]</div>
+
+        <p>Go back to the above Geogebra applet and continue with the remaining items.</p>
+
+        <ol start="4">
+            <li><strong>Osculating Plane</strong>: This plane is formed by the <strong>T</strong> and <strong>N</strong> vectors, and it is perpendicular to <strong>B</strong>. As the point moves around the curve, the vectors change and therefore the plane will change. So the normal vector points in the direction that the curve will turn <em>within</em> the osculating plane at the specified point.</li>
+            <li><strong>Normal Plane</strong>: The plane is formed by the <strong>N</strong> and <strong>B</strong> vectors, and it is perpendicular to <strong>T</strong>.</li>
+            <li><strong>Circle of Curvature</strong> (try turning off N, B and the Normal Plane): This circle is located within the osculating plane and it is tangent to the curve at the orange point. Its <strong>radius of curvature</strong> is \(\frac{1}{\kappa}\), so a smaller radius would be a tighter turn (larger curvature) and a larger radius would be a more gradual turn (smaller curvature).</li>
+        </ol>
+
+        <p>The following videos demonstrate how to find the unit TNB vectors and the curvature of a vector function.</p>
+
+        <div class="widget-header">Determining the Unit Tangent Vector</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="1094" height="616" src="https://www.youtube.com/embed/sdgPQYke7a8" title="Determining the Unit Tangent Vector" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/sdgPQYke7a8" target="_blank" rel="noopener noreferrer">https://youtu.be/sdgPQYke7a8</a>]</div>
+
+        <div class="widget-header">Determining the Unit Normal Vector to a Curve Given by a Vector Function</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="1094" height="616" src="https://www.youtube.com/embed/wQe-Msr9OJA" title="Determining the Unit Normal Vector to a Curve Given by a Vector Function" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/wQe-Msr9OJA" target="_blank" rel="noopener noreferrer">https://youtu.be/wQe-Msr9OJA</a>]</div>
+
+        <div class="widget-header">Determining the Binormal Vector</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="1094" height="616" src="https://www.youtube.com/embed/DVWezG26T_0" title="Determining the Binormal Vector" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/DVWezG26T_0" target="_blank" rel="noopener noreferrer">https://youtu.be/DVWezG26T_0</a>]</div>
+
+        <div class="widget-header">Find the Curvature of a Space Curve Given by a Vector Function (Cross Product)</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="1094" height="616" src="https://www.youtube.com/embed/fBRYswhTcyQ" title="Ex 2A: Find the Curvature of a Space Curve Given by a Vector Function (Cross Product)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/fBRYswhTcyQ" target="_blank" rel="noopener noreferrer">https://youtu.be/fBRYswhTcyQ</a>]</div>
+
+
+    </main>
+    <!-- End of the main content -->
+
+    <!-- EMPTY PLACEHOLDER FOOTER: Script will automatically inject the copyright blocks -->
+    <footer class="lesson-footer" id="global-site-footer" role="contentinfo"></footer>
+
+    <!--Custom scripts-->
+    <script src="../site-nav.js" defer></script>
+    <script src="../site-ui.js" defer></script>
+    <script src="../site-quizlets.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../course-styles.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../print-styles.css">
+
+    <!--MathJax links-->
+    <script src="../site-math.js"></script>
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <link rel="icon" type="image/png" href="../logo-s.png">
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button type="button" onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- EMPTY PLACEHOLDER HEADER: Script will automatically inject the logo and subtitle -->
+    <header class="page-header" id="global-site-header" role="banner"></header>
+
+    <!-- Insert this uniform element block across all root, overview, and lesson files -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <!-- Links are automatically populated here via the site-nav.js script -->
+    </div>
+
+    <!-- Main content area shell container is a semantic <main> tag -->
+    <main class="lesson-body" id="main-content">
+        <!-- On This Page Menu -->
+        <nav class="lesson-page-toc" aria-label="On this Page Section Navigation Links">
+            <button class="dropbtn">On this Page</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li><a id="toc-top" href="#top"><!--Filled by page name from script--></a></li>
+                    <!-- <li><a href="#operations">...</a></li> -->
+                </ul>
+            </div>
+        </nav>
+
+        <!-- The main core lesson header is a native semantic <h1> tag -->
+        <h1 id="top"><!--Filled by page name from script--></h1>
+
+        <div class="objective-region" role="region" aria-label="Lesson Objectives">
+            <!-- Content goes here. -->
+            <p>On this page, you will learn to:</p>
+            <ul>
+                <li>Determine the unit Tangent, unit Normal and unit Binormal vectors using velocity and acceleration.</li>
+            </ul>
+        </div>
+
+        <p>When discussing curvature, we defined the unit tangent, unit normal and unit binormal vectors using the formulas \(\vec{T}(t) = \frac{\vec{r}'(t)}{\lvert \vec{r}'(t) \rvert}\), \(\vec{N}(t) = \frac{\vec{T}'(t)}{\lvert \vec{T}'(t) \rvert}\), and \(\vec{B}(t) = \vec{T} \times \vec{N}\), respectively. While we can always compute the TNB functions and TNB values using these formulas, doing so quickly tends to involve tedious derivatives. For example, given the function \(\vec{r}(t) = \langle t, t^2, t^3 \rangle\), we get \(\vec{T}(t) = \frac{\langle 1, 2t, 3t^2 \rangle}{\sqrt{9t^4 + 4t^2 + 1}}\). In order to find \(\vec{N}\), we must first find \(\vec{T}'(t)\) which involves the quotient rule. Doing so for this example wouldn't be too difficult. But if \(\vec{r}\) was a little more complicated, then finding \(\vec{T}'(t)\) would be a lot more complicated. Then once we finally get \(\vec{N}\), we would have to compute a massive cross product to finally get \(\vec{B}\).</p>
+
+        <p>So let's outline a process that may be a little easier. Given a smooth curved defined by a parameterized vector function \(\vec{r}\), use the following steps to compute the TNB vectors.</p>
+
+        <ol>
+            <li>Find the velocity and acceleration functions using \(\vec{v} = \vec{r}'\) and \(\vec{a} = \vec{r}''\). Then compute both at the indicated point.</li>
+            <li>Compute the following expressions \(\left| \vec{v} \right|\), \(\vec{v} \times \vec{a} \), and \(\left| \vec{v} \times \vec{a} \right|\).</li>
+            <li>Compute the unit tangent vector using \(\vec{T} = \frac{\vec{v}}{\left|\vec{v}\right|}\).</li>
+            <li>Compute the unit binormal vector using \(\vec{B} = \frac{\vec{v} \times \vec{a}}{\left|\vec{v} \times \vec{a}\right|}\).</li>
+            <li>Compute the unit normal vector using \(\vec{N} = \vec{B} \times \vec{T}\).</li>
+        </ol>
+
+        <!-- Update the aria-label with a descriptive title -->
+        <div class="example-region" role="region" aria-label="Example Exercise: TNB Using Velocity and Acceleration">
+            <!-- example body goes here -->
+            <p><strong>Example</strong>: Use the process outlined above to compute the TNB values for \(\vec{r}(t) = \langle t, t^2, t^3 \rangle\) at the point \(\left(2, 4, 8\right)\).</p>
+            <!-- Interactive button to show/hide the answer usinga aria-expanded attribute -->
+            <!-- Update toggle-sol-1 and sol-content-1 if multiple examples per page -->
+            <button type="button" id="toggle-sol-1" aria-expanded="false" aria-controls="sol-content-1" onclick="toggleSolution('toggle-sol-1', 'sol-content-1')">Show Answer</button>
+            <!-- Uses aria-hidden and mapped relationship ID links cleanly -->
+            <div id="sol-content-1" class="solution" aria-hidden="true">
+                <!-- Example solution goes here -->
+
+                <ol>
+                    <li>
+                        <p>Find the velocity and acceleration vectors at the given point.</p>
+
+                        \[\vec{v} = \vec{r}'(t) = \langle 1, 2t, 3t^2 \rangle\] \[\vec{a} = \vec{r}''(t) = \langle 0, 2, 6t \rangle\]
+
+                        <p>If we compare the given function and point, \(\left(2, 4, 8\right) = \langle t, t^2, t^3 \rangle\), we should observe that this point is reached at \(t = 2\). Plugging 2 into the velocity and acceleration functions results in \(\vec{v} = \langle 1, 4, 12 \rangle\) and \(\vec{a} = \langle 0, 2, 12 \rangle\).</p>
+                    </li>
+                    <li>
+                        <p>Compute \(\left| \vec{v} \right|\), \(\vec{v} \times \vec{a} \), and \(\left| \vec{v} \times \vec{a} \right|\) at \(t = 2\).</p>
+                        
+                        <p>Let's start with the magnitude of the velocity vector.</p>
+
+                        \[\left|\vec{v}\right| = \sqrt{1^2 + 4^2 + 12^2} = \sqrt{161}\]
+
+                        <p>Now let's compute the cross product of velocity and acceleration.</p>
+
+                        \[\vec{v} \times \vec{a} = \left| \begin{matrix} \hat{\imath} & \hat{\jmath} & \hat{k} \\ 1 & 4 & 12 \\ 0 & 2 & 12 \end{matrix} \right| = \langle 24, -12, 2 \rangle\]
+
+                        <p>Lastly, let's compute the magnitude of the cross product of velocity and acceleration.</p>
+
+                        \[\left|\vec{v} \times \vec{a} \right| = \sqrt{24^2 + (-12)^2 + 2^2} = \sqrt{724} = 2 \sqrt{181}\]
+
+                    </li>
+                    <li>
+                        <p>Now we can compute the unit tangent vector.</p>
+
+                        \[\vec{T} = \frac{\vec{v}}{\left|\vec{v}\right|} = \frac{\langle 1, 4, 12 \rangle}{\sqrt{161}}\]
+                    </li>
+                    <li>
+                        <p>Next we can compute the unit binormal vector</p>
+
+                        \[\vec{B} = \frac{\langle 24, -12, 2 \rangle}{\sqrt{724}} = \frac{\langle 12, -6, 1 \rangle}{\sqrt{181}}\]
+                    </li>
+                    <li>
+                        <p>To compute the unit normal vector, we just need to compute the cross product of the unit binormal and tangent vectors. We can make this easier by using a property of cross products that allows us to pull any scalar multiples of the vectors out front as a scalar multiple of the cross product.</p>
+
+                        \[\vec{N} = \vec{B} \times \vec{T} = \frac{1}{\sqrt{181}} \frac{1}{\sqrt{161}} \left| \begin{matrix} \hat{\imath} & \hat{\jmath} & \hat{k} \\ 12 & -6 & 1 \\ 1 & 4 & 12 \end{matrix} \right| = \frac{\langle -76, -143, 54 \rangle}{\sqrt{181}\sqrt{161}}\]
+                    </li>
+                </ol>
+
+                <p>Notice that in working this example, the only derivatives we ever determined were \(\vec{r}'(t)\) and \(\vec{r}''(t)\). You could check the above results using the original definition formulas. You could also check that our TNB vectors are all orthogonal to each other by making sure each of their dot products are 0.</p>
+            </div>
+        </div>
+
+    </main>
+    <!-- End of the main content -->
+
+    <!-- EMPTY PLACEHOLDER FOOTER: Script will automatically inject the copyright blocks -->
+    <footer class="lesson-footer" id="global-site-footer" role="contentinfo"></footer>
+
+    <!--Custom scripts-->
+    <script src="../site-nav.js" defer></script>
+    <script src="../site-ui.js" defer></script>
+    <script src="../site-quizlets.js" defer></script>
+</body>
+
+</html>

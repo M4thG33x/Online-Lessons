@@ -199,9 +199,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let isMobileView = null;
 
+    // Helper utility function to trigger MathJax v4 re-typesetting
+    function triggerMathJaxRender() {
+        if (window.MathJax && window.MathJax.typesetPromise) {
+            // typesetPromise handles dynamic DOM re-rendering cleanly in v3 and v4
+            window.MathJax.typesetPromise([tbody])
+                .catch((err) => console.log("MathJax typesetting error: " + err.message));
+        }
+    }
+
     function adjustTableStructure() {
         const width = window.innerWidth || document.documentElement.clientWidth;
-
+        
         if (width <= 768) {
             if (isMobileView !== true) {
                 tbody.innerHTML = "";
@@ -209,11 +218,17 @@ document.addEventListener("DOMContentLoaded", () => {
                     stack.forEach(cell => tbody.appendChild(cell.cloneNode(true)));
                 });
                 isMobileView = true;
+                
+                // Trigger MathJax re-render immediately after mobile DOM is ready
+                triggerMathJaxRender();
             }
         } else {
             if (isMobileView !== false) {
                 tbody.innerHTML = desktopBackupHTML;
                 isMobileView = false;
+                
+                // Trigger MathJax re-render immediately after desktop DOM is restored
+                triggerMathJaxRender();
             }
         }
     }

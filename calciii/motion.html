@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../course-styles.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../print-styles.css">
+
+    <!--MathJax links-->
+    <script src="../site-math.js"></script>
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <link rel="icon" type="image/png" href="../logo-s.png">
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button type="button" onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- EMPTY PLACEHOLDER HEADER: Script will automatically inject the logo and subtitle -->
+    <header class="page-header" id="global-site-header" role="banner"></header>
+
+    <!-- Insert this uniform element block across all root, overview, and lesson files -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <!-- Links are automatically populated here via the site-nav.js script -->
+    </div>
+
+    <!-- Main content area shell container is a semantic <main> tag -->
+    <main class="lesson-body" id="main-content">
+        <!-- On This Page Menu -->
+        <nav class="lesson-page-toc" aria-label="On this Page Section Navigation Links">
+            <button class="dropbtn">On this Page</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li><a id="toc-top" href="#top"><!--Filled by page name from script--></a></li>
+                    <li><a href="#components">Accerlation Components</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- The main core lesson header is a native semantic <h1> tag -->
+        <h1 id="top"><!--Filled by page name from script--></h1>
+
+        <div class="objective-region" role="region" aria-label="Lesson Objectives">
+            <!-- Content goes here. -->
+            <p>On this page, you will learn to:</p>
+            <ul>
+                <li>Determine vector functions for position, velocity and acceleration.</li>
+                <li>Solve applications involving projectile motion.</li>
+                <li>Determine the Tangential and Normal components of Acceleration</li>
+            </ul>
+        </div>
+
+
+        <p>Back in Calc I &amp; II, we looked at a scalar position function and thought of the first derivative as velocity and the second derivative as acceleration. So similarly, a vector position function \(\vec{r}(t)\) will have a velocity function \(\vec{v}(t) = \vec{r}'(t)\) with speed \(\lvert \vec{r}'(t) \rvert\) and an acceleration funcction \(\vec{a}(t) = \vec{v}' = \vec{r}^{\prime\prime}(t)\).</p>
+
+        <div class="widget-header">Determining Velocity, Speed, and Acceleration Using a Vector Valued Function</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="1060" height="596" src="https://www.youtube.com/embed/DeWRYCm9cKo" title="Determining Velocity, Speed, and Acceleration Using a Vector Valued Function" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/DeWRYCm9cKo" target="_blank" rel="noopener noreferrer">https://youtu.be/DeWRYCm9cKo</a>]</div>
+
+        <p>The reverse is also true. Given an acceleration function \(\vec{a}(t)\), we can find the velocity function \(\vec{v}(t)\) and position function \(\vec{r}(t)\) by integration. If we are given initial values, such as \(\vec{v}(0)\) and \(\vec{r}(0)\), then we can determine the vector constants of integration. Problems of projectile motion may not explicitly state an acceleration function, but we can easily determine the function using a gravity constant, i.e. \(\vec{a}(t) = \langle 0,-9.8 \rangle\) m/s<sup>2</sup> for problems in the \(xy\)-plane or \(\vec{a}(t) = \langle 0,0,-9.8 \rangle\) m/s<sup>2</sup> in 3D space.</p>
+
+        <div class="widget-header">Find the Velocity and Position Vector Functions Given the Acceleration Vector Function</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="1060" height="596" src="https://www.youtube.com/embed/iVIX04QGrTA" title="Ex: Find the Velocity and Position Vector Functions Given the Acceleration Vector Function" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/iVIX04QGrTA" target="_blank" rel="noopener noreferrer">https://youtu.be/iVIX04QGrTA</a>]</div>
+
+        <h2 id="components">Acceleration Components</h2>
+
+        <p>It can be helpful to break the acceleration vector into its components in the directions of the tangent vector and normal vector, i.e., in the direction the object is <em>traveling</em> and the direction the object is <em>turning</em>.</p>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Components of Acceleration">
+            <!-- Content goes here. -->
+            <p>We can express the vector acceleration function using the <strong>acceleration components</strong> using the following formula, where \(\vec{T}\) and \(\vec{N}\) are the unit tangent and unit normal vectors, respectively, \(a_{T}\) is the component of acceleration in the direction of motion, and \(a_{N}\) is the component of acceleration in the direction of the curvature.</p>
+
+            \[\vec{a} = a_{T}\vec{T} + a_{N}\vec{N}\]
+        </div>
+
+        <p>There are several formulas for each component, some of which are included in the following table. We typically use the last of each that involves the dot or cross product of velocity and acceleration since they are generally the easiest from a computational perspective.</p>
+
+        <!-- Multi-Row Multi-Column Column-Grouping Table -->
+        <!-- Number of columns and rows can be increased as needed -->
+        <div class="table-column-card-container">
+            <table class="table-column-group" role="table">
+                <caption>Acceleration Component Formulas</caption>
+                <thead role="rowgroup">
+                    <tr role="row">
+                        <th role="columnheader">Tangential</th>
+                        <th role="columnheader">Normal</th>
+                    </tr>
+                </thead>
+                <tbody role="rowgroup">
+                    <tr role="row">
+                        <td role="cell">\[a_{T} = {\lvert \vec{v} \rvert}' = \vec{a} \cdot \vec{T} = \frac{\vec{v} \cdot \vec{a}}{\lvert \vec{v} \rvert}\]</td>
+                        <td role="cell">\[a_{N} = \kappa {\lvert \vec{v} \rvert}^2 = \vec{a} \cdot \vec{N} = \frac{\lvert \vec{v} \times \vec{a} \rvert}{\lvert \vec{v} \rvert}\]</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="widget-header">Determining the Tangential and Normal Components of Acceleration</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="688" height="387" src="https://www.youtube.com/embed/vuHvWYgAY3c" title="Determining the Tangential and Normal Components of Acceleration" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/vuHvWYgAY3c" target="_blank" rel="noopener noreferrer">https://youtu.be/vuHvWYgAY3c</a>]</div>
+        
+    </main>
+    <!-- End of the main content -->
+
+    <!-- EMPTY PLACEHOLDER FOOTER: Script will automatically inject the copyright blocks -->
+    <footer class="lesson-footer" id="global-site-footer" role="contentinfo"></footer>
+
+    <!--Custom scripts-->
+    <script src="../site-nav.js" defer></script>
+    <script src="../site-ui.js" defer></script>
+    <script src="../site-quizlets.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../course-styles.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../print-styles.css">
+
+    <!--MathJax links-->
+    <script src="../site-math.js"></script>
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <link rel="icon" type="image/png" href="../logo-s.png">
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button type="button" onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- EMPTY PLACEHOLDER HEADER: Script will automatically inject the logo and subtitle -->
+    <header class="page-header" id="global-site-header" role="banner"></header>
+
+    <!-- Insert this uniform element block across all root, overview, and lesson files -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <!-- Links are automatically populated here via the site-nav.js script -->
+    </div>
+
+    <!-- Main content area shell container is a semantic <main> tag -->
+    <main class="lesson-body" id="main-content">
+        <!-- On This Page Menu -->
+        <nav class="lesson-page-toc" aria-label="On this Page Section Navigation Links">
+            <button class="dropbtn">On this Page</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li><a id="toc-top" href="#top"><!--Filled by page name from script--></a></li>
+                    <li><a href="#arcparam">Arc Length as a Parameter</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- The main core lesson header is a native semantic <h1> tag -->
+        <h1 id="top"><!--Filled by page name from script--></h1>
+
+        <div class="objective-region" role="region" aria-label="Lesson Objectives">
+            <!-- Content goes here. -->
+            <p>On this page, you will learn to:</p>
+            <ul>
+                <li>Determine the arc length of curves defined by vector-valued functions.</li>
+                <li>Rewrite vector-valued functions using arc length as a parameter.</li>
+            </ul>
+        </div>
+
+
+        <p>Back in Calc II, you learned about parametric equations and how we can compute the length of a curve defined by parametric equations. The following video gives a review of how the arc length formula is developed.</p>
+
+        <div class="widget-header">Parametric curve arc length</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="1331" height="749" src="https://www.youtube.com/embed/DXHM7LYGcbI" title="Parametric curve arc length | Applications of definite integrals | AP Calculus BC | Khan Academy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/DXHM7LYGcbI" target="_blank" rel="noopener noreferrer">https://youtu.be/DXHM7LYGcbI</a>]</div>
+
+
+        <p>Since vector functions are defined as parametric equations, we can apply the same logic to finding the arc length of a vector-valued function.</p>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Arc Length">
+            <!-- Content goes here. -->
+            <p>The arc length of the smooth curve \(\vec{r}(t) = \langle f(t), g(t), h(t) \rangle\) for \(a \le t \le b\) can be computed using the following formula where \(f'\), \(g'\) and \(h'\) are continuous functions are \(\left[ a, b \right] \).</p>
+
+            \[L = \int_{a}^{b} \lvert \vec{r}'(t) \rvert dt = \int_{a}^{b} \sqrt{{\left[ f'(t) \right]}^2 + {\left[ g'(t) \right]}^2 + {\left[ h'(t) \right]}^2} dt \]
+        </div>
+
+        <p>This next video works through an example of finding the arc length of a curve.</p>
+
+        <div class="widget-header">Determine Arc Length of a Helix Given by a Vector Valued Function</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="1331" height="749" src="https://www.youtube.com/embed/n48XuXSyLz8" title="Ex: Determine Arc Length of a Helix Given by a Vector Valued Function" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/n48XuXSyLz8" target="_blank" rel="noopener noreferrer">https://youtu.be/n48XuXSyLz8</a>]</div>
+
+        <h2 id="arcparam">Arc Length as a Parameter</h2>
+
+        <p>Usually, vector functions are parameterized by an arbitrary paremeter \(t\), often in an effort to simplify the expressions in the parameter functions. But it is possible, and sometimes even necessary, to parameterize a vector function by its arc length.</p>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: ">
+            <!-- Content goes here. -->
+            <p>For a smooth curve \(\vec{r}(t)\) for \(t \ge a\), the <strong>arc length</strong> \(s\) as a function of \(t\) is defined by the following integral.</p>
+
+            \[s = s(t) = \int_{a}^{t} \lvert \vec{r}'(u) \rvert du\]
+        </div>
+
+        <p>For example, the curve \(\vec{r}(t) = \langle 3t^2+1, 4t^2+2 \rangle \) can be parameterized using its arc length as \( \vec{r}(s) = \langle \frac{3}{5}s+1, \frac{4}{5}s+2 \rangle \). A couple graphs of the curve of \(\vec{r}\) are shown below. The left graph illustrates \(\vec{r}(t)\) with points at \(t\) = 0, 1, 2, 3, 4, and 5 while the right graph illustrates \(\vec{r}(s)\) with points at \(s\) = 0, 1, 2, 3, 4, and 5. Notice how the distances between the points of <strong>r</strong>(<em>t</em>) change as <em>t</em> increases, but the distances between points of <strong>r</strong>(<em>s</em>) remain the same. This is because the parameterization using \(t\) computes the square of each \(t\)-value, so as \(t\) gets larger, the result is a bigger step between points. However, using the parameterizastion with arc lenght \(s\), the points are exactly 1 unit apart from each other. Using the arc length as the parameter results in a uniform step-size between each point.</p>
+
+        <img src="content/ArcLenParam.png" alt="Graphs of r(t) = &lt; 3t^2+1, 4t^2+1 &gt; with points at t = 0, 1, 2, 3, 4 5; and graph of r(s) = &lt; 3/5s+1, 4/5s+2 &gt; for s = 0, 1, 2, 3, 4 ,5." />
+
+        <p>The following video gives an example to show how we can change the parameterization of a vector function from any arbitrary \(t\) to the arc length \(s\).</p>
+
+        <div class="widget-header">Find an arc length parameterization for a vector valued function</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="1331" height="749" src="https://www.youtube.com/embed/QMa9yNAAUcw" title="LO 61 Find an arc length parameterization for a vector valued function" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/QMa9yNAAUcw" target="_blank" rel="noopener noreferrer">https://youtu.be/QMa9yNAAUcw</a>]</div>
+
+    </main>
+    <!-- End of the main content -->
+
+    <!-- EMPTY PLACEHOLDER FOOTER: Script will automatically inject the copyright blocks -->
+    <footer class="lesson-footer" id="global-site-footer" role="contentinfo"></footer>
+
+    <!--Custom scripts-->
+    <script src="../site-nav.js" defer></script>
+    <script src="../site-ui.js" defer></script>
+    <script src="../site-quizlets.js" defer></script>
+</body>
+
+</html>

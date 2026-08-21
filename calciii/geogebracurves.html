@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../course-styles.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../print-styles.css">
+
+    <!--MathJax links-->
+    <script src="../site-math.js"></script>
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <link rel="icon" type="image/png" href="../logo-s.png">
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button type="button" onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- EMPTY PLACEHOLDER HEADER: Script will automatically inject the logo and subtitle -->
+    <header class="page-header" id="global-site-header" role="banner"></header>
+
+    <!-- Insert this uniform element block across all root, overview, and lesson files -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <!-- Links are automatically populated here via the site-nav.js script -->
+    </div>
+
+    <!-- Main content area shell container is a semantic <main> tag -->
+    <main class="lesson-body" id="main-content">
+        <!-- On This Page Menu -->
+        <nav class="lesson-page-toc" aria-label="On this Page Section Navigation Links">
+            <button class="dropbtn">On this Page</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li><a id="toc-top" href="#top"><!--Filled by page name from script--></a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- The main core lesson header is a native semantic <h1> tag -->
+        <h1 id="top"><!--Filled by page name from script--></h1>
+
+        <div class="objective-region" role="region" aria-label="Lesson Objectives">
+            <!-- Content goes here. -->
+            <p>On this page, you will learn to:</p>
+            <ul>
+                <li>Compute and graph derivative and integral expressions using GeoGebra.</li>
+                <li>Learn how to use the Derivative and Integral commands.</li>
+            </ul>
+        </div>
+
+        <p>We can graph vector-valued functions in the <a title="GeoGebra Calculator Suite" href="https://www.geogebra.org/calculator" target="_blank" rel="noopener noreferrer">GeoGebra Calculator Suite (opens in new window)</a> [https://www.geogebra.org/calculator] using the Curve command. <em>Be sure you set the mode from "Graphing" to "3D Calculator."</em> There are several variations of this command, but the format we will use is stated below.</p>
+
+        <p style="text-align: center;"><strong>curve((x(t), y(t), z(t)), t, a, b)</strong></p>
+
+        <p>For this command, the variables <b>x</b>, <b>y</b>, and <b>z</b> are the component functions, <b>t</b> is the parameter, and <b>a</b> and <b>b</b> are the interval of <b>t</b> we want to graph. Note that if you don't include the extra parenthesis around the component functions, the graph will still work. GeoGebra will just display the output as the separate parametric equations. Here are a few examples. The first expression represents the line that we briefly discussed in the previous lesson.</p>
+
+        <img src="content/GeoGebra-Curves.png" alt="Graph of vector functions in GeoGebra using the CURVE command." />
+
+        <p>Try graphing the two functions that were illustrated in the GeoGebra applets on the Curves page, \(\vec{r}(t) = \langle \sin{t}, t, \frac{t^2}{4} \rangle \) and \(\vec{r}(t) = \langle 4\cos{t}, \sin{t}, \frac{t}{2} \rangle \). Do your curves match what the curves looked like in the applets?</p>
+
+        <p>You can also use GeoGebra to evaluate derivatives and integrals. The are several commands for evaluating derivatives, but here is a nice general version.</p>
+
+        <p style="text-align: center;"><strong>Derivative(expression, variable, number)</strong>.</p>
+
+        <p>Note that you must enter an <b>expression</b> or function. A vector function is acceptable, just put all of the components into a single parenthesis. Or, you could reference a function that has already been entered. The <b>variable</b> input is optional, unless you want to put a value in for the <b>number</b>. It represents the variable in your function that you want to take the derivative with respect to, usually <em>x</em>. In our examples it is <em>t</em>. The <b>number</b> input is to find higher-order derivatives, so for example putting 2 in for the <b>number</b> would find the 2<sup>nd</sup> derivative. So, for example, entering "derivative(a,t)" would return the first derivatiave of curve "a" in the illustration above while "derivative(a,t,2)" would return its 2nd derivative. An alternate method is to nest derivative commands within each other, so "derivative(derivative(a,t))" would also return the 2<sup>nd</sup> derivative.</p>
+
+        <p>Similarly, the command for evaluating integrals is stated below. Note that it might be helpful to switch from the "Graphing" or "3D Calculator" mode to the "CAS" mode. The commands and outputs may work differently depending on which mode you are using. For example, computing a definite integral in CAS will try to return an exact value but the Graphing mode will return a decimal approximation.</p>
+
+        <p style="text-align: center;"><strong>Integral(function, variable, start, end)</strong>.</p>
+
+        <p>You must enter a <b>function</b>, and it <em>cannot</em> be a vector. So integrating a vector function would require typing an integral command for each component. If your function is a function of <em>x</em>, then the <b>variable</b> input is optional. If using any other letter, such as <em>t</em>, then you must enter that letter. The <b>start</b> and <b>end</b> inputs represent the <em>a</em> and <em>b</em> values of a definite integral. If you do not include these, then you will just get the indefinite integral (antiderivative).</p>
+
+        <p>In the image below, which is in the CAS mode of GeoGebra, line (1) represents the basic derivative command. Notice the <b>variable</b> input is not included. Lines (2) and (3) represent different commands to get the 2<sup>nd</sup> derivative. Line (4) illustrates the Scalar Product Rule. Lines (5) through (7) show how to get the indefinite integral for the vector function \(\vec{r}(t) = \langle t \, \sin(t^2), -20 e^{-5t}, \frac{5}{t} \rangle \). Notice that a command is required for each component and an arbitrary constant is included. Also note that <b>ln(<em>e</em>)</b> = 1. Sometimes weird expressions like this may result depending on the algorithm used by GeoGebra. Similar behavior can result from other algebra systems. Lastly, line (8) represents the definite integral of the function \(f(t) = t \, \sin(t^2) \) from <strong>start</strong> = 0 to <strong>end</strong> = 2<em>&pi;</em>. GeoGebra will reformat the "integral" commands from the input text expression to the symbolic expression you see in the image.</p>
+
+        <img src="content/GeoGebraDerivInt.png" alt="Image illustrating various derivative and integral commands in GeoGebra." />
+
+        <p>Note that as you start typing the words "derivative" or "integral" you will see variations of the above commands appear. Feel free to use whichever you want. The instructions above just illustrate the most general versions.</p>
+
+        <p>Also, the CAS feature is a little wonky at times. Sometimes trying to delete part of an expression will delete the whole line. Usually copy-and-paste doesn't work well either.</p>
+
+        <p>Lastly, you are welcome to use other resources to evaluate derivatives and integrals (and any other computations required for this course). Many students find <a title="Wolfram Alpha" href="https://www.wolframalpha.com/" target="_blank" rel="noopener noreferrer">Wolfram Alpha (new window)</a> [https://www.wolframalpha.com], <a title="Symbolab" href="https://www.symbolab.com/" target="_blank" rel="noopener noreferrer">Symbolab (new window)</a> [https://www.symbolab.com/], or <a title="Desmos" href="https://www.desmos.com/" target="_blank" rel="noopener noreferrer">Desmos (new window)</a> [https://www.desmos.com/] to be helpful as well. All of these resources have their own strengths and weaknesses. Just remember that you will <strong>not</strong> be able to use these resources on tests. Only a scientific calculator like the TI-36x will be allowed (it will do numerical derivatives and single definite integrals).</p>
+
+    </main>
+    <!-- End of the main content -->
+
+    <!-- EMPTY PLACEHOLDER FOOTER: Script will automatically inject the copyright blocks -->
+    <footer class="lesson-footer" id="global-site-footer" role="contentinfo"></footer>
+
+    <!--Custom scripts-->
+    <script src="../site-nav.js" defer></script>
+    <script src="../site-ui.js" defer></script>
+    <script src="../site-quizlets.js" defer></script>
+</body>
+
+</html>
