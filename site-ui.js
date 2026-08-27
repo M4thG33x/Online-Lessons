@@ -34,7 +34,6 @@ function injectGlobalHeaderBanner() {
     // <img src="${relativeRootPrefix}logo-m.png" alt="M4thg33x Logo">
     // <img src="${relativeRootPrefix}logo_custom.png" alt="Wake Tech Logo" style="max-width: 250px; height: 100px;">
     headerElement.innerHTML = `
-        <img src="${relativeRootPrefix}logo_custom.png" alt="Wake Tech Logo" style="max-width: 250px; height: 100px;">
         <p id="subtitle" class="header-subtitle"><!-- Filled automatically by site-nav.js script --></p>
     `;
 }
