@@ -18,7 +18,7 @@ const SiteMap = [
     { courseFolder: "calciii", file: "lines.html", pageName: "Lines & Planes", lessonName: "Cross Product, Planes & Surfaces" },
     { courseFolder: "calciii", file: "geogebravectors.html", pageName: "GeoGebra", lessonName: "Cross Product, Planes & Surfaces" },
     { courseFolder: "calciii", file: "surfaces.html", pageName: "Surfaces", lessonName: "Cross Product, Planes & Surfaces" },
-    { courseFolder: "calciii", file: "curves.html", pageName: "Curves", lessonName: "Curves, Calculus, Length & Curvature" },
+    { courseFolder: "calciii", file: "curves.html", pageName: "Curves", lessonName: "Curves, Calculus, Length & Motion" },
     { courseFolder: "calciii", file: "vectorcalculus.html", pageName: "Calculus", lessonName: "Curves, Calculus, Length & Motion" },
     { courseFolder: "calciii", file: "geogebracurves.html", pageName: "GeoGebra", lessonName: "Curves, Calculus, Length & Motion" },
     { courseFolder: "calciii", file: "arclength.html", pageName: "Arc Length", lessonName: "Curves, Calculus, Length & Motion" },
