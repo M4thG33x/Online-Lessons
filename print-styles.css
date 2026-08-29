@@ -200,7 +200,8 @@ figcaption {
 .table-stack-mimic,
 .table-columng-group,
 .table-row-group,
-.table-scroll-container {
+.table-scroll-container,
+.table-standard-data {
     margin: auto;
     max-width: 90%;
     padding-bottom: 20px;
@@ -212,7 +213,8 @@ figcaption {
 .table-stack-mimic caption,
 .table-columng-group caption,
 .table-row-group caption,
-.table-scroll-container caption {
+.table-scroll-container caption,
+.table-standard-data caption {
     padding-top: 10px;
     text-align: center;
     font-size: 1.2rem;
@@ -229,7 +231,8 @@ figcaption {
 .table-stack-mimic th,
 .table-columng-group th,
 .table-row-group th,
-.table-scroll-container th {
+.table-scroll-container th,
+.table-standard-data th {
     /* padding: 10px 5px; */
     font-weight: bold;
     font-size: 1.2rem;
@@ -241,7 +244,8 @@ figcaption {
 .table-stack-mimic th:last-of-type,
 .table-columng-group th:last-of-type,
 .table-row-group th:last-of-type,
-.table-scroll-container th:last-of-type {
+.table-scroll-container th:last-of-type,
+.table-standard-data th:last-of-type {
     border-right: none;
 }
 
@@ -249,7 +253,8 @@ figcaption {
 .table-stack-mimic td,
 .table-columng-group td,
 .table-row-group td,
-.table-scroll-container td {
+.table-scroll-container td,
+.table-standard-data td {
     padding: 10px 8px;
     /* text-align: center; */
     vertical-align: middle;
@@ -261,7 +266,8 @@ figcaption {
 .table-stack-mimic td:last-of-type,
 .table-columng-group td:last-of-type,
 .table-row-group td:last-of-type,
-.table-scroll-container td:last-of-type {
+.table-scroll-container td:last-of-type,
+.table-standard-data td:last-of-type {
     border-right: none;
 }
 

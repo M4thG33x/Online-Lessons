@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../course-styles.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../print-styles.css">
+
+    <!--MathJax links-->
+    <script src="../site-math.js"></script>
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <link rel="icon" type="image/png" href="../logo-s.png">
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button type="button" onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- EMPTY PLACEHOLDER HEADER: Script will automatically inject the logo and subtitle -->
+    <header class="page-header" id="global-site-header" role="banner"></header>
+
+    <!-- Insert this uniform element block across all root, overview, and lesson files -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <!-- Links are automatically populated here via the site-nav.js script -->
+    </div>
+
+    <!-- Main content area shell container is a semantic <main> tag -->
+    <main class="lesson-body" id="main-content">
+        <!-- On This Page Menu -->
+        <nav class="lesson-page-toc" aria-label="On this Page Section Navigation Links">
+            <button class="dropbtn">On this Page</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li><a id="toc-top" href="#top"><!--Filled by page name from script--></a></li>
+                    <li><a href="#linear">Linear Approximation</a></li>
+                    <li><a href="#differentials">Differentials</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- The main core lesson header is a native semantic <h1> tag -->
+        <h1 id="top"><!--Filled by page name from script--></h1>
+
+        <div class="objective-region" role="region" aria-label="Lesson Objectives">
+            <!-- Content goes here. -->
+            <p>On this page, you will learn to:</p>
+            <ul>
+                <li>Determine the equation of a plane that is tangent to a given surface and a given point.</li>
+                <li>Determine the linear approximation of a function at a point.</li>
+                <li>Use differentials to approximate the change in a function.</li>
+            </ul>
+        </div>
+
+
+        <p>Recall from Calc 1 that we defined the derivative of a function \(y = f(x)\) at the point \(x=a\), using the limit definition of the difference quotient as \(h \rightarrow 0\), as the slope of the line that was tangent to \(f\) at the point \((a,f(a))\).</p>
+
+        <img src="content/TangentLine.png" alt="Image of a function with tangent line at (a, f(a))." width="179" height="176" />
+
+        <p>If the limit didn't exist, then we said \(f\) was not differentiable at \(x=a\). A common example of such a situation was if \(f\) had a cusp, or sharp corner.</p>
+
+        <img src="content/FunctionCusp.png" alt="Image of a function with cusp at (a, f(a))." width="179" height="176" />
+
+        <p>We can extend this idea of differentiable points and tangent lines to multiple variable functions. A function of two variables \(z = f(x,y)\) represents a surface in 3D space. We have already seen that the partial derivatives \(f_x\) and \(f_y\) represent the slopes of the tangent lines in the \(x\) and \(y\) directions, respectively. If we combine these partial derivatives to form a plane, we get a plane that is tangent to \(f(x,y)\) at a point \((x_0,y_0,z_0)\).</p>
+
+        <img src="content/TangentPlane.png" alt="Image of a surface with tangent plane at a point." width="206" height="176" />
+
+        <p>And just as there were points where \(y = f(x)\) was not differentiable, there are also points where \(z = f(x,y)\) will not be differentiable.</p>
+
+        <img src="content/SurfaceCusp.png" alt="Image of a surface with a cusp at a point." width="202" height="176" />
+
+        <p>To express the equation of a plane, we need to consider whether any function we are using can be expressed implicitly or explicitly. An implicit function is an equation involving one or more variables but the equation is not solved for any particular variable. For example, the equation \(x^2 + y^2 - z = 3\) is implicitly describing \(z\) as a function of \(x\) and \(y\). To express a function explicitly means we can solve the entire equation for the dependent variable, or \(z = f(x,y)\). Using the same example, we can take the implicit function and rewrite it as \(z = x^2 + y^2 - 3\) which now explicitly describes \(z\) as a function of \(x\) and \(y\). Generally speaking, we think of implicit functions as having the form \(F(x,y,z) = 0\) and explicit functions as having the form \(z = f(x,y)\). The same goes for functions of any number of variables. If we have an explicitly defined function \(z = f(x,y)\), then we can easily rewrite it implicitly as \(F(x,y,z) = z - f(x,y) = 0\). However, many implicit functions cannot be explicitly expressed, or at least not easily, so sometimes we need to be able to work with functions either implicitly or explicilty. </p>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Tangent Plane Equation">
+            <!-- Content goes here. -->
+            <p>Given an <em>implicitly</em> defined function \(F(x,y,z) = 0\), the <strong>equation of the tangent plane</strong> to \(F\) at the point \((x_0,y_0,z_0)\) is given by the following plane equation.</p>
+
+            \[F_{x}(x_0,y_0,z_0)(x-x_0) + F_{y}(x_0,y_0,z_0)(y-y_0) + F_{z}(x_0,y_0,z_0)(z-z_0) = 0\]
+
+            <p>Given an <em>explicitly</em> defined function \(z = f(x,y)\), the <strong>equation of the tangent plane</strong> to \(f\) at the point \((x_0,y_0,z_0)\) is given by the following plane equation.</p>
+
+            \[z = f_{x}(x_0,y_0)(x-x_0) + f_{y}(x_0,y_0)(y-y_0) + z_0\]
+
+            <p>Note that the tangent plane equation for the implicit function just applies the standard plane equatio \(a(x - x_0) + b(y - y_0) + c(z - z_0) = 0\) that we learned earlier. The partial derivatives are the coefficients of the corresponding variables. The tangent plane equation for the explicit function just reorganizes the terms of the standard plane equation into an explicit format.</p>
+        </div>
+
+        <p>The following videos give some more details and some examples.</p>
+
+        <div class="widget-header">Determining the Equation of a Tangent Plane</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/UfnpcOcZAO0" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/UfnpcOcZAO0" target="_blank" rel="noopener noreferrer">https://youtu.be/UfnpcOcZAO0</a>]</div>
+
+        <div class="widget-header">The Equation of a Tangent Plane to a Surface (Relating to Tangent Line)</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/uaNj0dz83xY" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/uaNj0dz83xY" target="_blank" rel="noopener noreferrer">https://youtu.be/uaNj0dz83xY</a>]</div>
+
+        <h2 id="linear">Linear Approximations</h2>
+
+        <p>A common application of tangent lines is to use the equation of the tangent line to approximate the values of the function at some point near the point where we computed the derivative, which is a technique we learn about in Calc I. Observe in the image below that the red line is tangent to the function \(y = f(x)\) at the point \((a,f(a))\). A short distance away, a point on the line is not far from the corresponding point on the function - this is the approximation. It is a fairly accurate approximation if we remain relatively close to \((a,f(a))\). The equation of the tangent line approximation is \(L(x) = f'(a)(x-a) + f(a)\).</p>
+
+        <img src="content/LinearApproxTanLine.png" alt="Image of a line approximating a function curve from a point (a, f(a))." width="208" height="205" />
+
+        <p>We can apply this same idea to a function \(z = f(x,y)\), except we must use the tangent plane.</p>
+
+        <img src="content/LinearApproxTanPlane.png" alt="Image of a tangent plane approximating a function surface from a point." width="235" height="205" />
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Linear Approximation">
+            <!-- Content goes here. -->
+            <p>The equation of the <strong>linear approximation</strong> for a function \(z = f(x,y)\) from the point \((a,b,f(a,b))\) is given below.</p>
+
+            \[L(x,y) = f_{x}(a,b)(x-a) + f_{y}(a,b)(y-b) + f(a,b)\]
+
+            <p>Notice the similarity between this linear approximation using a plane and the linear approximation from Calc I.</p>
+        </div>
+
+        <p>The following videos give some more details and some examples.</p>
+
+        <div class="widget-header">Linear Approximation for a Function Value (Function of Two Variables)</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/hH-4ctOaFxQ" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/hH-4ctOaFxQ" target="_blank" rel="noopener noreferrer">https://youtu.be/hH-4ctOaFxQ</a>]</div>
+
+        <div class="widget-header">Find a Linear Approximation to a Function of Two Variables and Estimate a Function Value</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/PmvHEE_8okI" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/PmvHEE_8okI" target="_blank" rel="noopener noreferrer">https://youtu.be/PmvHEE_8okI</a>]</div>
+
+        <h2 id="differentials">Differentials</h2>
+
+        <p>Another common application of the tangent line is the differential. In Calc 1, we saw that given a function \(y = f(x)\), we used the differentials of \(f\), which are \(dy\) and \(dx\), to approximate the change in \(y\) for small changes in \(x\). If we let \(dx = \Delta x\), meaning that the differential \(dx\) represents a small change in \(x\), then we can approximate the change in \(y\) using the differential, or \(\Delta y \approx dy\). The formula for the differential \(dy\) comes from the derivative notation \(\frac{dy}{dx} = f'(x)\), which results in \(dy = f'(x) dx\) when solving for \(dy\). Back in Calc 1, this gave us the following differential equation and approximation.</p>
+
+        \[\Delta y \approx dy = f'(x) dx\]
+
+        <p>Again, the idea here is that the change in \(y\) can be approximated by the tangent line over a small change in \(x\). We can apply this same idea to functions of two variables.</p>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Differentials and Approximate Change">
+            <!-- Content goes here. -->
+            <p>Given a function \(z = f(x,y)\), the <strong>differentials</strong> \(dz\), \(dy\), and \(dx\) combine together into the following equation.</p>
+
+            \[dz = f_{x} \, dx + f_{y} \,dy\]
+
+            <p>Using this equation, we can compute the <strong>approximate change</strong> in \(z\) for small changes in \(x\) and/or \(y\), which can be expressed using the following formula.</p>
+
+            \[\Delta z \approx dz = f_{x} \, dx + f_{y} \, dy\]
+        </div>
+
+        <p>Note that when we talk about the change in the values of a function, there are three types of change we will discuss.</p>
+
+        <ul>
+            <li><strong>Actual</strong> Change: \(\Delta z\)</li>
+            <li><strong>Approximate</strong> Change: \(dz\)</li>
+            <li><strong>Relative</strong> (or Percent) Change: \(\frac{dz}{z}\)</li>
+        </ul>
+
+        <p>The following videos give some more details and some examples.</p>
+
+        <div class="widget-header">Differentials of Functions of Two Variables</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/C1Xcj5Xmngc" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/C1Xcj5Xmngc" target="_blank" rel="noopener noreferrer">https://youtu.be/C1Xcj5Xmngc</a>]</div>
+
+        <div class="widget-header">Applications of Differentials of Functions of Several Variables</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/AcTlc3rWzCs" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/AcTlc3rWzCs" target="_blank" rel="noopener noreferrer">https://youtu.be/AcTlc3rWzCs</a>]</div>
+
+    </main>
+    <!-- End of the main content -->
+
+    <!-- EMPTY PLACEHOLDER FOOTER: Script will automatically inject the copyright blocks -->
+    <footer class="lesson-footer" id="global-site-footer" role="contentinfo"></footer>
+
+    <!--Custom scripts-->
+    <script src="../site-nav.js" defer></script>
+    <script src="../site-ui.js" defer></script>
+    <script src="../site-quizlets.js" defer></script>
+</body>
+
+</html>

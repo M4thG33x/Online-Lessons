@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../course-styles.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../print-styles.css">
+
+    <!--MathJax links-->
+    <script src="../site-math.js"></script>
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <link rel="icon" type="image/png" href="../logo-s.png">
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button type="button" onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- EMPTY PLACEHOLDER HEADER: Script will automatically inject the logo and subtitle -->
+    <header class="page-header" id="global-site-header" role="banner"></header>
+
+    <!-- Insert this uniform element block across all root, overview, and lesson files -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <!-- Links are automatically populated here via the site-nav.js script -->
+    </div>
+
+    <!-- Main content area shell container is a semantic <main> tag -->
+    <main class="lesson-body" id="main-content">
+        <!-- On This Page Menu -->
+        <nav class="lesson-page-toc" aria-label="On this Page Section Navigation Links">
+            <button class="dropbtn">On this Page</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li><a id="toc-top" href="#top"><!--Filled by page name from script--></a></li>
+                    <li><a href="#higher">Higher Order Derivatives</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- The main core lesson header is a native semantic <h1> tag -->
+        <h1 id="top"><!--Filled by page name from script--></h1>
+
+        <div class="objective-region" role="region" aria-label="Lesson Objectives">
+            <!-- Content goes here. -->
+            <p>On this page, you will learn to:</p>
+            <ul>
+                <li>Determine the partial derivatives of a function of multiple variables.</li>
+            </ul>
+        </div>
+
+
+        <p>Back in Calc 1, we defined the derivative as the instantaneous rate of change or the slope of the line tangent to a function \(f\) using the following formula, which involved the limit of the difference quotient.</p>
+
+        \[f'(x) = \frac{dy}{dx} = \lim_{h \to 0} \frac{f(x+h)-f(x)}{h}\]
+
+        <p>Now that we are studying functions of multiple variables, we want to again be able to compute and apply the instantaneous rate of change or tangent line to our multi-variable functions. For now, we will focus on computing the derivative in a direction parallel to the \(x\)-axis denoted by \(f_x\) and a direction parallel to the \(y\)-axis denoted by \(f_y\) for some function \(f(x,y)\).</p>
+
+        <p>The following GeoGebra applet illustrates the partial derivatives for a given function. The two checkboxes control whether to display the lines tangent to the surface at the chosen point that are in the \(x\) or \(y\) directions, meaning they would appear parallel to the \(x\) and \(y\) axes, respectively, if you were looking straight down on the \(xy\)-plane from above on the positive \(z\)-axis. You may move the blue point on the \(xy\)-plane to move the corresponding orange point on the graph at \(z = f(a,b)\). You may click-and-drag to rotate the axes about the origin.</p>
+
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <!-- Edit the title to clearly state it is an interactive tool: Interactive GeoGebra ... Graphing Calculator Application -->
+                <iframe scrolling="no" title="Interactive GeoGebra Partial Derivatives Graphing Calculator Application" src="https://www.geogebra.org/material/iframe/id/c9syaxcq/width/795/height/477/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="795px" height="477px" style="border:0px;"> </iframe>
+            </div>
+        </div>
+        <div class="widget-footer">GeoGebra Applet: [<a href="https://www.geogebra.org/m/sd96wqbk" target="_blank" rel="noopener noreferrer">https://www.geogebra.org/m/sd96wqbk</a>]</div>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Partial Derivatives">
+            <!-- Content goes here. -->
+            <p>We define the <strong>partial derivatives</strong> of \(f\) using the formulas below.</p>
+
+            \[f_{x}(x,y) = \frac{\partial f}{\partial x} = \lim_{h \to 0} \frac{f(x+h,y)-f(x,y)}{h}\] \[f_{y}(x,y) = \frac{\partial f}{\partial y} = \lim_{h \to 0} \frac{f(x,y+h)-f(x,y)}{h}\]
+
+            <p>Note that the symbol \(\partial\) for the partial derivatives is more curled, or more of a script letter, than the \(d\) for the original derivative notation.</p>
+        </div>
+
+
+        <p>Notice the similarities between the limit formula to define the partial derivatives of a function \(f(x,y)\) compared to the limit definition for \(f(x)\). An important thing to observe from these two new formulas is that only one variable is changing in each formula. So the partial derivative \(f_x\) only looks at how changes in \(x\) cause \(f\) to change. Similarly, \(f_y\) only looks at how changes in \(y\) cause \(f\) to change. What this means is that \(f_x\) treats \(y\) as a constant and \(f_y\) treats \(x\) as a constant.</p>
+
+        <!-- Update the aria-label with a descriptive title -->
+        <div class="example-region" role="region" aria-label="Example Exercise: Partial Derivatives by Table">
+            <!-- example body goes here -->
+            <p>To illustrate this idea, consider a function \(f(x,y)\) given as a table of values. The numbers in the first row are \(x\) values and the numbers in the first column are \(y\) values. The values inside the table are the function values for the corresponding \(x\) and \(y\) values.</p>
+
+            <!-- Table 5: Standard Table -->
+            <!-- Number of columns and rows can be increased as needed -->
+            <table class="table-standard-data" role="table">
+                <caption>Table of \(f(x,y)\) Values</caption>
+                <thead role="rowgroup">
+                    <tr role="row">
+                        <th role="columnheader">\(y\) vs \(x\)</th>
+                        <th role="columnheader">\(x=2\)</th>
+                        <th role="columnheader">\(x=5\)</th>
+                        <th role="columnheader">\(x=7\)</th>
+                    </tr>
+                </thead>
+                <tbody role="rowgroup">
+                    <tr role="row">
+                        <td role="cell">\(y=1\)</td>
+                        <td role="cell">5</td>
+                        <td role="cell">8</td>
+                        <td role="cell">6</td>
+                    </tr>
+                    <tr role="row">
+                        <td role="cell">\(y=5\)</td>
+                        <td role="cell">6</td>
+                        <td role="cell">10</td>
+                        <td role="cell">11</td>
+                    </tr>
+                    <tr role="row">
+                        <td role="cell">\(y=8\)</td>
+                        <td role="cell">7</td>
+                        <td role="cell">12</td>
+                        <td role="cell">15</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>Let's use the table to approximate the value of \(f_x(5,5)\) and \(f_y(5,5)\). In other words, we want to estimate the rate of change of \(f\) in the \(x\) direction and in the \(y\) direction at the point \((5,5)\).</p>
+
+            <!-- Interactive button to show/hide the answer usinga aria-expanded attribute -->
+            <!-- Update toggle-sol-1 and sol-content-1 if multiple examples per page -->
+            <button type="button" id="toggle-sol-1" aria-expanded="false" aria-controls="sol-content-1" onclick="toggleSolution('toggle-sol-1', 'sol-content-1')">Show Answer</button>
+            <!-- Uses aria-hidden and mapped relationship ID links cleanly -->
+            <div id="sol-content-1" class="solution" aria-hidden="true">
+                <!-- Example solution goes here -->
+                <p>From the table we see that \(f(5,5) = 10\).</p>
+
+                <p>To approximate the value of \(f_{x}(5, 5)\), we could find how \(f\) changes from \(x=2\) to \(x=5\) (think of this as a left-sided limit with \(h=-3\)) and average it with the change from \(x=5\) to \(x=7\) (think of this as a right-sided limit with \(h=2\)).</p>
+
+                \[\frac{f(2,5)-f(5,5)}{-3} = \frac{6-10}{-3} = \frac{4}{3}\] \[\frac{f(7,5)-f(5,5)}{2} = \frac{11-10}{2} = \frac{1}{2}\] \[f_{x}(5,5) \approx \frac{\frac{4}{3} + \frac{1}{2}}{2} = \frac{11}{12} \approx 0.9167\]
+
+                <p>We see that \(f\) is changing by approximately \(\frac{4}{3}\) from the left (in the \(x\) direction) and that \(f\) is changing by approximately \(\frac{1}{2}\) from the right (in the \(x\) direction). So we can conclude that the values of the function were increasing by approximately \(0.9167\) in the \(x\) direction <strong>at</strong> the point \((5,5)\).</p>
+
+                <p>To approximate the value of \(f_{y}(5, 5)\), we could find how \(f\) changes from \(y=1\) to \(y=5\) (which makes \(h=-4\)) and average it with the change from \(y=5\) to \(y=8\) (which makes \(h=3\)).</p>
+
+                \[\frac{f(5,1)-f(5,5)}{-4} = \frac{8-10}{-4} = \frac{1}{2}\] \[\frac{f(5,8)-f(5,5)}{2} = \frac{12-10}{3} = \frac{2}{3}\] \[f_{y}(5,5) \approx \frac{\frac{1}{2} + \frac{2}{3}}{2} = \frac{7}{12} \approx 0.5833\]
+
+                <p>We see that \(f\) is changing by approximately \(\frac{1}{2}\) from the left (in the \(y\) direction) and that \(f\) is changing by approximately \(\frac{2}{3}\) from the right (in the \(y\) direction). So we can conclude that the values of the function were increasing by approximately \(0.5833\) in the \(y\) direction <strong>at</strong> the point \((5,5)\).</p>
+            </div>
+        </div>
+
+
+        <p>Another important result of treating one variable constant while determining the partial derivative of another variable is that all the derivative rules you learned back in Calc 1 still apply. Consider the function \(f(x,y) = 5 x^3 y^3\).</p>
+
+        <ul>
+            <li>The partial derivative of \(f\) with respect to \(x\) is \(f_{x}(x,y) = 15 x^2 y^3\). Notice that we only differentiated the \(x^3\) part, since the 5 and \(y^3\) are just treated as constant multiples.</li>
+            <li>The partial derivative of \(f\) with respect to \(y\) is \(f_{y}(x,y) = 15 x^3 y^2\). Notice that this time we only differentiated the \(y^3\) part, so the 5 and \(x^3\) are just constant multiples.</li>
+        </ul>
+
+        <p>So no matter how complicated the function make look, we can just use the derivative rules we already know and treat the other variable as a constant.</p>
+
+        <div class="widget-header">First Order Partial Derivatives</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/hI4r5DEm1Og" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/hI4r5DEm1Og" target="_blank" rel="noopener noreferrer">https://youtu.be/hI4r5DEm1Og</a>]</div>
+
+
+        <p>While we have only considered functions of two variables, the above ideas can be extended to functions of any number of variables. So for \(f(x,y,z)\), we can compute the partial derivatives of \(f\) with respect to \(x\), \(y\), and \(z\), which would be \(f_x\), \(f_y\), and \(f_z\), respectively.</p>
+
+        <h2 id="higher">Higher Order Partial Derivatives</h2>
+
+        <p>Recall from Calc 1 that if the first derivative of a function represents its slope at a point, then its second derivative represents its concavity at a point. Since the 2<sup>nd</sup> derivative is just the derivative of the 1<sup>st</sup> derivative function, we can also find the 2<sup>nd</sup> partial derivatives using the same rules as above. The only extra piece to consider is which variables we are differentiating over - they can get mixed. This means, for example, that we can take the 1<sup>st</sup> derivative of \(f\) with respect to \(x\) to get \(f_x\), and then we can take the derivatiave of \(f_x\) with respect to either \(x\) or \(y\) to get \(f_{xx}\) or \(f_{xy}\), respectively.</p>
+
+        <div class="widget-header">Second Order Partial Derivatives</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/Xn6LjHKMrqA" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/Xn6LjHKMrqA" target="_blank" rel="noopener noreferrer">https://youtu.be/Xn6LjHKMrqA</a>]</div>
+
+    </main>
+    <!-- End of the main content -->
+
+    <!-- EMPTY PLACEHOLDER FOOTER: Script will automatically inject the copyright blocks -->
+    <footer class="lesson-footer" id="global-site-footer" role="contentinfo"></footer>
+
+    <!--Custom scripts-->
+    <script src="../site-nav.js" defer></script>
+    <script src="../site-ui.js" defer></script>
+    <script src="../site-quizlets.js" defer></script>
+</body>
+
+</html>

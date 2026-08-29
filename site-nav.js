@@ -26,7 +26,9 @@ const SiteMap = [
     { courseFolder: "calciii", file: "motion.html", pageName: "Motion", lessonName: "Curves, Calculus, Length & Motion" },
     { courseFolder: "calciii", file: "tnb.html", pageName: "Computing TNB", lessonName: "Curves, Calculus, Length & Motion" },
     { courseFolder: "calciii", file: "functions.html", pageName: "Functions", lessonName: "Functions & Limits" },
-    { courseFolder: "calciii", file: "limits.html", pageName: "Limits", lessonName: "Functions & Limits" }
+    { courseFolder: "calciii", file: "limits.html", pageName: "Limits", lessonName: "Functions & Limits" },
+    { courseFolder: "calciii", file: "partial.html", pageName: "Partial Derivatives", lessonName: "Derivatives & Tangents" },
+    { courseFolder: "calciii", file: "tangent.html", pageName: "Tangent Planes", lessonName: "Derivatives & Tangents" }
 ];
 
 
