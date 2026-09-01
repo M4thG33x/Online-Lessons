@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../course-styles.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../print-styles.css">
+
+    <!--MathJax links-->
+    <script src="../site-math.js"></script>
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <link rel="icon" type="image/png" href="../logo-s.png">
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button type="button" onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- EMPTY PLACEHOLDER HEADER: Script will automatically inject the logo and subtitle -->
+    <header class="page-header" id="global-site-header" role="banner"></header>
+
+    <!-- Insert this uniform element block across all root, overview, and lesson files -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <!-- Links are automatically populated here via the site-nav.js script -->
+    </div>
+
+    <!-- Main content area shell container is a semantic <main> tag -->
+    <main class="lesson-body" id="main-content">
+        <!-- On This Page Menu -->
+        <nav class="lesson-page-toc" aria-label="On this Page Section Navigation Links">
+            <button class="dropbtn">On this Page</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li><a id="toc-top" href="#top"><!--Filled by page name from script--></a></li>
+                    <li><a href="#curves">Level Curves &amp; Tangent Planes</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- The main core lesson header is a native semantic <h1> tag -->
+        <h1 id="top"><!--Filled by page name from script--></h1>
+
+        <div class="objective-region" role="region" aria-label="Lesson Objectives">
+            <!-- Content goes here. -->
+            <p>On this page, you will learn to:</p>
+            <ul>
+                <li>Determine the gradient of a function at a point.</li>
+                <li>Solve applications using gradients.</li>
+            </ul>
+        </div>
+
+
+        <p>The gradient is a useful mathematical structure involving the partial derivatives that helps us compute directional derivatives and also has a special purpose.</p>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Gradient">
+            <!-- Content goes here. -->
+            <p>The <strong>gradient</strong> of a function \(f(x,y)\) is defined as the vector where the components are the partial derivatives of \(f\).</p>
+
+            \[\nabla f(x,y) = \langle f_x(x,y),f_y(x,y) \rangle\]
+
+            <p>Note that we read \(\nabla f\) as "gradient of f" or "del f," and the gradient symbol \(\nabla\) is called the "nabla."</p>
+        </div>
+
+        <p>Here are a few more things to consider.</p>
+        <ul>
+            <li>The gradient of a function \(z = f(x,y)\) is located in the \(xy\)-plane.</li>
+            <li>The gradient is used in computing the directional derivative by \(D_{\vec{u}} f(x,y) = \nabla f(x,y) \cdot \vec{u}\).</li>
+            <li>The key interpretation of the gradient is that it represents the direction of the <strong>greatest</strong> value of \(D_{\vec{u}} f(x_0,y_0)\), or the greatest rate of increase of \(f\). In other words, the gradient points in the direction (in the \(xy\)-plane) that corresponds to the steepest incline or ascent of the surface at the point \((x_0,y_0)\). Its magnitude, \(\lvert \nabla f \rvert\), is the slope of the incline. Similarly, the negative of the gradient, or \(-\nabla f\), points in the direction of the greatest rate of decrease, which is the steepest decline or descent of the surface at the point \((x_0,y_0)\) having a slope of \(-\lvert \nabla f \rvert\).</li>
+            <li>The gradient can be extended to functions of more than two variables. For example, the gradient of a function of 3 variables is expressed as \(\nabla f(x,y,z) = \langle f_x(x,y,z), f_y(x,y,z), f_z(x,y,z) \rangle\), and therefore the corresponding directional derivative would be \(D_{\vec{u}} f(x,y,z) = \nabla f(x,y,z) \cdot \vec{u}\). In this case, the gradient is a vector in \(xyz\)-space, not the \(xy\)-plane, that gives the direction in which \(f\) is increasing at the greatest rate.</li>
+        </ul>
+
+        <!-- Update the aria-label with a descriptive title -->
+        <div class="example-region" role="region" aria-label="Gradient Exploration">
+            <!-- example body goes here -->
+            <p>The following GeoGebra applet will help illustrate the gradient of a function \(f(x,y)\) at a point \((a,b)\). You can use the blue point on the \(xy\)-plane to move the corresponding orange point located on the surface of \(f\). You may also click-and-drag to rotate the view around the origin.</p>
+
+            <ol>
+                <li>The <strong>Gradient</strong> is the yellow vector located in the \(xy\)-plane at the blue point \((a,b)\). Observe that the gradient is always perpendicular to the <strong>level curve</strong>.</li>
+                <li>Show the <strong>Increasing</strong> vector. This green vector shows the steepest incline of the surface of \(f\) at the point \((a,b)\). Imagine if the surface represented a large valley and you were standing at the orange point \((a,b,f(a,b))\). The green vector would be the steepest slope of the valley if you tried walking uphill.</li>
+                <li>Show the <strong>Decreasing</strong> vector. This red vector shows the steepest decline of the the surface of \(f\) at the point \((a,b)\). Again, imagine that the surface represented a large valley and you were standing at the orange point \((a,b,f(a,b))\). The red vector would be the steepest slope of the valley if you tried walking downhill. This means that if you dropped a bucket of water at this point, the water would flow downhill in the direction of the red vector.</li>
+                <li>Show the <strong>No Change</strong> vectors. First, observe that these gray vectors are both perpendicular to the gradient. They represent the direction where the values of \(f\) at the point \((a,b)\) don't change. So \(f\) is neither increasing nor decreasing in these two directions. Again, one more time, imagine that the surface represented a large valley and you were standing at the orange point \((a,b,f(a,b))\). The gray vectors would represent the direction you could walk and remain at the same altitude - you could walk all the way around the pink curve without changing your altitude.</li>
+            </ol>
+
+            <div class="widget-wrap">
+                <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+                <div class="widget-frame-cont ratio-16x9">
+                    <!-- Edit the title to clearly state it is an interactive tool: Interactive GeoGebra ... Graphing Calculator Application -->
+                    <iframe scrolling="no" title="Interactive GeoGebra Gradient Graphing Calculator Application" src="https://www.geogebra.org/material/iframe/id/gudagkb9/width/795/height/477/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="795px" height="477px" style="border:0px;"> </iframe>
+                </div>
+            </div>
+            <div class="widget-footer">GeoGebra Applet: [<a href="https://www.geogebra.org/m/wwwgfk2s" target="_blank" rel="noopener noreferrer">https://www.geogebra.org/m/wwwgfk2s</a>]</div>
+        </div>
+
+
+        <p>The following video demonstrates how we can compute the gradient of a function.</p>
+
+        <div class="widget-header">The Gradient</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/x8YwcwesU3Q" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/x8YwcwesU3Q" target="_blank" rel="noopener noreferrer">https://youtu.be/x8YwcwesU3Q</a>]</div>
+
+        <h2 id="curves">Level Curves &amp; Tangent Planes</h2>
+
+        <p>There are a couple quick applications of the gradient that we can look at, in addition to the directional derivative. The first uses the fact that the gradient is perpendicular to the level curve of a function, as illustrated below. This also means the gradient vector \(\nabla f\) is perpendicular to the unit tangent vector \(\hat{t}\) at the specified point.</p>
+
+        <img src="content/GradLevCurv.png" alt="Illustration of a gradient vector that is orthogonal to the tangent vector of a level curve at a point (x_0, y_0)." width="270" height="208" />
+
+        <!-- Update the aria-label with a descriptive title -->
+        <div class="example-region" role="region" aria-label="Contour Map Example">
+            <!-- example body goes here -->
+            <p>Consider the contour map of the region around the Southern Wake Tech campus shown below. We can see several level curves marking incremental changes in altitude.</p>
+
+            <img src="content/ContourMapSWT.png" alt="Contour map of the Southern Wake Tech camps, including the intersection of Tech Rd and US 401." width="344" height="208">
+
+            <p>Suppose a person standing at the intersection of Tech Road and U.S. 401 decided to walk towards campus along the steepest route. Draw the estimated path the student would walk.</p>
+
+            <!-- Interactive button to show/hide the answer usinga aria-expanded attribute -->
+            <!-- Update toggle-sol-1 and sol-content-1 if multiple examples per page -->
+            <button type="button" id="toggle-sol-1" aria-expanded="false" aria-controls="sol-content-1" onclick="toggleSolution('toggle-sol-1', 'sol-content-1')">Show Answer</button>
+            <!-- Uses aria-hidden and mapped relationship ID links cleanly -->
+            <div id="sol-content-1" class="solution" aria-hidden="true">
+                <!-- Example solution goes here -->
+                <p>Since the gradient vector is always perpendicular to the level curves and the gradient also represents the direction of greatest rate of change or steepest incline, the path representing the steepest route must be perpendicular to each of the contour curves that it crosses. The path shown on the map below would represent the steepest path a person could walk from the entrance at Tech Rd and 401 up to the main part of the college campus.</p>
+
+                <img src="content/GradSteepest.png" alt="Illustration of contour map with steepest path marked by orthogonal gradients." width="344" height="208" />
+
+            </div>
+        </div>
+
+        <p>The second application of the gradient involves tangent planes, which we learned about earlier. If we have a function \(F(x,y,z) = 0\) that defines \(z\) implicitly as a function of \(x\) and \(y\), then the gradient is the normal vector to the surface and the equation of the plane tangent to \(F\) at the point \((x_0,y_0,z_0)\) can be expressed by the following equation.</p>
+
+        \[F_{x}(x_0,y_0,z_0)(x-x_0) + F_{y}(x_0,y_0,z_0)(y-y_0) + F_{z}(x_0,y_0,z_0)(z-z_0) = 0\]
+
+        <p>This should look familiar since it matches the tangent plane equation we saw earlier, as demonstrated in this video.</p>
+
+        <div class="widget-header">Determining the Equation of a Tangent Plane</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/UfnpcOcZAO0" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="ttps://youtu.be/UfnpcOcZAO0" target="_blank" rel="noopener noreferrer">ttps://youtu.be/UfnpcOcZAO0</a>]</div>
+
+    </main>
+    <!-- End of the main content -->
+
+    <!-- EMPTY PLACEHOLDER FOOTER: Script will automatically inject the copyright blocks -->
+    <footer class="lesson-footer" id="global-site-footer" role="contentinfo"></footer>
+
+    <!--Custom scripts-->
+    <script src="../site-nav.js" defer></script>
+    <script src="../site-ui.js" defer></script>
+    <script src="../site-quizlets.js" defer></script>
+</body>
+
+</html>

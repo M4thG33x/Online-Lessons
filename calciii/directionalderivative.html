@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../course-styles.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../print-styles.css">
+
+    <!--MathJax links-->
+    <script src="../site-math.js"></script>
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <link rel="icon" type="image/png" href="../logo-s.png">
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button type="button" onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- EMPTY PLACEHOLDER HEADER: Script will automatically inject the logo and subtitle -->
+    <header class="page-header" id="global-site-header" role="banner"></header>
+
+    <!-- Insert this uniform element block across all root, overview, and lesson files -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <!-- Links are automatically populated here via the site-nav.js script -->
+    </div>
+
+    <!-- Main content area shell container is a semantic <main> tag -->
+    <main class="lesson-body" id="main-content">
+        <!-- On This Page Menu -->
+        <nav class="lesson-page-toc" aria-label="On this Page Section Navigation Links">
+            <button class="dropbtn">On this Page</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li><a id="toc-top" href="#top"><!--Filled by page name from script--></a></li>
+                    <!-- <li><a href="#operations">...</a></li> -->
+                </ul>
+            </div>
+        </nav>
+
+        <!-- The main core lesson header is a native semantic <h1> tag -->
+        <h1 id="top"><!--Filled by page name from script--></h1>
+
+        <div class="objective-region" role="region" aria-label="Lesson Objectives">
+            <!-- Content goes here. -->
+            <p>On this page, you will learn to:</p>
+            <ul>
+                <li>Determine the directional derivative of a function.</li>
+            </ul>
+        </div>
+
+
+        <p>When we learned about partial derivatives, recall that a partial derivative represents the instantaneous rate of change or slope of the tangent line of a surface in a direction that is parallel to the \(x\) or \(y\) axes. We now want to look at a derivative that allows us to compute the slope of the tanganet line in <em>any</em> direction.</p>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Directional Derivative">
+            <!-- Content goes here. -->
+            <p>The <strong>directional derivative</strong> is defined as the derivative of a function \(f(x,y)\) at a point \((x_0,y_0)\) in the direction of the <em>unit</em> vector \(\vec{u} = \langle a,b \rangle\) using the following formula, if the limit exists.</p>
+
+            \[D_{\vec{u}} f(x_0,y_0) = \lim_{h \to 0} \frac{f(x_0+ha,y_0+hb)-f(x_0,y_0)}{h}\]
+
+            <p>A helpful theorem let's us rework this formula to depend on the partial derivatives. The result is a more practical formula for the derivative of a function of \(x\) and \(y\) with unit direction vector \(\vec{u} = \langle a,b \rangle\) given below.</p>
+
+            \[D_{\vec{u}} f(x,y) = f_x(x,y)a + f_y(x,y) = \langle f_x,f_y \rangle \cdot \langle a,b \rangle \]
+        </div>
+
+        <p>For a surface defined by the function \(z = f(x,y)\), the unit vector \(\vec{u}\) is located in the \(xy\)-plane and \(D_{\vec{u}} f(x,y)\) is the slope of the tangent line in the direction of \(\vec{u}\). Sometimes it is helpful to define \(\vec{u}\) as a vector on the unit circle by \(\vec{u} = \langle \cos(\theta),\sin(\theta) \rangle\).</p>
+
+        <!-- Update the aria-label with a descriptive title -->
+        <div class="example-region" role="region" aria-label="Directional Derivative Exploration">
+            <!-- example body goes here -->
+            <p>The following GeoGebra applet will help illustrate the directional derivative for a function \(f(x,y)\). You can use the blue point on the \(xy\)-plane to move the corresponding orange point located on the surface of \(f\). You may also click-and-drag to rotate the view around the origin.</p>
+
+            <ol>
+                <li>Show the <strong>Level Curve</strong> in the \(xy\)-plane. Notice that as you move the blue point around, the level curve will change since it depends on the intersection of \(f\) with the horizontal plane \(z=k\), where \(k\) is the height of the orange point on \(f\).</li>
+                <li>Show the directional derivative <strong>D<sub>u</sub>(a, b)</strong>. The yellow vector represents the direction of the unit vector <strong>u</strong> at the blue point \((a,b)\). You can change the direction of <strong>u</strong> by moving the green point on the \(xy\)-plane.</li>
+                <li>Show the <strong>Tangent</strong> line. The slope of the green line is the value of the directional derivative at the orange point, which is above the corresponding blue point \((a,b)\) on the \(xy\)-plane. The line will travel in the direction of <strong>u</strong>.</li>
+            </ol>
+
+            <div class="widget-wrap">
+                <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+                <div class="widget-frame-cont ratio-16x9">
+                    <!-- Edit the title to clearly state it is an interactive tool: Interactive GeoGebra ... Graphing Calculator Application -->
+                    <iframe scrolling="no" title="Interactive GeoGebra Directional Derivatives Graphing Calculator Application" src="https://www.geogebra.org/material/iframe/id/pgy4xm9p/width/795/height/477/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="795px" height="477px" style="border:0px;"> </iframe>
+                </div>
+            </div>
+            <div class="widget-footer">GeoGebra Applet: [<a href="https://www.geogebra.org/m/yhfuwwdq" target="_blank" rel="noopener noreferrer">https://www.geogebra.org/m/yhfuwwdq</a>]</div>
+        </div>
+
+        <p>The directional derivative is also related to something called the <strong>gradient</strong>, which we will look at more on the next. For now, the following video demonstrates how we can compute the directional derivative.</p>
+
+        <div class="widget-header">Directional Derivatives</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/O20k5fXvQfQ" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/O20k5fXvQfQ" target="_blank" rel="noopener noreferrer">https://youtu.be/O20k5fXvQfQ</a>]</div>
+
+    </main>
+    <!-- End of the main content -->
+
+    <!-- EMPTY PLACEHOLDER FOOTER: Script will automatically inject the copyright blocks -->
+    <footer class="lesson-footer" id="global-site-footer" role="contentinfo"></footer>
+
+    <!--Custom scripts-->
+    <script src="../site-nav.js" defer></script>
+    <script src="../site-ui.js" defer></script>
+    <script src="../site-quizlets.js" defer></script>
+</body>
+
+</html>

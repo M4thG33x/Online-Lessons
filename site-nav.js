@@ -28,7 +28,11 @@ const SiteMap = [
     { courseFolder: "calciii", file: "functions.html", pageName: "Functions", lessonName: "Functions & Limits" },
     { courseFolder: "calciii", file: "limits.html", pageName: "Limits", lessonName: "Functions & Limits" },
     { courseFolder: "calciii", file: "partial.html", pageName: "Partial Derivatives", lessonName: "Derivatives & Tangents" },
-    { courseFolder: "calciii", file: "tangent.html", pageName: "Tangent Planes", lessonName: "Derivatives & Tangents" }
+    { courseFolder: "calciii", file: "tangent.html", pageName: "Tangent Planes", lessonName: "Derivatives & Tangents" },
+    { courseFolder: "calciii", file: "chainrule.html", pageName: "Chain Rule", lessonName: "Chain Rule, Derivatives, Gradient & Extrema" },
+    { courseFolder: "calciii", file: "directionalderivative.html", pageName: "Directional Derivative", lessonName: "Chain Rule, Derivatives, Gradient & Extrema" },
+    { courseFolder: "calciii", file: "gradient.html", pageName: "Gradient", lessonName: "Chain Rule, Derivatives, Gradient & Extrema" },
+    { courseFolder: "calciii", file: "extrema.html", pageName: "Extrema", lessonName: "Chain Rule, Derivatives, Gradient & Extrema" }
 ];
 
 

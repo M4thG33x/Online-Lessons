@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../course-styles.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../print-styles.css">
+
+    <!--MathJax links-->
+    <script src="../site-math.js"></script>
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <link rel="icon" type="image/png" href="../logo-s.png">
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button type="button" onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- EMPTY PLACEHOLDER HEADER: Script will automatically inject the logo and subtitle -->
+    <header class="page-header" id="global-site-header" role="banner"></header>
+
+    <!-- Insert this uniform element block across all root, overview, and lesson files -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <!-- Links are automatically populated here via the site-nav.js script -->
+    </div>
+
+    <!-- Main content area shell container is a semantic <main> tag -->
+    <main class="lesson-body" id="main-content">
+        <!-- On This Page Menu -->
+        <nav class="lesson-page-toc" aria-label="On this Page Section Navigation Links">
+            <button class="dropbtn">On this Page</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li><a id="toc-top" href="#top"><!--Filled by page name from script--></a></li>
+                    <li><a href="#implicit">Implicit Differentiation</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- The main core lesson header is a native semantic <h1> tag -->
+        <h1 id="top"><!--Filled by page name from script--></h1>
+
+        <div class="objective-region" role="region" aria-label="Lesson Objectives">
+            <!-- Content goes here. -->
+            <p>On this page, you will learn to:</p>
+            <ul>
+                <li>Determine the derivative of a function using the Chain Rule.</li>
+            </ul>
+        </div>
+
+
+        <p>Back in Calc 1, you learned about the chain rule, which said the derivative of a function \(y = f(u)\) where \(u = g(x)\) would be \(y' = f'(u) \cdot u' = f'(g(x)) \cdot g'(x)\). Using the \(\frac{dy}{dx}\) notation, we could express this as follows.</p>
+
+        \[\frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx}\]
+
+        <p>Now, we want to consider the chain rule for multiple variables.</p>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Chain Rule with One Independent Variable">
+            <!-- Content goes here. -->
+            <p>Let's consider a function with two variables that share <em>one</em> independent variable, \(z = f(x,y)\) where \(x = g(t)\) and \(y = h(t)\) and \(t\) is a Real variable. The <strong>derivative of \(f\) with respect to \(t\)</strong> can be determined using the formula below.</p>
+
+            \[\frac{df}{dt} = \frac{\partial f}{\partial x} \cdot \frac{dx}{dt} + \frac{\partial f}{\partial y} \cdot \frac{dy}{dt}\]
+
+            <p>Note that we must determine the partial derivatives of \(f\) with respect to \(x\) and \(y\) while also determining the regular derivatives of \(x\) and \(y\) with respect to \(t\).</p>
+        </div>
+
+        <div class="widget-header">The Chain Rule for Functions of Two Variable with One Independent Variable</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/KTD4Ire3VDY" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/KTD4Ire3VDY" target="_blank" rel="noopener noreferrer">https://youtu.be/KTD4Ire3VDY</a>]</div>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Chain Rule with Two Independent Variables">
+            <!-- Content goes here. -->
+            <p>Let's consider a function with two variables that share <em>two</em> independent variables, \(z = f(x,y)\) where \(x = g(s,t)\) and \(y = h(s,t)\) and both \(s\) and \(t\) are Real variables. We must determine the derivatives separately for each independent variable.</p>
+
+            <p>The <strong>derivative of \(f\) with respect to \(s\)</strong> can be determined using the formula below.</p>
+
+            \[\frac{\partial f}{\partial s} = \frac{\partial f}{\partial x} \cdot \frac{\partial x}{\partial s} + \frac{\partial f}{\partial y} \cdot \frac{\partial y}{\partial s}\]
+
+            <p>The <strong>derivative of \(f\) with respect to \(t\)</strong> can be determined using the formula below.</p>
+
+            \[\frac{\partial f}{\partial t} = \frac{\partial f}{\partial x} \cdot \frac{\partial x}{\partial t} + \frac{\partial f}{\partial y} \cdot \frac{\partial y}{\partial t}\]
+
+            <p>Note that we must determine the partial derivatives of \(f\) with respect to \(x\) and \(y\) while also determining the partial derivatives of \(x\) and \(y\) with respect to \(s\) and \(t\).</p>
+        </div>
+
+        <div class="widget-header">The Chain Rule for Functions of Two Variable with Two Independent Variables</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/8HLYOqzVjMk" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/8HLYOqzVjMk" target="_blank" rel="noopener noreferrer">https://youtu.be/8HLYOqzVjMk</a>]</div>
+
+        <h2 id="implicit">Implicit Differentiation</h2>
+
+        <p>We often work with expressions that define \(f\) explicitly as a function of \(x\) and \(y\), which we express as \(z = f(x,y)\). But just like we did in Calc 1, we can also work with functions defined implicitly.</p>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Implicit Derivatives">
+            <!-- Content goes here. -->
+            <p>If we are given an equation \(F(x,y) = 0\) that defines \(y\) implicitly as a function of \(x\), then the differentiation process can be simplified to the following formula, where \(F_x\) and \(F_y\) are the partial derivatives of \(F\).</p>
+
+            \[\frac{dy}{dx} = -\frac{F_x}{F_y}\]
+
+            <p>We can use a similar process for functions with more variables. Given an equation \(F(x,y,z) = 0\) that defines \(z\) implicitly as a function of \(x\) and \(y\), we can determine the derivatives of \(z\) with respect to \(x\) and \(y\) using the formulas below, where \(F_x\), \(F_y\), and \(F_z\) are the partial derivatives of \(F\).</p>
+
+            \[\frac{dz}{dx} = -\frac{F_x}{F_z}\]
+            
+            \[\frac{dz}{dy} = -\frac{F_y}{F_z}\]
+        </div>
+
+        <div class="widget-header">Implicit Differentiation of Functions of One Variable Using Partial Derivatives</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/L949KHFAOzE" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/L949KHFAOzE" target="_blank" rel="noopener noreferrer">https://youtu.be/L949KHFAOzE</a>]</div>
+
+    </main>
+    <!-- End of the main content -->
+
+    <!-- EMPTY PLACEHOLDER FOOTER: Script will automatically inject the copyright blocks -->
+    <footer class="lesson-footer" id="global-site-footer" role="contentinfo"></footer>
+
+    <!--Custom scripts-->
+    <script src="../site-nav.js" defer></script>
+    <script src="../site-ui.js" defer></script>
+    <script src="../site-quizlets.js" defer></script>
+</body>
+
+</html>
