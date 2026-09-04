@@ -32,7 +32,12 @@ const SiteMap = [
     { courseFolder: "calciii", file: "chainrule.html", pageName: "Chain Rule", lessonName: "Chain Rule, Derivatives, Gradient & Extrema" },
     { courseFolder: "calciii", file: "directionalderivative.html", pageName: "Directional Derivative", lessonName: "Chain Rule, Derivatives, Gradient & Extrema" },
     { courseFolder: "calciii", file: "gradient.html", pageName: "Gradient", lessonName: "Chain Rule, Derivatives, Gradient & Extrema" },
-    { courseFolder: "calciii", file: "extrema.html", pageName: "Extrema", lessonName: "Chain Rule, Derivatives, Gradient & Extrema" }
+    { courseFolder: "calciii", file: "extrema.html", pageName: "Extrema", lessonName: "Chain Rule, Derivatives, Gradient & Extrema" },
+    { courseFolder: "calciii", file: "dblrectangular.html", pageName: "Rectangular Regions", lessonName: "Double & Polar Integrals" },
+    { courseFolder: "calciii", file: "dblgeneral.html", pageName: "General Regions", lessonName: "Double & Polar Integrals" },
+    { courseFolder: "calciii", file: "dblpolar.html", pageName: "Polar Regions", lessonName: "Double & Polar Integrals" }
+    // { courseFolder: "calciii", file: "fields.html", pageName: "Vector Fields", lessonName: "Vector Fields & Line Integrals" },
+    // { courseFolder: "calciii", file: "integrals.html", pageName: "Line Integrals", lessonName: "Vector Fields & Line Integrals" }
 ];
 
 

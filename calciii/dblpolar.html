@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../course-styles.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../print-styles.css">
+
+    <!--MathJax links-->
+    <script src="../site-math.js"></script>
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <link rel="icon" type="image/png" href="../logo-s.png">
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button type="button" onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- EMPTY PLACEHOLDER HEADER: Script will automatically inject the logo and subtitle -->
+    <header class="page-header" id="global-site-header" role="banner"></header>
+
+    <!-- Insert this uniform element block across all root, overview, and lesson files -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <!-- Links are automatically populated here via the site-nav.js script -->
+    </div>
+
+    <!-- Main content area shell container is a semantic <main> tag -->
+    <main class="lesson-body" id="main-content">
+        <!-- On This Page Menu -->
+        <nav class="lesson-page-toc" aria-label="On this Page Section Navigation Links">
+            <button class="dropbtn">On this Page</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li><a id="toc-top" href="#top"><!--Filled by page name from script--></a></li>
+                    <!-- <li><a href="#operations">...</a></li> -->
+                </ul>
+            </div>
+        </nav>
+
+        <!-- The main core lesson header is a native semantic <h1> tag -->
+        <h1 id="top"><!--Filled by page name from script--></h1>
+
+        <div class="objective-region" role="region" aria-label="Lesson Objectives">
+            <!-- Content goes here. -->
+            <p>On this page, you will learn to:</p>
+            <ul>
+                <li>Set up and evaluate double integrals of functions and regions defined in polar coordinates.</li>
+            </ul>
+        </div>
+
+        <p>The polar coordinate system is useful for describing functions and curves that can be expressed using rotation about the origin. A polar coordinate will have the form \((r,θ)\), where \(r\) is the distance from the origin (a negative \(r\) value would represent a reflection across the origin) and \(θ\) is the angle from the positive \(x\)-axis (a positive value for \(θ\) represents counter-clockwise rotation). Back in Calc II, we learned about the graphs of various polar functions, such as roses, limaçons, and lemniscates.</p>
+
+        <p>To evaluate a double integral in polar coordinates, let us first apply the box approximation we looked at earlier. By breaking up a region \(R\) in the \(xy\)-plane into rectangles, we can compute the volume of the box bounded above each rectangle and below a function \(z=f(x,y)\). In the rectangular or Cartesian coordinate system, these rectangles are truly rectangles. But when we switch to polar, the rectangles are shaped slightly differently since we are rotating about the origin.</p>
+
+        <figure>
+        <img src="content/PolarRect.png" alt="Image of a polar rectangular region divided in multiple polar rectangular sub-regions.">
+            <figcaption>Polar Region Divided into Rectangles</figcaption>
+        </figure>
+
+        <p>Notice in the image above how the blue region is divided into polar "rectangles" that are bounded by two opposite sides formed by the radials that are linear (but not parallel) and two opposite sides that are curved (arcs subtending the same central angle). In order to find the volume of the box above these rectangles, we first need to find the areas of each rectangle (we are using the term "rectangle" loosely here to describe the sub-regions in non-polar terms).</p>
+
+        <p>First, recall that the sector area formula is \(A=\frac{1}{2}r^2\theta\) where \(\theta\) must be in radians. To find the area of any small polar "rectangle," we could find the difference between the area of the sector of the outer radius and the area of the sector of the inner radius, or \(A = A_{outer} - A_{inner}\).</p>
+
+        <figure>
+        <img src="content/PolarSectorArea.png" alt="Image of a polar rectangular region divided in multiple polar rectangular sub-regions, with one rectangle being the amount of area of a larger sector with raidus r2 that extend beyond a smaller sector of radius r1.">
+            <figcaption>Sector Areas and the Polar Rectangle</figcaption>
+        </figure>
+
+        <p>The area of the polar "rectangle" illustrated above can be determined as follows.</p>
+
+        \[
+        \begin{aligned}
+        A &=  A_{outer} - A_{inner} \\[4pt]
+        &= \frac{1}{2}(r_2)^2\theta - \frac{1}{2}(r_1)^2\theta \\[4pt]
+        &= \frac{1}{2}\theta \left( {r_2}^2 - {r_1}^2 \right) \\[4pt]
+        &= \frac{1}{2}\theta \left( r_2 - r_1 \right) \left( r_2 + r_1 \right) \\[4pt]
+        &= \frac{\left( r_2 + r_1 \right)}{2} \left( r_2 - r_1 \right) \theta
+        \end{aligned}
+        \]
+
+        <p>The fraction \(\frac{\left( r_2 + r_1 \right)}{2}\) represents the average of the inner and outer radii. If we let \(r\) represent this average radius, \(\Delta r\) the change or difference in radii, and \(\Delta \theta\) the change or difference in the angle between the radials, then we can approximate the polar "rectangle" area as \(\Delta A \approx r \Delta r \Delta \theta\). The basically equates to finding the midpoint of each polar rectangle.</p>
+
+        <figure>
+        <img src="content/PolarRectArea.png" alt="Image of a polar rectangular region divided in multiple polar rectangular sub-regions, with one rectangle of length delta r and width delta theta that is highlighted.">
+            <figcaption>Polar Rectangle Midpoint Area</figcaption>
+        </figure>
+
+        <p>Using differentials with infinitely small changes in \(r\) and \(\theta\), we could rewrite this as the equation below.</p>
+
+        \[dA = r dr d\theta\]
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Double Integrals in Polar Coordinates">
+            <!-- Content goes here. -->
+            <p><strong>Double Integral in Polar Coordinates</strong>:  Given a continuous function \(f\) over the polar region \(R\), where \(a\) and \(b\) are the inner and outer radii of \(R\) (or \(a \leq r \leq b\)), and \( \alpha \) and \(\beta \) are the bounding angles of \(R\) (or \(\alpha \leq \theta \leq \beta\)), the double integral of \(f\) over \(R\) can be defined in polar coordinates by the equation below.</p>
+
+            \[\underset{R}{\mathop \iint}\, f \, dA = \int_{\alpha}^{\beta} \int_{a}^{b} \, f(r,\theta)\, r \, drd\theta\]
+
+            <p>Note that due to the cyclical or periodic nature of trigonometric functions rotating about the origin, we must be careful that the bounds \(a\), \(b\), \(\alpha\), and \(\beta\) do not describe overlapping regions. Generally, this often means we want \(r \ge 0\) and \(\beta - \alpha \le 2\pi\). Also, if \(f\) is a Cartesian function of the form \(z=f(x,y)\), then we can convert it to polar coordinates using \(x=r\cos\theta\) and \(y=r\sin\theta\).</p>
+        </div>
+
+        <div class="widget-header">Introduction to Double Integrals in Polar Coordinates</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/5ixPVUNBi88" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" height="315" frameborder="0" width="560"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="ttps://youtu.be/5ixPVUNBi88" target="_blank" rel="noopener noreferrer">ttps://youtu.be/5ixPVUNBi88</a>]</div>
+
+        <div class="widget-header">Area Using Double Integrals in Polar Coordinates</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/d_FYyFyeGd0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" height="315" frameborder="0" width="560"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/d_FYyFyeGd0" target="_blank" rel="noopener noreferrer">https://youtu.be/d_FYyFyeGd0</a>]</div>
+
+        <div class="widget-header">Double Integrals in Polar Form - Volume Bounded by Two Paraboloids</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/a30gTO1q3Aw" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" height="315" frameborder="0" width="560"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/a30gTO1q3Aw" target="_blank" rel="noopener noreferrer">https://youtu.be/a30gTO1q3Aw</a>]</div>
+
+    </main>
+    <!-- End of the main content -->
+
+    <!-- EMPTY PLACEHOLDER FOOTER: Script will automatically inject the copyright blocks -->
+    <footer class="lesson-footer" id="global-site-footer" role="contentinfo"></footer>
+
+    <!--Custom scripts-->
+    <script src="../site-nav.js" defer></script>
+    <script src="../site-ui.js" defer></script>
+    <script src="../site-quizlets.js" defer></script>
+</body>
+
+</html>

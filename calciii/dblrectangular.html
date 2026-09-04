@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../course-styles.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../print-styles.css">
+
+    <!--MathJax links-->
+    <script src="../site-math.js"></script>
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <link rel="icon" type="image/png" href="../logo-s.png">
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button type="button" onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- EMPTY PLACEHOLDER HEADER: Script will automatically inject the logo and subtitle -->
+    <header class="page-header" id="global-site-header" role="banner"></header>
+
+    <!-- Insert this uniform element block across all root, overview, and lesson files -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <!-- Links are automatically populated here via the site-nav.js script -->
+    </div>
+
+    <!-- Main content area shell container is a semantic <main> tag -->
+    <main class="lesson-body" id="main-content">
+        <!-- On This Page Menu -->
+        <nav class="lesson-page-toc" aria-label="On this Page Section Navigation Links">
+            <button class="dropbtn">On this Page</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li><a id="toc-top" href="#top"><!--Filled by page name from script--></a></li>
+                    <li><a href="#iterated">Iterated Double Integrals</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- The main core lesson header is a native semantic <h1> tag -->
+        <h1 id="top"><!--Filled by page name from script--></h1>
+
+        <div class="objective-region" role="region" aria-label="Lesson Objectives">
+            <!-- Content goes here. -->
+            <p>On this page, you will learn to:</p>
+            <ul>
+                <li>Set up and evaluate double integrals over rectangular regions using Riemann Sums and Iterated Integrals.</li>
+            </ul>
+        </div>
+
+
+        <p>Recall back in Calc 1 that we used Riemann Sums to approximate the area under a curve. We did this by computing the area of rectangles with heights based where the rectangle touched the given function on the left, right, and midpoint.</p>
+
+
+        <figure>
+            <img src="content/RiemannSum.png" alt="Image of the area below y = f(x) approximated with rectangles using left endpoints.">
+            <figcaption>Riemann Sum</figcaption>
+        </figure>
+
+        <p>Now that we are in 3D space, we can use a similar idea to approximate the volume under a surface. The following GeoGebra applet will help illustrate how we can approximate the volume below a function \(f(x,y)\) over a rectangular region in the \(xy\)-plane.You may also click-and-drag to rotate the view around the origin.</p>
+
+        <ol>
+            <li>Consider the surface given by \(z = f(x,y)\) and the rectangular region \([0,4]×[0,3]\) in the \(xy\)-plane. The rectangular region is divided into smaller sub-rectangles of with \(Δx = 1\) and \(Δy = 1\).</li>
+            <li> The volume of each rectangular box (for \(k = 0\) to \(11\)) can be determined by any of its four corners or the midpoint of the sub-rectangle. For illustration, compare the boxes using the Lower Left corner, Upper Right corner, or Midpoint. The volume of each box will be \(f(x, y) ΔxΔy = f(x, y) ΔA\), which is the area of the base rectangle times the height of the box determine by the function value.</li>
+            <li> The total volume can be approximated by the sum of all the boxes, or \(V ≈ \ \sum f(x,y) ΔA\).</li>
+        </ol>
+
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <!-- Edit the title to clearly state it is an interactive tool: Interactive GeoGebra ... Graphing Calculator Application -->
+                <iframe scrolling="no" title="Interactive GeoGebra Volume over a Rectangular Region Graphing Calculator Application" src="https://www.geogebra.org/material/iframe/id/n8akadgb/width/795/height/477/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" style="border:0px;" height="477px" width="795px"></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">GeoGebra Applet: [<a href="https://www.geogebra.org/m/gj6j2cfy" target="_blank" rel="noopener noreferrer">https://www.geogebra.org/m/gj6j2cfy</a>]</div>
+
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Volume Using Riemann Sums">
+            <!-- Content goes here. -->
+            <p>For a function \(z = f(x, y)\) defined over a rectangular region \(R\) in the \(xy\)-plane that is divided into \(m\) sub-rectangles along the \(x\)-axis by \(n\) sub-rectangles along the \(y\)-axis, the volume bounded under \(f\) over \(R\) can be approximated by the equation below.</p>
+
+            \[V \approx \sum\limits_{i=1}^{m}{\sum\limits_{j=1}^{n}{f\left({{x}_{i}},{{y}_{i}} \right)\Delta A_{ij}}}\]
+        </div>
+
+        <p>The base area of each sub-rectangle is represented by \(\Delta A_{ij}\) and the height of the function above each sub-rectangle is \(f(x_i, y_j)\). Thus \(f(x_i,y_i) \Delta A_{ij}\) is the volume of each 3-dimensional box. The double sum adds up all boxes in the \(x\) direction and \(y\) direction for a total of \(m \cdot n\) sub-rectangles. The double sum is an iterated, or nested, summation, meaning we add up the boxes in a row from \(j = 1\) to \(j = n\) and then move to the next row for each \(i\) value as it goes from \(i = 1\) to \(i = m\).</p>
+
+        <div class="widget-header">Approximate the Volume of Pool With The Midpoint Rule Using a Table of Values</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/c3DxkDAxOuI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/c3DxkDAxOuI" target="_blank" rel="noopener noreferrer">https://youtu.be/c3DxkDAxOuI</a>]</div>
+
+        <div class="widget-header">Double Integral Approximation Using Midpoint Rule Using Level Curves</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/NbXOjwV5ht0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/NbXOjwV5ht0" target="_blank" rel="noopener noreferrer">https://youtu.be/NbXOjwV5ht0</a>]</div>
+
+        <h2 id="iterated">Iterated Double Integrals</h2>
+
+        <p>In order to go from the approximate volume to the exact volume, we can decrease the size of each sub-rectangle which increase the number of sub-rectangles - the more rectangles, the better the approximation - until we get infinitely many and the approximation becomeds exact.</p>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Double Iterated Integral">
+            <!-- Content goes here. -->
+            <p>For a function \(z = f(x, y)\) defined over a rectangular region \(R\) in the \(xy\)-plane that is divided into \(m\) sub-rectangles along the \(x\)-axis by \(n\) sub-rectangles along the \(y\)-axis, the volume bounded under \(f\) over \(R\) can be computed exactly by the equation below.</p>
+
+            \[V = \lim_{m, \, n \to \infty}{\sum\limits_{i=1}^{m}{\sum\limits_{j=1}^{n}{f\left({{x}_{i}},{{y}_{i}} \right)\Delta A_{ij}}}}\]
+
+            <p>If we choose the sub-rectangles to have a uniform size, then \(\Delta A = \Delta x \Delta y\) where \(\Delta x\) is the width of the sub-rectanagles in the \(x\) direction and \(\Delta y\) is the width of the sub-rectangles in the \(y\) direction.</p>
+        </div>
+
+        <p>The following GeoGebra applet will help illustrate how we can compute the volume below a function \(f(x,y)\) over a rectangular region in the \(xy\)-plane. You may also click-and-drag to rotate the view around the origin.</p>
+
+        <ol>
+            <li>Consider the brown solid below, which is bounded below \(f(x,y)\) over the rectangular region \([0,4]×[0,3]\) in the \(xy\)-plane.</li>
+            <li>Uncheck the Show f(x, y) and Show Solid boxes. Then select the dydx box. We can find the area of the pink region by integrating \(f(x,y)\) with respect to \(y\) from \(y=0\) to \(y=3\). Just like with partial derivatives, treat \(x\) as a constant when evaluating the antiderivative. The result will be a function of only \(x\)'s, so no more \(y\)'s. We then have to integrate this function with respect to \(x\) from \(x=0\) to \(x=4\). You can use the yellow slider to move the pink region along the \(x\)-axis.</li>
+            <li>Uncheck the dydx box and select the dxdy box. We can find the area of the green region by integrating \(f(x,y)\) with respect to \(x\) from \(x=0\) to \(x=4\). Just like with partial derivatives, treat \(y\) as a constant when evaluating the antiderivative. The result will be a function of only \(y\)'s, so no more \(x\)'s. We then have to integrate this function with respect to \(y\) from \(y=0\) to \(y=3\). You can use the yellow slider to move the pink region along the \(y\)-axis.</li>
+        </ol>
+
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+            <!-- Edit the title to clearly state it is an interactive tool: Interactive GeoGebra ... Graphing Calculator Application -->
+                <iframe scrolling="no" title="Interactive GeoGebra Double Integral over a Rectangular Region Graphing Calculator Application" src="https://www.geogebra.org/material/iframe/id/rqqqquzq/width/795/height/477/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" style="border:0px;" height="477px" width="795px"> </iframe>
+            </div>
+        </div>
+        <div class="widget-footer">GeoGebra Applet: [<a href="https://www.geogebra.org/m/jy2r8kh2" target="_blank" rel="noopener noreferrer">https://www.geogebra.org/m/jy2r8kh2</a>]</div>
+
+        <p>The result of the above illustration gives us the following.</p>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Iterated Double Integrals">
+            <!-- Content goes here. -->
+            <p>A <strong>double integral</strong> is defined to be the value of the double Riemann sum, meaning it as an iterated, or nested, pair of definite integrals of the continuous function \(f\) over the rectangular region \(R = [a,b] \times [c,d] = \{ (x,y) \, \vert \, a \le x \le b, c \le y \le d \}\) in the \(xy\)-plane.</p>
+
+            \[
+            \begin{aligned}
+            \underset{R}{\mathop \iint}\, f(x,y) \, dA &= \lim_{m, \, n \to \infty}{\sum\limits_{i=1}^{m}{\sum\limits_{j=1}^{n}{f\left({{x}_{i}},{{y}_{i}} \right)\Delta A_{ij}}}} \\[4pt]
+            &= \int_{a}^{b} \int_{c}^{d}\, f(x,y) \, dydx \\[4pt]
+            &= \int_{c}^{d} \int_{a}^{b}\, f(x,y) \, dxdy
+            \end{aligned}
+            \]
+
+            <p>The order of the differentials, \(dydx\) and \(dxdy\), determines the order of integration. The inner integral is integrated first, so for example \(dxdy\) means we integrate first with respect to \(x\) and then with respect to \(y\). When integrating with respect to one variable, treat any other variables as constants just like when finding partial derivatives.</p>
+        </div>
+
+        <p>The following video will help explain what the two double integrals mean.</p>
+
+        <div class="widget-header">Fubini's Theorem</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/6-sGhUeOOk8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/6-sGhUeOOk8" target="_blank" rel="noopener noreferrer">https://youtu.be/6-sGhUeOOk8</a>]</div>
+
+        <p>The next video works through several examples demonstrating how we can compute the double integral of a function of a rectangular region.</p>
+
+        <div class="widget-header">Introduction to Double Integrals and Volume</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/m08xkaVIHIY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/m08xkaVIHIY" target="_blank" rel="noopener noreferrer">https://youtu.be/m08xkaVIHIY</a>]</div>
+
+        <p>In addition to computing the volume of a solid, double integrals can compute the average value of a function \(f(x,y)\) over a region \(R\). Normally, we think of computing an average by adding up a set of numbers and the dividing by how many numbers were added together. Thus the average value of a function \(f(x,y)\) would be the sum of all values of \(f\) over \(R\) divided by the number of values of \(f\), which would equal the value of the area of \(R\).</p>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Average Value">
+            <!-- Content goes here. -->
+             <p>The <strong>average value</strong> of the function \(f\) over the region \(R\) in the \(xy\)-plane is given by the formula below.</p>
+             
+             \[ \bar{f} = \frac{1}{A} \underset{R}{\mathop \iint}\, f(x,y) \, dA \]
+        </div>
+
+    </main>
+    <!-- End of the main content -->
+
+    <!-- EMPTY PLACEHOLDER FOOTER: Script will automatically inject the copyright blocks -->
+    <footer class="lesson-footer" id="global-site-footer" role="contentinfo"></footer>
+
+    <!--Custom scripts-->
+    <script src="../site-nav.js" defer></script>
+    <script src="../site-ui.js" defer></script>
+    <script src="../site-quizlets.js" defer></script>
+</body>
+
+</html>
