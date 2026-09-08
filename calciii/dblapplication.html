@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../course-styles.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../print-styles.css">
+
+    <!--MathJax links-->
+    <script src="../site-math.js"></script>
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <link rel="icon" type="image/png" href="../logo-s.png">
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button type="button" onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- EMPTY PLACEHOLDER HEADER: Script will automatically inject the logo and subtitle -->
+    <header class="page-header" id="global-site-header" role="banner"></header>
+
+    <!-- Insert this uniform element block across all root, overview, and lesson files -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <!-- Links are automatically populated here via the site-nav.js script -->
+    </div>
+
+    <!-- Main content area shell container is a semantic <main> tag -->
+    <main class="lesson-body" id="main-content">
+        <!-- On This Page Menu -->
+        <nav class="lesson-page-toc" aria-label="On this Page Section Navigation Links">
+            <button class="dropbtn">On this Page</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li><a id="toc-top" href="#top"><!--Filled by page name from script--></a></li>
+                    <li><a href="#mass">Center of Mass</a></li>
+                    <li><a href="#inertia">Moment of Inertia</a></li>
+                    <li><a href="#probability">Probability &amp; Expected Value</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- The main core lesson header is a native semantic <h1> tag -->
+        <h1 id="top"><!--Filled by page name from script--></h1>
+
+        <div class="objective-region" role="region" aria-label="Lesson Objectives">
+            <!-- Content goes here. -->
+            <p>On this page, you will learn to:</p>
+            <ul>
+                <li>Use double integrals to solve applications, such as determining the center of mass of an lamina object.</li>
+            </ul>
+        </div>
+
+        <p>Let's look at some applications of double integrals. Some of these will be similar to applications you would have seen in Calculus II. For example, we compute the center of mass of a thin plate, or a lamina, that has a uniform density. Now we want to consider the mass with a variable density.</p>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Mass of a Lamina Region">
+            <!-- Content goes here. -->
+            <p>For a lamina region \(D\) in the \(xy\)-plane with density function \(\rho(x, y)\), the total <strong>mass of the lamina</strong> is given by the following formula.</p>
+
+            \[m = \underset{D}{\mathop \iint} \,\rho \left( x,y \right) \, dA\]
+
+            <p>Note that \(\rho\) is the Greek letter <em>rho</em> pronounced like "row". Also, don't forget that a lamina is just a flat 2D surface.</p>
+        </div>
+
+        <p>Looking at the above formula, the integrand describes the product of the density \(\rho\) over an infinitely small rectangle times the area \(dA\) of that rectangle. For a lamina region in the \(xy\)-plane, the density is an area density with units like kg/m<sup>2</sup>. Multiplying an area density times its area reduces down to the mass of the lamina at each point. The double integral then sums up the mass at all points within the lamina.</p>
+
+        <div class="widget-header">Find the Mass of a Lamina Over a Region in the xy Plane</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/QBM4psv20Jk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/QBM4psv20Jk" target="_blank" rel="noopener noreferrer">https://youtu.be/QBM4psv20Jk</a>]</div>
+
+        <h2 id="mass">Center of Mass</h2>
+
+        <p>You could think of the center of mass of a lamina object as the point on the lamina where the object would be perfectly balance, like the fulcrum point of a seesaw or balanced scale. To consider how much each point within the lamina will cause it to rotate about the center, we need to account for the mass of each point within the lamina and the distance of each point from the central balance point. We refer to this as the <strong>moments of mass</strong> of the lamina object, \(M_x\) and \(M_y\), which measure the tendancy of the object to rotate about the \(x\) or \(y\) axis, respectively.</p>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Moments of Mass and Center of Mass">
+            <!-- Content goes here. -->
+            <p>Consider a lamina region \(D\) in the \(xy\)-plane with total mass \(m\) and density function \(\rho(x, y)\). The <strong>moments of mass</strong> about the \(x\)-axis and \(y\)-axis can be computed using the formulas below.</p>
+
+            \[
+            \begin{aligned}
+            M_x &= \underset{D}{\mathop \iint} \, y \, \rho \left( x,y \right) \, dA \\[4pt]
+            M_y &= \underset{D}{\mathop \iint} \, x \, \rho \left( x,y \right) \, dA
+            \end{aligned}
+            \]
+
+            <p>The <strong>center of mass</strong> of the lamina can be computed using the following formula.</p>
+
+            \[\left( \bar{x},\bar{y} \right) = \left( \frac{M_y}{m},\frac{M_x}{m} \right)\]
+        </div>
+
+        <p>Let's just briefly look at the moment of mass about the \(x\)-axis formula \(M_x\) to better understand it. Remember that we saw above how the part of the integrand \(\rho\left(x,y\right) \, dA\) is a computation of the mass at each point in the lamina. Multiplying the mass by the \(y\) variable helps account for the distance of each point from the \(x\) axis. Points closer to the \(x\)-axis will have less of a rotational tendancy than points farther away from the \(x\)-axis. The moment about the \(x\) axis is the sum up all the rotational tendencies of all the points within the lamina region. A similar interpretation can be made for \(M_y\). Finding the center of mass involves dividing the mass out of the moments of mass, sort of like computing an average of all the values of rotational tendency in the \(x\) and \(y\) directions.</p>
+
+        <div class="widget-header">Find the Center Mass of a Lamina Over a Region Using Polar Coordinates</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/wvLriBilXb4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/wvLriBilXb4" target="_blank" rel="noopener noreferrer">https://youtu.be/wvLriBilXb4</a>]</div>
+
+        <h2 id="inertia">Moment of Inertia</h2>
+
+        <p>Another physics application of double integrals involves moment of inertia. If moments of mass measure an object's tendency to rotate, then moments of inertia measure an object's tendency to <em>resist</em> rotation. A better way of stating this is that the moment of inertia measures the tendency of an object to resist angular acceleration. If you have a particle mass \(m\), then its moment of inertia about an axis is \(I=mr^2\) where \(m\) is the mass and \(r\) is the distance of the particle from the axis. For a lamina object, we must add up the moments of inertia for all points in the lamina, about both the \(x\) and \(y\) axes, in a similar fashion to how we computed the moments of mass.</p>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Moments of Inertia">
+            <!-- Content goes here. -->
+            <p>Consider a 2D lamina region \(D\) in the \(xy\)-plane with mass \(m\) and density function \(\rho(x, y)\). The <strong>moments of inertia</strong> about the \(x\)-axis, the \(y\)-axis, and the origin can be computed using the following formulas.</p>
+
+            \[
+            \begin{aligned}
+            I_x &= \underset{D}{\mathop \iint} \, y^2 \rho \left( x,y \right) \, dA \\[4pt]
+            I_y &= \underset{D}{\mathop \iint} \, x^2 \rho \left( x,y \right) \, dA \\[4pt]
+            I_o &= \underset{D}{\mathop \iint} \, \left( x^2 + y^2 \right) \rho \left( x,y \right) \, dA
+            \end{aligned}
+            \]
+
+            <p>Note that the moment of inertia about the origin \(I_o\) looks like the sum of the moments of inertia about the axes, but that is because the distance of any point from the origin is a radial distance \(r\), and we know \(r^2 = x^2 + y^2\).</p>
+        </div>
+
+        <p> The following video demonstrates how to compute \(I_x\) for a plane lamina. A similar process could be followed to get \(I_y\) and then \(I_o=I_x+I_y\).</p>
+
+        <div class="widget-header">Use double integrals to find the moments of inertia of a two dimensional object</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/W8nQozDDzZM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/W8nQozDDzZM" target="_blank" rel="noopener noreferrer">https://youtu.be/W8nQozDDzZM</a>]</div>
+
+        <h2 id="probability">Probability &amp; Expected Value</h2>
+
+        <p>The last application we will consider for now is computing the probability of an event happening that depends on two independent variables. For starters, a probability density function of one independent variable is a function \(f\) of a continuous random variable \(X\) such that \(f(x) \ge 0\) for all \(x\) and \(\int_{-\infty}^{\infty} \, f(x) \, dx = 1\). In other words, each outcome has a positive probability and the total probability of all possible outcomes is 1. The probability of a specific set of outcomes where \(X\) lies between values \(a\) and \(b\) can be computed using the following formula.</p>
+
+        \[P(a \le X \le b) = \int_{a}^{b} \, f(x) \, dx\]
+
+        <p>A common example of a probability density function is the exponential density function \(f(x)=\frac{1}{\mu}e^{-X/\mu}\) where \(\mu\) is the mean (or average value) of the probability distribution. Note \(\mu\) is the Greek letter <em>mu</em>, which is often used to represent the mean.</p>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Joint Probability Density Function">
+            <!-- Content goes here. -->
+            <p>If \(X\) and \(Y\) are two random continuous variables, then the <strong>joint density function</strong> of \(X\) and \(Y\) is a function of two variables \(f(x,y)\). The probability that both \(X\) and \(Y\) are within specific ranges, which can be described as the point \((X, Y)\) being with a region \(D\) of the \(xy\)-plane that corresponds to the specified ranges, can be computed using the following formula.</p>
+
+            \[P( (X,Y) \in D) = \underset{D}{\mathop \iint} \, f(x,y) \, dA\]
+
+            <p>Because \(f\) is still a probability density function, both \(f(x,y) \geq 0\) and \(\underset{\mathbb{R}^2}{\mathop \iint }\,f(x,y)~dA=1\) must be true.</p>
+        </div>
+
+        <p>Lastly, we say \(X\) and \(Y\) are <strong>independent random variables</strong> if they are not related to or impact each other. If \(X\) has a probability density function \(f_1(x)\) and \(Y\) has a probability density function \(f_2(y)\), then the joint density function is the product of their individual probability density functions, or \(f(x,y) = f_1(x)f_2(y)\).</p>
+
+        <div class="widget-header">Find a Probability Using the Exponential Density Function</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/PvfFDavUKOc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/PvfFDavUKOc" target="_blank" rel="noopener noreferrer">https://youtu.be/PvfFDavUKOc</a>]</div>
+
+        <p>If we apply a similar concept of the moments of mass to probability, i.e., adding up all of the probabilities times their distance from the mean, then we get the idea of expected value.</p>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Expected Value">
+            <!-- Content goes here. -->
+            <p>The expected value of \(X\) is the mean value of \(X\) and the expected value of \(Y\) is the mean value of \(Y\). We can compute the <strong>expected values of \(X\) and \(Y\)</strong>, \(\mu_x\) and \(\mu_y\) respectively, using the following formulas.</p>
+
+            \[
+            \begin{aligned}
+            \mu_x &= \underset{R}{\mathop \iint} \, x \, f(x,y) \, dA \\[4pt]
+            \mu_y &= \underset{R}{\mathop \iint} \, y \, f(x,y) \, dA
+            \end{aligned}
+            \]
+        </div>
+
+    </main>
+    <!-- End of the main content -->
+
+    <!-- EMPTY PLACEHOLDER FOOTER: Script will automatically inject the copyright blocks -->
+    <footer class="lesson-footer" id="global-site-footer" role="contentinfo"></footer>
+
+    <!--Custom scripts-->
+    <script src="../site-nav.js" defer></script>
+    <script src="../site-ui.js" defer></script>
+    <script src="../site-quizlets.js" defer></script>
+</body>
+
+</html>

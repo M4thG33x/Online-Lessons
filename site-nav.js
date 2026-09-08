@@ -35,7 +35,9 @@ const SiteMap = [
     { courseFolder: "calciii", file: "extrema.html", pageName: "Extrema", lessonName: "Chain Rule, Derivatives, Gradient & Extrema" },
     { courseFolder: "calciii", file: "dblrectangular.html", pageName: "Rectangular Regions", lessonName: "Double & Polar Integrals" },
     { courseFolder: "calciii", file: "dblgeneral.html", pageName: "General Regions", lessonName: "Double & Polar Integrals" },
-    { courseFolder: "calciii", file: "dblpolar.html", pageName: "Polar Regions", lessonName: "Double & Polar Integrals" }
+    { courseFolder: "calciii", file: "dblpolar.html", pageName: "Polar Regions", lessonName: "Double & Polar Integrals" },
+    { courseFolder: "calciii", file: "dblapplication.html", pageName: "Applications", lessonName: "Applications & Surface Area" },
+    { courseFolder: "calciii", file: "dblsurfacearea.html", pageName: "Surface Area", lessonName: "Applications & Surface Area" }
     // { courseFolder: "calciii", file: "fields.html", pageName: "Vector Fields", lessonName: "Vector Fields & Line Integrals" },
     // { courseFolder: "calciii", file: "integrals.html", pageName: "Line Integrals", lessonName: "Vector Fields & Line Integrals" }
 ];
