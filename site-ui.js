@@ -209,7 +209,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function adjustTableStructure() {
         const width = window.innerWidth || document.documentElement.clientWidth;
-        
+
         if (width <= 768) {
             if (isMobileView !== true) {
                 tbody.innerHTML = "";
@@ -217,7 +217,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     stack.forEach(cell => tbody.appendChild(cell.cloneNode(true)));
                 });
                 isMobileView = true;
-                
+
                 // Trigger MathJax re-render immediately after mobile DOM is ready
                 triggerMathJaxRender();
             }
@@ -225,7 +225,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (isMobileView !== false) {
                 tbody.innerHTML = desktopBackupHTML;
                 isMobileView = false;
-                
+
                 // Trigger MathJax re-render immediately after desktop DOM is restored
                 triggerMathJaxRender();
             }

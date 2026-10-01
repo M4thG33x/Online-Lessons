@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../course-styles.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../print-styles.css">
+
+    <!--MathJax links-->
+    <script src="../site-math.js"></script>
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <link rel="icon" type="image/png" href="../logo-s.png">
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button type="button" onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- EMPTY PLACEHOLDER HEADER: Script will automatically inject the logo and subtitle -->
+    <header class="page-header" id="global-site-header" role="banner"></header>
+
+    <!-- Insert this uniform element block across all root, overview, and lesson files -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <!-- Links are automatically populated here via the site-nav.js script -->
+    </div>
+
+    <!-- Main content area shell container is a semantic <main> tag -->
+    <main class="lesson-body" id="main-content">
+        <!-- On This Page Menu -->
+        <nav class="lesson-page-toc" aria-label="On this Page Section Navigation Links">
+            <button class="dropbtn">On this Page</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li><a id="toc-top" href="#top"><!--Filled by page name from script--></a></li>
+                    <li><a href="#eqn">Converting Equations</a></li>
+                    <li><a href="#triple">Triple Integrals</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- The main core lesson header is a native semantic <h1> tag -->
+        <h1 id="top"><!--Filled by page name from script--></h1>
+
+        <div class="objective-region" role="region" aria-label="Lesson Objectives">
+            <!-- Content goes here. -->
+            <p>On this page, you will learn to:</p>
+            <ul>
+                <li>Convert equations between rectangular and cylindrical coordinate systems.</li>
+                <li>Set up and evaluate triple integrals using cylindrical coordinates.</li>
+            </ul>
+        </div>
+
+        <p>The cylindrical coordinate system is an extension of the polar coordinate system from 2D to 3D. Recall that the polar coordinate system defines \( (x,y) \) points as \( (r, \theta ) \) where \(r\) is the radial distance from the origin and \(\theta\) is the rotation about the origin from the positive \(x\)-axis. In the <strong>cylindrical coordinate system</strong>, we express the point \((x,y,z)\) as \((r,\theta,z)\). So the \(x\) and \(y\) position of the point is defined in polar and the height is still \(z\).</p>
+
+        <!-- Update the aria-label with a descriptive title -->
+        <div class="example-region" role="region" aria-label="Example Exercise: Rectangular, Cylindrical, and Spherical">
+            <!-- example body goes here -->
+            <p>The following GeoGebra applet will help illustrate how a point in space can be represented using the rectangular (Cartesian), cylindrical, and spherical coordinate systems.&nbsp;You may click-and-drag to rotate the view around the origin. Use the <span style="color: #ff8000">orange</span> point <b>(x, y)</b> on the xy-plane to change the position of the <span style="color: #0000ff;">blue</span> point on the 3D graph above its xy position, and the <span style="color: #ff8000">orange</span> slider on the xy-plane to adjust its height. </p>
+
+            <ol>
+                <li>Use the graph to review how the rectangular coordinate system represents a point in space.</li>
+                <li>Uncheck the Rectangular box and check the <b>Cylindrical</b> box. The \((x,y,z)\) point will not be expressed using \((r,\theta,z)\).</li>
+                <li>Use the orange point and slider to change the position of the blue point on the 3D axes. The coordinates of the point again appear in the top corner, this time in the form \((r,\theta,z)\).</li>
+            </ol>
+
+            <p>Can you describe what the cylindrical variables \(r\), \(\theta\), and \(z\) represent from the graph?</p>
+
+            <div class="widget-wrap">
+                <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+                <div class="widget-frame-cont ratio-16x9">
+                    <!-- Edit the title to clearly state it is an interactive tool: Interactive GeoGebra ... Graphing Calculator Application -->
+                    <iframe scrolling="no" title="Interactive GeoGebra for Rectangular - Cylindrical - Spherical Coordinates Graphing Calculator Application" src="https://www.geogebra.org/material/iframe/id/shqmsac6/width/795/height/477/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="795px" height="477px" style="border:0px;"> </iframe>
+                </div>
+            </div>
+            <div class="widget-footer">GeoGebra Applet: [<a href="https://www.geogebra.org/m/ncn2cyrd" target="_blank" rel="noopener noreferrer">https://www.geogebra.org/m/ncn2cyrd</a>]</div>
+
+
+            <!-- Interactive button to show/hide the answer usinga aria-expanded attribute -->
+            <!-- Update toggle-sol-1 and sol-content-1 if multiple examples per page -->
+            <button type="button" id="toggle-sol-1" aria-expanded="false" aria-controls="sol-content-1" onclick="toggleSolution('toggle-sol-1', 'sol-content-1')">Show Answer</button>
+            <!-- Uses aria-hidden and mapped relationship ID links cleanly -->
+            <div id="sol-content-1" class="solution" aria-hidden="true">
+                <!-- Example solution goes here -->
+                <p>The cylindrical coordinate variables can be defined as follows.</p>
+
+                <ol>
+                    <li>The variable \(r\) represents the 2D radial distance within the \(xy\)-plane from the origin to the point's projected location onto the \(xy\)-plane.</li>
+                    <li>The variable \(\theta\) represents the angle of rotation about the \(z\)-axis where we often assume \(0 \le \theta \lt 2\pi\). The variable \(\theta\) works exactly the same way in cylindrical as it does in polar.
+                    <li>The variable \(z\) represents the vertical height of the point above or below the \(xy\)-plane, just like it does in the rectangular coordinate system.</li>
+                </ol>
+
+                <p>Note that it is possible to reorient the cylindrical system about a different axis. The standard orientation uses the coordinates \((r,\theta,z)\) where the \(z\)-axis is the pole with \(r\) and \(\theta\) measured within the \(xy\)-plane. This would correspond to a cylinder centered along the \(z\)-axis. However, we could just as easily reorient the system to use the coordinates \((r,\theta,y)\) where the \(y\)-axis is the pole with \(r\) and \(\theta\) measured within the \(xz\)-plane. This would correspond to a cylinder centered along the \(y\)-axis. A similar orientation would involve \((r,\theta,x)\), which would correspond to a cylinder centered along the \(x\)-axis.</p>
+            </div>
+        </div>
+
+        <p>Here are some common graphs in cylindrical coordinates that we will encounter.</p>
+
+        <!-- Multi-Row Multi-Column Row-Grouping Table -->
+        <!-- Number of columns and rows can be increased as needed -->
+        <!-- Each cell must contain the corresponding data-label for mobile screens -->
+        <!-- To center text in <p> tags, include table-center-align in the table class -->
+        <!-- Set the width of the reponsive left column by adding --column-one-width: ###px; to the table style  -->
+        <table class="table-row-group" role="table">
+            <caption>Common Cylindrical Graphs</caption>
+            <thead role="rowgroup">
+                <tr role="row">
+                    <th role="columnheader">Equation</th>
+                    <th role="columnheader">Graph</th>
+                </tr>
+            </thead>
+            <tbody role="rowgroup">
+                <tr role="row">
+                    <td role="cell" data-label="Equation" style="text-align: center;">Cylinder<br> \(r=a\) <br> \((a \gt 0)\)</td>
+                    <td role="cell" data-label="Graph"><img src="content/Cyl-Cylinder.png" alt="Graph of a cylinder."></td>
+                </tr>
+                <tr role="row">
+                    <td role="cell" data-label="Equation" style="text-align: center;">Cone<br> \(z=ar\) <br> \((a \ne 0)\)</td>
+                    <td role="cell" data-label="Graph"><img src="content/Cyl-Cone.png" alt="Graph of a cone."></td>
+                </tr>
+                <tr role="row">
+                    <td role="cell" data-label="Equation" style="text-align: center;">Horizontal Plane<br> \(z=a\)</td>
+                    <td role="cell" data-label="Graph"><img src="content/Cyl-Plane.png" alt="Graph of a plane."></td>
+                </tr>
+                <tr role="row">
+                    <td role="cell" data-label="Equation" style="text-align: center;">Vertical Half Plane<br> \(\theta=a\)</td>
+                    <td role="cell" data-label="Graph"><img src="content/Cyl-HalfPlane.png" alt="Graph of a vertical half plane."></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="eqn">Converting Equations</h2>
+
+        <p>There are four equations that we may need in order to convert equations between the rectangular and cylinderical coordinate systems. The first equation comes from the equation of a circle with radius \(r\) centered at the origin while the other equations are the result of applying some right triangle trigonometry.</p>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Cylindrical Coordinate Conversion Equation">
+            <!-- Content goes here. -->
+            We can convert between rectangular coordinates \((x,y,z)\) and cylindrical coordinates \((r, \theta, z)\) using the equations below.
+
+            <div class="flex-grid-container" style="margin-bottom: 0;">
+                <!-- columns: flex-col-2, flex-col-3, or flex-col-4 -->
+                <div class="flex-grid-item flex-col-4" style="padding: 0;">
+                    \[x^2 + y^2 = r^2\]
+                </div>
+                <!-- columns: flex-col-2, flex-col-3, or flex-col-4 -->
+                <div class="flex-grid-item flex-col-4" style="padding: 0;">
+                    \[x = r \cos(\theta)\]
+                </div>
+                <!-- columns: flex-col-2, flex-col-3, or flex-col-4 -->
+                <div class="flex-grid-item flex-col-4" style="padding: 0;">
+                    \[y = r \sin(\theta)\]
+                </div>
+                <!-- columns: flex-col-2, flex-col-3, or flex-col-4 -->
+                <div class="flex-grid-item flex-col-4" style="padding: 0;">
+                    \[\tan(\theta) = \frac{y}{x}\]
+                </div>
+            </div>
+        </div>
+
+        <p>The following videos give a few examples demonstrating how to convert equations between rectangular and cylindrical coordinates.</p>
+
+        <div class="widget-header">Write a Cylindrical Equations in Rectangular Form</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/uec-1Jw1Cso" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/uec-1Jw1Cso" target="_blank" rel="noopener noreferrer">https://youtu.be/uec-1Jw1Cso</a>]</div>
+
+        <div class="widget-header">Write a Rectangular Equations in Cylindrical Form</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/upCpfdZCffY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/upCpfdZCffY" target="_blank" rel="noopener noreferrer">https://youtu.be/upCpfdZCffY</a>]</div>
+
+        <h2 id="triple">Triple Integrals</h2>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas:  Triple Integrals in Cylindrical">
+            <!-- Content goes here. -->
+            <p>Given a continuous function \(f(x,y,z)\) through a solid \(D\) whose projection onto the \(xy\)-plane is a single region that can be expressed using polar coordinates, the <strong>triple integral in cylindrical coordinates</strong> of \(f\) over \(D\) can be computed using the following integral where \(D\) can be described by \(g_1(r,\theta) \le z \le g_2(r,\theta)\), \(h_1(\theta) \le r \le h_2(\theta)\), and \(\alpha \le \theta \le \beta\) for continuous functions \(g_1\), \(g_2\), \(h_1\), and \(h_2\).</p>
+
+            \[\underset{D}{\mathop \iiint} \, f(x,y,z) \, dV = \int_{\alpha}^{\beta}\int_{h_1(\theta)}^{h_2(\theta)}\int_{g_1(r,\theta)}^{g_2(r,\theta)} \, f(r,\theta,z) \, r \, dz \, dr \, d\theta\]
+
+            <p>The integrand will always contain an extra \(r\) expression as part of the conversion of \(dV\) from rectangular to cylindrical (polar). We will typically assume that \(r \ge 0\) and \(0 \le \theta \lt 2\pi\). While it is possible to change the order of integration, that would often require changing how the bounds are determined and that is not always easy. So, you will normally use the \(dz \, dr \, d\theta\) order of integration.</p>
+        </div>
+
+        <div class="widget-header">Triple Integrals Using Cylindrical Coordinates</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/SyEd-uBHnwA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/SyEd-uBHnwA" target="_blank" rel="noopener noreferrer">https://youtu.be/SyEd-uBHnwA</a>]</div>
+
+        <div class="widget-header">Rewrite Triple Integrals Using Cylindrical Coordinates</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/mQgW-FeH88Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/mQgW-FeH88Q" target="_blank" rel="noopener noreferrer">https://youtu.be/mQgW-FeH88Q</a>]</div>
+
+        <div class="widget-header">Triple Integral and Volume Using Cylindrical Coordinates</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/tsbFhR-A_JA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/tsbFhR-A_JA" target="_blank" rel="noopener noreferrer">https://youtu.be/tsbFhR-A_JA</a>]</div>
+
+    </main>
+    <!-- End of the main content -->
+
+    <!-- EMPTY PLACEHOLDER FOOTER: Script will automatically inject the copyright blocks -->
+    <footer class="lesson-footer" id="global-site-footer" role="contentinfo"></footer>
+
+    <!--Custom scripts-->
+    <script src="../site-nav.js" defer></script>
+    <script src="../site-ui.js" defer></script>
+    <script src="../site-quizlets.js" defer></script>
+</body>
+
+</html>

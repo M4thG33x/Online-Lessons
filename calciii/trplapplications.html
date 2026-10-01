@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../course-styles.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../print-styles.css">
+
+    <!--MathJax links-->
+    <script src="../site-math.js"></script>
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <link rel="icon" type="image/png" href="../logo-s.png">
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button type="button" onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- EMPTY PLACEHOLDER HEADER: Script will automatically inject the logo and subtitle -->
+    <header class="page-header" id="global-site-header" role="banner"></header>
+
+    <!-- Insert this uniform element block across all root, overview, and lesson files -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <!-- Links are automatically populated here via the site-nav.js script -->
+    </div>
+
+    <!-- Main content area shell container is a semantic <main> tag -->
+    <main class="lesson-body" id="main-content">
+        <!-- On This Page Menu -->
+        <nav class="lesson-page-toc" aria-label="On this Page Section Navigation Links">
+            <button class="dropbtn">On this Page</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li><a id="toc-top" href="#top"><!--Filled by page name from script--></a></li>
+                    <li><a href="#apps">Mass &amp; Inertia</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- The main core lesson header is a native semantic <h1> tag -->
+        <h1 id="top"><!--Filled by page name from script--></h1>
+
+        <div class="objective-region" role="region" aria-label="Lesson Objectives">
+            <!-- Content goes here. -->
+            <p>On this page, you will learn to:</p>
+            <ul>
+                <li>Solve applications involving triple integrals.</li>
+            </ul>
+        </div>
+
+        <p>We can use triple integrals to solve many applications that are similar to those we discussed using double integrals. The primary difference is that we usually consider lamina regions with double integrals but we can now look at 3D solids, surfaces, and shapes with triple integrals. The formulas for these applications are similar to their corresponding double integral formulas, just with an added dimension. For example, double integrals of mass involve an <em>area</em> density while triple integrals of mass now work with the typical <em>volume</em> density function.</p>
+
+        <p>Given a 3-dimensional solid \(D\) with continuous density function \(\delta (x,y,z) \), the formulas for mass, moments of mass, and center of mass are given below. Notice that the moments of mass now describe the tendency for an object to rotate about a coordinate plane.</p>
+
+        <!-- Multi-Row Multi-Column Row-Grouping Table -->
+        <!-- Number of columns and rows can be increased as needed -->
+        <!-- Each cell must contain the corresponding data-label for mobile screens -->
+        <!-- To center text in <p> tags, include table-center-align in the table class -->
+        <!-- Set the width of the reponsive left column by adding --column-one-width: ###px; to the table style  -->
+        <table class="table-row-group" role="table">
+            <caption>Mass in 3D</caption>
+            <thead role="rowgroup">
+                <tr role="row">
+                    <th role="columnheader">Mass</th>
+                    <th role="columnheader">Moments of Mass</th>
+                    <th role="columnheader">Center of Mass</th>
+                </tr>
+            </thead>
+            <tbody role="rowgroup">
+                <tr role="row">
+                    <td role="cell" data-label="Mass">\[m = \underset{D}{\mathop \iiint} \, \delta (x,y,z) \, dV\]</td>
+                    <td role="cell" data-label="Moments of Mass">
+                        \[
+                        \begin{aligned}
+                        M_{yz} &= \underset{D}{\mathop \iiint} \, x \, \delta (x,y,z) \, dV \\[4pt]
+                        M_{xz} &= \underset{D}{\mathop \iiint} \, y \, \delta (x,y,z) \, dV \\[4pt]
+                        M_{xy} &= \underset{D}{\mathop \iiint} \, z \, \delta (x,y,z) \, dV
+                        \end{aligned}
+                        \]
+                    </td>
+                    <td role="cell" data-label="Center of Mass">\[\left( \bar{x}, \bar{y}, \bar{z} \right) = \left(\frac{M_{yz}}{m},\frac{M_{xz}}{m},\frac{M_{xy}}{m}\right) \]</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>The video below gives an example of finding the mass of a 3D solid of variable density.</p>
+
+        <div class="widget-header">Application of Triple Integrals: Mass</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/cFSRXum_3Es" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/cFSRXum_3Es" target="_blank" rel="noopener noreferrer">https://youtu.be/cFSRXum_3Es</a>]</div>
+
+        <p>We can also compute moments of inertia around the coordinate plane using the following formulas. Notice the similarities between these and the formulas that we use for inertia in 2D space about the axes and the origin. Note that some formulas use \(\delta\) for density while other formulas use \(\rho\), but it doesn't really matter which letter is used. Having said that, you may not want to use \(\rho\) for density when using spherical coordinates since \(\rho\) is a coordinate variable in the spherical system.</p>
+
+        <!-- Multi-Row Multi-Column Row-Grouping Table -->
+        <!-- Number of columns and rows can be increased as needed -->
+        <!-- Each cell must contain the corresponding data-label for mobile screens -->
+        <!-- To center text in <p> tags, include table-center-align in the table class -->
+        <!-- Set the width of the reponsive left column by adding --column-one-width: ###px; to the table style  -->
+        <table class="table-row-group" role="table">
+            <caption>Moments of Inertia in 3D</caption>
+            <thead role="rowgroup">
+                <tr role="row">
+                    <th role="columnheader">About the \(x\)-Axis</th>
+                    <th role="columnheader">About the \(y\)-Axis</th>
+                    <th role="columnheader">About the \(z\)-Axis</th>
+                </tr>
+            </thead>
+            <tbody role="rowgroup">
+                <tr role="row">
+                    <td role="cell" data-label="About the x-Axis">\[I_x = \underset{D}{\mathop \iiint} \, (y^2+z^2) \rho (x,y,z) \, dV\]</td>
+                    <td role="cell" data-label="About the y-Axis">\[I_y = \underset{D}{\mathop \iiint} \, (x^2+z^2) \rho (x,y,z) \, dV\]</td>
+                    <td role="cell" data-label="About the z-Axis">\[I_z = \underset{D}{\mathop \iiint} \, (x^2+y^2) \rho (x,y,z) \, dV\]</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>The following video works through an example of a moment of inertia of a solid around the z-axis.</p>
+
+        <div class="widget-header">Find the Moment of Inertia about the z-axis of a Solid Using Triple Integrals</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/ZQl_95J8shM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/ZQl_95J8shM" target="_blank" rel="noopener noreferrer">https://youtu.be/ZQl_95J8shM</a>]</div>
+
+        <p>We can also use the cylindrical and spherical coordinate systems to determine the mass, moments of mass and inertia, and center of mass. However, be aware that the formulas for center of mass still result in rectangular coordinates, \(\left( \bar{x}, \bar{y}, \bar{z} \right)\). Using the cylindrical and spherical systems only transforms the interior of the integrals, its boundaries and density function, not the output of the integrals.</p>
+
+        <div class="widget-header">Use a Triple Integral to Determine the Mass of an Cone Cut From Sphere (Spherical)</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/1I9IcDD-Hc4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/1I9IcDD-Hc4" target="_blank" rel="noopener noreferrer">https://youtu.be/1I9IcDD-Hc4</a>]</div>
+
+        <div class="widget-header">Find the Center of Mass of a Solid Using Triple Integrals</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/BoE2qE0rUro" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/BoE2qE0rUro" target="_blank" rel="noopener noreferrer">https://youtu.be/BoE2qE0rUro</a>]</div>
+
+        <div class="widget-header">Moment of inertia of a cylinder</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/iYFogDTPlRo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/iYFogDTPlRo" target="_blank" rel="noopener noreferrer">https://youtu.be/iYFogDTPlRo</a>]</div>
+
+    </main>
+    <!-- End of the main content -->
+
+    <!-- EMPTY PLACEHOLDER FOOTER: Script will automatically inject the copyright blocks -->
+    <footer class="lesson-footer" id="global-site-footer" role="contentinfo"></footer>
+
+    <!--Custom scripts-->
+    <script src="../site-nav.js" defer></script>
+    <script src="../site-ui.js" defer></script>
+    <script src="../site-quizlets.js" defer></script>
+</body>
+
+</html>

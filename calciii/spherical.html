@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../course-styles.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../print-styles.css">
+
+    <!--MathJax links-->
+    <script src="../site-math.js"></script>
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <link rel="icon" type="image/png" href="../logo-s.png">
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button type="button" onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- EMPTY PLACEHOLDER HEADER: Script will automatically inject the logo and subtitle -->
+    <header class="page-header" id="global-site-header" role="banner"></header>
+
+    <!-- Insert this uniform element block across all root, overview, and lesson files -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <!-- Links are automatically populated here via the site-nav.js script -->
+    </div>
+
+    <!-- Main content area shell container is a semantic <main> tag -->
+    <main class="lesson-body" id="main-content">
+        <!-- On This Page Menu -->
+        <nav class="lesson-page-toc" aria-label="On this Page Section Navigation Links">
+            <button class="dropbtn">On this Page</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li><a id="toc-top" href="#top"><!--Filled by page name from script--></a></li>
+                    <li><a href="#eqn">Converting Equations</a></li>
+                    <li><a href="#triple">Triple Integrals</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- The main core lesson header is a native semantic <h1> tag -->
+        <h1 id="top"><!--Filled by page name from script--></h1>
+
+        <div class="objective-region" role="region" aria-label="Lesson Objectives">
+            <!-- Content goes here. -->
+            <p>On this page, you will learn to:</p>
+            <ul>
+                <li>Convert equations between rectangular and spherical coordinate systems.</li>
+                <li>Set up and evaluate triple integrals using spherical coordinates.</li>
+            </ul>
+        </div>
+
+        <p>Of the three coordinate systems, the spherical coordinate system is probably the most difficult. This is partially the case because it is the least familiar -- you have been using the rectangular system for most of your mathematical life and cylinderical is just an extended polar structure, but spherical is defined in an almost completely different way. In addition, the variables we use and how they are used may vary slightly if you venture into other fields of study. For example, math and engineering may swap what a couple of the variables represent, or they may list the coordinates in a different order. We will use the spherical coordinates \((\rho, \phi, \theta)\), where \(\rho\) is the Greek letter <em>rho</em> pronounced as "row," \(\phi\) is the Greek letter <em>phi</em> usually pronounced as "fee" like in "feet," and of course \(\theta\) is the Greek letter <em>theta</em>.</p>
+
+        <!-- Update the aria-label with a descriptive title -->
+        <div class="example-region" role="region" aria-label="Example Exercise: Rectangular, Cylindrical, and Spherical">
+            <!-- example body goes here -->
+            <p>The following GeoGebra applet will help illustrate how a point in space can be represented using the rectangular (Cartesian), cylindrical, and spherical coordinate systems.&nbsp;You may click-and-drag to rotate the view around the origin. Use the <span style="color: #ff8000">orange</span> point <b>(x, y)</b> on the xy-plane to change the position of the <span style="color: #0000ff;">blue</span> point on the 3D graph above its xy position, and the <span style="color: #ff8000">orange</span> slider on the xy-plane to adjust its height. </p>
+
+            <ol>
+                <li>Use the graph to review how the rectangular and cylindrical coordinate systems represent a point in space.</li>
+                <li>Uncheck the Rectangular and Cylindrical boxes, and check the <b>Spherical</b> box. The current location of the blue point will switch from \((x,y,z)\) to \((\rho,\phi,\theta)\).</li>
+                <li>Use the orange point and slider to change the position of the blue point on the 3D axes. The coordinates of the point again appear in the top corner, this time in the form \((\rho, \phi, \theta)\).</li>
+            </ol>
+
+            <p>Can you describe what the spherical variables \(\rho\), \(\phi\), and \(\theta\) represent from the graph?</p>
+
+            <div class="widget-wrap">
+                <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+                <div class="widget-frame-cont ratio-16x9">
+                    <!-- Edit the title to clearly state it is an interactive tool: Interactive GeoGebra ... Graphing Calculator Application -->
+                    <iframe scrolling="no" title="Interactive GeoGebra for Rectangular - Cylindrical - Spherical Coordinates Graphing Calculator Application" src="https://www.geogebra.org/material/iframe/id/shqmsac6/width/795/height/477/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="795px" height="477px" style="border:0px;"> </iframe>
+                </div>
+            </div>
+            <div class="widget-footer">GeoGebra Applet: [<a href="https://www.geogebra.org/m/ncn2cyrd" target="_blank" rel="noopener noreferrer">https://www.geogebra.org/m/ncn2cyrd</a>]</div>
+
+
+            <!-- Interactive button to show/hide the answer usinga aria-expanded attribute -->
+            <!-- Update toggle-sol-1 and sol-content-1 if multiple examples per page -->
+            <button type="button" id="toggle-sol-1" aria-expanded="false" aria-controls="sol-content-1" onclick="toggleSolution('toggle-sol-1', 'sol-content-1')">Show Answer</button>
+            <!-- Uses aria-hidden and mapped relationship ID links cleanly -->
+            <div id="sol-content-1" class="solution" aria-hidden="true">
+                <!-- Example solution goes here -->
+                <p>The spherical coordinate variables can be defined as follows.</p>
+
+                <ol>
+                    <li>The variable \(\rho\) represents the direct or slanted distance from the origin to the point's location. It is a 3D radial distance from the origin with \(\rho \ge 0\).</li>
+                    <li>The variable \(\phi\) represents the angle of rotation from the positive \(z\)-axis to the point with \(0 \le \phi \le \pi\). This means that \(\phi = 0\) corresponds to a point on the positive \(z\)-axis, \(\phi = \frac{\pi}{2}\) corresponds to a point in the \(xy\)-plane, and \(\phi = \pi\) corresponds to a point on the negative \(z\)-axis.</li>
+                    <li>The variable \(\theta\) represents the angle of rotation about the \(z\)-axis. We often assume \(0 \le \theta \lt 2\pi\). The variable \(\theta\) works exactly the same way in spherical as it does in cylindrical.</li>
+                </ol>
+            </div>
+        </div>
+
+
+        <p>Here are some common graphs in spherical coordinates that we will encounter.</p>
+
+        <!-- Multi-Row Multi-Column Row-Grouping Table -->
+        <!-- Number of columns and rows can be increased as needed -->
+        <!-- Each cell must contain the corresponding data-label for mobile screens -->
+        <!-- To center text in <p> tags, include table-center-align in the table class -->
+        <!-- Set the width of the reponsive left column by adding --column-one-width: ###px; to the table style  -->
+        <table class="table-row-group" role="table">
+            <caption>Common Spherical Graphs</caption>
+            <thead role="rowgroup">
+                <tr role="row">
+                    <th role="columnheader">Equation</th>
+                    <th role="columnheader">Graph</th>
+                </tr>
+            </thead>
+            <tbody role="rowgroup">
+                <tr role="row">
+                    <td role="cell" data-label="Equation" style="text-align: center;">Sphere at \((0,0,0)\) <br> \(\rho=a\) <br> \((a \gt 0)\)</td>
+                    <td role="cell" data-label="Graph"><img src="content/Sph-Sphere.png" alt="Graph of a sphere centered at the origin."></td>
+                </tr>
+                <tr role="row">
+                    <td role="cell" data-label="Equation" style="text-align: center">Sphere at \((0,0,a)\) <br> \(\rho=2a\cos(\phi)\) <br> \((a \gt 0,\, 0 \le \phi \le \pi/2)\)</td>
+                    <td role=" cell" data-label="Graph"><img src="content/Sph-ShiftedSphere.png" alt="Graph of a sphere of radius a centered at (0, 0, a)."></td>
+                </tr>
+                <tr role="row">
+                    <td role="cell" data-label="Equation" style="text-align: center">Cylinder<br> \(\rho=a\csc(\phi)\) <br> \((a \gt 0,\, 0 \lt \phi \lt \pi)\)</td>
+                    <td role=" cell" data-label="Graph"><img src="content/Cyl-Cylinder.png" alt="Graph of a cylinder."></td>
+                </tr>
+                <tr role="row">
+                    <td role="cell" data-label="Equation" style="text-align: center">Cone<br> \(\phi=a\) <br> \((a \ne 0, \pi/2, \pi)\)</td>
+                    <td role=" cell" data-label="Graph"><img src="content/Cyl-Cone.png" alt="Graph of a cone."></td>
+                </tr>
+                <tr role="row">
+                    <td role="cell" data-label="Equation" style="text-align: center">Horizontal Plane<br> \(\rho=a \sec(\phi)\) <br> \((0 \le \phi \lt \pi/2)\)</td>
+                    <td role=" cell" data-label="Graph"><img src="content/Cyl-Plane.png" alt="Graph of a horizontal plane."></td>
+                </tr>
+                <tr role="row">
+                    <td role="cell" data-label="Equation" style="text-align: center">Vertical Half Plane<br> \(\theta=a\)</td>
+                    <td role=" cell" data-label="Graph"><img src="content/Cyl-HalfPlane.png" alt="Graph of a vertical half plane."></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="eqn">Converting Equations</h2>
+
+        <p>There are four equations that we may need in order to convert equations between the rectangular and spherical coordinate systems. The first equation comes from the equation of a sphere centered at the origin while the other equations are the result of applying some right triangle trigonometry.</p>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Spherical Coordinate Conversion Equation">
+            <!-- Content goes here. -->
+            We can convert between rectangular coordinates \((x,y,z)\) and spherical coordinates \((\rho, \phi, \theta)\) using the equations below.
+
+
+            <div class="flex-grid-container" style="margin-bottom: 0;">
+                <!-- columns: flex-col-2, flex-col-3, or flex-col-4 -->
+                <div class="flex-grid-item flex-col-4" style="padding: 0;">
+                    \[x^2 + y^2 + z^2 = \rho^2\]
+                </div>
+                <!-- columns: flex-col-2, flex-col-3, or flex-col-4 -->
+                <div class="flex-grid-item flex-col-4" style="padding: 0;">
+                    \[x = \rho \sin(\phi) \cos(\theta)\]
+                </div>
+                <!-- columns: flex-col-2, flex-col-3, or flex-col-4 -->
+                <div class="flex-grid-item flex-col-4" style="padding: 0;">
+                    \[y = \rho \sin(\phi) \sin(\theta)\]
+                </div>
+                <!-- columns: flex-col-2, flex-col-3, or flex-col-4 -->
+                <div class="flex-grid-item flex-col-4" style="padding: 0;">
+                    \[z = \rho \cos(\phi)\]
+                </div>
+            </div>
+        </div>
+
+        <p>The following videos give a few examples demonstrating how to convert equations between rectangular and cylindrical coordinates.</p>
+
+        <div class="widget-header">Write Spherical Equations in Rectangular Form</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/GChPkbgG55A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/GChPkbgG55A" target="_blank" rel="noopener noreferrer">https://youtu.be/GChPkbgG55A</a>]</div>
+
+        <div class="widget-header">Convert a Spherical Equation to a Rectangular Equation rho=2csc(phi)</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/wdVmiU5Z-HE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/wdVmiU5Z-HE" target="_blank" rel="noopener noreferrer">https://youtu.be/wdVmiU5Z-HE</a>]</div>
+
+        <div class="widget-header">Convert a Spherical Equation to a Rectangular Equation phi=pi/6</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/574uuUmwp9k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/574uuUmwp9k" target="_blank" rel="noopener noreferrer">https://youtu.be/574uuUmwp9k</a>]</div>
+
+        <div class="widget-header">Convert a Rectangular Equation to a Spherical Equation x^2+y^2+z^2-9z=0</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/duZQ3atoiIs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/duZQ3atoiIs" target="_blank" rel="noopener noreferrer">https://youtu.be/duZQ3atoiIs</a>]</div>
+
+        <div class="widget-header">Convert a Rectangular Equation to a Spherical Equation x^2+y^2-z^2=0</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/fJQm6mF4L54" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/fJQm6mF4L54" target="_blank" rel="noopener noreferrer">https://youtu.be/fJQm6mF4L54</a>]</div>
+
+        <h2 id="triple">Triple Integrals</h2>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Triple Integrals in Spherical">
+            <!-- Content goes here. -->
+            <p>Given a continuous function \(f(x,y,z)\) through a solid \(D\) that can be expressed using spherical coordinates, the <strong>triple integral in spherical coordinates</strong> of \(f\) over \(D\) can be computed using the follow formula where \(D\) can be desribed by the inequalities \(g_1(\phi,\theta) \le \rho \le g_2(\phi,\theta)\), \(c \le \phi \le d\), and \(\alpha \le \theta \le \beta\) for continuous functions \(g_1\) and \(g_2\).</p>
+
+            \[\underset{D}{\mathop \iiint} \, f(x,y,z) \, dV = \int_{\alpha}^{\beta}\int_{c}^{d}\int_{g_1(\phi,\theta)}^{g_2(\phi,\theta)} \, f(\rho, \phi, \theta) \rho^2 \sin(\phi) \, d\rho \, d\phi \, d\theta\]
+
+            <p>The integrand will always contain the \(\rho^2 \sin(\phi)\) expression as part of the conversion of \(dV\) from rectangular to spherical. We will typically assume that \(\rho \ge 0\), \(0 \le \phi \le \pi\), and \(0 \le \theta \lt 2\pi\). While it is possible to change the order of integration, that would often require changing how the bounds are determined and that is not always easy. So, you will normally use the \(d\rho \, d\phi \, d\theta\) order of integration.</p>
+        </div>
+
+        <div class="widget-header">Introduction to Triple Integrals Using Spherical Coordinates</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/JMOttmQBtmY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/JMOttmQBtmY" target="_blank" rel="noopener noreferrer">https://youtu.be/JMOttmQBtmY</a>]</div>
+
+        <div class="widget-header">Triple Integrals and Volume using Spherical Coordinates</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/UTIjALWr6GM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/UTIjALWr6GM" target="_blank" rel="noopener noreferrer">https://youtu.be/UTIjALWr6GM</a>]</div>
+
+    </main>
+    <!-- End of the main content -->
+
+    <!-- EMPTY PLACEHOLDER FOOTER: Script will automatically inject the copyright blocks -->
+    <footer class="lesson-footer" id="global-site-footer" role="contentinfo"></footer>
+
+    <!--Custom scripts-->
+    <script src="../site-nav.js" defer></script>
+    <script src="../site-ui.js" defer></script>
+    <script src="../site-quizlets.js" defer></script>
+</body>
+
+</html>

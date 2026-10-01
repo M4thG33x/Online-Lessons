@@ -14,7 +14,7 @@ html {
 
 body {
     font-family: Calibri, Arial, Verdana, Georgia, sans-serif;
-    font-size: 1.1em;
+    font-size: 1.1rem;
 
     height: auto;
     min-height: 100%;
@@ -960,7 +960,7 @@ figure figcaption {
 .table-standard-data {
     width: 80%;
     margin: 2rem auto;
-    font-family: sans-serif;
+    /* font-family: sans-serif; */
     border-collapse: separate;
     border-spacing: 15px 0px;
     /* 15px horizontal gap between columns, 0px vertical gap between rows */
@@ -973,7 +973,7 @@ figure figcaption {
 .table-scroll-target caption,
 .table-standard-data caption {
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     padding: 0.75rem;
     text-align: center;
     width: 100%;
@@ -989,6 +989,7 @@ figure figcaption {
     background-color: #005480;
     color: #ffffff;
     font-weight: 600;
+    font-size: 1.25rem;
     padding: 0.75rem;
     text-align: center;
 }
@@ -1214,6 +1215,7 @@ figure figcaption {
         box-sizing: border-box;
         color: #000000;
         font-weight: normal;
+        font-size: 1.1rem;
 
         /* Swaps background line divider map to match your dynamic column boundary width */
         background-image: linear-gradient(to right, transparent var(--column-one-width), #005480 var(--column-one-width));
@@ -1387,7 +1389,7 @@ figure figcaption {
 /* --- Flex Grid Container --- */
 .flex-grid-container {
     display: flex;
-    gap: 15px;
+    gap: 5px;
     justify-content: center;
     flex-wrap: wrap;
     margin-bottom: 20px;
@@ -1421,7 +1423,7 @@ figure figcaption {
     /* Use for a flex grid with a total of 4 columns */
     .flex-col-4 {
         flex: 0 1 22%;
-        min-width: 200px;
+        min-width: 150px;
     }
 }
 
