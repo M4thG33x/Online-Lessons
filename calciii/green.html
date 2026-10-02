@@ -95,12 +95,17 @@
 
         <p>So what is curl? We will define a way to compute this more generally later, but for now lets look at the expression \(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\). If we have the vector field \(\vec{F} = \langle P,Q \rangle\), then \(\frac{\partial Q}{\partial x}\) describes how the \(y\)-component is changing in the \(x\) direction and \(\frac{\partial P}{\partial y}\) describes how the \(x\)-component is changing in the \(y\) direction. If one of these is greater than the other, then we can conclude that the vector field itself has a rotational or spinning effect at each point within the field, which is what we call <strong>curl</strong>.</p>
 
-        <p>Putting this all together, Green's Theorem says that the <em>circulation along the boundary curve</em> is equal to the <em>curl inside the region</em> bounded by the curve. Here are a few additional things to note.</p>
+        <!-- Update the aria-label with a descriptive title -->
+        <div class="example-region" role="region" aria-label="Summary of Green's Theorem">
+            <!-- example body goes here -->
+            <p>Putting this all together, Green's Theorem says that the <em>circulation along the boundary curve</em> is equal to the <em>curl inside the region</em> bounded by the curve. Here are a few additional things to note.</p>
 
-        <ul>
-            <li>The vector field \(\vec{F}\) is <strong>irrotational</strong> on a region \(D\) if the curl is 0 throughout the entire region \(D\), which means the field does not have a rotational or spinning effect within \(D\).</li>
-            <li>The curl of a closed curve on a conservative field is 0. This is because we know that \(\frac{\partial Q}{\partial x} = \frac{\partial P}{\partial y}\) for conservative fields.</li>
-        </ul>
+            <ul>
+                <li>The vector field \(\vec{F}\) is said to be <strong>irrotational</strong> on a region if the curl is 0 throughout the entire region, which means the field does not have a rotational or spinning effect within that region.</li>
+                <li>The circulation and curl of a closed curve on a conservative field are 0. This is because we know that \(\frac{\partial Q}{\partial x} = \frac{\partial P}{\partial y}\) for conservative fields.</li>
+            </ul>
+        </div>
+
 
         <div class="widget-header">Green's Theorem - Part 1</div>
         <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
