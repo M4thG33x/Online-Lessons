@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../course-styles.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../print-styles.css">
+
+    <!--MathJax links-->
+    <script src="../site-math.js"></script>
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <link rel="icon" type="image/png" href="../logo-s.png">
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button type="button" onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- EMPTY PLACEHOLDER HEADER: Script will automatically inject the logo and subtitle -->
+    <header class="page-header" id="global-site-header" role="banner"></header>
+
+    <!-- Insert this uniform element block across all root, overview, and lesson files -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <!-- Links are automatically populated here via the site-nav.js script -->
+    </div>
+
+    <!-- Main content area shell container is a semantic <main> tag -->
+    <main class="lesson-body" id="main-content">
+        <!-- On This Page Menu -->
+        <nav class="lesson-page-toc" aria-label="On this Page Section Navigation Links">
+            <button class="dropbtn">On this Page</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li><a id="toc-top" href="#top"><!--Filled by page name from script--></a></li>
+                    <li><a href="#scalar">Scalar Functions</a></li>
+                    <li><a href="#vector">Vector Fields</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- The main core lesson header is a native semantic <h1> tag -->
+        <h1 id="top"><!--Filled by page name from script--></h1>
+
+        <div class="objective-region" role="region" aria-label="Lesson Objectives">
+            <!-- Content goes here. -->
+            <p>On this page, you will learn to:</p>
+            <ul>
+                <li>Setup and evaluate line integrals of scalar functions and vector fields over smooth curves.</li>
+                <li>Compute the work done by a vector field.</li>
+            </ul>
+        </div>
+
+
+        <p>Before getting into line integrals, let's first review how we can parameterize a curve. In other words, how can we define a function or curve in \(\mathbb{R}^2\) or \(\mathbb{R}^3\) using a vector function where its components are continuous functions of a single parameter? Mathematically, we are looking for something like \(\vec{F} = \langle x(t), y(t), z(t) \rangle\).</p>
+
+        <p>We will often see problems that involve parameterizations using linear functions or using a given function. For linear parameterizations, we can use the vector linear function \(\vec{r}(t) = \vec{r}_0 + \vec{v}t\) where \(\vec{r}_0\) is the initial position vector and \(\vec{v}\) is sthe direction vector. If instead we are given some function, think \(y = f(x)\) in \(\mathbb{R}^2\), then we could use the parameterization \(\vec{r}(t) = \langle t, f(t) \rangle\).</p>
+
+        <div class="widget-header">Defining a Smooth Parameterization of a Path</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/Vyltj0MpuTU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/Vyltj0MpuTU" target="_blank" rel="noopener noreferrer">https://youtu.be/Vyltj0MpuTU</a>]</div>
+
+        <p>Now that we have discussed how to parameterize a curve, we can move on to line integrals. The first thing you need to know is that we can explore line integrals over two different types of functions, scalar functions and over vector fields. A scalar function is any function of the form \(y = f(x)\) or \(z = f(x,y)\), where the output is a scalar value for every point in the domain of the function. A vector field is any function of the form \(\vec{F}(x,y)\) where the ouput is a vector for every point in the domain of the function.</p>
+
+        <h2 id="scalar">Scalar Functions</h2>
+
+        <p>We say a function or curve is <strong>smooth</strong> if it has no sharp corners or cusps, which means it is differentiable at every point within its domain. A parameterized curve \(\vec{r}(t)\) is smooth if \(\vec{r}'(t)\) is continuous and \(\vec{r}'(t) \ne 0\). If an entire curve is not smooth but it can be broken down into a finite number of smaller smooth curves, then we say it is <strong>piecewise smooth</strong>.</p>
+
+        <p>Recall in Calculus 1 how we defined a definite integral as the sum of infinitely many rectangles of height \(f(x)\) and width \(dx\) under a curve along the \(x\)-axis, or a summation of areas computed by \(f(x) dx\). A line integral of a scalar function is basically the same idea, but we are not bound to just integrate along the \(x\)-axis. We want to follow any curve \(C\) in the \(xy\)-plane. This is illustrated in the image below.</p>
+
+        <figure>
+            <img src="content/scalarlineint.png" alt="Graph of a curve C in the xy-plane with rectangular regions extending vertically in the z-direction to a height of a function f(x,y).">
+            <figcaption>Line Integral of a Scalar Function</figcaption>
+        </figure>
+
+        <p>In the illustration above, the black curve in the \(xy\)-plane is the path or curve \(C\) along which we want to integrate. The yellow curve above it is all the points of the function \(z = f(x,y)\) that lie above \(C\). The line integral can intuitively be defined as the area under this curve which is represented as a series of rectangles standing vertically along \(C\). The height of each rectangle is determined by the height of the function at some point of the rectangle, \(h = f(x,y)\), and the width of each rectangle can be computed by the differential of the arc length, \(w = \Delta s = ds\). Thus the area of each rectangle is \(A = hw = f(x,y) ds\) and the total area would be the sum of all of the rectangular areas, or \(\int_{C} f(x,y) ds\).</p>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Line Integral of a Scalar Function">
+            <!-- Content goes here. -->
+            <p>For a scalar function \(f\) that is continuous along a (piecewise) smooth curve \(C\) in \(\mathbb{R}^2\) defined by \(\vec{r}(t) = \langle x(t),y(t) \rangle\) for \(a \le t \le b\), the <strong>line integral of \(f\) over \(C\)</strong> is defined by the formula below.</p>
+
+            \[\underset{C}{\mathop \int} \, f(x,y) \, ds = \int_{a}^{b} \, f(x(t),y(t)) \, \vert \vec{r}'(t) \vert \, dt\]
+
+            <p>This definition can easily be extended into \(\mathbb{R}^3\) given a function \(f(x,y,z)\) and a parameterized curve \(\vec{r}(t) = \langle x(t),y(t),z(t) \rangle\). Also, you may hear line integrals called "path" integrals as well, where \(C\) is the path.</p>
+        </div>
+
+        <p>The left side of this formula gives the more technical definition of a line integral as the integration of the function \(f\) along the curve \(C\) with respect to its arc length, \(ds\). This means \(\vec{r}\) is parameterized by its arc length, or \(\vec{r}(s)\). This arc length parameterization is required for a uniform incremental summation along the curve \(C\). However, parameterizing a curve by its arc length is not always easy or the best method. The right side of the above formula gives the more practical expression of a line integral because it allows us to use any parameterization \(\vec{r}(t)\) of \(C\). So, we will typically evaluate line integrals by integrating with respect to \(t\), or using \(dt\). The key to connecting these two integrals comes from the differential relationship \(ds = |\vec{r}'(t)| \, dt\).</p>
+
+        <div class="widget-header">Line Integrals in R^2</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/2ZhmB2a-HQU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/2ZhmB2a-HQU" target="_blank" rel="noopener noreferrer">https://youtu.be/2ZhmB2a-HQU</a>]</div>
+
+        <div class="widget-header">Line Integrals in R^3</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/HIBwmbN8m9Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/HIBwmbN8m9Q" target="_blank" rel="noopener noreferrer">https://youtu.be/HIBwmbN8m9Q</a>]</div>
+
+        <h2 id="vector">Vector Fields</h2>
+
+        <p>Now let's consider line integrals over curves in vector fields. Instead of thinking about the area under the curve, we want to look at the relationship between the flow of the field and the direction of the curve, which can be measured using the dot product of the vector field with the <em>unit</em> tangent vector of the curve at every point along the curve using infinitely small steps measured by the arc length.</p>
+
+        <figure>
+            <img src="content/vectorlineint.png" alt="Graph of a vector field across the xy-plane containing a curve C with its unit tangent vectors.">
+            <figcaption>Line Integral through a Vector Field</figcaption>
+        </figure>
+
+        <p>In the illustration above, we have a curve and its unit tangent vectors shown at regular intervals, all of which is contained within a vector field in the \(xy\)-plane. We are going to define the line integral as the summation of the \(\vec{T} \cdot \vec{F} \, ds\) values at every point along the curve.</p>
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Line Integral of a Vector Field">
+            <!-- Content goes here. -->
+            <p>For a vector field \(\vec{F}\) that is continuous over a (piecewise) smooth curve \(C\) defined by \(\vec{r}(t) = \langle x(t),y(t) \rangle\) for \(a \le t \le b\) with unit tangent vector \(\vec{T}\), the <strong>line integral of \(\vec{F}\) over \(C\)</strong> is defined by the formula below.</p>
+
+            \[\underset{C}{\mathop \int} \, \vec{F} \cdot \vec{T} \, ds = \underset{C}{\mathop \int} \, \vec{F} \cdot \, d\vec{r} = \int_{a}^{b} \, \vec{F}(\vec{r}(t)) \cdot \vec{r}'(t) \, dt\]
+
+            <p>Given a vector field \(\vec{F} = \langle P,Q \rangle\) with continuous functions \(P\) and \(Q\) and \(\vec{r}'(t) dt = \langle dx, dy\), we can rewrite the line integral using the formula below.</p>
+
+            \[\underset{C}{\mathop \int} \, \vec{F} \cdot \, d\vec{r} = \underset{C}{\mathop \int} \, P \, dx + Q \, dy\]
+
+            <p>This can all be easily extended into \(\mathbb{R}^3\) given a function \(\vec{F} = \langle P,Q,R \rangle\) and a parameterized curve \(\vec{r}(t) = \langle x(t),y(t),z(t) \rangle\).</p>
+        </div>
+
+        <p>The left side of the definition formula above gives the more technical definition of a line integral of a vector field as the integration of the <strong>tangential component</strong> of the field along the curve with respect to its arc length. We typically express the line integral using the middle part of the formula, \(\int_{C} \, \vec{F} \cdot \, d\vec{r}\), which is the result of substituting \(ds = |\vec{r}'(t)| \, dt\), then \(\vec{T} = \frac{\vec{r}'(t)}{|\vec{r}'(t)|}\), and lastly \(d\vec{r} = \vec{r}'(t) \, dt\).</p>
+
+        \[\vec{T} \, ds = \vec{T} \, |\vec{r}'(t)| \, dt = \frac{\vec{r}'(t)}{|\vec{r}'(t)|} \, |\vec{r}'(t)| \, dt = \vec{r}'(t) \, dt = d\vec{r}\]
+
+        <p>The right side of the formula gives the more practical expression for how we actually compute the line integral using any parameterization of the curve.</p>
+
+        <div class="widget-header">Line Integral of Vector Fields</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/3edJPRkCV9k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/3edJPRkCV9k" target="_blank" rel="noopener noreferrer">https://youtu.be/3edJPRkCV9k</a>]</div>
+
+        <p>A common application of line integrals over a vector field is computing the work done by the vector field as an object moves along a path. The following video demonstrates how we can compute the work done by a vector field in 3D space.</p>
+
+        <div class="widget-header">Line Integral Application - Work of a Charged Particle</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/uPmDh__MEYk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/uPmDh__MEYk" target="_blank" rel="noopener noreferrer">https://youtu.be/uPmDh__MEYk</a>]</div>
+
+    </main>
+    <!-- End of the main content -->
+
+    <!-- EMPTY PLACEHOLDER FOOTER: Script will automatically inject the copyright blocks -->
+    <footer class="lesson-footer" id="global-site-footer" role="contentinfo"></footer>
+
+    <!--Custom scripts-->
+    <script src="../site-nav.js" defer></script>
+    <script src="../site-ui.js" defer></script>
+    <script src="../site-quizlets.js" defer></script>
+</body>
+
+</html>

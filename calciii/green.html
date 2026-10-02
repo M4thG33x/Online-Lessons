@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../course-styles.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../print-styles.css">
+
+    <!--MathJax links-->
+    <script src="../site-math.js"></script>
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <link rel="icon" type="image/png" href="../logo-s.png">
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button type="button" onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- EMPTY PLACEHOLDER HEADER: Script will automatically inject the logo and subtitle -->
+    <header class="page-header" id="global-site-header" role="banner"></header>
+
+    <!-- Insert this uniform element block across all root, overview, and lesson files -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <!-- Links are automatically populated here via the site-nav.js script -->
+    </div>
+
+    <!-- Main content area shell container is a semantic <main> tag -->
+    <main class="lesson-body" id="main-content">
+        <!-- On This Page Menu -->
+        <nav class="lesson-page-toc" aria-label="On this Page Section Navigation Links">
+            <button class="dropbtn">On this Page</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li><a id="toc-top" href="#top"><!--Filled by page name from script--></a></li>
+                    <!-- <li><a href="#operations">...</a></li> -->
+                </ul>
+            </div>
+        </nav>
+
+        <!-- The main core lesson header is a native semantic <h1> tag -->
+        <h1 id="top"><!--Filled by page name from script--></h1>
+
+        <div class="objective-region" role="region" aria-label="Lesson Objectives">
+            <!-- Content goes here. -->
+            <p>On this page, you will learn to:</p>
+            <ul>
+                <li>Evaluate line integrals using Green's Theorem.</li>
+            </ul>
+        </div>
+
+
+        <p>Green's Theorem gives us a relationship between the line integral over a curve and the double integral of the region bounded within the curve. Recall the following terms.</p>
+
+        <ul>
+            <li>A region is <strong>simply connected</strong> if it doesn't have holes or breaks.</li>
+            <li>A <strong>simple</strong> curve does not intersect itself.</li>
+            <li>A curve is <strong>closed</strong> if it starts and ends at the same point.</li>
+            <li>A <strong>smooth</strong> curve does not have any cusps or sharp corners, and its derivative is continuous.</li>
+            <li>A curve is <strong>piecewise smooth</strong> if it can be described as a finite set of smooth curves.</li>
+        </ul>
+
+        <p>In addition, we can also talk about the <strong>orientation</strong> of a curve, which refers to the direction that the curve is drawn or generated. We usually define a curve \(C\) to have a positive orientation if it is traversed one time in the counterclockwise direction. The region \(D\) below is simply connected and it is bounded by a simple, closed, positively oriented, smooth curve \(C\). Notice that \(D\) is to the "left" of \(C\) as you travel around the curve.</p>
+
+        <figure>
+            <img src="content/OrientedCurve.png" alt="Image of a region D with an oriended boundary curve C.">
+            <figcaption>Positively Oriented Curve</figcaption>
+        </figure>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Green's Theorem for Line Integrals and Circulation">
+            <!-- Content goes here. -->
+            <p><strong>Greens' Theorem for Line Integrals</strong>: Let \(D\) be a simply connected region in the \(xy\)-plane bounded by a simple, closed, positively oriented, piecewise smooth curve \(C\). If \(\vec{F} = \langle P,Q \rangle\) where \(P\) and \(Q\) have continuous first partial derivatives in \(D\), then the line integral of the vector field \(\vec{F}\) over the curve \(C\) is equal to the curl inside the region bounded by \(C\).</p>
+
+            \[\underset{C}{\mathop \oint} \, \vec{F} \cdot d\vec{r} = \underset{C}{\mathop \oint} \, P \, dx + Q \, dy = \underset{D}{\mathop \iint} \, \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) \, dA\]
+
+            <p>The symbol \(\mathop \oint \) is often used to express that \(C\) is a closed curve.</p>
+        </div>
+
+        <p>The left part of the above formula is the line integral of the vector field \(\vec{F}\) over the curve \(C\). The middle portion is an alternate way to express the line integral as the result of computing the dot product \(\vec{F} \cdot d\vec{r} = \langle P,Q \rangle \cdot \langle dx,dy \rangle\). The right portion says that the line integral is equal to the double integral of the curl of \(\vec{F}\) over the region \(D\).</p>
+
+        <p>This definition introduces a new term which we call curl. But what is curl? To answer that, lets first back up to the definition of the vector field line integral, which involved a summation of \(\vec{F} \cdot \vec{T}\) values. This dot product represents a measure of how much of the field is pointing in the direction of the curve at each point along the curve, which might be thougt of as a rotational effect. If the curve is closed, then this dot product could be thought of describing how the field circulates around the region bounded by the curve. So, we say that the vector line integral of a closed curve, \(\oint_{C} \, \vec{F} \cdot d\vec{r}\), measures the amount of <strong>circulation</strong> caused by the field.</p>
+
+        <p>So what is curl? We will define a way to compute this more generally later, but for now lets look at the expression \(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\). If we have the vector field \(\vec{F} = \langle P,Q \rangle\), then \(\frac{\partial Q}{\partial x}\) describes how the \(y\)-component is changing in the \(x\) direction and \(\frac{\partial P}{\partial y}\) describes how the \(x\)-component is changing in the \(y\) direction. If one of these is greater than the other, then we can conclude that the vector field itself has a rotational or spinning effect at each point within the field, which is what we call <strong>curl</strong>.</p>
+
+        <p>Putting this all together, Green's Theorem says that the <em>circulation along the boundary curve</em> is equal to the <em>curl inside the region</em> bounded by the curve. Here are a few additional things to note.</p>
+
+        <ul>
+            <li>The vector field \(\vec{F}\) is <strong>irrotational</strong> on a region \(D\) if the curl is 0 throughout the entire region \(D\), which means the field does not have a rotational or spinning effect within \(D\).</li>
+            <li>The curl of a closed curve on a conservative field is 0. This is because we know that \(\frac{\partial Q}{\partial x} = \frac{\partial P}{\partial y}\) for conservative fields.</li>
+        </ul>
+
+        <div class="widget-header">Green's Theorem - Part 1</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/sDby9VzPoj4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/sDby9VzPoj4" target="_blank" rel="noopener noreferrer">https://youtu.be/sDby9VzPoj4</a>]</div>
+
+        <div class="widget-header">Green's Theorem - Part 2</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/oXISOEqd0X4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/oXISOEqd0X4" target="_blank" rel="noopener noreferrer">https://youtu.be/oXISOEqd0X4</a>]</div>
+
+        <p>The next video gives an example where the given curve has a negative orientation. Remember that Green's Theorem requires a positive orientation. So what can we do if it is negative?</p>
+
+        <div class="widget-header">Use Green's Theorem to Evaluate a Line Integral (Negative Orientation)</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/bdxFPZbF53E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/bdxFPZbF53E" target="_blank" rel="noopener noreferrer">https://youtu.be/bdxFPZbF53E</a>]</div>
+
+        <p>We can also use Green's Theorem to compute the area of a region. Recall that we can compute the area of a region using the double integral \(\iint_{R} dA\), meaning we assume the integrand function is \(f(x,y) = 1\). Let's apply that to Green's Theorem. What expressions could be used for \(P\) and \(Q\) so that \(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} = 1\)? Several options include \(\vec{F} = \langle 0,x \rangle\), \(\vec{F} = \langle -y,0 \rangle\), and \(\vec{F} = \frac{1}{2} \langle -y,x \rangle\). Applying Green's Theorem and expressing each of these as the line integral \(\int_{C} \, P \, dx + Q \, dy\) gives us the following.</p>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Greens Theorem and Area">
+            <!-- Content goes here. -->
+            <p>Assuming we have a region \(D\) and curve \(C\) that satisfy the requirements for Green's Theorem, the area of \(D\) can be computed using any of the integrals below.</p>
+
+            \[A_D = \underset{C}{\mathop \oint} \, x \, dy = -\underset{C}{\mathop \oint} \, y \, dx = \frac{1}{2} \underset{C}{\mathop \oint}\, (x \, dy - y \, dx)\]
+        </div>
+
+        <div class="widget-header">Determining Area using Line Integrals</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/WmGa-OpDP80" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/WmGa-OpDP80" target="_blank" rel="noopener noreferrer">https://youtu.be/WmGa-OpDP80</a>]</div>
+
+    </main>
+    <!-- End of the main content -->
+
+    <!-- EMPTY PLACEHOLDER FOOTER: Script will automatically inject the copyright blocks -->
+    <footer class="lesson-footer" id="global-site-footer" role="contentinfo"></footer>
+
+    <!--Custom scripts-->
+    <script src="../site-nav.js" defer></script>
+    <script src="../site-ui.js" defer></script>
+    <script src="../site-quizlets.js" defer></script>
+</body>
+
+</html>

@@ -41,9 +41,11 @@ const SiteMap = [
     { courseFolder: "calciii", file: "triple.html", pageName: "Triple Integrals", lessonName: "Triple, Cylindrical, & Spherical Integrals" },
     { courseFolder: "calciii", file: "cylindrical.html", pageName: "Cylindrical Coordinates", lessonName: "Triple, Cylindrical, & Spherical Integrals" },
     { courseFolder: "calciii", file: "spherical.html", pageName: "Spherical Coordinates", lessonName: "Triple, Cylindrical, & Spherical Integrals" },
-    { courseFolder: "calciii", file: "trplapplications.html", pageName: "Applications", lessonName: "Triple, Cylindrical, & Spherical Integrals" }
-    // { courseFolder: "calciii", file: "fields.html", pageName: "Vector Fields", lessonName: "Vector Fields & Line Integrals" },
-    // { courseFolder: "calciii", file: "integrals.html", pageName: "Line Integrals", lessonName: "Vector Fields & Line Integrals" }
+    { courseFolder: "calciii", file: "trplapplications.html", pageName: "Applications", lessonName: "Triple, Cylindrical, & Spherical Integrals" },
+    { courseFolder: "calciii", file: "vectorfields.html", pageName: "Vector Fields", lessonName: "Vector Fields & Line Integrals" },
+    { courseFolder: "calciii", file: "lineintegrals.html", pageName: "Line Integrals", lessonName: "Vector Fields & Line Integrals" },
+    { courseFolder: "calciii", file: "fundamental.html", pageName: "Fundamental Theorem", lessonName: "Fundamental Theorem & Green's Theorem" },
+    { courseFolder: "calciii", file: "green.html", pageName: "Green's Theorem", lessonName: "Fundamental Theorem & Green's Theorem" }
 ];
 
 

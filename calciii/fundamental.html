@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../course-styles.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../print-styles.css">
+
+    <!--MathJax links-->
+    <script src="../site-math.js"></script>
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <link rel="icon" type="image/png" href="../logo-s.png">
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button type="button" onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- EMPTY PLACEHOLDER HEADER: Script will automatically inject the logo and subtitle -->
+    <header class="page-header" id="global-site-header" role="banner"></header>
+
+    <!-- Insert this uniform element block across all root, overview, and lesson files -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <!-- Links are automatically populated here via the site-nav.js script -->
+    </div>
+
+    <!-- Main content area shell container is a semantic <main> tag -->
+    <main class="lesson-body" id="main-content">
+        <!-- On This Page Menu -->
+        <nav class="lesson-page-toc" aria-label="On this Page Section Navigation Links">
+            <button class="dropbtn">On this Page</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li><a id="toc-top" href="#top"><!--Filled by page name from script--></a></li>
+                    <li><a href="#ftc">FTC & Line Integrals</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- The main core lesson header is a native semantic <h1> tag -->
+        <h1 id="top"><!--Filled by page name from script--></h1>
+
+        <div class="objective-region" role="region" aria-label="Lesson Objectives">
+            <!-- Content goes here. -->
+            <p>On this page, you will learn to:</p>
+            <ul>
+                <li>Determine if a vector field is conservative.</li>
+                <li>Determine potential functions for conservative fields.</li>
+            </ul>
+        </div>
+
+        <p>Before we get to the fundamental theorem over vector fields, we need to look at conservative vector fields a bit more. We have already seen that a vector field \(\vec{F}\) is conservative if there exists a potential function \(f\) such that \(\vec{F} = \nabla f\). So for a given vector field \(\vec{F}\), how do we (1) determine if \(\vec{F}\) is conservative, and (2) determine the potential function \(f\) if it is conservative?</p>
+
+        <p>In order to answer these questions, we first need to define a few terms describing the types of curves and regions that we could find in the \(xy\)-plane.</p>
+
+        <!-- Multi-Row Multi-Column Row-Grouping Table -->
+        <!-- Number of columns and rows can be increased as needed -->
+        <!-- Each cell must contain the corresponding data-label for mobile screens -->
+        <!-- To center text in <p> tags, include table-center-align in the table class -->
+        <!-- Set the width of the reponsive left column by adding --column-one-width: ###px; to the table style  -->
+        <table class="table-row-group" role="table">
+            <caption>Types of Curves and Regions</caption>
+            <thead role="rowgroup">
+                <tr role="row">
+                    <th role="columnheader">Definition</th>
+                    <th role="columnheader">Illustration</th>
+                </tr>
+            </thead>
+            <tbody role="rowgroup">
+                <tr role="row">
+                    <td role="cell" data-label="Definition">
+                        <p>A curve is <strong>simple</strong> if it does not cross or intersect itself.</p>
+                        <p>A curve is <strong>closed</strong> if its ending point and starting point are the same.</p>
+                    </td>
+                    <td role="cell" data-label="Illustration">
+                        <img src="content/CurveTypes.png" alt="Illustration of regions that are (1) simple but not closed, (2) not simple and not closed, (3) simple and closed, (4) not simple but closed.">
+                    </td>
+                </tr>
+                <tr role="row">
+                    <td role="cell" data-label="Definition">
+                        <p>A region is <strong>connected</strong> if it is a single region, even though it may contain holes.</p>
+                        <p>A region is <strong>simply-connected</strong> if it does not have any holes or gaps.</p>
+                        <p>A region is <strong>open</strong> if it doesn't constain any of its boundary points.</p>
+                    </td>
+                    <td role="cell" data-label="Illustration">
+                        <img src="content/RegionTypes.png" alt="Illustration of regions that are (1) closed but not connected, (2) closed and connected, (3) closed and simply-connected, (4) open and simply-connected.">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>Now that we have laid that foundation, how do we determine if a vector field \(\vec{F}\) is conservative? Well, recall that the gradient of a function is the vector formed by the first partial derivatives of the functon, thus a conservative is a gradient field, i.e., \(\vec{F} = \nabla f = \langle f_x,f_y \rangle\). Also, the mixed second partial derivatives will be equal if \(f\) is continuous, i.e. \(f_{xy} = f_{yx}\). So, given a vector field \(\vec{F} = \langle P,Q \rangle\) where \(P = f_x\) and \(Q = f_y\), then \(\frac{\partial P}{\partial y} = f_{xy}\) and \(\frac{\partial Q}{\partial x} = f_{yx}\), and thus the continutiy of \(f\) tells us that \(f_{xy} = f_{yx} \implies \frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}\).</p>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Test for Conservative Fields">
+            <!-- Content goes here. -->
+            <p><strong>Testing for Conservative Fields</strong>: For a given vector field \(\vec{F} = \langle P,Q \rangle\) defined over an open, simply-connect region \(D\) in the \(xy\)-plane where \(P\) and \(Q\) both have continuous first-order partial derivatives, \(\vec{F}\) is conservative if for all points in \(D\) the following relationship holds.</p>
+
+            \[\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}\]
+
+            <p><em>Note that is test only works for vector fields in \(\mathbb{R}^2\).</em></p>
+        </div>
+
+        <p>Once we determine that a vector field is conservative, how do we find the potential function? Well, from the above theorem, if \(\vec{F} = \langle P,Q \rangle\) then we know \(P = f_x\) and \(Q = f_y\) since \(\vec{F}\) is a gradient field. Then \(f\) is the potential function and we can determine \(f\) by integrating \(P\) and \(Q\) with respect to \(x\) and \(y\), respectively.</p>
+
+        <div class="widget-header">Determining the Potential Function of a Conservative Vector Field</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/nQkHh2psLck" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/nQkHh2psLck" target="_blank" rel="noopener noreferrer">https://youtu.be/nQkHh2psLck</a>]</div>
+
+        <h2 id="ftc">FTC &amp; Line Integrals</h2>
+
+        <p>Recall the <strong>Fundamental Theorem of Calculus</strong> from Calculus I, which says the definite integral of a continuous function could be determined by just computing the values of the antiderivative at the endpoints, where \(F' = f\).</p>
+
+        \[\int_{a}^{b}\,f(x)~dx = F(b)-F(a)\]
+
+        <p>We can extend this idea to evaluting line integrals.</p>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: FTC for Line Integrals">
+            <!-- Content goes here. -->
+            <p><strong>FTC for Line Integrals</strong>: Given a smooth curve \(C\) parameterized by the vector functon \(\vec{r}(t)\) for \(a \le t \le b\) and a conservative field \(\vec{F}\) with differentiable function \(f\) such that \(\vec{F} = \nabla f\) is continuous on \(C\), the line integral of \(\vec{F}\) over \(C\) can be computed using only the endpoints, \(A = \vec{r}(a)\) and \(B = \vec{r}(b)\).</p>
+
+            \[\underset{C}{\mathop \int} \, \vec{F} \cdot \, d\vec{r} = f(B) - f(A)\]
+        </div>
+
+        <!-- Update the aria-label with a descriptive title -->
+        <div class="example-region" role="region" aria-label="Summary of Conservative Fields">
+            <!-- example body goes here -->
+            <p>Let's summarize all we know about conservative fields.</p>
+
+            <ul>
+                <li>Conservative fields and gradient fields are the equivalent.</li>
+                <li>A conservative field \(\vec{F}\) has a potential function \(f\) such that \(\vec{F} = \nabla f\).</li>
+                <li>We can use the FTC to evaluate line integrals over conservative fields.</li>
+                <li>Line integrals over conservative fields are <strong>path independent</strong>, which means that the line integrals over any two curves \(C_1\) and \(C_2\) having the same end points will be equal. In other words, \(\int_{C_1} \vec{F} \cdot \, d\vec{r} = \int_{C_2} \vec{F} \cdot \, d\vec{r}\).</li>
+                <li>If \(C\) is a closed curve, then \(\oint_{C} \vec{F} \cdot \, d\vec{r} = 0\).</li>
+            </ul>
+        </div>
+
+        <p>The following videos will demonstrate three different methods to evaluating line integrals on a vector field depending on whether the field is conservative or not.</p>
+
+        <div class="widget-header">The Fundamental Theorem of Line Integrals - Part 1</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/Td6g2bvJh18" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/Td6g2bvJh18" target="_blank" rel="noopener noreferrer">https://youtu.be/Td6g2bvJh18</a>]</div>
+        
+        <div class="widget-header">Ex 1: Fundamental Theorem of Line Integrals - Given Vector Field in a Plane</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/62oBGKSjYiY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/62oBGKSjYiY" target="_blank" rel="noopener noreferrer">https://youtu.be/62oBGKSjYiY</a>]</div>
+        
+        <div class="widget-header">Ex 2: Fundamental Theorem of Line Integrals - Given Vector Field in a Plane (Not Conservative)</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/Eh6OinLiGWg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/Eh6OinLiGWg" target="_blank" rel="noopener noreferrer">https://youtu.be/Eh6OinLiGWg</a>]</div>
+
+    </main>
+    <!-- End of the main content -->
+
+    <!-- EMPTY PLACEHOLDER FOOTER: Script will automatically inject the copyright blocks -->
+    <footer class="lesson-footer" id="global-site-footer" role="contentinfo"></footer>
+
+    <!--Custom scripts-->
+    <script src="../site-nav.js" defer></script>
+    <script src="../site-ui.js" defer></script>
+    <script src="../site-quizlets.js" defer></script>
+</body>
+
+</html>

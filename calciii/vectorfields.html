@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../course-styles.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../print-styles.css">
+
+    <!--MathJax links-->
+    <script src="../site-math.js"></script>
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <link rel="icon" type="image/png" href="../logo-s.png">
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button type="button" onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- EMPTY PLACEHOLDER HEADER: Script will automatically inject the logo and subtitle -->
+    <header class="page-header" id="global-site-header" role="banner"></header>
+
+    <!-- Insert this uniform element block across all root, overview, and lesson files -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <!-- Links are automatically populated here via the site-nav.js script -->
+    </div>
+
+    <!-- Main content area shell container is a semantic <main> tag -->
+    <main class="lesson-body" id="main-content">
+        <!-- On This Page Menu -->
+        <nav class="lesson-page-toc" aria-label="On this Page Section Navigation Links">
+            <button class="dropbtn">On this Page</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li><a id="toc-top" href="#top"><!--Filled by page name from script--></a></li>
+                    <!-- <li><a href="#operations">...</a></li> -->
+                </ul>
+            </div>
+        </nav>
+
+        <!-- The main core lesson header is a native semantic <h1> tag -->
+        <h1 id="top"><!--Filled by page name from script--></h1>
+
+        <div class="objective-region" role="region" aria-label="Lesson Objectives">
+            <!-- Content goes here. -->
+            <p>On this page, you will learn to:</p>
+            <ul>
+                <li>Identify and sketch vector fields.</li>
+                <li>Determine gradient fields.</li>
+            </ul>
+        </div>
+
+        <p>A vector field in \(\mathbb{R}^2\) is a function defined over a region \(D\) in the \(xy\)-plane that assigns to each point \((x, y)\) in \(D\) a vector \(\vec{F}(x, y)\).</p>
+
+        <!-- Multi-Row Multi-Column Row-Grouping Table -->
+        <!-- Number of columns and rows can be increased as needed -->
+        <!-- Each cell must contain the corresponding data-label for mobile screens -->
+        <!-- To center text in <p> tags, include table-center-align in the table class -->
+        <!-- Set the width of the reponsive left column by adding --column-one-width: ###px; to the table style  -->
+        <table class="table-row-group" role="table">
+            <caption>Vector Field Examples</caption>
+            <thead role="rowgroup">
+                <tr role="row">
+                    <th role="columnheader">Description</th>
+                    <th role="columnheader">Graph</th>
+                </tr>
+            </thead>
+            <tbody role="rowgroup">
+                <tr role="row">
+                    <td role="cell" data-label="Description">
+                        <p style="text-align: center;"><strong>Rotation Vector Field</strong></p>
+
+                        \[\vec{F}(x,y) = \langle -y, x \rangle\]
+
+                        <p>A rotation vector could be used to describe the flow of water in a sink around the drain.</p>
+                    </td>
+                    <td role="cell" data-label="Graph" style="min-width: 300px;">
+                        <img src="content/RotationField.png" alt="Graph of a rotation vector field with vectors forming a counter-clockwise rotation about the origin.">
+                    </td>
+                </tr>
+                <tr role="row">
+                    <td role="cell" data-label="Description">
+                        <p style="text-align: center;"><strong>Radial Vector Field</strong></p>
+
+                        \[\vec{F}(x,y) = \langle x, y \rangle\]
+
+                        <p>A radial vector field could be used to describe a repulsive (or attractive) force, where all vectors point outward (or inward) from (to) a central point.</p>
+                    </td>
+                    <td role="cell" data-label="Graph" style="min-width: 300px;">
+                        <img src="content/RadialField.png" alt="Graph of a radial vector field with vectors pointing outward from the origin.">
+                    </td>
+                </tr>
+                <tr role="row">
+                    <td role="cell" data-label="Description">
+                        <p style="text-align: center;"><strong>Flow Vector Field</strong></p>
+
+                        \[\vec{F}(x,y) = \langle \frac{1}{y2 + 1}, 0 \rangle\]
+
+                        <p>A flow vector field could be used to describe the flow of a fluid through an object, such as water through a hose or blood through a vein, or even traffic flow on a road.</p>
+                    </td>
+                    <td role="cell" data-label="Graph" style="min-width: 300px;">
+                        <img src="content/FlowField.png" alt="Graph of a flow vector field with parallel vectors pointing in the positive direction between y = -1 and y = 1.">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>Similarly, a vector field in \(\mathbb{R}^3\) is a function defined over a region \(E\) in 3D space that assigns to each point \((x,y,z)\) in \(E\) a vector \(\vec{F}(x,y,z)\). Such a vector field could describe the air current across an airplane wing or within a hurricane, the radiation of heat from a light source or the temperature fluxuation in a solid, or a gravitational, magnetic, force, or energy field.</p>
+
+        <div class="widget-header">Introduction to Vector Fields</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/pwiSCrlP98o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/pwiSCrlP98o" target="_blank" rel="noopener noreferrer">https://youtu.be/pwiSCrlP98o</a>]</div>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Gradient Field">
+            <!-- Content goes here. -->
+            <p>The vector field \(\vec{F}\) such that \(\vec{F} = \nabla f\) for a differentiable function \(f\) is called a <strong>gradient field</strong>. In \(\mathbb{R}^2\) and in \(\mathbb{R}^3\), we get the following formulas.</p>
+
+            \[
+            \begin{aligned}
+            \vec{F}(x,y) &= \nabla f(x,y) = \langle f_x(x,y), f_y(x,y)\rangle \\[4pt]
+            \vec{F}(x,y,z) &= \nabla f(x,y,z) = \langle f_x(x,y,z), f_y(x,y,z), f_z(x,y,z)\rangle
+            \end{aligned}
+            \]
+
+            <p>In other words, a gradient field is a vector field defined by the gradient of a scalar function \(f\). Its component functions are the partial derivatives of the scalar function \(f\).</p>
+        </div>
+
+        <p>One thing that makes gradient fields so special is that since the vectors in the field are all gradient vectors, they will all be orthogonal (or perpendicular) to the level curves of the contour map of the function \(f\). This is illustrated in the following video.</p>
+
+        <div class="widget-header">Find the Gradient Vector Field of f(x,y)=x^3y^5</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/RtlnSzeKGvw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/RtlnSzeKGvw" target="_blank" rel="noopener noreferrer">https://youtu.be/RtlnSzeKGvw</a>]</div>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Conservative Fields and Potential Functions">
+            <!-- Content goes here. -->
+            <p>We say a vector field \(\vec{F}\) is <strong>conservative</strong> if it is the gradient of some scalar function \(f\). In other words, there is some scalar function \(f\) such that \(\vec{F} = \nabla f\) and we call \(f\) the <strong>potential function</strong> for \(\vec{F}\).</p>
+        </div>
+
+        <p>We will look at conservative fields in more detail in another lesson as well as how we can determine the potential function of a conservative field.</p>
+    </main>
+    <!-- End of the main content -->
+
+    <!-- EMPTY PLACEHOLDER FOOTER: Script will automatically inject the copyright blocks -->
+    <footer class="lesson-footer" id="global-site-footer" role="contentinfo"></footer>
+
+    <!--Custom scripts-->
+    <script src="../site-nav.js" defer></script>
+    <script src="../site-ui.js" defer></script>
+    <script src="../site-quizlets.js" defer></script>
+</body>
+
+</html>
