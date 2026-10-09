@@ -45,7 +45,14 @@ const SiteMap = [
     { courseFolder: "calciii", file: "vectorfields.html", pageName: "Vector Fields", lessonName: "Vector Fields & Line Integrals" },
     { courseFolder: "calciii", file: "lineintegrals.html", pageName: "Line Integrals", lessonName: "Vector Fields & Line Integrals" },
     { courseFolder: "calciii", file: "fundamental.html", pageName: "Fundamental Theorem", lessonName: "Fundamental Theorem & Green's Theorem" },
-    { courseFolder: "calciii", file: "green.html", pageName: "Green's Theorem", lessonName: "Fundamental Theorem & Green's Theorem" }
+    { courseFolder: "calciii", file: "green.html", pageName: "Green's Theorem", lessonName: "Fundamental Theorem & Green's Theorem" },
+    { courseFolder: "calciii", file: "curldiv.html", pageName: "Curl & Divergence", lessonName: "Curl & Divergence, Parameterization & Surface Integrals" },
+    { courseFolder: "calciii", file: "parameterization.html", pageName: "Parameterization", lessonName: "Curl & Divergence, Parameterization & Surface Integrals" },
+    { courseFolder: "calciii", file: "tanplane.html", pageName: "Tangent Plane", lessonName: "Curl & Divergence, Parameterization & Surface Integrals" },
+    { courseFolder: "calciii", file: "surfacearea.html", pageName: "Surface Area", lessonName: "Curl & Divergence, Parameterization & Surface Integrals" },
+    { courseFolder: "calciii", file: "surfintegral.html", pageName: "Surface Integrals", lessonName: "Curl & Divergence, Parameterization & Surface Integrals" },
+    { courseFolder: "calciii", file: "stokes.html", pageName: "Stoke's Theorem", lessonName: "Stoke's & Divergence Theorem" },
+    { courseFolder: "calciii", file: "divtheorem.html", pageName: "Divergence Theorem", lessonName: "Stoke's & Divergence Theorem" }
 ];
 
 

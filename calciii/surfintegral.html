@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../course-styles.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../print-styles.css">
+
+    <!--MathJax links-->
+    <script src="../site-math.js"></script>
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <link rel="icon" type="image/png" href="../logo-s.png">
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button type="button" onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- EMPTY PLACEHOLDER HEADER: Script will automatically inject the logo and subtitle -->
+    <header class="page-header" id="global-site-header" role="banner"></header>
+
+    <!-- Insert this uniform element block across all root, overview, and lesson files -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <!-- Links are automatically populated here via the site-nav.js script -->
+    </div>
+
+    <!-- Main content area shell container is a semantic <main> tag -->
+    <main class="lesson-body" id="main-content">
+        <!-- On This Page Menu -->
+        <nav class="lesson-page-toc" aria-label="On this Page Section Navigation Links">
+            <button class="dropbtn">On this Page</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li><a id="toc-top" href="#top"><!--Filled by page name from script--></a></li>
+                    <!-- <li><a href="#operations">...</a></li> -->
+                    <li><a href="#scalar-functions">Scalar Functions</a></li>
+                    <li><a href="#vector-fields">Vector Fields</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- The main core lesson header is a native semantic <h1> tag -->
+        <h1 id="top"><!--Filled by page name from script--></h1>
+
+        <div class="objective-region" role="region" aria-label="Lesson Objectives">
+            <!-- Content goes here. -->
+            <p>On this page, you will learn to:</p>
+            <ul>
+                <li>Determine the surface integral of scalar functions and vector fields over a given surface.</li>
+            </ul>
+        </div>
+
+        <p>Up to this point, we have always discussed integrals of a function \(f\) over a region \(R\) in the \(xy\)-plane (or another coordinate plane). Now we want to look at how to setup integrals over a region of a surface \(S\). If you recall the strategy of dividing a region into rectangles and then summing up the volume of the boxes above these rectangles, we can now think of dividing a surface region into smaller rectangles, or patches since they probably won't be actual rectangles, on the surface.</p>
+
+        <p>To illustrate this idea, consider the illustration below. We have a surface that has been divided into a mesh, or collection of smaller patches or regions. If the surface can be parameterized as \(\vec{r}(u,v)\), then each patch has length \(\Delta u\) and width \(\Delta v\), as indicated by the red section in the graph below. The area of each patch can be approximated by the area of the plane region tangent to each patch. As we increase the number of patches for an infinite Riemann sum, we get \(\Delta S \approx |\vec{n}| \Delta u \Delta v\).</p>
+
+        <img src="content/SurfPatch.png" alt="Image of a 3D surface divided into small rectangles length delta u and width delta v.">
+
+        <h2 id="scalar-functions">Scalar Functions</h2>
+
+        <p>If we apply the idea of volume being \(f(x,y) dA\) to the surface idea, we get \(f(x,y,z) dS\), although this no longer represents a volume under a surface.</p>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Surface Integrals for Scalar Functions">
+            <!-- Content goes here. -->
+            <p>For a scalar function \(f(x,y,z)\) having a surface \(S\) within its domain, we define the <strong>surface integral of \(f\) over \(S\)</strong> using the formula below.</p>
+
+            \[\underset{S}{\mathop \iint} \, f(x,y,z) \, dS\]
+
+            <p>If the surface \(S\) can be <em>parameterized</em> as \(\vec{r}(u,v)\) with continuous partial derivatives over a region \(R\) (where \(u\) and \(v\) are in \(R\)), then we can rewrite the surface integral of \(f\) over \(S\) using the equation \(dS = \left|\vec{r}_u \times \vec{r}_v\right| \, dA\), which gives us the following integral.</p>
+
+            \[\underset{S}{\mathop \iint} \, f(x,y,z) \, dS = \underset{R}{\mathop \iint} \, f(\vec{r}(u,v)) \left| \vec{r}_u \times \vec{r}_v \right| \, dA\]
+
+            <p>If the surface \(S\) can be expressed <em>explicitly</em> as a function \(z = g(x,y)\) with continuous partial derivatives over a region \(R\) in the \(xy\)-plane, then we can rewrite the surface integral of \(f\) over \(S\) using the equation \(dS = \sqrt{\left( g_x \right)^2 + \left( g_y \right)^2 + 1} \, dA\), which gives us the following integral.</p>
+
+            \[\underset{S}{\mathop \iint} \, f(x,y,z) \, dS = \underset{R}{\mathop \iint} \, f(x,y,g(x,y)) \sqrt{\left( g_x \right)^2 + \left( g_y \right)^2 + 1} \, dA\]
+        </div>
+
+        <p>Practically speaking, we will set up surface integrals depending on whether the surface function is parameterized or expressed explicitly. The following videos work through several examples of surface integrals.</p>
+
+        <div class="widget-header">Surface Integrals with Explicit Surface Part 1</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/ppospL53wPc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/ppospL53wPc" target="_blank" rel="noopener noreferrer">https://youtu.be/ppospL53wPc</a>]</div>
+
+        <div class="widget-header">Surface Integrals with Explicit Surface Part 2</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/XntA5hj_HBg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/XntA5hj_HBg" target="_blank" rel="noopener noreferrer">https://youtu.be/XntA5hj_HBg</a>]</div>
+
+        <div class="widget-header">Surface Integrals with Parameterized Surface - Part 1</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/Go42xzsTA3Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/Go42xzsTA3Q" target="_blank" rel="noopener noreferrer">https://youtu.be/Go42xzsTA3Q</a>]</div>
+
+        <div class="widget-header">Surface Integrals with Parameterized Surface - Part 2</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/59N-6SLZMno" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/59N-6SLZMno" target="_blank" rel="noopener noreferrer">https://youtu.be/59N-6SLZMno</a>]</div>
+
+
+        <h2 id="vector-fields">Vector Fields</h2>
+
+        <p>Suppose we want to compute a surface integral of a vector field. Well, we need to think about the orientation of the surface relative to the vector field, just like we did with oriented curves and line integrals. We say a surface \(S\) is <strong>oriented</strong> if each point in \(S\) has a unit normal vector (either \(\vec{n}\) or \(-\vec{n}\)).</p>
+
+        <ul>
+            <li>We usually think of a surface \(S\) having a <strong>positive orientation</strong> if the norml vectors point upward.</li>
+            <li>If we have a solid bounded by a closed surface \(S\), we will usually describe \(S\) as having a <strong>positive orientiation</strong> if the normal vectors point outward through \(S\).</li>
+        </ul>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Surface Integral for Vector Fields">
+            <!-- Content goes here. -->
+            <p>Given a continuous vector field \(\vec{F}\) defined on an oriented surface \(S\) with unit normal vector \(\vec{n}\), the surface integral of \(\vec{F}\) over \(S\) is defined by the formula below, which is also called the <strong>flux</strong> of \(\vec{F}\) across \(S\).</p>
+
+            \[\underset{S}{\mathop \iint}\, \vec{F} \cdot d\vec{S} = \underset{S}{\mathop \iint}\, \vec{F} \cdot \vec{n}~dS\]
+
+            
+            <p>If the surface \(S\) can be <em>parameterized</em> as \(\vec{r}(u,v)\) with continuous partial derivatives over a region \(R\) (where \(u\) and \(v\) are in \(R\)), then we can rewrite the surface integral of \(\vec{F}\) across \(S\) using the relationships \(\vec{n} = \frac{\vec{r}_u \times \vec{r}_v}{\left|\vec{r}_u \times \vec{r}_v\right|} \) and \(dS = \left|\vec{r}_u \times \vec{r}_v\right| \, dA\), which gives us the following integral.</p>
+
+            \[\underset{S}{\mathop \iint} \, \vec{F} \cdot \vec{n} \, dS = \underset{R}{\mathop \iint} \, \vec{F} \cdot \left(\vec{r}_u \times \vec{r}_v \right) \, dA\]
+
+            <p>If the surface \(S\) can be expressed <em>explicitly</em> as a function \(z = g(x,y)\) over a region \(R\) in the \(xy\)-plane, then we can rewrite the surface integral of \(\vec{F}\) across \(S\) using the gradient of \(g\), which gives us the following integral.</p>
+
+            \[\underset{S}{\mathop \iint} \, \vec{F} \cdot \vec{n} \, dS = \underset{R}{\mathop \iint} \, \vec{F} \cdot \langle -g_x, -g_y, 1 \rangle \, dA\]
+
+            <p>If \(\vec{n}\) has a <strong>negative orientation</strong>, then we can put a negative out front of the integral. For the explicitly defined surface, this could also mean that the integrand becomes \(\vec{F} \cdot \langle g_x, g_y, -1 \rangle \).</p>
+        </div>
+
+        <p>Just like with the scalar functions, practically speaking, we will set up surface integrals depending on whether the surface function is parameterized or expressed explicitly. The following videos work through a few examples of surface integrals of vector fields.</p>
+
+        <div class="widget-header">Surface Integral of a Vector Field - Part 1</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/y-gsqWf3Gms" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/y-gsqWf3Gms" target="_blank" rel="noopener noreferrer">https://youtu.be/y-gsqWf3Gms</a>]</div>
+        
+        <div class="widget-header">Surface Integral of a Vector Field - Part 2</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/9H4Q-FEKwGw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/9H4Q-FEKwGw" target="_blank" rel="noopener noreferrer">https://youtu.be/9H4Q-FEKwGw</a>]</div>
+
+    </main>
+    <!-- End of the main content -->
+
+    <!-- EMPTY PLACEHOLDER FOOTER: Script will automatically inject the copyright blocks -->
+    <footer class="lesson-footer" id="global-site-footer" role="contentinfo"></footer>
+
+    <!--Custom scripts-->
+    <script src="../site-nav.js" defer></script>
+    <script src="../site-ui.js" defer></script>
+    <script src="../site-quizlets.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../course-styles.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../print-styles.css">
+
+    <!--MathJax links-->
+    <script src="../site-math.js"></script>
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <link rel="icon" type="image/png" href="../logo-s.png">
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button type="button" onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- EMPTY PLACEHOLDER HEADER: Script will automatically inject the logo and subtitle -->
+    <header class="page-header" id="global-site-header" role="banner"></header>
+
+    <!-- Insert this uniform element block across all root, overview, and lesson files -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <!-- Links are automatically populated here via the site-nav.js script -->
+    </div>
+
+    <!-- Main content area shell container is a semantic <main> tag -->
+    <main class="lesson-body" id="main-content">
+        <!-- On This Page Menu -->
+        <nav class="lesson-page-toc" aria-label="On this Page Section Navigation Links">
+            <button class="dropbtn">On this Page</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li><a id="toc-top" href="#top"><!--Filled by page name from script--></a></li>
+                    <!-- <li><a href="#operations">...</a></li> -->
+                </ul>
+            </div>
+        </nav>
+
+        <!-- The main core lesson header is a native semantic <h1> tag -->
+        <h1 id="top"><!--Filled by page name from script--></h1>
+
+        <div class="objective-region" role="region" aria-label="Lesson Objectives">
+            <!-- Content goes here. -->
+            <p>On this page, you will learn to:</p>
+            <ul>
+                <li>Determine the tangent plane for parameterized surfaces.</li>
+            </ul>
+        </div>
+
+        <p>One nice usage of these surface parameterizations is the ability to determine the equation of the tangent plane to a surface at a point. Recall that the equation of a plane is given by \(a(x - x_0) + b(y - y_0) + c(z - z_0) = 0\) where \(\langle a,b,c \rangle\) is the normal vector at the point \((x_0, y_0, z_0)\). Well for a parameterized surface \(S\) given by \(\vec{r}(u,v) = \langle x(u,v), y(u,v), z(u,v) \rangle\), the normal vector will be perpendicular to the partial derivatives \(\vec{r}_u\) and \(\vec{r}_v\).</p>
+
+        \[\vec{n} = \langle a,b,c \rangle = \vec{r}_u \times \vec{r}_v\]
+
+        <!-- Update the aria-label with a descriptive title -->
+        <div class="example-region" role="region" aria-label="Example Exercise: Tangent Plane">
+            <!-- example body goes here -->
+            <p><strong>Example:</strong> Find the tangent plane to the paraboloid surface \(S\) given by \(z = x^2 + y^2 + 1\) at the point \((1, -1, 3)\).</p>
+
+            <!-- Interactive button to show/hide the answer usinga aria-expanded attribute -->
+            <!-- Update toggle-sol-1 and sol-content-1 if multiple examples per page -->
+            <button type="button" id="toggle-sol-1" aria-expanded="false" aria-controls="sol-content-1" onclick="toggleSolution('toggle-sol-1', 'sol-content-1')">Show Answer</button>
+            <!-- Uses aria-hidden and mapped relationship ID links cleanly -->
+            <div id="sol-content-1" class="solution" aria-hidden="true">
+                <!-- Example solution goes here -->
+                <p>If we let \(u=x\) and \(v=y\), then we could easily parameterize \(S\) as \(\vec{r}(u,v) = \langle u,v,u^2 + v^2 + 1 \rangle\), and the partial derivatives would then be \(\vec{r}_u = \langle 1,0,2u \rangle\) and \(\vec{r}_v = \langle 0,1,2v \rangle\). At the given point, where \(u = x = 1\) and \(v = y = -1\), we get the vectors \(\vec{r}_u = \langle 1,0,2 \rangle\) and \(\vec{r}_v = \langle 0,1,-2 \rangle\). The normal vector would then be \(\vec{r}_u \times \vec{r}_v = \langle -2,2,1 \rangle\).</p>
+
+                <img src="content/TanPlane.png" alt="Graph of f(x,y) = x^2 + y^2 + 1 using GeoGebra.">
+
+                <p>Thus the equation of the plane would be \(-2(x - 1) + 2(y + 1) +1(z - 3) = 0\), or \(2x - 2y - z = 1\).</p>
+            </div>
+        </div>
+
+    </main>
+    <!-- End of the main content -->
+
+    <!-- EMPTY PLACEHOLDER FOOTER: Script will automatically inject the copyright blocks -->
+    <footer class="lesson-footer" id="global-site-footer" role="contentinfo"></footer>
+
+    <!--Custom scripts-->
+    <script src="../site-nav.js" defer></script>
+    <script src="../site-ui.js" defer></script>
+    <script src="../site-quizlets.js" defer></script>
+</body>
+
+</html>

@@ -3,7 +3,12 @@ window.MathJax = {
         // inlineMath: [['$', '$'], ['\\(', '\\)']],
         // displayMath: [['$$', '$$'], ['\\[', '\\]']]
         inlineMath: [['\\(', '\\)']],
-        displayMath: [['\\[', '\\]']]
+        displayMath: [['\\[', '\\]']],
+        macros: {
+            ihat: '{\\hat{\\imath \\mskip 1mu}}',
+            jhat: '{\\hat{\\jmath \\mskip 1.5mu}}',
+            khat: '{\\hat{k}}'
+        }
     },
     output: {
         // font: 'mathjax-newcm',

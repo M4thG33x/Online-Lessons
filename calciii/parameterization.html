@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../course-styles.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../print-styles.css">
+
+    <!--MathJax links-->
+    <script src="../site-math.js"></script>
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <link rel="icon" type="image/png" href="../logo-s.png">
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button type="button" onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- EMPTY PLACEHOLDER HEADER: Script will automatically inject the logo and subtitle -->
+    <header class="page-header" id="global-site-header" role="banner"></header>
+
+    <!-- Insert this uniform element block across all root, overview, and lesson files -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <!-- Links are automatically populated here via the site-nav.js script -->
+    </div>
+
+    <!-- Main content area shell container is a semantic <main> tag -->
+    <main class="lesson-body" id="main-content">
+        <!-- On This Page Menu -->
+        <nav class="lesson-page-toc" aria-label="On this Page Section Navigation Links">
+            <button class="dropbtn">On this Page</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li><a id="toc-top" href="#top"><!--Filled by page name from script--></a></li>
+                    <!-- <li><a href="#operations">...</a></li> -->
+                    <li><a href="#rectangular">Rectangular</a></li>
+                    <li><a href="#cylindrical">Cylindrical</a></li>
+                    <li><a href="#spherical">Spherical</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- The main core lesson header is a native semantic <h1> tag -->
+        <h1 id="top"><!--Filled by page name from script--></h1>
+
+        <div class="objective-region" role="region" aria-label="Lesson Objectives">
+            <!-- Content goes here. -->
+            <p>On this page, you will learn to:</p>
+            <ul>
+                <li>Express surfaces using parametric equations.</li>
+            </ul>
+        </div>
+
+
+        <p>When working with line integrals, we have seen how it is often necessary to parameterize a curve using some vector function \(\vec{r}(t) = \langle x(t),y(t),z(t) \rangle \). Can we do the same kind of thing with surfaces? To express a surface \(S\) in \(\mathbb{R}^3\), we will need to use two parameters, which we will often call \(u\) and \(v\). This can be done in several ways, depending on the type of surface. While certianly not an exhaustive summary, let's look at a few cases.</p>
+
+        <h2 id="rectangular">Rectangular Parameterizations</h2>
+
+        <p>For surfaces that can be expressed explicitly as \(z = g(x, y)\), we can use the parameterization \(x = u\), \(y = v\), and \(z = g(u, v)\). For example, consider the plane surface \(S\) given by \(3x - 5y + z = 7\). We can easily solve this for \(z\) to get \(z = 7 - 3x + 5y\). Then we could describe \(S\) using the parameterization \(\vec{r}(u, v) = \langle u,v,7 - 3u + 5v \rangle\).</p>
+
+        <p>We can graph these parameterized surfaces using <a href="https://www.geogebra.org/calculator" target="_blank" rel="noopener noreferrer">GeoGebra (opens in new window)</a> [https://www.geogebra.org/calculator] using the 3D Calculator mode. We would then need to use the following command to graph the parameterized surface.</p>
+
+        <p style="text-align: center;"><strong>Surface(&lt;expression&gt;, &lt;expression&gt;, &lt;expression&gt;, &lt;variable 1&gt;, &lt;start&gt;, &lt;end&gt;, &lt;variable 2&gt;, &lt;start&gt;, &lt;end&gt;)</strong></p>
+
+        <p>For the above example, we would enter the expression <strong>surface(u, v, 7 - 3u + 5v, u, -5, 5, v, -5, 5)</strong> into the GeoGebra command line which will give the following graph. You can choose different start/end values for each variable rather than \(\pm 5\). This graph should match the plane equation \(3x - 5y + z = 7\).</p>
+
+        <img src="content/RectParam.png" alt="Graph of surface(u, v, 7 - 3u + 5v, u, -5, 5, v, -5, 5) using GeoGebra.">
+
+        <p>If you would prefer using <a href="https://www.desmos.com/3d" target="_blank" rel="noopener noreferrer">Desmos 3D (opens in new window)</a> [https://www.desmos.com/3d], then you could enter the expression <strong>(u, v, 7 - 3u + 5v)</strong> and then adjust the inequalities for <strong>u</strong> and <strong>v</strong> that appear below the command line.</p>
+
+        <p>Note that in general, we can parameterize a surface this way as long as you can isolate one variable (it doesn't have to be \(z\)). So, if you can rewrite a surface equation as \(x = g(y,z)\), then we can let \(u = y\) and \(v = z\) and follow a similar process.</p>
+
+        <h2 id="cylindrical">Cylindrical Parameterizations</h2>
+
+        <p>Surfaces that can be expressed using polar expressions, such as cylinders and cones, can be parameterized using cylindrical coordinates where \(u = \theta\) and \(v = z\). For example, consider the cylindrical surface \(S\) given by \(x^2 + y^2 = 25\). In the \(xy\)-plane, this is just a circle centered at the origin with radius 5, which we could parameterize as \(\vec{r}(t) = \langle 5\cos(t), 5\sin(t) \rangle \). However, this surface in 3D space is a cylinder parallel to the \(z\)-axis with circular radius 5. So we could parameterize \(S\) as \(\vec{r}(u,v) = \langle 5\cos(u),5\sin(u), v \rangle\) where \(0 \le u \lt 2\pi\) and \(-\infty \lt v \lt \infty\). Notice that this is the same parameterization as the circle with an additional \(z\) component. Think of this as all the circles of radius 5 with a height \(v\) above/below the \(xy\)-plane. We could graph this using GeoGebra by entering <strong>surface(5 cos(u), 5 sin(u), v, u, 0, 2&pi;, v, -5, 5)</strong> or using Desmos by entering <strong>(5 cos(u), 5 sin(u), v)</strong> and then modifing the <strong>u</strong> and <strong>v</strong> inequalities.</p>
+
+        <img src="content/CylParam.png" alt="Graph of surface(5 cos(u), 5 sin(u), v, u, 0, 2 pi, v, -5, 5) using GeoGebra.">
+
+        <p>Notice that we are still graphing these cylindrically parameterized surfaces using a \((x(u,v), y(u,v), z(u,v))\) format. We are just converting the \(x\) and \(y\) components to polar using the \(x = r\cos(\theta)\) and \(y = r\sin(\theta)\) conversion equations. Also, be aware that if the surface is oriented about a different axis, we can always represent the variable of that axis as \(v\) and use the \(\cos(u)\) and \(\sin(u)\) expressions to describe the other two variables. So for example, the cylinder \(y^2 + z^2 = 16\) could be expressed as \(\vec{r}(u,v) = \langle v, 4\cos(u), 4\sin(u) \rangle\).</p>
+
+        <h2 id="spherical">Spherical Parameterizations</h2>
+
+        <p>Surfaces that can be expressed spherically can be parameterized using \(u = \phi\) and \(v = \theta\). For example, consider the surface \(S\) defined by \(x^2 + y^2 + z^2 = 49\) above the \(xy\)-plane. In other words, \(S\) is the upper hemisphere with radius 7 and \(z \ge 0\). We can express the \(x\), \(y\), and \(z\) compononets of the surface using the conversion equations \(x = \rho \sin(\phi)\cos(\theta)\), \(y = \rho \sin(\phi)\sin(\theta)\), and \(z = \rho \cos(\phi)\). In spherical coordinates, this would be all the points \((\rho, \phi, \theta)\) where \(\rho = 7\), \(0 \le \phi \le \pi/2\), and \(0 \le \theta \lt 2\pi\). Thus, we could parameterize \(S\) as \(\vec{r}(u,v) = \langle 7\sin(u)\cos(v), 7\sin(u)\sin(v), 7\cos(u) \rangle\) where \(0 \le u \le \pi/2\) and \(0 \le v \lt 2\pi\). Using the GeoGebra command <strong>surface(7 sin(u) cos(v), 7 sin(u) sin(v), 7 cos(u), u, 0, &pi;/2, v, 0, 2&pi;)</strong>, we get the following graph.</p>
+
+        <img src="content/SphParam.png" alt="Graph of surface(7 sin(u) cos(v), 7 sin(u) sin(v), 7 cos(u), u, 0, pi/2, v, 0, 2 pi) using GeoGebra.">
+
+        <p>In Desmos, entering <strong>(7 sin(u) cos(v), 7 sin(u) sin(v), 7 cos(u))</strong> with <strong>0 &le; u &le; &pi;/2</strong> and <strong>0 &le; v &le; 2&pi;</strong> would generate the same graph.</p>
+
+        <p>The following vidoe gives a few examples of how we can parameterize given surfaces.</p>
+
+        <div class="widget-header">Parameterized Surfaces</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="978" height="569" src="https://www.youtube.com/embed/0kKBPbmzwm8" title="Parameterized Surfaces" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/0kKBPbmzwm8" target="_blank" rel="noopener noreferrer">https://youtu.be/0kKBPbmzwm8</a>]</div>
+
+    </main>
+    <!-- End of the main content -->
+
+    <!-- EMPTY PLACEHOLDER FOOTER: Script will automatically inject the copyright blocks -->
+    <footer class="lesson-footer" id="global-site-footer" role="contentinfo"></footer>
+
+    <!--Custom scripts-->
+    <script src="../site-nav.js" defer></script>
+    <script src="../site-ui.js" defer></script>
+    <script src="../site-quizlets.js" defer></script>
+</body>
+
+</html>

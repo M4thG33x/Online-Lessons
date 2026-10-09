@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../course-styles.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../print-styles.css">
+
+    <!--MathJax links-->
+    <script src="../site-math.js"></script>
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <link rel="icon" type="image/png" href="../logo-s.png">
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button type="button" onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- EMPTY PLACEHOLDER HEADER: Script will automatically inject the logo and subtitle -->
+    <header class="page-header" id="global-site-header" role="banner"></header>
+
+    <!-- Insert this uniform element block across all root, overview, and lesson files -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <!-- Links are automatically populated here via the site-nav.js script -->
+    </div>
+
+    <!-- Main content area shell container is a semantic <main> tag -->
+    <main class="lesson-body" id="main-content">
+        <!-- On This Page Menu -->
+        <nav class="lesson-page-toc" aria-label="On this Page Section Navigation Links">
+            <button class="dropbtn">On this Page</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li><a id="toc-top" href="#top"><!--Filled by page name from script--></a></li>
+                    <!-- <li><a href="#operations">...</a></li> -->
+                    <li><a href="#curl">Curl</a></li>
+                    <li><a href="#divergence">Divergence</a></li>
+                    <li><a href="#flux">Circulation &amp; Flux</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- The main core lesson header is a native semantic <h1> tag -->
+        <h1 id="top"><!--Filled by page name from script--></h1>
+
+        <div class="objective-region" role="region" aria-label="Lesson Objectives">
+            <!-- Content goes here. -->
+            <p>On this page, you will learn to:</p>
+            <ul>
+                <li>Compute the curl and divergence of a vector field.</li>
+                <li>Determine if a vector field is conservative.</li>
+                <li>Compute the circulation and flux of a vector field using Green's Theorem.</li>
+            </ul>
+        </div>
+
+        <p>We have already seen the idea of the <strong>curl</strong> of a vector field when learning about Green's Theoremn, which really only applies to 2D vector fields (in the \(xy\)-plane). Now we want to extend this to curl in 3D space, and we also want to talk about something called the <strong>divergence</strong> of a vector field. Before we get to formulas and definitions, let's explore these ideas more conceptually. The following video gives wonderful visualizations and interpretations for the curl and divergence of vector fields.</p>
+
+        <div class="widget-header">Divergence and curl: The language of Maxwell's equations, fluid flow, and more</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/rB83DpBJQsE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://www.youtube.com/watch?v=rB83DpBJQsE" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=rB83DpBJQsE</a>]</div>
+
+        <h2 id="curl">Curl</h2>
+
+        <p>The curl of a vector field describes the rotation or spinning effect of the field. The curl can be 0, which means there is no rotation, i.e. it is <strong>irrotational</strong>, or it could have a positive (counterclockwise rotation) or negative (clockwise rotation) curl. Curl is a vector whose <em>magnitude</em> is the strength of the rotation and whose direction is <em>perpendicular</em> to the rotation. We can determine this direction using the <strong>right hand rule</strong> &mdash; curve the fingers of your right hand in the direction of the rotation and your thumb will point in the direction of the curl vector. This should remind you of the vector cross product right hand rule, especially since we compute the curl of a vector field using a cross product.</p>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Curl of a Vector Field">
+            <!-- Content goes here. -->
+            <p>The <strong>curl</strong> of a vector field \(\vec{F} = \langle P,Q,R \rangle \) in \(ℝ^3\) where \(P\), \(Q\), and \(R\) are differentiable functions in \(ℝ^3\) is defined by the following formula.</p>
+
+            \[
+            \begin{aligned}
+            \text{curl} \, \vec{F} &= \nabla \times \vec{F} \\[4pt]
+            &= \left| \begin{matrix} \ihat & \jhat & \khat \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ P & Q & R \end{matrix} \right| \\[4pt]
+            &= \langle \frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z}, \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x},\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \rangle
+            \end{aligned}
+            \]
+
+            <p>The notations \(\text{curl} \, \vec{F}\) and \(\nabla \times \vec{F}\) can be used interchangeably. The expression \(\text{curl} \, \vec{F}\) shows the <em>name</em> of curl while the expression \(\nabla \times \vec{F}\) shows the <em>operation</em> of curl. Recall from our discussion of gradients that \(\nabla\) is an operator where \(\nabla = \langle \frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z} \rangle\).</p>
+
+            <p>If \(\nabla \times \vec{F} = \vec{0}\), then \(\vec{F}\) is said to be <strong>irrotational</strong>.</p>
+        </div>
+
+        <p>The following video gives an example of determining the curl of a vector field at a given point.</p>
+
+        <div class="widget-header">The Curl of a Vector Field</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/Ia7Harz_TLk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/Ia7Harz_TLk" target="_blank" rel="noopener noreferrer">https://youtu.be/Ia7Harz_TLk</a>]</div>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Test for Conservative Fields">
+            <!-- Content goes here. -->
+            <p><strong>Test for Conservative Fields:</strong> Given a vector field \(\vec{F} = \langle P,Q,R \rangle \) in \(ℝ^3\) where \(P\), \(Q\), and \(R\) are differentiable functions in \(ℝ^3\), \(\vec{F}\) is conservative if \(\nabla \times \vec{F} = \vec{0}\).</p>
+        </div>
+
+        <p>The following video shows how we can determine if a vector field is conservative by computing its curl.</p>
+
+        <div class="widget-header">Conservative Vector Fields</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/cVTcsHcispQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/cVTcsHcispQ" target="_blank" rel="noopener noreferrer">https://youtu.be/cVTcsHcispQ</a>]</div>
+
+        <p>Note that in the video above, the examples conclude that the fields are conservative by showing that the partial derivative pairs match. However, these matching pairs would combine to give us a curl that is equal to \(\langle 0,0,0 \rangle\) which is what the test above states.</p>
+
+        <h2 id="divergence">Divergence</h2>
+
+        <p>While the curl of a vector field describes its rotation, the divergence of a vector field describes the rate of change inward or outward. Think of divergence describing water in a sink flowing inward towards the drain or flowing outward from the source. A positive divergence would represent an outward flow, like an expanding gas, while a negative divergence would represent in inward flow, like a compressing gas.</p>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Divergence of a Vector Field">
+            <!-- Content goes here. -->
+            <p>The <strong>divergence</strong> of a vector field \(\vec{F} = \langle P,Q,R \rangle \) in \(ℝ^3\) where \(P\), \(Q\), and \(R\) are differentiable functions in \(ℝ^3\) is defined by the following formula.</p>
+
+            \[\text{div} \, \vec{F} = \nabla \cdot \vec{F} = \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z} \]
+
+            <p>Just like with curl, the notations \(\text{div} \, \vec{F}\) and \(\nabla \cdot \vec{F}\) can be used interchangeably. The expression \(\text{div} \, \vec{F}\) shows the <em>name</em> of divergence while the expression \(\nabla \cdot \vec{F}\) shows the <em>operation</em> of divergence.</p>
+
+            <p>If \(\nabla \cdot \vec{F} = \vec{0}\), meaning the vector field produces no net expansion or compression, then we say \(\vec{F}\) is <strong>source free</strong> or <strong>incompressible</strong>.</p>
+        </div>
+
+        <p>The following video gives an example of determining the divergence of a vector field at a given point.</p>
+
+        <div class="widget-header">Determine the Divergence of a Vector Field</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/jZ0EjztayEk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/jZ0EjztayEk" target="_blank" rel="noopener noreferrer">https://youtu.be/jZ0EjztayEk</a>]</div>
+
+        <p>Remember that <span style="color: #CC4E00; font-weight: bold;">c</span>url is a <span style="color: #CC4E00; font-weight: bold;">c</span>ross product that measures <span style="color: #CC4E00; font-weight: bold;">c</span>irculation, while <span style="color: #0066CC; font-weight: bold;">d</span>ivergence is a <span style="color: #0066CC; font-weight: bold;">d</span>ot product that measures flux.</p>
+
+        <h2 id="flux">Circulation &amp; Flux</h2>
+
+        <p>Now that we have discussed curl and divergence, let's see how they are related to line integrals. We originally defined line integrals for vector fields using the unit tangent vector, \(\int_C \vec{F} \cdot \vec{T} ds\), which we often rewrote as \(\int_C \vec{F} \cdot d\vec{r}\). This line integral is a summation of the tangential component of \(\vec{F}\) at every point along \(C\), or in other words, it represents a measure of how much of the field and curve were aligned (parallel) with each other. Green's Theorem then gave us a way of interpreting this as a circulation effect along closed curves versus a rotational effect inside the region bounded by the curve. But notice that the integrand of Green's Theorem, \(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\), is equal to the \(z\)-component of \(\text{curl} \, \vec{F}\). Thus, we have a connection between the circulation and curl of a vector field.</p>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Green's Theorems for Circulation">
+            <!-- Content goes here. -->
+            <p><strong>Green's Theorem for the circulation of \(\vec{F}\)</strong>: Given a vector field \(\vec{F} = \langle P,Q \rangle\) with differentiable component functions in the \(xy\)-plane, a curve \(C\) with unit tangent vectors \(\vec{T}\) along \(C\), and the region \(R\) bounded by \(C\), we get that the line integral of the <em>tangential component</em> of \(\vec{F}\) along \(C\) is equal to the double integral of the vertical component of the curl of \(\vec{F}\) over \(R\).</p>
+
+            \[\underset{C}{\mathop \oint} \, \vec{F} \cdot \vec{T} \, ds = \underset{C}{\mathop \oint} \, \vec{F} \cdot d\vec{r} \, ds = \underset{R}{\mathop \iint} \, (\nabla \times \vec{F}) \cdot \hat{k} \, dA = \underset{R}{\mathop \iint} \, \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) \, dA\]
+        </div>
+
+        <p>What would happen if we replaced the unit tangent vector in the line integral with the unit normal vector? In other words, what does the integral \(\int_C \, \vec{F} \cdot \vec{n} \, ds\) represent? This line integral is a summation of the normal component of \(\vec{F}\) at every point along \(C\), or in other words, it represents a measure of how much of the field and curve were perpendicular to each other. We could interpret this as flux, an inward or outward flow, produced by the vector field. But this idea of an inward/outward flow is exactly how we think of divergence. Thus, we have a connection between the flux and divergence of a vector field.</p>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Green's Theorems for Flux">
+            <!-- Content goes here. -->
+            <p><strong>Green's Theorem for the flux of \(\vec{F}\)</strong>: Given a vector field \(\vec{F} = \langle P,Q \rangle\) with differentiable component functions in the \(xy\)-plane, a curve \(C\) with unit normal vectors \(\vec{n}\) along \(C\), and the region \(R\) bounded by \(C\), we get that the line integral of  the <em>normal component</em> of \(\vec{F}\) along \(C\) is equal to the double integral of the divergence of \(\vec{F}\) over \(R\).</p>
+
+            \[\underset{C}{\mathop \oint} \, \vec{F} \cdot \vec{n} \, ds = \underset{R}{\mathop \iint} \, \nabla \cdot \vec{F} \, dA = \underset{R}{\mathop \iint} \, \left( \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} \right) \, dA\]
+        </div>
+
+        <div class="widget-header">Flux Form of Green's Theorem</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/0jKqk4pvEk8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/0jKqk4pvEk8" target="_blank" rel="noopener noreferrer">https://youtu.be/0jKqk4pvEk8</a>]</div>
+
+    </main>
+    <!-- End of the main content -->
+
+    <!-- EMPTY PLACEHOLDER FOOTER: Script will automatically inject the copyright blocks -->
+    <footer class="lesson-footer" id="global-site-footer" role="contentinfo"></footer>
+
+    <!--Custom scripts-->
+    <script src="../site-nav.js" defer></script>
+    <script src="../site-ui.js" defer></script>
+    <script src="../site-quizlets.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="J Bowers">
+
+    <!--Viewport scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Awesome Fonts link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Custom CSS files-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../course-styles.css">
+    <link rel="stylesheet" type="text/css" media="print" href="../print-styles.css">
+
+    <!--MathJax links-->
+    <script src="../site-math.js"></script>
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <link rel="icon" type="image/png" href="../logo-s.png">
+</head>
+
+<body id="mainbody">
+    <!-- Print Button: only visible on the printer friendly page -->
+    <div id="printbutton">
+        <button type="button" onclick="loadprint()">Print Page</button>
+    </div>
+
+    <!-- EMPTY PLACEHOLDER HEADER: Script will automatically inject the logo and subtitle -->
+    <header class="page-header" id="global-site-header" role="banner"></header>
+
+    <!-- Insert this uniform element block across all root, overview, and lesson files -->
+    <div class="topnavmenu" id="mytopnavmenu">
+        <!-- Links are automatically populated here via the site-nav.js script -->
+    </div>
+
+    <!-- Main content area shell container is a semantic <main> tag -->
+    <main class="lesson-body" id="main-content">
+        <!-- On This Page Menu -->
+        <nav class="lesson-page-toc" aria-label="On this Page Section Navigation Links">
+            <button class="dropbtn">On this Page</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li><a id="toc-top" href="#top"><!--Filled by page name from script--></a></li>
+                    <!-- <li><a href="#operations">...</a></li> -->
+                </ul>
+            </div>
+        </nav>
+
+        <!-- The main core lesson header is a native semantic <h1> tag -->
+        <h1 id="top"><!--Filled by page name from script--></h1>
+
+        <div class="objective-region" role="region" aria-label="Lesson Objectives">
+            <!-- Content goes here. -->
+            <p>On this page, you will learn to:</p>
+            <ul>
+                <li>Evaluate line integrals and work using Stoke's Theorem.</li>
+            </ul>
+        </div>
+
+        <p>We have already learned how to evaluate line integrals of a vector field \(\vec{F}\) over a curve \(C\). We have also seen that according to Green's Theorem for circulation, given a vector field \(\vec{F}\) and closed piecewise smooth curve \(C\) located entirely within the \(xy\)-plane, we could relate the linear integral over \(C\) to the double integral over the region \(R\) that is bounded within \(C\). In other words, Green's Theorem tells us that the net circulation along \(C\) is equal to the net rotation in \(R\). We can now extend this idea of line integrals and bounded regions in the \(xy\)-plane to <em>line integrals and surface integrals in 3D space</em>.</p>
+
+        <!-- Include a descriptive title for the aria-lable. -->
+        <div class="definition-region" role="region" aria-label="Definition and Formulas: Stoke's Theorem">
+            <!-- Content goes here. -->
+            <p>Let \(S\) be an oriented piecewise-smooth surface in \(\mathbb{R}^3\) bounded by a simple, closed, piecewise-smooth curve \(C\) with positive orientation. Let \(\vec{F}\) be a vector field whose components have continuous partial first derivatives on \(S\). Then <strong>Stoke's Theorem</strong> says the line integral over \(C\) is equal to the curl across \(S\).</p>
+
+            \[\underset{C}{\mathop \oint} \, \vec{F} \cdot \, d\vec{r} = \underset{E}{\mathop \iint} \, \text{curl} \, \vec{F} \cdot \, d\vec{S}\]
+
+            <p>If \(\hat{n}\) is the <em>unit vector</em> normal to \(S\) in the direction of the positive orientation, then we can rewrite this as follows.</p>
+
+            \[\underset{C}{\mathop \oint} \, \vec{F} \cdot \, d\vec{r} = \underset{S}{\mathop \iint} \, (\nabla \times \vec{F}) \cdot \hat{n} \, dS\]
+
+            <p>Stokes' Theorem tells us that the net circulation along the boundary curve is equal to the net rotation over the surface. While Green's Theorem is strictly bounded to curves and regions in the \(xy\)-plane, Stoke's Theorem let's us apply the same idea to curves and surfaces in 3D space.</p>
+        </div>
+
+        <p>Notice that this integral formula is similar to the flux integral of a vector field \(\vec{F}\) across \(S\), or \(\iint_S \vec{F} \, d\vec{S}\). Since the curl of \(\vec{F}\) is itself another vector field, we can evaluate the Stoke's Theorem surface integral using the same methods used for the flux surface integral. In other words, if \(S\) is parameterized using \(\vec{r}(u,v)\), then we can use \(dS = |\vec{r}_u \times \vec{r}_v| \, dA\) for some region in the \(uv\)-plane. Similarly, if \(S\) is given explicitly as the function \(z = g(x,y)\), then we can use \(dS = \langle -g_x,-g_y,1 \rangle \, dA\) over some region in the \(xy\)-plane.</p>
+
+        <div class="widget-header">Stokes' Theorem - Part 1</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/YXf3aKxgELY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/YXf3aKxgELY" target="_blank" rel="noopener noreferrer">https://youtu.be/YXf3aKxgELY</a>]</div>
+
+        <div class="widget-header">Stokes' Theorem - Part 2</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/_ubpnd8F85g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/_ubpnd8F85g" target="_blank" rel="noopener noreferrer">https://youtu.be/_ubpnd8F85g</a>]</div>
+
+        <p>One nice implication of Stoke's Theorem is that the line integral along \(C\) must equal the surface integral across <strong>any</strong> surface whose boundary is \(C\). In other words, if \(S_1\) and \(S_2\) are two surfaces that both have \(C\) as its boundary curve, then we get the following equation.</p>
+
+        \[\underset{S_1}{\mathop \iint} \, (\nabla \times \vec{F}) \cdot \hat{n}_1 \, dS = \underset{S_2}{\mathop \iint} \, (\nabla \times \vec{F}) \cdot \hat{n}_2 \, dS\]
+
+
+        <p>To help illustrate what this means, consider the example used in the above video.</p>
+
+        <!-- Update the aria-label with a descriptive title -->
+        <div class="example-region" role="region" aria-label="Example Exercise: Stoke's Theorem">
+            <!-- example body goes here -->
+            <p><strong>Example:</strong> Set up the surface integral of Stoke's Theorem for vector field \(\vec{F} = \langle z,-2x,xy \rangle \) across the surface \(S\) given by \(z = 4 - x^2 - y^2\) above \(z = 0\).</p>
+
+            <p>The boundary curve \(C\) of the surface \(S\) is the circle \(x^2 + y^2 = 4\) within the \(xy\)-plane, since that is the intersection of \(z = 4 - x^2 - y^2\) and \(z = 0\). To set up the Stoke's Theorem surface integral, we need to compute both the curl and the normal vector.</p>
+
+            \[
+            \begin{aligned}
+            \text{curl} \, \vec{F} &= \nabla \times \vec{F} \\[4pt]
+            &= \left| \begin{matrix} \ihat & \jhat & \khat \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ z & -2x & xy \end{matrix} \right| \\[4pt]
+            &= \langle x, 1-y, -2 \rangle
+            \end{aligned}
+            \]
+
+            <p>Since the surface is given explicitly, we can use \(\vec{n} = \langle -g_x,-g_y,1 \rangle \) to get \(\vec{n} = \langle 2x,2y,1 \rangle \). Combining this with the curl, we get the following integral.</p>
+
+            \[\underset{S}{\iint} \langle x,1-y,-2 \rangle \cdot \langle 2x,2y,1 \rangle \, dA = \underset{R}{\iint} 2x^2 + 2y - 2y^2 - 2 \, dA\]
+
+            <p>The projection of \(S\) onto the \(xy\)-plane is the circle \(C\), having a radius of 2, so it would probably be easiest to convert to polar coordinates.</p>
+
+            \[\int_{0}^{2\pi} \int_{0}^{2} \left( 2r^2 \cos^2(\theta) + 2r \sin(\theta) - 2r^2 \sin^2(\theta) - 2 \right) r \, dr \, d\theta\]
+
+            <p>While it is certainly possible to evaluate this integral, it might be worth considering whether this is a more convenient approach, especially if this integral were more difficulat to evaluate. Is there another surface that we could use that would result in an integrand that could more easily be integrated?</p>
+
+            <!-- Interactive button to show/hide the answer usinga aria-expanded attribute -->
+            <!-- Update toggle-sol-1 and sol-content-1 if multiple examples per page -->
+            <button type="button" id="toggle-sol-1" aria-expanded="false" aria-controls="sol-content-1" onclick="toggleSolution('toggle-sol-1', 'sol-content-1')">Show Answer</button>
+            <!-- Uses aria-hidden and mapped relationship ID links cleanly -->
+            <div id="sol-content-1" class="solution" aria-hidden="true">
+                <!-- Example solution goes here -->
+                <p>Since Stoke's Theorem must be true for any surface that has the circle \(x^2 + y^2 = 4\) as the boundary curve \(C\), what if we considered the disk inside the circle as a surface. Even thought the only surface specifically given in the problem is the circular paraboloid \(z = 4 - x^2 - y^2\), we can introduce another surface \(S_2\) that is the part of \(z = 0\) contained within \(x^2 + y^2 = 4\).</p>
+
+                <figure>
+                    <img src="content/stokes-surface-2.png" alt="Graph of Surface 1 given by z = 4 - x^2 - y^2 and Surface 2 given by z = 0 bounded by the curve C which is the circle x^2 + y^2 = 4 in the xy-plane.">
+                    <figcaption>Two surfaces with the same boundary curve.</figcaption>
+                </figure>
+
+                <p>This new surface, part of z = 0, has a normal vector of \(\vec{n} = \hat{k} = \langle 0,0,1 \rangle\) since it is perpendicular, or normal, to the surface \(S_2\). This results in the following integral setup.</p>
+
+                \[
+                \begin{aligned}
+                \underset{S}{\iint} \langle x,1-y,-2 \rangle \cdot \langle 0,0,1 \rangle \, dA &= \underset{R}{\iint} -2 \, dA \\[4pt]
+                &= \int_{0}^{2\pi} \int_{0}^{2} -2r \, dr \, d\theta \\[4pt]
+                &= -8\pi
+                \end{aligned}
+                \]
+
+                <p>Notice that we get the same result as the answer in the video, and this was possibly even easier.</p>
+            </div>
+        </div>
+
+
+
+        <div class="widget-header">Using Stoke's Theorem to Evaluate a Line Integral as a Surface Integral</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/npdZGay05DI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/npdZGay05DI" target="_blank" rel="noopener noreferrer">https://youtu.be/npdZGay05DI</a>]</div>
+
+        <div class="widget-header">Using Stoke's Theorem to Evaluate a Line Integral as a Surface Integral</div>
+        <!--The wrapper centers the iframe and determines the max-width (800px default). Use style="max-width: 600px;" property to override.-->
+        <div class="widget-wrap">
+            <!--The container resizes by aspect ratio: 16x9 (HD video), 8x5, 3x2, 4x3, or 1x1.-->
+            <div class="widget-frame-cont ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/vXsZmEAZ2SI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="widget-footer">Watch on YouTube: [<a href="https://youtu.be/vXsZmEAZ2SI" target="_blank" rel="noopener noreferrer">https://youtu.be/vXsZmEAZ2SI</a>]</div>
+
+
+    </main>
+    <!-- End of the main content -->
+
+    <!-- EMPTY PLACEHOLDER FOOTER: Script will automatically inject the copyright blocks -->
+    <footer class="lesson-footer" id="global-site-footer" role="contentinfo"></footer>
+
+    <!--Custom scripts-->
+    <script src="../site-nav.js" defer></script>
+    <script src="../site-ui.js" defer></script>
+    <script src="../site-quizlets.js" defer></script>
+</body>
+
+</html>
